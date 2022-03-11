@@ -72,44 +72,56 @@ monster.voices = {
 	chance = 10,
 }
 
+--  ordered descending
 monster.loot = {
-	{id = 28570, chance = 10000},
-	{name = "great spirit potion", chance = 10000, maxCount = 3},
-	{name = "fire mushroom", chance = 10000, maxCount = 6},
-	{name = "small amethyst", chance = 90000, maxCount = 5},
-	{name = "slime heart", chance = 3000},
-	{name = "piece of dead brain", chance = 4900},
-	{name = "platinum coin", chance = 100000, maxCount = 6},
-	{name = "ultimate health potion", chance = 10000, maxCount = 3},
-	{name = "small topaz", chance = 90000, maxCount = 5},
-	{name = "small emerald", chance = 90000, maxCount = 5},
-	{id= 3039, chance = 9800, maxCount = 5},
-	{name = "orb", chance = 66000, maxCount = 5},
-	{name = "purple tome", chance = 6333},
-	{name = "great mana potion", chance = 10000, maxCount = 3},
-	{name = "demonic essence", chance = 4300},
-	{id = 28568, chance = 10000},
-	{name = "small ruby", chance = 90000, maxCount = 5},
-	{name = "talon", chance = 8990},
-	{name = "might ring", chance = 4990},
-	{name = "devil helmet", chance = 6990},
-	{name = "demonrage sword", chance = 400},
-	{id = 7393, chance = 390},
-	{name = "giant sword", chance = 250},
-	{name = "demon shield", chance = 250},
-	{name = "magic plate armor", chance = 150},
-	{name = "platinum amulet", chance = 350},
-	{name = "wand of everblazing", chance = 300},
-	{name = "fire axe", chance = 500}
+    {name = "platinum coin", chance = 100000, maxCount = 29},
+    {name = "ultimate health potion", chance = 30310, maxCount = 5},
+	{name = "great spirit potion", chance = 18580, maxCount = 3},
+	{name = "great mana potion", chance = 18580, maxCount = 3},
+	{id = 28570, chance = 18580, maxCount = 3},  -- glowing rune
+	{name = "fire mushroom", chance = 14990, maxCount = 6},
+	{id = 28568, chance = 10010}, -- inkwell
+	{name = "small emerald", chance = 8300, maxCount = 5},
+	{name = "small ruby", chance = 7850, maxCount = 5},
+	{name = "small amethyst", chance = 7800, maxCount = 5},
+	{name = "small topaz", chance = 7470, maxCount = 5},
+	{name = "demonic essence", chance = 7190},
+	{name = "fire axe", chance = 5530},
+	{name = "orb", chance = 2710},
+	{name = "slime heart", chance = 2600},
+	{id= 3039, chance = 2540, maxCount = 1}, -- red gem
+	{name = "giant sword", chance = 2430},
+	{name = "talon", chance = 2380},
+	{name = "platinum amulet", chance = 2100},
+	{name = "might ring", chance = 1940},
+	{name = "demonrage sword", chance = 1710},
+	{name = "demon shield", chance = 1660},
+	{name = "purple tome", chance = 1380},
+	{name = "devil helmet", chance = 1000},
+	{name = "piece of dead brain", chance = 1000},
+	{name = "magic plate armor", chance = 330},
+	{id = 7393, chance = 280}, -- demon trophy
+	{name = "wand of everblazing", chance = 220},
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
-	{name ="combat", interval = 1000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -280, range = 7, shootEffect = CONST_ANI_FLAMMINGARROW, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -380, range = 7, shootEffect = CONST_ANI_FIRE, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -175, maxDamage = -200, length = 5, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -475, radius = 3, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -475, radius = 2, effect = CONST_ME_FIREAREA, target = false}
+-- Basic attack (0-650 physical)
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -650},
+
+-- Fire Strike (600-750 fire, on target)
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -600, maxDamage = -750, range = 7, shootEffect = CONST_ANI_FLAMMINGARROW, effect = CONST_ME_HITBYFIRE, target = true},
+
+-- Eruption Box (600-750 fire, on target)
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -750, range = 7, radius = 3, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
+
+-- Red Stars Beam (400-500 fire)
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -400, maxDamage = -500, length = 5, effect = CONST_ME_MAGIC_RED, target = false},
+
+-- Fire Box (500-700 fire, on self)
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -700, radius = 3, effect = CONST_ME_HITBYFIRE, target = false},
+
+-- Detonation Cross (850-1200 fire, on self)
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -850, maxDamage = -1200, radius = 2, effect = CONST_ME_FIREAREA, target = false}
 }
 
 monster.defenses = {
