@@ -57,7 +57,7 @@ local function greetCallback(npc, creature)
 	local playerId = player:getId()
 
 	if player then
-		npcHandler:setMessage(MESSAGE_GREET, {"Greetings, member of the Bigfoot Brigade. We could really use some {help} from you right now. You should prove {worthy} to our alliance."})
+		npcHandler:setMessage(MESSAGE_GREET, "Greetings, member of the Bigfoot Brigade. We could really use some {help} from you right now. You should prove {worthy} to our alliance.")
 		npcHandler:setTopic(playerId, 1)
 	end
 	return true
@@ -83,12 +83,10 @@ local function creatureSayCallback(npc, creature, type, message)
 		return false
 	end
 
-	npc = Npc(creature)
-
 	local tempo = 20*60*60
 
 	-- missão measurements
-	if MsgContains(message, "measurements") and npcHandler:getTopic(playerId) == 1 then
+	if MsgContains(message, "measurements") then
 		if player:getStorageValue(Storage.DangerousDepths.Gnomes.Measurements ) == 2 and player:getStorageValue(Storage.DangerousDepths.Gnomes.TimeTaskMeasurements) > 0 then -- Ainda não se passaram as 20h
 			npcHandler:say({"I don't need your help for now. Come back later."}, npc, creature)
 			npcHandler:setTopic(playerId, 1)
@@ -99,7 +97,7 @@ local function creatureSayCallback(npc, creature, type, message)
 							"We'd need at least 5 measurements. Are you willing to do this?"}, npc, creature)
 			npcHandler:setTopic(playerId, 2)
 		end
-		if player:getStorageValue(Storage.DangerousDepths.Gnomes.Measurements) < 1 then -- Não possuía a missão, agora possui!
+		if player:getStorageValue(Storage.DangerousDepths.Gnomes.Measurements) < 1 then -- Não possuía a missão, agora possui! / Didn't have the quest, now he does!
 			npcHandler:say({"The heat down here is not the only problem we have but one of our greatest concerns. Not only is it almost unbearable for us, it also seems to be rising. ...",
 							"We need to find out if this is true and what that means for this place - and for us gnomes. You can help us do this by grabbing one of our trignometres and collecting as much as data from the heat in this area as possible. ...",
 							"We'd need at least 5 measurements. Are you willing to do this?"}, npc, creature)
@@ -135,7 +133,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	end
 
 	-- missão ordnance
-	if MsgContains(message, "ordnance") and npcHandler:getTopic(playerId) == 1 then
+	if MsgContains(message, "ordnance") then
 		if player:getStorageValue(Storage.DangerousDepths.Gnomes.Ordnance) == 3 and player:getStorageValue(Storage.DangerousDepths.Gnomes.TimeTaskOrdnance) > 0 then -- Ainda não se passaram as 20h
 			npcHandler:say({"I don't need your help for now. Come back later."}, npc, creature)
 			npcHandler:setTopic(playerId, 1)
@@ -188,7 +186,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	end
 
 	-- missão charting
-	if MsgContains(message, "charting") and npcHandler:getTopic(playerId) == 1 then
+	if MsgContains(message, "charting") then
 		if player:getStorageValue(Storage.DangerousDepths.Gnomes.Charting) == 2 and player:getStorageValue(Storage.DangerousDepths.Gnomes.TimeTaskCharting) > 0 then -- Ainda não se passaram as 20h
 			npcHandler:say({"I don't need your help for now. Come back later."}, npc, creature)
 			npcHandler:setTopic(playerId, 1)
@@ -258,39 +256,39 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 1)
 		end
 	elseif MsgContains(message, "gnomes") and npcHandler:getTopic(playerId) == 56 then
-		if player:getItemCount(30888) >= quantidade[playerId] then
+		if player:getItemCount(27653) >= quantidade[playerId] then
 			npcHandler:say({"Done."}, npc, creature)
 			if quantidade[playerId] > 1 then
 				plural = plural .. "s"
 			end
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You earned ".. quantidade[playerId] .." point"..plural.." on the gnomes mission.")
-			player:removeItem(30888, quantidade[playerId])
+			player:removeItem(27653, quantidade[playerId])
 			player:setStorageValue(Storage.DangerousDepths.Gnomes.Status, player:getStorageValue(Storage.DangerousDepths.Gnomes.Status) + quantidade[playerId])
 		else
 			npcHandler:say({"You don't have enough suspicious devices."}, npc, creature)
 			npcHandler:setTopic(playerId, 1)
 		end
 	elseif MsgContains(message, "dwarves") and npcHandler:getTopic(playerId) == 56 then
-		if player:getItemCount(30888) >= quantidade[playerId] then
+		if player:getItemCount(27653) >= quantidade[playerId] then
 			npcHandler:say({"Done."}, npc, creature)
 			if quantidade[playerId] > 1 then
 				plural = plural .. "s"
 			end
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You earned ".. quantidade[playerId] .." point"..plural.." on the dwarves mission.")
-			player:removeItem(30888, quantidade[playerId])
+			player:removeItem(27653, quantidade[playerId])
 			player:setStorageValue(Storage.DangerousDepths.Dwarves.Status, player:getStorageValue(Storage.DangerousDepths.Dwarves.Status) + quantidade[playerId])
 		else
 			npcHandler:say({"You don't have enough suspicious devices."}, npc, creature)
 			npcHandler:setTopic(playerId, 1)
 		end
 	elseif MsgContains(message, "scouts") and npcHandler:getTopic(playerId) == 56 then
-		if player:getItemCount(30888) >= quantidade[playerId] then
+		if player:getItemCount(27653) >= quantidade[playerId] then
 			npcHandler:say({"Done."}, npc, creature)
 			if quantidade[playerId] > 1 then
 				plural = plural .. "s"
 			end
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You earned ".. quantidade[playerId] .." point"..plural.." on the scouts mission.")
-			player:removeItem(30888, quantidade[playerId])
+			player:removeItem(27653, quantidade[playerId])
 			player:setStorageValue(Storage.DangerousDepths.Scouts.Status, player:getStorageValue(Storage.DangerousDepths.Scouts.Status) + quantidade[playerId])
 		else
 			npcHandler:say({"You don't have enough suspicious devices."}, npc, creature)
@@ -323,3 +321,14 @@ npcHandler:addModule(FocusModule:new())
 
 -- npcType registering the npcConfig table
 npcType:register(npcConfig)
+
+local whatFoolishCrate = Action()
+function whatFoolishCrate.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	player:addItem(27307, 1)
+	return true
+end
+
+whatFoolishCrate:id(8745)
+whatFoolishCrate:register()
+
+

@@ -95,12 +95,10 @@ local function creatureSayCallback(npc, creature, type, message)
 		return false
 	end
 
-	npc = Npc(creature)
-
 	local tempo = 20*60*60
 
 	-- missão subterraneans
-	if MsgContains(message, "subterraneans") and npcHandler:getTopic(playerId) == 1 then
+	if MsgContains(message, "subterraneans") then
 		if player:getStorageValue(Storage.DangerousDepths.Dwarves.Subterranean) == 2 and player:getStorageValue(Storage.DangerousDepths.Dwarves.TimeTaskSubterranean) > 0 then
 			npcHandler:say({"I don't need your help for now. Come back later."}, npc, creature)
 			npcHandler:setTopic(playerId, 1)
@@ -138,7 +136,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	end
 
 	-- missão home
-	if MsgContains(message, "home") and npcHandler:getTopic(playerId) == 1 then
+	if MsgContains(message, "home") then
 		if player:getStorageValue(Storage.DangerousDepths.Dwarves.Home) == 2 and player:getStorageValue(Storage.DangerousDepths.Dwarves.TimeTaskHome) > 0 then
 			npcHandler:say({"I don't need your help for now. Come back later."}, npc, creature)
 			npcHandler:setTopic(playerId, 1)

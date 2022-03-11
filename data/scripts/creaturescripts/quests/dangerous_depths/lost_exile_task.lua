@@ -8,12 +8,13 @@ function lostExileKill.onKill(creature, target)
 		return true
 	end
 
-	local fromPos = Position(33768, 32227, 14)
-	local toPos = Position(33781, 32249, 14)
+	local fromPos = Position(33770, 32230, 14)
+	local toPos = Position(33850, 32348, 14)
 	local monsterName = target:getName():lower()
 
 	local storage = creature:getStorageValue(Storage.DangerousDepths.Dwarves.LostExiles)
 	local storage2 = creature:getStorageValue(Storage.DangerousDepths.Dwarves.Organisms)
+
 	if (isInArray({'lost exile'}, monsterName)) then
 		if creature:getStorageValue(Storage.DangerousDepths.Dwarves.Home) == 1 then
 			if target:getPosition():isInRange(fromPos, toPos) then

@@ -11,6 +11,7 @@ function dangerousDepthTrignometre.onUse(player, item, isHotkey)
 	if not player then
 		return true
 	end
+
 	if player:getStorageValue(Storage.DangerousDepths.Gnomes.Measurements) == 1 then
 		if player:getPosition():isInRange(config.locationA.fromPosition, config.locationA.toPosition) then
 			if player:getStorageValue(Storage.DangerousDepths.Gnomes.LocationA) < 1 then
@@ -56,5 +57,5 @@ function dangerousDepthTrignometre.onUse(player, item, isHotkey)
 	return true
 end
 
-dangerousDepthTrignometre:id(31930)
+dangerousDepthTrignometre:id(27307)
 dangerousDepthTrignometre:register()

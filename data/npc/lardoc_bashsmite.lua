@@ -57,7 +57,7 @@ local function greetCallback(npc, creature)
 	local playerId = player:getId()
 
 	if player then
-		npcHandler:setMessage(MESSAGE_GREET, {"Since you are obviously not one of my relatives who pays me a long overdue visit, we should get {work} right away. We'll see if you can prove your {worth} to our alliance."})
+		npcHandler:setMessage(MESSAGE_GREET, "Since you are obviously not one of my relatives who pays me a long overdue visit, we should get {work} right away. We'll see if you can prove your {worth} to our alliance.")
 		npcHandler:setTopic(playerId, 1)
 	end
 	return true
@@ -80,12 +80,9 @@ local function creatureSayCallback(npc, creature, type, message)
 		return false
 	end
 
-	npc = Npc(creature)
-
 	local tempo = 20*60*60
-
 	-- missão diremaws
-	if MsgContains(message, "diremaws") and npcHandler:getTopic(playerId) == 1 then
+	if MsgContains(message, "diremaws") then
 		if player:getStorageValue(Storage.DangerousDepths.Scouts.Diremaw ) == 2 and player:getStorageValue(Storage.DangerousDepths.Scouts.TimeTaskDiremaws) > 0 then -- Ainda não se passaram as 20h
 			npcHandler:say({"I don't need your help for now. Come back later."}, npc, creature)
 			npcHandler:setTopic(playerId, 1)
@@ -125,11 +122,10 @@ local function creatureSayCallback(npc, creature, type, message)
 		player:setStorageValue(Storage.DangerousDepths.Scouts.GnomishChest, 1) -- Permissão para usar o baú
 		player:setStorageValue(Storage.DangerousDepths.Scouts.DiremawsCount, 0) -- Garantindo que a task não inicie com -1
 		npcHandler:setTopic(playerId, 1)
-		npcHandler:setTopic(playerId, 1)
 	end
 
 	-- missão growth
-	if MsgContains(message, "growth") and npcHandler:getTopic(playerId) == 1 then
+	if MsgContains(message, "growth") then
 		if player:getStorageValue(Storage.DangerousDepths.Scouts.Growth ) == 2 and player:getStorageValue(Storage.DangerousDepths.Scouts.TimeTaskGrowth) > 0 then -- Ainda não se passaram as 20h
 			npcHandler:say({"I don't need your help for now. Come back later."}, npc, creature)
 			npcHandler:setTopic(playerId, 1)
@@ -200,39 +196,39 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 1)
 		end
 	elseif MsgContains(message, "gnomes") and npcHandler:getTopic(playerId) == 56 then
-		if player:getItemCount(30888) >= quantidade[playerId] then
+		if player:getItemCount(27653) >= quantidade[playerId] then
 			npcHandler:say({"Done."}, npc, creature)
 			if quantidade[playerId] > 1 then
 				plural = plural .. "s"
 			end
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You earned ".. quantidade[playerId] .." point"..plural.." on the gnomes mission.")
-			player:removeItem(30888, quantidade[playerId])
+			player:removeItem(27653, quantidade[playerId])
 			player:setStorageValue(Storage.DangerousDepths.Gnomes.Status, player:getStorageValue(Storage.DangerousDepths.Gnomes.Status) + quantidade[playerId])
 		else
 			npcHandler:say({"You don't have enough suspicious devices."}, npc, creature)
 			npcHandler:setTopic(playerId, 1)
 		end
 	elseif MsgContains(message, "dwarves") and npcHandler:getTopic(playerId) == 56 then
-		if player:getItemCount(30888) >= quantidade[playerId] then
+		if player:getItemCount(27653) >= quantidade[playerId] then
 			npcHandler:say({"Done."}, npc, creature)
 			if quantidade[playerId] > 1 then
 				plural = plural .. "s"
 			end
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You earned ".. quantidade[playerId] .." point"..plural.." on the dwarves mission.")
-			player:removeItem(30888, quantidade[playerId])
+			player:removeItem(27653, quantidade[playerId])
 			player:setStorageValue(Storage.DangerousDepths.Dwarves.Status, player:getStorageValue(Storage.DangerousDepths.Dwarves.Status) + quantidade[playerId])
 		else
 			npcHandler:say({"You don't have enough suspicious devices."}, npc, creature)
 			npcHandler:setTopic(playerId, 1)
 		end
 	elseif MsgContains(message, "scouts") and npcHandler:getTopic(playerId) == 56 then
-		if player:getItemCount(30888) >= quantidade[playerId] then
+		if player:getItemCount(27653) >= quantidade[playerId] then
 			npcHandler:say({"Done."}, npc, creature)
 			if quantidade[playerId] > 1 then
 				plural = plural .. "s"
 			end
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You earned ".. quantidade[playerId] .." point"..plural.." on the scouts mission.")
-			player:removeItem(30888, quantidade[playerId])
+			player:removeItem(27653, quantidade[playerId])
 			player:setStorageValue(Storage.DangerousDepths.Scouts.Status, player:getStorageValue(Storage.DangerousDepths.Scouts.Status) + quantidade[playerId])
 		else
 			npcHandler:say({"You don't have enough suspicious devices."}, npc, creature)
