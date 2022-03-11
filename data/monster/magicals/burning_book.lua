@@ -72,35 +72,49 @@ monster.voices = {
 	chance = 10,
 }
 
+-- sorted descending
 monster.loot = {
-	{name = "Platinum Coin", chance = 89960, maxCount = 28},
-	{name = "Book Page", chance = 3000, maxCount = 7},
-	{name = "Demonic Essence", chance = 3000, maxCount = 5},
-	{name = "flask of demonic blood", chance = 3000, maxCount = 3},
-	{name = "Small Amethyst", chance = 2000, maxCount = 4},
-	{id = 3307, chance = 3000},
-	{name = "Silken Bookmark", chance = 2000, maxCount = 2},
-	{name = "Magma Coat", chance = 2000},
-	{name = "Guardian Shield", chance = 1500},
-	{name = "Soul Orb", chance = 3000, maxCount = 4},
-	{name = "Necrotic Rod", chance = 3000},
-	{name = "Magma Monocle", chance = 1500},
-	{id = 6299, chance = 1200},
-	{id = 3049, chance = 1800}, -- Stealth ring
-	{name = "Shadow Sceptre", chance = 8990}
+	{name = "Platinum Coin", chance = 89960, maxCount = 35},
+	{name = "Book Page", chance = 50600, maxCount = 4},
+	{name = "flask of demonic blood", chance = 41460, maxCount = 4},
+	{name = "Demonic Essence", chance = 18390, maxCount = 1},
+	{name = "Silken Bookmark", chance = 17360, maxCount = 1},
+	{name = "Magma Coat", chance = 12680},
+	{name = "Guardian Shield", chance = 10230},
+	{name = "Soul Orb", chance = 6420, maxCount = 1},
+	{name = "Small Amethyst", chance = 5980, maxCount = 7},
+	{id = 3307, chance = 4130}, -- scimitar
+	{name = "Necrotic Rod", chance = 3920},
+	{id = 6299, chance = 2290}, -- death ring
+	{name = "Magma Monocle", chance = 1090},
+	{name = "Shadow Sceptre", chance = 650},
+	{id = 3049, chance = 600}, -- Stealth ring
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -700},
-	{name ="combat", interval = 1000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -780, range = 7, shootEffect = CONST_ANI_FLAMMINGARROW, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="combat", interval = 1500, chance = 12, type = COMBAT_PHYSICALDAMAGE, minDamage = -500, maxDamage = -900, radius = 3, effect = CONST_ME_EXPLOSIONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -400, maxDamage = -850, length = 5, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_FIREDAMAGE, minDamage = -400, maxDamage = -775, radius = 3, effect = CONST_ME_HITBYFIRE, target = false}
+    -- Basic attack (0-700 physical)
+	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -700},
+
+	-- Ranged attack (800-1100 fire) (Flaming Arrow)
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -800, maxDamage = -1100, range = 7, shootEffect = CONST_ANI_FLAMMINGARROW, effect = CONST_ME_HITBYFIRE, target = false},
+
+	-- Explosion Box (700-950 fire, on self)
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -700, maxDamage = -950, radius = 3, effect = CONST_ME_EXPLOSIONAREA, target = false},
+
+	-- Red Stars Beam (750-950 fire)
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -750, maxDamage = -950, length = 5, effect = CONST_ME_MAGIC_RED, target = false},
+
 }
 
 monster.defenses = {
 	defense = 33,
-	armor = 82
+	armor = 82,
+
+    -- Healing
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 475, maxDamage = 600, effect = CONST_ME_MAGIC_BLUE, target = false},
+
+	-- Haste (effect: haste)
+    {name ="speed", interval = 2000, chance = 15, speedChange = 300, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
 
 monster.elements = {
