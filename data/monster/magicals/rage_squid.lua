@@ -109,19 +109,19 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -650},
 
 -- Fire Strike (600-750 fire, on target)
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -600, maxDamage = -750, range = 7, shootEffect = CONST_ANI_FLAMMINGARROW, effect = CONST_ME_HITBYFIRE, target = true},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -600, maxDamage = -750, range = 7, radius = 1, shootEffect = CONST_ANI_FLAMMINGARROW, effect = SPELL_ANIMATIONS.FIRE, target = true},
 
 -- Eruption Box (600-750 fire, on target)
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -750, range = 7, radius = 3, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -750, range = 7, radius = 3, shootEffect = CONST_ANI_FIRE, effect = SPELL_ANIMATIONS.ERUPTION, target = true},
 
 -- Red Stars Beam (400-500 fire)
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -400, maxDamage = -500, length = 5, effect = CONST_ME_MAGIC_RED, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -400, maxDamage = -500, length = 5, effect = SPELL_ANIMATIONS.RED_STARS, target = false},
 
 -- Fire Box (500-700 fire, on self)
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -700, radius = 3, effect = CONST_ME_HITBYFIRE, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -700, radius = 3, effect = SPELL_ANIMATIONS.FIRE, target = false},
 
 -- Detonation Cross (850-1200 fire, on self)
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -850, maxDamage = -1200, radius = 2, effect = CONST_ME_FIREAREA, target = false}
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -850, maxDamage = -1200, radius = 2, effect = SPELL_ANIMATIONS.DETONATION, target = false}
 }
 
 monster.defenses = {
