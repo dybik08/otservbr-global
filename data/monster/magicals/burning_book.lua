@@ -96,13 +96,13 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -700},
 
 	-- Ranged attack (800-1100 fire) (Flaming Arrow)
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -800, maxDamage = -1100, range = 7, shootEffect = CONST_ANI_FLAMMINGARROW, effect = CONST_ME_HITBYFIRE, target = false},
+	{name ="combat", interval = 2000, chance = 100, type = COMBAT_FIREDAMAGE, minDamage = -800, maxDamage = -1100, range = 7, shootEffect = CONST_ANI_FLAMMINGARROW, effect = SPELL_ANIMATIONS.FIRE, target = false},
 
 	-- Explosion Box (700-950 fire, on self)
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -700, maxDamage = -950, radius = 3, effect = CONST_ME_EXPLOSIONAREA, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -700, maxDamage = -950, radius = 3, effect = SPELL_ANIMATIONS.EXPLOSION, target = false},
 
 	-- Red Stars Beam (750-950 fire)
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -750, maxDamage = -950, length = 5, effect = CONST_ME_MAGIC_RED, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -750, maxDamage = -950, length = 5, effect = SPELL_ANIMATIONS.RED_STARS, target = false},
 
 }
 
