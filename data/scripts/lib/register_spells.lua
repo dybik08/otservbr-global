@@ -503,3 +503,17 @@ function Player:conjureItem(reagentId, conjureId, conjureCount, effect)
 	self:getPosition():sendMagicEffect(item:getType():isRune() and CONST_ME_MAGIC_RED or effect)
 	return true
 end
+
+
+SPELL_ANIMATIONS = {
+    ENVENOM = CONST_ME_HITBYPOISON,
+    SMOKE = CONST_ME_POFF,
+    DEATH = CONST_ME_MORTAREA,
+    FIRE = CONST_ME_FIREAREA,
+    GREEN_STARS = CONST_ME_MAGIC_GREEN,
+    RED_STARS = CONST_ME_MAGIC_RED,
+    RED_NOTES = CONST_ME_SOUND_RED,
+    BLACK_STEAM = CONST_ME_BLACKSMOKE,
+    DETONATION = CONST_ME_FIREAREA,
+    ERUPTION = CONST_ME_EXPLOSIONHIT
+}
