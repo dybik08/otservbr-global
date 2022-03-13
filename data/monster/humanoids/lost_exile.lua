@@ -30,7 +30,7 @@ monster.health = 1600
 monster.maxHealth = 1600
 monster.race = "blood"
 monster.corpse = 17682
-monster.speed = 170
+monster.speed = 125
 monster.manaCost = 0
 
 monster.changeTarget = {
@@ -56,7 +56,7 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 90,
-	targetDistance = 1,
+	targetDistance = 4,
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
@@ -77,63 +77,74 @@ monster.voices = {
 	{text = "**", yell = false}
 }
 
+--  ordered descending
 monster.loot = {
-	{name = "gold coin", chance = 100000, maxCount = 200},
+	{name = "gold coin", chance = 100000, maxCount = 100},
 	{name = "platinum coin", chance = 60240, maxCount = 2},
-	{name = "strong health potion", chance = 10950, maxCount = 2},
-	{name = "great mana potion", chance = 8330, maxCount = 2},
-	{name = "brown mushroom", chance = 16900, maxCount = 2},
-	{id = 12600, chance = 13100},
+	{name = "red hair dye", chance = 14690},
+	{name = "brown mushroom", chance = 13820, maxCount = 2},
 	{name = "holy ash", chance = 13100},
-	{name = "small topaz", chance = 10240},
-	{name = "lost husher's staff", chance = 6900},
-	{name = "skull shatterer", chance = 7620},
 	{name = "wimp tooth chain", chance = 11900},
-	{name = "red hair dye", chance = 12620},
-	{name = "basalt fetish", chance = 8100},
-	{name = "bonecarving knife", chance = 8100},
-	{name = "basalt figurine", chance = 8100},
-	{name = "bone fetish", chance = 8881},
-	{id = 3097, chance = 1043}, -- Dwarven ring
-	{name = "guardian shield", chance = 1430},
-	{name = "buckle", chance = 1900},
-	{name = "clay lump", chance = 710},
-	{name = "knight axe", chance = 950},
-	{name = "terra boots", chance = 240},
-	{name = "suspicious device", chance = 250},
-	{name = "tower shield", chance = 240},
-	{name = "terra legs", chance = 240},
-	{name = "fire axe", chance = 710},
-	{name = "skull staff", chance = 480},
-	{name = "spiked squelcher", chance = 240}
+	{name = "small topaz", chance = 10370},
+	{id = 12600, chance = 10370}, -- coal
+	{name = "bonecarving knife", chance = 10150},
+	{name = "great mana potion", chance = 9940, maxCount = 2},
+	{name = "lost husher's staff", chance = 9070},
+	{name = "skull shatterer", chance = 8640},
+	{name = "basalt figurine", chance = 8640},
+	{name = "strong health potion", chance = 6910, maxCount = 23},
+	{name = "basalt fetish", chance = 6260},
+	{name = "bone fetish", chance = 5830},
+	{id = 3097, chance = 2160}, -- Dwarven ring
+	{name = "suspicious device", chance = 1510},
+	{name = "buckle", chance = 1510},
+	{name = "knight axe", chance = 860},
+	{name = "clay lump", chance = 860},
+	{name = "guardian shield", chance = 860},
+	{name = "terra legs", chance = 430},
+	{name = "terra boots", chance = 220},
+	{name = "skull staff", chance = 220},
+	{name = "fire axe", chance = 220},
+	{name = "spiked squelcher", chance = 220}
 }
 
 monster.attacks = {
+    -- Basic attack (0-300 physical)
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -120},
-	{name ="sudden death rune", interval = 2000, chance = 15, minDamage = -150, maxDamage = -350, range = 3, length = 6, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_MANADRAIN, minDamage = -150, maxDamage = -250, range = 3, length = 5, spread = 5, effect = CONST_ME_SMOKE, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -150, maxDamage = -290, range = 3, length = 5, spread = 5, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_POISONAREA, target = false},
-	{name ="sudden death rune", interval = 2000, chance = 15, minDamage = -70, maxDamage = -250, range = 7, target = false},
-	{name ="drunk", interval = 2000, chance = 10, range = 7, shootEffect = CONST_ANI_ENERGY, target = false, duration = 5000}
+
+	-- Death Strike (140-210 death, on target)
+	{name ="combat", interval = 2000, type = COMBAT_DEATHDAMAGE, chance = 15, minDamage = -140, maxDamage = -210, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
+
+	-- Green Stars Cross (150-230 earth, on target)
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -150, maxDamage = -230, range = 7, radius = 2, effect = CONST_ME_MAGIC_GREEN, target = true},
+
+	-- Red Notes Ball (on self, effect: drunk)
+	{name ="drunk", interval = 2000, chance = 10, radius = 4, effect = CONST_ME_SOUND_RED, target = false, duration = 5000},
+--
+-- 	-- Great Black Steam Ball (160-300 mana drain, on self)
+	{name ="combat", interval = 2000, chance = 95, type = COMBAT_MANADRAIN, minDamage = -160, maxDamage = -300, effect = CONST_ME_BLACKSMOKE, radius = 4, range = 7, target = false},
+--
+-- 	-- Longer Black Steam Beam (240-370 death)
+	{name ="combat", interval = 2000, chance = 95, type = COMBAT_DEATHDAMAGE, minDamage = -240, maxDamage = -370, length = 4, effect = CONST_ME_BLACKSMOKE, target = false},
 }
 
 monster.defenses = {
 	defense = 20,
-	armor = 20,
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 0, maxDamage = 160, effect = CONST_ME_MAGIC_BLUE, target = false}
+	armor = 55,
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 40, maxDamage = 160, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 30},
-	{type = COMBAT_ENERGYDAMAGE, percent = 30},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 5},
+	{type = COMBAT_ENERGYDAMAGE, percent = 10},
 	{type = COMBAT_EARTHDAMAGE, percent = 100},
-	{type = COMBAT_FIREDAMAGE, percent = 30},
+	{type = COMBAT_FIREDAMAGE, percent = 25},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 30},
-	{type = COMBAT_HOLYDAMAGE , percent = -30},
-	{type = COMBAT_DEATHDAMAGE , percent = 30}
+	{type = COMBAT_ICEDAMAGE, percent = 15},
+	{type = COMBAT_HOLYDAMAGE , percent = -10},
+	{type = COMBAT_DEATHDAMAGE , percent = 20}
 }
 
 monster.immunities = {
