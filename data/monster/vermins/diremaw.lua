@@ -96,6 +96,10 @@ monster.loot = {
 	{name = "Mycological Bow", chance = 130},
 }
 
+
+
+
+
 monster.attacks = {
     -- Basic attack (0-450 physical)
     {name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450},
