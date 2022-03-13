@@ -101,9 +101,9 @@ monster.attacks = {
     -- Basic attack (0-380 physical)
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -380},
 	-- Envenom Ball (320-390 earth, on target)
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -320, maxDamage = -390, range = 7, radius = 4, effect = CONST_ME_POISONAREA, target = true},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -320, maxDamage = -390, range = 7, radius = 4, effect = SPELL_ANIMATIONS.ENVENOM, target = true},
 	-- Envenom Beam (200-300 earth)
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -300, length = 4, effect = CONST_ME_GREEN_RINGS, target = false}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -300, length = 4, effect = SPELL_ANIMATIONS.ENVENOM, target = false}
 }
 
 monster.defenses = {
