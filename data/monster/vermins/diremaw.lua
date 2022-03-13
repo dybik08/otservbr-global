@@ -104,10 +104,10 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 25, type = COMBAT_EARTHDAMAGE, radius = 1, minDamage = -150, maxDamage = -225, range = 7, shootEffect = CONST_ANI_POISON, effect = SPELL_ANIMATIONS.POISON, target = false},
 
 	-- Envenom Ball (200-300 earth, on self)
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_EARTHDAMAGE, radius = 3, minDamage = -200, maxDamage = -300, effect = SPELL_ANIMATIONS.ENVENOM, target = false},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_EARTHDAMAGE, radius = 4, minDamage = -200, maxDamage = -300, effect = SPELL_ANIMATIONS.ENVENOM, target = false},
 
 	-- Smoke Ball (170-250 earth, on target)
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_EARTHDAMAGE, minDamage = -170, maxDamage = -250, range = 7, radius = 3, shootEffect = CONST_ANI_POISON, effect = SPELL_ANIMATIONS.SMOKE, target = true},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_EARTHDAMAGE, minDamage = -170, maxDamage = -250, range = 7, radius = 4, shootEffect = CONST_ANI_POISON, effect = SPELL_ANIMATIONS.SMOKE, target = true},
 }
 
 monster.defenses = {

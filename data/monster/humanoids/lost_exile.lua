@@ -113,19 +113,19 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -120},
 
 	-- Death Strike (140-210 death, on target)
-	{name ="combat", interval = 2000, type = COMBAT_DEATHDAMAGE, chance = 15, minDamage = -140, maxDamage = -210, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
+	{name ="combat", interval = 2000, type = COMBAT_DEATHDAMAGE, chance = 15, minDamage = -140, maxDamage = -210, range = 7, radius = 1, shootEffect = CONST_ANI_SUDDENDEATH, effect = SPELL_ANIMATIONS.DEATH, target = true},
 
 	-- Green Stars Cross (150-230 earth, on target)
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -150, maxDamage = -230, range = 7, radius = 2, effect = CONST_ME_MAGIC_GREEN, target = true},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -150, maxDamage = -230, range = 7, radius = 2, effect = SPELL_ANIMATIONS.GREEN_STARS, target = true},
 
 	-- Red Notes Ball (on self, effect: drunk)
-	{name ="drunk", interval = 2000, chance = 10, radius = 4, effect = CONST_ME_SOUND_RED, target = false, duration = 5000},
---
+	{name ="drunk", interval = 2000, chance = 10, radius = 4, effect = SPELL_ANIMATIONS.RED_NOTES, target = false, duration = 5000},
+
 -- 	-- Great Black Steam Ball (160-300 mana drain, on self)
-	{name ="combat", interval = 2000, chance = 95, type = COMBAT_MANADRAIN, minDamage = -160, maxDamage = -300, effect = CONST_ME_BLACKSMOKE, radius = 4, range = 7, target = false},
---
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_MANADRAIN, minDamage = -160, maxDamage = -300, effect = SPELL_ANIMATIONS.BLACK_STEAM, radius = 5, range = 7, target = false},
+
 -- 	-- Longer Black Steam Beam (240-370 death)
-	{name ="combat", interval = 2000, chance = 95, type = COMBAT_DEATHDAMAGE, minDamage = -240, maxDamage = -370, length = 4, effect = CONST_ME_BLACKSMOKE, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -240, maxDamage = -370, length = 5, effect = SPELL_ANIMATIONS.BLACK_STEAM, target = false},
 }
 
 monster.defenses = {
