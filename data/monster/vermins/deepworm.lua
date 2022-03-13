@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Deepworm")
 local monster = {}
 
 monster.description = "a deepworm"
-monster.experience = 230
+monster.experience = 2300
 monster.outfit = {
 	lookType = 1033,
 	lookHead = 0,
@@ -26,11 +26,11 @@ monster.Bestiary = {
 	Locations = "Gnome Deep Hub."
 	}
 
-monster.health = 4500
-monster.maxHealth = 4500
+monster.health = 3500
+monster.maxHealth = 3500
 monster.race = "blood"
 monster.corpse = 27545
-monster.speed = 204
+monster.speed = 102
 monster.manaCost = 0
 
 monster.changeTarget = {
@@ -77,34 +77,39 @@ monster.voices = {
 	{text = "*slurp slurp ... slurp*", yell = false}
 }
 
+--  ordered descending
 monster.loot = {
 	{name = "Deepworm Jaws", chance = 24010},
-	{id = 3052, chance = 7320}, -- Life ring
-	{name = "Meat", chance = 19660, maxCount = 4},
-	{name = "Ham", chance = 19660, maxCount = 4},
 	{name = "Wood Mushroom", chance = 22280},
-	{name = "Dark Mushroom", chance = 14960},
+	{name = "Ham", chance = 19660, maxCount = 1},
+	{name = "Meat", chance = 19660, maxCount = 1},
 	{name = "Green Mushroom", chance = 18520},
-	{name = "Green Crystal Shard", chance = 5360},
-	{id = 27593, chance = 13210, maxCount = 2},
-	{name = "Deepworm Spikes", chance = 9880},
+	{name = "Dark Mushroom", chance = 14960},
+	{id = 27593, chance = 11450, maxCount = 1}, -- deepworm spike roots
+	{name = "Deepworm Spikes", chance = 10120},
+	{id = 3052, chance = 7780}, -- Life ring
+	{name = "Green Crystal Shard", chance = 6060},
+	{name = "Terra Amulet", chance = 4870},
 	{name = "Small Enchanted Amethyst", chance = 3430, maxCount = 2},
-	{name = "Terra Amulet", chance = 5060},
-	{name = "Springsprout Rod", chance = 1120},
-	{name = "Sacred Tree Amulet", chance = 2390},
-	{id = 281, chance = 860},
-	{name = "Suspicious Device", chance = 530}
+	{name = "Sacred Tree Amulet", chance = 2640},
+	{name = "Springsprout Rod", chance = 1250},
+	{name = "Suspicious Device", chance = 1250},
+	{id = 281, chance = 920}, -- giant shimmering pearl
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -190, maxDamage = -300, range = 7, length = 6, spread = 2, effect = CONST_ME_POISONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -400, length = 3, spread = 3, effect = CONST_ME_POISONAREA, target = false}
+    -- Basic attack (0-380 physical)
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -380},
+	-- Envenom Ball (320-390 earth, on target)
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -320, maxDamage = -390, range = 7, radius = 4, effect = CONST_ME_POISONAREA, target = true},
+	-- Envenom Beam (200-300 earth)
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -300, length = 4, effect = CONST_ME_GREEN_RINGS, target = false}
 }
 
 monster.defenses = {
 	defense = 5,
-	armor = 10
+	armor = 10,
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 80, maxDamage = 100, effect = CONST_ME_MAGIC_BLUE, target = false},
 }
 
 monster.elements = {
