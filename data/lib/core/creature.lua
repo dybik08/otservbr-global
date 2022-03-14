@@ -208,3 +208,54 @@ function Creature:addEventStamina(target)
 		end
 	end
 end
+
+
+function Creature:onDrainHealth(attacker, typePrimary, damagePrimary,
+				typeSecondary, damageSecondary, colorPrimary, colorSecondary)
+	if (not self) then
+		return typePrimary, damagePrimary, typeSecondary, damageSecondary, colorPrimary, colorSecondary
+	end
+
+	if (not attacker) then
+		return typePrimary, damagePrimary, typeSecondary, damageSecondary, colorPrimary, colorSecondary
+	end
+
+	-- New prey => Bonus damage
+	if (attacker:isPlayer()) then
+		if (self:isMonster() and not self:getMaster()) then
+			for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+			    if attacker:getPreyBonusType(slot) == CONST_BONUS_DAMAGE_BOOST then
+                      preyTimeLeft(attacker, slot)
+                end
+
+				if (attacker:getPreyCurrentMonster(slot) == self:getName()
+				and attacker:getPreyBonusType(slot) == CONST_BONUS_DAMAGE_BOOST) then
+					damagePrimary = damagePrimary + math.floor(damagePrimary * (attacker:getPreyBonusValue(slot) / 100))
+					break
+				end
+			end
+		end
+	-- New prey => Damage reduction
+	elseif (attacker:isMonster()) then
+		if (self:isPlayer()) then
+			for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+                if self:getPreyBonusType(slot) == CONST_BONUS_DAMAGE_REDUCTION then
+                     if self:getCondition(CONDITION_MANASHIELD) then
+                        -- do nothing
+                     elseif self:getSlotItem(CONST_SLOT_RING) and self:getSlotItem(CONST_SLOT_RING):getId() == 3088 then
+                        -- do nothing
+                     else
+                        preyTimeLeft(self, slot) -- prey slot consumption
+                     end
+                end
+
+				if (self:getPreyCurrentMonster(slot) == attacker:getName()
+				and self:getPreyBonusType(slot) == CONST_BONUS_DAMAGE_REDUCTION) then
+					damagePrimary = damagePrimary - math.floor(damagePrimary * (self:getPreyBonusValue(slot) / 100))
+					break
+				end
+			end
+		end
+	end
+	return typePrimary, damagePrimary, typeSecondary, damageSecondary, colorPrimary, colorSecondary
+end
