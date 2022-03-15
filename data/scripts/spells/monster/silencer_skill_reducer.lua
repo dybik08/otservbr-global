@@ -2,7 +2,7 @@ local combat = {}
 
 for i = 40, 70 do
 	combat[i] = Combat()
-	combat[i]:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ENERGYHIT)
+	combat[i]:setParameter(COMBAT_PARAM_EFFECT, SPELL_ANIMATIONS.ELECTRIC)
 	combat[i]:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_ENERGY)
 
 	local condition = Condition(CONDITION_ATTRIBUTES)

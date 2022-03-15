@@ -30,7 +30,7 @@ monster.health = 5400
 monster.maxHealth = 5400
 monster.race = "blood"
 monster.corpse = 20155
-monster.speed = 470
+monster.speed = 235
 monster.manaCost = 0
 
 monster.changeTarget = {
@@ -79,36 +79,42 @@ monster.voices = {
 	{text = "Hussssssh!!", yell = false}
 }
 
+-- ordered descending
 monster.loot = {
-	{name = "gold coin", chance = 100000, maxCount = 100},
 	{name = "platinum coin", chance = 100000, maxCount = 8},
-	{id = 3049, chance = 1200}, -- Stealth ring
-	{name = "boots of haste", chance = 360},
-	{name = "dark shield", chance = 2000},
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{name = "silencer claws", chance = 16500},
+	{name = "silencer resonating chamber", chance = 9080}
 	{name = "assassin star", chance = 7600, maxCount = 10},
-	{name = "diamond sceptre", chance = 960},
-	{name = "haunted blade", chance = 2000},
+	{name = "glorious axe", chance = 2460},
+	{name = "haunted blade", chance = 1870},
 	{name = "titan axe", chance = 2200},
-	{name = "shadow sceptre", chance = 640},
-	{name = "glorious axe", chance = 2400},
-	{name = "terra legs", chance = 960},
-	{name = "terra boots", chance = 480},
-	{name = "cluster of solace", chance = 560},
-	{name = "silencer claws", chance = 17000},
-	{name = "silencer resonating chamber", chance = 8410}
+	{id = 3049, chance = 1280}, -- Stealth ring
+	{name = "dark shield", chance = 1250},
+	{name = "diamond sceptre", chance = 1250},
+	{name = "terra boots", chance = 920},
+	{name = "shadow sceptre", chance = 780},
+	{name = "terra legs", chance = 760},
+	{name = "cluster of solace", chance = 500},
+	{name = "boots of haste", chance = 470},
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -315, condition = {type = CONDITION_POISON, totalDamage = 600, interval = 4000}},
+    -- Basic attack (0-350 physical, effect: poison 25hp/tick)
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -350, condition = {type = CONDITION_POISON, totalDamage = 600, interval = 4000}},
+	-- Blue Electric Ball (on target, effect: debuff -60% magic level)
 	{name ="silencer skill reducer", interval = 2000, chance = 10, range = 3, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_MANADRAIN, minDamage = -40, maxDamage = -150, radius = 4, shootEffect = CONST_ANI_ONYXARROW, effect = CONST_ME_MAGIC_RED, target = true}
+	-- Red Stars Ball (50-150 mana drain, on target)
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_MANADRAIN, minDamage = -50, maxDamage = -150, radius = 4, shootEffect = CONST_ANI_ONYXARROW, effect = SPELL_ANIMATIONS.RED_STARS, target = true}
 }
 
 monster.defenses = {
 	defense = 20,
 	armor = 20,
-	{name ="speed", interval = 2000, chance = 15, speedChange = 450, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 220, maxDamage = 425, effect = CONST_ME_MAGIC_BLUE, target = false}
+	-- Haste (effect: haste)
+	{name ="speed", interval = 2000, chance = 15, speedChange = 235, effect = SPELL_ANIMATIONS.RED_STARS, target = false, duration = 5000},
+	-- Healing (100-180 heal)
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 100, maxDamage = 180, effect = SPELL_ANIMATIONS.BLUE_STARS, target = false}
 }
 
 monster.elements = {
