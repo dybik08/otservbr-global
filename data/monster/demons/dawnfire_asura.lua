@@ -78,47 +78,65 @@ monster.voices = {
 	{text = "May the flames consume you!", yell = false}
 }
 
+-- ordered descending
 monster.loot = {
-	{id = 3031, chance = 97000, maxCount = 242},
-	{id = 3035, chance = 18200, maxCount = 6},
-	{id = 6558, chance = 2000},
-	{id = 238, chance = 2000},
-	{id = 3033, chance = 210, maxCount = 3},
-	{id = 3028, chance = 300, maxCount = 3},
-	{id = 3032, chance = 300, maxCount = 3},
-	{id = 3030, chance = 350, maxCount = 3},
-	{id = 9057, chance = 280, maxCount = 3},
-	{id = 3041, chance = 300},
-	{id = 6299, chance = 260},
-	{id = 6499, chance = 330},
-	{id = 8043, chance = 220},
-	{id = 21974, chance = 500},
-	{id = 826, chance = 100},
-	{id = 3078, chance = 400},
-	{id = 3574, chance = 300},
-	{id = 21981, chance = 300},
-	{id = 21975, chance = 500},
-	{id = 5911, chance = 300},
-	{id = 3016, chance = 400},
-	{id = 5944, chance = 300},
-	{id = 8074, chance = 100},
-	{id = 3071, chance = 200}
+	{name = "platinum coin", chance = 85840, maxCount = 9},
+	{name = "gold coin", chance = 70040, maxCount = 100},
+	{name = "flask of demonic blood", chance = 22450},
+	{name="soul orb", chance = 14470},
+	{name="golden lotus brooch", chance = 11640},
+	{name="peacock feather fan", chance = 11110},
+	{name="demonic essence", chance = 9530},
+	{name="great mana potion", chance = 8130},
+	{name="small ruby", chance = 6020, maxCount = 3},
+	{name="small diamond", chance = 3730, maxCount = 2},
+	{name="small amethyst", chance = 3320, maxCount = 2},
+	{name="small topaz", chance = 2700, maxCount = 2},
+	{name="small emerald", chance = 2670, maxCount = 2},
+	{name="red piece of cloth", chance = 2360},
+	{name="mystic turban", chance = 2050},
+	{name="wand of inferno", chance = 1060}
+	{name="focus cape", chance = 960},
+	{name="red gem", chance = 930},
+	{name="mysterious fetish", chance = 900},
+	{name="ruby necklace", chance = 710},
+	{name="magma coat", chance = 590},
+	{name="oriental shoes", chance = 430},
+	{name="spellbook of mind control", chance = 370},
+	{name="death ring", chance = 280},
+	{name="blue gem", chance = 220},
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -269},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = 0, maxDamage = -70, range = 7, target = false},
-	{name ="firefield", interval = 2000, chance = 10, range = 7, radius = 1, shootEffect = CONST_ANI_FIRE, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -50, maxDamage = -200, length = 8, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false},
-	{name ="energy strike", interval = 2000, chance = 10, minDamage = -10, maxDamage = -100, range = 1, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = -100, radius = 1, effect = CONST_ME_MAGIC_RED, target = true, duration = 30000}
+    -- Basic attack (0-250 physical)
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250},
+
+	-- Fire Box (on target, effect: burn 10hp/tick)
+	{name ="combat", interval = 2000, chance = 10, range = 7, radius = 1, shootEffect = CONST_ANI_FIRE, effect = SPELL_ANIMATIONS.FIRE, condition = {type = CONDITION_FIRE, totalDamage = 150, interval = 4000}, target = true},
+
+	-- Flame Strike (0-170 fire, on target)
+	{name ="combat", interval = 2000, chance = 10, shootEffect = CONST_ANI_FIRE, type = COMBAT_FIREDAMAGE, minDamage = 0, maxDamage = -170, range = 3, effect = SPELL_ANIMATIONS.FIRE, target = true},
+
+    -- Death Ball (0-300 death, on target)
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -0, maxDamage = -300, radius = 4, shootEffect = CONST_ANI_SUDDENDEATH, effect = SPELL_ANIMATIONS.DEATH, target = true},
+
+	-- Red Stars Box (on target, effect: debuff -20% magic level)
+	{name ="dawnfire asura skill reducer", interval = 2000, chance = 20, range = 4, target = true},
+
+	-- Long Red Stars Beam (0-250 mana drain)
+	{name ="combat", interval = 2000, chance = 15, length = 5, type = COMBAT_MANADRAIN, minDamage = -0, maxDamage = -250, effect = SPELL_ANIMATIONS.RED_STARS, target = false},
+
+	-- Black Steam Box (on self, effect: paralyze)
+	{name ="speed", interval = 2000, chance = 15, speedChange = -600, radius = 3, effect = SPELL_ANIMATIONS.BLACK_STEAM, target = false, duration = 10000}
 }
 
 monster.defenses = {
 	defense = 55,
 	armor = 55,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 50, maxDamage = 100, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = 320, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
+	-- Healing
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 50, maxDamage = 100, effect = SPELL_ANIMATIONS.BLUE_STARS, target = false},
+	-- Haste
+	{name ="speed", interval = 2000, chance = 15, speedChange = 320, effect = SPELL_ANIMATIONS.RED_STARS, target = false, duration = 5000}
 }
 
 monster.elements = {
