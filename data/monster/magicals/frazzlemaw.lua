@@ -30,7 +30,7 @@ monster.health = 4100
 monster.maxHealth = 4100
 monster.race = "blood"
 monster.corpse = 20233
-monster.speed = 400
+monster.speed = 200
 monster.manaCost = 0
 
 monster.changeTarget = {
@@ -79,52 +79,58 @@ monster.voices = {
 	{text = "Mmmwhamwhamwhah, mwaaah!", yell = false}
 }
 
+-- ordered descending
 monster.loot = {
-	{name = "gold coin", chance = 100000, maxCount = 100},
 	{name = "platinum coin", chance = 100000, maxCount = 7},
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{name = "frazzle tongue", chance = 15030},
+	{name = "brown crystal splinter", chance = 11870},
+	{name = "great mana potion", chance = 11810, maxCount = 3},
+	{name = "great health potion", chance = 11810, maxCount = 2},
+	{name = "frazzle skin", chance = 11780}
+	{id = 3114, chance = 12680}, -- skull
 	{name = "banana skin", chance = 9500},
 	{name = "piece of iron", chance = 10400},
+	{id = 3115, chance = 10000}, -- bone
+	{id = 16279, chance = 10000}, -- crystal rubbish
 	{name = "fishbone", chance = 10000},
-	{id = 3114, chance = 12680},
-	{id = 3115, chance = 10000},
-	{id = 3116, chance = 5500},
-	{name = "two handed sword", chance = 3200},
-	{id = 3578, chance = 6750, maxCount = 3},
+	{id = 5951, chance = 10800}, -- fish tail
 	{name = "ham", chance = 6000, maxCount = 2},
-	{name = "iron ore", chance = 3000},
-	{name = "fish fin", chance = 4700},
 	{name = "hardened bone", chance = 5000},
-	{id = 5951, chance = 10800},
-	{name = "assassin dagger", chance = 1000},
-	{name = "haunted blade", chance = 2240},
-	{name = "nightmare blade", chance = 1100},
-	{name = "great mana potion", chance = 15000, maxCount = 3},
-	{name = "great health potion", chance = 15000, maxCount = 2},
-	{name = "gold ingot", chance = 2300},
-	{name = "sai", chance = 1460},
-	{name = "violet crystal shard", chance = 3000},
-	{name = "brown crystal splinter", chance = 16000},
-	{name = "red crystal fragment", chance = 7600},
-	{id = 16279, chance = 10000},
+	{id = 3578, chance = 6750, maxCount = 3}, -- fish
+	{name = "fish fin", chance = 4700},
+	{id = 3116, chance = 5500},  -- big bone
+	{name = "red crystal fragment", chance = 3570},
+	{name = "violet crystal shard", chance = 2430},
+	{name = "two handed sword", chance = 2300},
+	{name = "iron ore", chance = 2290},
+	{name = "gold ingot", chance = 1870},
+	{name = "haunted blade", chance = 1700},
+	{name = "sai", chance = 1390},
+	{name = "assassin dagger", chance = 700},
+	{name = "nightmare blade", chance = 480},
 	{name = "cluster of solace", chance = 450},
-	{name = "frazzle tongue", chance = 18760},
-	{name = "frazzle skin", chance = 16000}
 }
 
+
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
-	-- bleed
+    -- Basic attack (0-450 physical)
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450},
+    -- Terra Cross (on target, effect: bleeding Stoneshower 35hp/tick)
 	{name ="condition", type = CONDITION_BLEEDING, interval = 2000, chance = 10, minDamage = -300, maxDamage = -400, radius = 3, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -700, length = 5, spread = 3, effect = CONST_ME_EXPLOSIONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -400, radius = 2, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_STONES, target = true},
-	{name ="speed", interval = 2000, chance = 15, speedChange = -600, radius = 5, effect = CONST_ME_MAGIC_RED, target = false, duration = 15000},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = -80, maxDamage = -150, radius = 4, effect = CONST_ME_MAGIC_RED, target = false}
+	-- Blood Box (200-450 physical, on self)
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = 200, maxDamage = -450, radius = 3, effect = SPELL_ANIMATIONS.BLOOD, target = false},
+	-- Explosion Beam (350-600 life drain)
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = 350, maxDamage = -600, length = 4, shootEffect = CONST_ANI_LARGEROCK, effect = SPELL_ANIMATIONS.EXPLOSION, target = true},
+	-- Greater Red Stars Ball (on self, effect: paralyze)
+	{name ="speed", interval = 2000, chance = 15, speedChange = -600, radius = 5, effect = SPELL_ANIMATIONS.RED_STARS, target = false, duration = 15000},
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 250, maxDamage = 425, effect = CONST_ME_HITBYPOISON, target = false}
+	-- Healing (100-400 heal)
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 100, maxDamage = 400, effect = SPELL_ANIMATIONS.BLUE_NOTES, target = false}
 }
 
 monster.elements = {
