@@ -95,15 +95,15 @@ monster.loot = {
 	{name="small emerald", chance = 2670, maxCount = 2},
 	{name="red piece of cloth", chance = 2360},
 	{name="mystic turban", chance = 2050},
-	{name="wand of inferno", chance = 1060}
+	{name="wand of inferno", chance = 1060},
 	{name="focus cape", chance = 960},
-	{name="red gem", chance = 930},
+	{id = 3039, chance = 930}, -- red gem, has to be id due to same name reused for quest items
 	{name="mysterious fetish", chance = 900},
 	{name="ruby necklace", chance = 710},
 	{name="magma coat", chance = 590},
 	{name="oriental shoes", chance = 430},
 	{name="spellbook of mind control", chance = 370},
-	{name="death ring", chance = 280},
+	{id = 6299, chance = 280}, -- death ring, has to be id due to same name reused for equipped and unequipped item
 	{name="blue gem", chance = 220},
 }
 
