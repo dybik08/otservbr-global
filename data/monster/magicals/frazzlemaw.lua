@@ -87,7 +87,7 @@ monster.loot = {
 	{name = "brown crystal splinter", chance = 11870},
 	{name = "great mana potion", chance = 11810, maxCount = 3},
 	{name = "great health potion", chance = 11810, maxCount = 2},
-	{name = "frazzle skin", chance = 11780}
+	{name = "frazzle skin", chance = 11780},
 	{id = 3114, chance = 12680}, -- skull
 	{name = "banana skin", chance = 9500},
 	{name = "piece of iron", chance = 10400},
@@ -130,7 +130,7 @@ monster.defenses = {
 	defense = 30,
 	armor = 30,
 	-- Healing (100-400 heal)
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 100, maxDamage = 400, effect = SPELL_ANIMATIONS.BLUE_NOTES, target = false}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 100, maxDamage = 400, effect = SPELL_ANIMATIONS.BLUE_STARS, target = false}
 }
 
 monster.elements = {

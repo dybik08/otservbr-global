@@ -84,7 +84,7 @@ monster.loot = {
 	{name = "great mana potion", chance = 13420, maxCount = 3},
 	{name = "great health potion", chance = 11910, maxCount = 2},
 	{name = "frazzle tongue", chance = 11790},
-	{name = "frazzle skin", chance = 10060}
+	{name = "frazzle skin", chance = 10060},
 	{id = 3114, chance = 12680}, -- skull
 	{name = "ham", chance = 10000},
 	{id = 5951, chance = 10800}, -- fish tail
@@ -126,7 +126,7 @@ monster.defenses = {
 	defense = 50,
 	armor = 50,
 	-- Healing (100-400 heal)
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 100, maxDamage = 400, effect = SPELL_ANIMATIONS.BLUE_NOTES, target = false}
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 100, maxDamage = 400, effect = SPELL_ANIMATIONS.BLUE_STARS, target = false}
 }
 
 monster.elements = {
