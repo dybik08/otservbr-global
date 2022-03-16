@@ -561,3 +561,64 @@ SPELL_ANIMATIONS = {
     BLUE_SPARK = CONST_ME_BLUE_ENERGY_SPARK,
     YELLOW_SPARK = CONST_ME_YELLOW_ENERGY_SPARK
 }
+
+SHOOT_EFFECTS = {
+	SUDDEN_DEATH_RUNE = CONST_ANI_SUDDENDEATH,
+	FIRE_STRIKE = CONST_ANI_FIRE,
+}
+
+function CREATE_SPELL(spellConfig)
+    local area = spellConfig.area
+    local type = spellConfig.type
+    local effect = spellConfig.effect
+    local shootEffect = spellConfig.shootEffect
+    local name = spellConfig.name
+    local words = spellConfig.words
+    local needDirection = spellConfig.needDirection
+    local condition = spellConfig.condition
+    local needTarget = spellConfig.needTarget or false
+
+    local combat = Combat()
+    combat:setArea(createCombatArea(area))
+    combat:setParameter(COMBAT_PARAM_TYPE, type)
+    combat:setParameter(COMBAT_PARAM_EFFECT, effect)
+
+    local spell = Spell("instant")
+
+    spell:name(name)
+    spell:words(words)
+    spell:isAggressive(true)
+    spell:blockWalls(true)
+    spell:needLearn(true)
+	spell:needTarget(needTarget)
+
+    if(needDirection) then
+        spell:needDirection(true)
+    end
+
+	if(shootEffect) then
+		combat:setParameter(COMBAT_PARAM_SHOOT_EFFECT, shootEffect)
+	end
+
+    if(condition) then
+        local test = Condition(condition.type)
+        test:setParameter(CONDITION_PARAM_DELAYED, 1)
+
+        if(condition.type == CONDITION_FIRE) then
+            test:addDamage(condition.ticks or 10, condition.interval, -10)
+        elseif(condition.type == CONDITION_POISON ) then
+      	    test:addDamage(condition.ticks or 10, condition.interval, -condition.tick or 5)
+        elseif(condition.type == CONDITION_ENERGY) then
+            test:addDamage(condition.ticks or 10, condition.interval, -25)
+        elseif(condition.type == CONDITION_DRUNK) then
+            test:setParameter(CONDITION_PARAM_TICKS, condition.interval)
+        end
+        combat:addCondition(test)
+    end
+
+     function spell.onCastSpell(creature, var)
+        return combat:execute(creature, var)
+     end
+
+    return spell
+end
