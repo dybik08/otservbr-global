@@ -109,49 +109,49 @@ SPELL_AREAS = {
         {3},
     },
     BEAM = {
+        {1},
+        {1},
+        {1},
+        {1},
         {3},
-        {1},
-        {1},
-        {1},
-        {1},
     },
     LONG_BEAM = {
+        {1},
+        {1},
+        {1},
+        {1},
+        {1},
         {3},
-        {1},
-        {1},
-        {1},
-        {1},
-        {1},
     },
     LONGER_BEAM = {
+        {1},
+        {1},
+        {1},
+        {1},
+        {1},
+        {1},
         {3},
-        {1},
-        {1},
-        {1},
-        {1},
-        {1},
-        {1},
     },
     GREAT_BEAM = {
+        {1},
+        {1},
+        {1},
+        {1},
+        {1},
+        {1},
+        {1},
         {3},
-        {1},
-        {1},
-        {1},
-        {1},
-        {1},
-        {1},
-        {1},
     },
     GREATER_BEAM = {
+        {1},
+        {1},
+        {1},
+        {1},
+        {1},
+        {1},
+        {1},
+        {1},
         {3},
-        {1},
-        {1},
-        {1},
-        {1},
-        {1},
-        {1},
-        {1},
-        {1},
     },
     SHORT_WAVE = {
         {0, 0, 1, 1, 1, 0, 0},
@@ -337,7 +337,6 @@ local shortVioletElectricBeam = CREATE_SPELL({
     area = SPELL_AREAS.SHORT_BEAM,
     name ='shortVioletElectricBeam',
     words ='###506',
-    needDirection = true,
 })
 
 shortVioletElectricBeam:register()
@@ -345,10 +344,10 @@ shortVioletElectricBeam:register()
 local deathStrike = CREATE_SPELL({
     type = COMBAT_DEATHDAMAGE,
     effect = SPELL_ANIMATIONS.DEATH,
-    area = SPELL_AREAS.STRIKE,
+    distanceEfect = SHOOT_EFFECTS.SUDDEN_DEATH_RUNE,
     name ='deathStrike',
     words ='###507',
-    needDirection = false
+    needTarget = true
 })
 
 deathStrike:register()
@@ -379,3 +378,40 @@ local blackSteamWave = CREATE_SPELL({
 })
 
 blackSteamWave:register()
+
+local monsterHealing = CREATE_SPELL({
+    type = COMBAT_HEALING,
+    effect = SPELL_ANIMATIONS.BLUE_STARS,
+    name ='monsterHealing',
+    words ='###510'
+})
+
+monsterHealing:register()
+
+local iceStrike = CREATE_SPELL({
+    type = COMBAT_ICEDAMAGE,
+    effect = SPELL_ANIMATIONS.ICE_FLAKE,
+    distanceEfect = SHOOT_EFFECTS.ICE_STRIKE,
+    name ='iceStrike',
+    words ='###511',
+    needTarget = true
+})
+
+iceStrike:register()
+
+local greatIcyWindBeam = CREATE_SPELL({
+    type = COMBAT_ICEDAMAGE,
+    effect = SPELL_ANIMATIONS.ICY_WIND,
+    shootEffect = SHOOT_EFFECTS.ICE_STRIKE,
+    area = SPELL_AREAS.GREAT_BEAM,
+    name ='greatIcyWindBeam',
+    words ='###512',
+    condition = {
+        type = CONDITION_FREEZING,
+        interval = 2000,
+        tickDamage = 8,
+        ticks = 20
+    },
+})
+
+greatIcyWindBeam:register()

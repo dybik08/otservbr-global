@@ -1,3 +1,5 @@
+
+
 --Pre-made areas
 --Waves
 AREA_SHORTWAVE3 = {
@@ -565,21 +567,65 @@ SPELL_ANIMATIONS = {
 SHOOT_EFFECTS = {
 	SUDDEN_DEATH_RUNE = CONST_ANI_SUDDENDEATH,
 	FIRE_STRIKE = CONST_ANI_FIRE,
+	ICE_STRIKE = CONST_ANI_ICE,
+	ENERGY_STRIKE = CONST_ANI_ENERGY,
+	DEATH_STRIKE = CONST_ANI_DEATH,
 }
 
+SPELL_AREAS = {
+    -- RADIUS BASED SPELLS
+    STRIKE = 1, -- radius 1
+    CROSS = 2, -- radius 2
+    BOX = 3, -- radius 3
+    BALL = 4, -- radius 4
+    GREATER_BALL = 5, -- radius 5
+    ULTIMATE_BALL = 6, -- radius 6
+    THE_GREATEST_BALL = 7, -- radius 7
+    CIRCLE = 1,
+    -- LENGTH BASED SPELLS
+    TINY_BEAM = 1, -- length
+    SHORTER_BEAM = 2, -- length
+    SHORT_BEAM = 3, -- length
+    BEAM = 4, -- length
+    LONG_BEAM = 5, -- length
+    LONGER_BEAM = 6, -- length
+    GREAT_BEAM = 7, -- length
+    GREATER_BEAM = 8, -- length,
+    -- LENGTH BASED SPELLS with spread = 3 - WAVES
+    SHORT_WAVE = 4,
+    WAVE = 5,
+    LONG_WAVE = 6,
+    LONGER_WAVE = 7,
+    GREAT_WAVE = 8,
+    -- LENGTH BASED SPELLS with spread = 2 - CONE WAVES
+    TINY_CONE_WAVE = 2,
+    SHORTER_CONE_WAVE = 3,
+    SHORT_CONE_WAVE = 4,
+    CONE_WAVE = 5,
+    LONG_CONE_WAVE = 6,
+    LONGER_CONE_WAVE = 7,
+    GREAT_CONE_WAVE = 8,
+}
+--
 function CREATE_SPELL(spellConfig)
     local area = spellConfig.area
     local type = spellConfig.type
     local effect = spellConfig.effect
     local shootEffect = spellConfig.shootEffect
+    local distanceEfect = spellConfig.distanceEfect
     local name = spellConfig.name
     local words = spellConfig.words
-    local needDirection = spellConfig.needDirection
+    local range = spellConfig.range or 7
+    local needDirection = spellConfig.needDirection or false
     local condition = spellConfig.condition
     local needTarget = spellConfig.needTarget or false
 
     local combat = Combat()
-    combat:setArea(createCombatArea(area))
+
+	if(area) then
+		combat:setArea(createCombatArea(area))
+	end
+
     combat:setParameter(COMBAT_PARAM_TYPE, type)
     combat:setParameter(COMBAT_PARAM_EFFECT, effect)
 
@@ -590,14 +636,35 @@ function CREATE_SPELL(spellConfig)
     spell:isAggressive(true)
     spell:blockWalls(true)
     spell:needLearn(true)
+	spell:range(range)
 	spell:needTarget(needTarget)
+	spell:needDirection(needDirection)
 
-    if(needDirection) then
-        spell:needDirection(true)
-    end
+	if(string.find(name:lower(), 'strike')) then
+		spell:needCasterTargetOrDirection(true)
+	end
+
+	if(string.find(name:lower(), 'heal')) then
+		spell:isAggressive(false)
+		spell:isSelfTarget(true)
+		spell:group("healing")
+		combat:setParameter(COMBAT_PARAM_AGGRESSIVE, false)
+	end
+
+	if(string.find(name:lower(), 'beam')) then
+		spell:needDirection(true)
+	end
+
+	if(string.find(name:lower(), 'wave')) then
+		spell:needDirection(true)
+	end
 
 	if(shootEffect) then
 		combat:setParameter(COMBAT_PARAM_SHOOT_EFFECT, shootEffect)
+	end
+
+	if(distanceEfect) then
+		combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, distanceEfect)
 	end
 
     if(condition) then
@@ -607,9 +674,11 @@ function CREATE_SPELL(spellConfig)
         if(condition.type == CONDITION_FIRE) then
             test:addDamage(condition.ticks or 10, condition.interval, -10)
         elseif(condition.type == CONDITION_POISON ) then
-      	    test:addDamage(condition.ticks or 10, condition.interval, -condition.tick or 5)
+      	    test:addDamage(condition.ticks or 10, condition.interval, -condition.tickDamage or 5)
         elseif(condition.type == CONDITION_ENERGY) then
             test:addDamage(condition.ticks or 10, condition.interval, -25)
+		elseif(condition.type == CONDITION_FREEZING) then
+            test:addDamage(condition.ticks or 10, condition.interval, -condition.tickDamage or 10)
         elseif(condition.type == CONDITION_DRUNK) then
             test:setParameter(CONDITION_PARAM_TICKS, condition.interval)
         end
@@ -622,3 +691,5 @@ function CREATE_SPELL(spellConfig)
 
     return spell
 end
+
+
