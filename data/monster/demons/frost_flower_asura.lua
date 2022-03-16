@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Frost Flower Asura")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "16/03/2022",
+ }
+
 monster.description = "a frost flower asura"
 monster.experience = 4200
 monster.outfit = {
@@ -72,22 +77,59 @@ monster.voices = {
 	chance = 10,
 }
 
+-- ordered descending
 monster.loot = {
-	{id = 3031, chance = 97000, maxCount = 242},
-	{id = 3031, chance = 97000, maxCount = 102},
-	{id = 3567, chance = 2000}
+	{name = "platinum coin", chance = 100000, maxCount = 6},
+	{name = "gold coin", chance = 100000, maxCount = 242},
+	{name="soul orb", chance = 20020},
+	{name = "flask of demonic blood", chance = 19640},
+	{name="golden lotus brooch", chance = 16350},
+	{name="peacock feather fan", chance = 15970},
+	{name="demonic essence", chance = 15090},
+	{name="great health potion", chance = 12350, maxCount = 2},
+	{name="assassin star", chance = 9400, maxCount = 5},
+	{name="white pearl", chance = 8760, maxCount = 2},
+	{name="small diamond", chance = 8200, maxCount = 3},
+	{name="small sapphire", chance = 7820, maxCount = 3},
+	{name="black pearl", chance = 5520, maxCount = 2},
+	{name="silver brooch", chance = 4670},
+	{name="small topaz", chance = 4470, maxCount = 2},
+	{name="small emerald", chance = 4470, maxCount = 2},
+	{name="small ruby", chance = 3910, maxCount = 2},
+	{name="tribal mask", chance = 3210},
+	{name="northwind rod", chance = 2540},
+	{name="silver amulet", chance = 1660},
+	{name="hailstorm rod", chance = 1400},
+	{name="yellow gem", chance = 1340},
+	{name="blue robe", chance = 960},
+	{name="oriental shoes", chance = 550},
+	{id = 3007, chance = 550}, -- crystal ring,
+	{name="assassin dagger", chance = 500},
+	{name="spellbook of mind control", chance = 290},
+	{name="blue gem", chance = 260},
+	{name="gold ingot", chance = 260},
+	{name="skullcracker armor", chance = 150},
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -110, maxDamage = -400},
-	{name ="combat", interval = 1300, chance = 14, type = COMBAT_HOLYDAMAGE, minDamage = -185, maxDamage = -210, length = 8, spread = 3, effect = CONST_ME_ICETORNADO, target = false},
-	{name ="combat", interval = 1000, chance = 9, type = COMBAT_ICEDAMAGE, minDamage = -120, maxDamage = -200, range = 7, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICEATTACK, target = true}
+	-- Basic attack (0-200 physical)
+	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -200},
+
+	-- Short Violet Electric Beam (70-130 mana drain)
+	{name ="shortVioletElectricBeam", interval = 2000, chance = 10, minDamage = -70, maxDamage = -130},
+
+	-- Ice Strike (150-200 ice, on target)
+	{name ="iceStrike", interval = 2000, chance = 10, minDamage = -150, maxDamage = -200},
+
+	-- Great Icy Wind Beam (effect: freeze 8hp/tick)
+	{name ="greatIcyWindBeam", interval = 2000, chance = 10, minDamage = -0, maxDamage = -0},
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 56,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 90, maxDamage = 150, effect = CONST_ME_MAGIC_BLUE, target = false}
+	-- Healing
+	{name ="monsterHealing", interval = 2000, chance = 75, minDamage = 50, maxDamage = 100},
 }
 
 monster.elements = {
