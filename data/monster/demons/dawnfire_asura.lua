@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Dawnfire Asura")
 local monster = {}
 
+monster.Credits = {
+   Developer = "Wojciech Dybikowski",
+   lastUpdate = "15/03/2022",
+}
+
 monster.description = "a dawnfire asura"
 monster.experience = 4100
 monster.outfit = {
