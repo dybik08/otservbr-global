@@ -479,3 +479,14 @@ local groundshakerBox = CREATE_SPELL({
 })
 
 groundshakerBox:register()
+
+local poisonHit = CREATE_SPELL({
+    type = COMBAT_POISONDAMAGE,
+    effect = SPELL_ANIMATIONS.POISON,
+    area = SPELL_AREAS.STRIKE,
+    name ='poisonHit',
+    words ='###519',
+    needTarget = true,
+})
+
+poisonHit:register()
