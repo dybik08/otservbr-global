@@ -1,8 +1,13 @@
 local mType = Game.createMonsterType("Cobra Assassin")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "16/03/2022",
+ }
+
 monster.description = "a cobra assassin"
-monster.experience = 8316
+monster.experience = 6980
 monster.outfit = {
 	lookType = 1217,
 	lookHead = 2,
@@ -75,24 +80,39 @@ monster.voices = {
 	{text = "You will not leave this place breathing!", yell = false}
 }
 
+-- order descending
 monster.loot = {
-	{name = "platinum coin", chance = 100000, maxCount = 3},
-	{name = "knife", chance = 10500},
-	{name = "cobra crest", chance = 7750},
-	{id = 3307, chance = 7750},
-	{name = "protection amulet", chance = 7500},
-	{name = "heavy machete", chance = 6500},
-	{name = "bone sword", chance = 5000},
-	{name = "machete", chance = 2250},
-	{name = "carlin sword", chance = 2250},
-	{id = 23533, chance = 1690}
+	{name = "platinum coin", chance = 74990, maxCount = 9},
+	{name = "opal", chance = 33630, maxCount = 5},
+	{name = "small emerald", chance = 27820, maxCount = 3},
+	{name = "knife", chance = 23610},
+	{id = 3307, name = "scimitar", chance = 17630},
+	{name = "cobra crest", chance = 14990},
+	{name = "protection amulet", chance = 14090},
+	{name = "bone sword", chance = 9860},
+	{name = "heavy machete", chance = 7430},
+	{id = 16121, name = "green crystal shard", chance = 7380},
+	{name = "machete", chance = 5500},
+	{id = 9058, name = "gold ingot", chance = 5140},
+	{name = "carlin sword", chance = 4700},
+	{id = 5944, name = "soul orb", chance = 1810},
+	{id=16126, name="red crystal fragment", chance = 1030},
+	{id=31297, name="empty ritual flask", chance = 100},
 }
 
+
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450},
-	{name ="wave t", interval = 2000, chance = 10, minDamage = -300, maxDamage = -380, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -280, maxDamage = -400, radius = 4, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_PHYSICALDAMAGE, minDamage = -250, maxDamage = -400, length = 5, spread = 3, effect = CONST_ME_BLOCKHIT, target = false}
+	-- Basic attack (0-500 physical)
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
+
+	-- Eruption Ball (350-500 physical, on self)
+	{name ="eruptionBall", interval = 2000, chance = 10, minDamage = -350, maxDamage = -500},
+
+	-- Shorter Poison T-Wave (240-400 earth)
+	{name ="shorterPoisonTWave", interval = 2000, chance = 15, minDamage = -240, maxDamage = -400},
+
+	-- Sparky Beam (380-500 physical)
+	{name ="sparkyBeam", interval = 2000, chance = 92, minDamage = -380, maxDamage = -500}
 }
 
 monster.defenses = {
