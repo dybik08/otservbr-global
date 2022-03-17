@@ -1,8 +1,13 @@
 local mType = Game.createMonsterType("Cobra Scout")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "17/03/2022",
+ }
+
 monster.description = "a cobra scout"
-monster.experience = 8712
+monster.experience = 7310
 monster.outfit = {
 	lookType = 1217,
 	lookHead = 1,
@@ -76,28 +81,36 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "platinum coin", chance = 74000, maxCount = 9},
-	{name = "earth arrow", chance = 19490, maxCount = 28},
-	{name = "stone skin amulet", chance = 6800},
-	{name = "gold ingot", chance = 5750, maxCount = 1},
-	{name = "cheesy figurine", chance = 13800},
-	{name = "opal", chance = 23800, maxCount = 5},
+	{id = 3035, name = "platinum coin", chance = 74000, maxCount = 9},
+	{name = "opal", chance = 24670, maxCount = 5},
+	{id = 774, name = "earth arrow", chance = 20900, maxCount = 28},
 	{name = "cobra crest", chance = 15450},
-	{name = "small emerald", chance = 3000, maxCount = 2},
-	{name = "violet gem", chance = 1300},
-	{name = "yellow gem", chance = 3060},
-	{name = "green gem", chance = 1210},
-	{id= 3039, chance = 4800},
-	{name = "sacred tree amulet", chance = 5100},
-	{name = "green crystal shard", chance = 2130},
-	{id = 23533, chance = 740}-- ring of red plasma
+	{name = "cheesy figurine", chance = 11940},
+	{name = "stone skin amulet", chance = 6140},
+	{name = "gold ingot", chance = 5890, maxCount = 1},
+	{name = "sacred tree amulet", chance = 4560},
+	{id = 3039, name = "red gem", chance = 4410},
+	{name = "yellow gem", chance = 3020},
+	{name = "small emerald", chance = 2580, maxCount = 2},
+	{name = "green crystal shard", chance = 2030},
+	{name = "violet gem", chance = 1780},
+	{name = "green gem", chance = 1680},
+	{id = 23533, name="ring of red plasma", chance = 840},-- ring of red plasma
+	{id = 31297, name="empty ritual flask", chance = 100},
 }
 
 monster.attacks = {
+	-- Basic attack (0-450 physical)
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
-	{name ="combat", interval = 2000, chance = 22, type = COMBAT_EARTHDAMAGE, minDamage = -350, maxDamage = -450, shootEffect = CONST_ANI_SNIPERARROW, target = true},
-	{name ="combat", interval = 2000, chance = 16, type = COMBAT_EARTHDAMAGE, minDamage = -300, maxDamage = -420, radius = 4, shootEffect = CONST_ANI_POISONARROW, effect = CONST_ME_GREEN_RINGS, target = true},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_PHYSICALDAMAGE, minDamage = -300, maxDamage = -380, radius = 3, effect = CONST_ME_GROUNDSHAKER, target = false}
+
+	-- Ranged attack (300-500 earth) (Poison Arrow)
+	{name ="posionArrow", interval = 2000, chance = 22, minDamage = -300, maxDamage = -500},
+
+	-- Poison Ball (200-350 earth, on target)
+	{name ="poisonBall", interval = 2000, chance = 16, minDamage = -200, maxDamage = -350},
+
+	-- Groundshaker Box (300-400 physical, on self)
+	{name ="groundshakerBox", interval = 2000, chance = 12, minDamage = -300, maxDamage = -400}
 }
 
 monster.defenses = {
