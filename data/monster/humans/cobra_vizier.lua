@@ -1,8 +1,13 @@
 local mType = Game.createMonsterType("Cobra Vizier")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "17/03/2022",
+ }
+
 monster.description = "a cobra vizier"
-monster.experience = 9108
+monster.experience = 7650
 monster.outfit = {
 	lookType = 1217,
 	lookHead = 19,
@@ -11,6 +16,10 @@ monster.outfit = {
 	lookFeet = 19,
 	lookAddons = 0,
 	lookMount = 0
+}
+
+monster.events = {
+	"reflectChainedDeathMissile"
 }
 
 monster.raceId = 1824
@@ -76,35 +85,35 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "platinum coin", chance = 85480, maxCount = 4},
-	{name = "terra rod", chance = 43000},
-	{name = "snakebite rod", chance = 20970},
-	{name = "cobra crest", chance = 16130},
-	{name = "terra hood", chance = 13710},
-	{name = "cyan crystal fragment", chance = 10805},
-	{name = "terra boots", chance = 9680},
-	{id = 281, chance = 8870}, -- giant shimmering pearl
-	{id= 3039, chance = 6450},
-	{name = "emerald bangle", chance = 5650},
-	{name = "gemmed figurine", chance = 4840},
-	{name = "green crystal fragment", chance = 3230},
-	{name = "red crystal fragment", chance = 3230},
-	{name = "serpent sword", chance = 2420},
-	{name = "violet crystal shard", chance = 2420},
-	{name = "green gem", chance = 1610},
-	{name = "onyx chip", chance = 1610, maxCount = 3}
+	{id = 3035, name = "platinum coin", chance = 73540, maxCount = 4},
+	{name = "terra rod", chance = 34110},
+	{name = "cobra crest", chance = 15380},
+	{name = "terra boots", chance = 14690},
+	{name = "terra hood", chance = 13920},
+	{name = "snakebite rod", chance = 12800},
+	{name = "cyan crystal fragment", chance = 11340},
+	{id = 281, name = "giant shimmering pearl", chance = 6790}, -- giant shimmering pearl
+	{id= 3039, name = "red gem", chance = 6790},
+	{name = "green crystal fragment", chance = 5240},
+	{name = "violet crystal shard", chance = 4810},
+	{name = "gemmed figurine", chance = 4640},
+	{name = "green gem", chance = 3690},
+	{name = "emerald bangle", chance = 3520},
+	{name = "serpent sword", chance = 3090},
+	{name = "red crystal fragment", chance = 2660},
+	{name = "onyx chip", chance = 950, maxCount = 3}
+	{id=31297, name="empty ritual flask", chance = 100},
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -480},
-	{name ="explosion wave", interval = 2000, chance = 15, minDamage = -280, maxDamage = -400, target = false},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_EARTHDAMAGE, minDamage = -350, maxDamage = -520, radius = 4, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_GREEN_RINGS, target = true}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
+	{name ="poisonHit", interval = 2000, chance = 95, minDamage = -200, maxDamage = -400},
 }
 
 monster.defenses = {
 	defense = 82,
 	armor = 82,
-	{name ="speed", interval = 2000, chance = 8, speedChange = 250, effect = CONST_ME_MAGIC_GREEN, target = false, duration = 5000}
+	{name ="monsterHealing", interval = 2000, chance = 8, minDamage = 100, maxDamage = 200 }
 }
 
 monster.elements = {
