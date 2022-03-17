@@ -415,3 +415,67 @@ local greatIcyWindBeam = CREATE_SPELL({
 })
 
 greatIcyWindBeam:register()
+
+local eruptionBall = CREATE_SPELL({
+    type = COMBAT_PHYSICALDAMAGE,
+    effect = SPELL_ANIMATIONS.ERUPTION,
+    area = SPELL_AREAS.BALL,
+    name ='eruptionBall',
+    words ='###513',
+})
+
+eruptionBall:register()
+
+local shorterPoisonTWave = CREATE_SPELL({
+    type = COMBAT_POISONDAMAGE,
+    effect = SPELL_ANIMATIONS.POISON,
+    area = SPELL_AREAS.SHORTER_T_WAVE,
+    name ='shorterPoisonTWave',
+    words ='###514',
+})
+
+shorterPoisonTWave:register()
+
+local sparkyBeam = CREATE_SPELL({
+    type = COMBAT_PHYSICALDAMAGE,
+    effect = SPELL_ANIMATIONS.SPARKY,
+    area = SPELL_AREAS.BEAM,
+    name ='sparkyBeam',
+    words ='###515',
+})
+
+sparkyBeam:register()
+
+local poisonBall = CREATE_SPELL({
+    type = COMBAT_POISONDAMAGE,
+    effect = SPELL_ANIMATIONS.POISON,
+    distanceEfect = SHOOT_EFFECTS.POISON_ARROW,
+    area = SPELL_AREAS.BALL,
+    name ='poisonBall',
+    words ='###516',
+    needTarget = true,
+})
+
+poisonBall:register()
+
+local posionArrow = CREATE_SPELL({
+    type = COMBAT_POISONDAMAGE,
+    effect = SPELL_ANIMATIONS.POISON,
+    distanceEfect = SHOOT_EFFECTS.POISON_ARROW,
+    area = SPELL_AREAS.STRIKE,
+    name ='posionArrow',
+    words ='###517',
+    needTarget = true,
+})
+
+posionArrow:register()
+
+local groundshakerBox = CREATE_SPELL({
+    type = COMBAT_PHYSICALDAMAGE,
+    effect = SPELL_ANIMATIONS.GROUND_SHAKER,
+    area = SPELL_AREAS.BOX,
+    name ='groundshakerBox',
+    words ='###518',
+})
+
+groundshakerBox:register()
