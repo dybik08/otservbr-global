@@ -490,3 +490,57 @@ local poisonHit = CREATE_SPELL({
 })
 
 poisonHit:register()
+
+local iceBox =
+    CREATE_SPELL(
+    {
+        type = COMBAT_ICEDAMAGE,
+        effect = SPELL_ANIMATIONS.ICE_FLAKE,
+        area = SPELL_AREAS.BOX,
+        name = "iceBox",
+        words = "###520",
+        needTarget = true
+    }
+)
+
+iceBox:register()
+
+local icyFlakeConeWave =
+    CREATE_SPELL(
+    {
+        type = COMBAT_ICEDAMAGE,
+        effect = SPELL_ANIMATIONS.ICE_FLAKE,
+        area = SPELL_AREAS.CONE_WAVE,
+        name = "icyFlakeConeWave",
+        words = "###521",
+        needDirection = true
+    }
+)
+
+icyFlakeConeWave:register()
+
+local blueStarsBox =
+    CREATE_SPELL(
+    {
+        type = COMBAT_PHYSICALDAMAGE,
+        effect = SPELL_ANIMATIONS.BLUE_STARS,
+        area = SPELL_AREAS.BOX,
+        name = "blueStarsBox",
+        words = "###522"
+    }
+)
+
+blueStarsBox:register()
+
+local greaterBlueStarsBall =
+    CREATE_SPELL(
+    {
+        type = COMBAT_LIFEDRAIN,
+        effect = SPELL_ANIMATIONS.BLUE_STARS,
+        area = SPELL_AREAS.GREATER_BALL,
+        name = "greaterBlueStarsBall",
+        words = "###523"
+    }
+)
+
+greaterBlueStarsBall:register()
