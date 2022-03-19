@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Burster Spectre")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "19/03/2022"
+}
+
 monster.description = "a Burster Spectre"
 monster.experience = 6000
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Haunted Tomb west of Darashia, Buried Cathedral."
-	}
+}
 
 monster.health = 6500
 monster.maxHealth = 6500
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -76,46 +81,87 @@ monster.voices = {
 	{text = "We came tooo thiiiiss wooorld to... get youuu!", yell = false}
 }
 
+-- ordered descending
 monster.loot = {
-	{name = "platinum coin", chance = 100000, maxCount = 7},
-	{name = "great spirit potion", chance = 100000, maxCount = 3},
-	{name = "protection amulet", chance = 15000},
-	{name = "life crystal", chance = 12050},
-	{name = "silver amulet", chance = 15000},
-	{name = "wand of voodoo", chance = 11050},
-	{name = "wand of cosmic energy", chance = 11800},
-	{name = "dragon necklace", chance = 16600},
-	{name = "stone skin amulet", chance = 8860},
-	{id = 30082, chance = 15600},
-	{name = "glacier amulet", chance = 16890},
-	{name = "orb", chance = 18980},
-	{name = "hailstorm rod", chance = 17550},
-	{name = "elven amulet", chance = 1800},
-	{name = "garlic necklace", chance = 2640},
-	{name = "platinum amulet", chance = 2600},
-	{name = "mind stone", chance = 1800},
-	{name = "glacial rod", chance = 520},
-	{name = "shockwave amulet", chance = 620},
-	{name = "strange symbol", chance = 720},
-	{name = "hexagonal ruby", chance = 480}
+	{id = 3035, name = "platinum coin", chance = 74610, maxCount = 7},
+	{name = "great spirit potion", chance = 23380, maxCount = 3},
+	{name = "protection amulet", chance = 7690},
+	{name = "life crystal", chance = 7440},
+	{name = "wand of voodoo", chance = 3470},
+	{name = "wand of cosmic energy", chance = 3000},
+	{name = "stone skin amulet", chance = 2270},
+	{name = "glacier amulet", chance = 2110},
+	{name = "dragon necklace", chance = 2080},
+	{id = 30082, name = "blue ectoplasm", chance = 2060},
+	{name = "platinum amulet", chance = 1680},
+	{name = "orb", chance = 1410},
+	{name = "hailstorm rod", chance = 890},
+	{name = "glacial rod", chance = 630},
+	{name = "hexagonal ruby", chance = 600},
+	{name = "garlic necklace", chance = 510},
+	{name = "elven amulet", chance = 340},
+	{name = "shockwave amulet", chance = 290},
+	{name = "strange symbol", chance = 170},
+	{name = "mind stone", chance = 150}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -400, maxDamage = -580},
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_LIFEDRAIN, minDamage = -270, maxDamage = -390, radius = 4, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_ICEDAMAGE, minDamage = -280, maxDamage = -410, radius = 4, effect = CONST_ME_ICEAREA, target = true},
-	{name ="combat", interval = 2000, chance = 5200, type = COMBAT_ICEDAMAGE, minDamage = -280, maxDamage = -370, effect = CONST_ME_ICEATTACK, target = true},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -200, maxDamage = -290, length = 5, spread = 3, effect = CONST_ME_ICEATTACK, target = false}
+	-- Basic attack (0-400 physical)
+	{name = "melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -400},
+	-- Ice Box (250-350 ice, on target)
+	{
+		name = "iceBox",
+		interval = 2000,
+		chance = 25,
+		minDamage = -260,
+		maxDamage = -350
+	},
+	-- Icy Flake Cone-Wave (200-380 ice)
+	{
+		name = "icyFlakeConeWave",
+		interval = 2000,
+		chance = 25,
+		minDamage = -200,
+		maxDamage = -380
+	},
+	-- Blue Stars Box (200-300 physical, on self)
+	{
+		name = "blueStarsBox",
+		interval = 2000,
+		chance = 25,
+		minDamage = -200,
+		maxDamage = -300
+	},
+	-- Greater Blue Stars Ball (300-400 life drain, on self)
+	{
+		name = "greaterBlueStarsBall",
+		interval = 2000,
+		chance = 25,
+		minDamage = -300,
+		maxDamage = -400
+	}
 }
 
 monster.defenses = {
 	defense = 70,
 	armor = 70,
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_HEALING, minDamage = 150, maxDamage = 200, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 30,
+		type = COMBAT_HEALING,
+		minDamage = 150,
+		maxDamage = 200,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.reflects = {
-	{type = COMBAT_ICEDAMAGE, percent = 133}
+	-- Reflect (Reflect ice attacks)
+	{type = COMBAT_ICEDAMAGE, percent = 133},
+	-- Healing (150-200 heal)
+	{name = "monsterHealing", interval = 2000, chance = 8, minDamage = 150, maxDamage = 200}
 }
 
 monster.elements = {
@@ -127,8 +173,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 70},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

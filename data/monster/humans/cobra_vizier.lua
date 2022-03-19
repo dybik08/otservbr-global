@@ -84,6 +84,7 @@ monster.voices = {
 	{text = "OH NO, YOU WON'T!", yell = false}
 }
 
+-- ordered descending
 monster.loot = {
 	{id = 3035, name = "platinum coin", chance = 73540, maxCount = 4},
 	{name = "terra rod", chance = 34110},
@@ -101,7 +102,7 @@ monster.loot = {
 	{name = "emerald bangle", chance = 3520},
 	{name = "serpent sword", chance = 3090},
 	{name = "red crystal fragment", chance = 2660},
-	{name = "onyx chip", chance = 950, maxCount = 3}
+	{name = "onyx chip", chance = 950, maxCount = 3},
 	{id=31297, name="empty ritual flask", chance = 100},
 }
 
