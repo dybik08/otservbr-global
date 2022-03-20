@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Thanatursus")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "20/03/2022"
+}
+
 monster.description = "a Thanatursus"
 monster.experience = 6300
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Haunted Temple, Court of Winter, Dream Labyrinth."
-	}
+}
 
 monster.health = 7200
 monster.maxHealth = 7200
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -77,40 +82,75 @@ monster.voices = {
 	{text = "Nobody will ever escape from this place, muwahaha!!!", yell = false}
 }
 
+-- ordered descending
 monster.loot = {
-	{name = "Platinum Coin", chance = 100000, maxCount = 17},
-	{name = "Meat", chance = 90000, maxCount = 3},
-	{name = "Great Spirit Potion", chance = 50000, maxCount = 3},
-	{name = "Ultimate Health Potion", chance = 50000},
-	{name = "Essence of a Bad Dream", chance = 17000},
-	{name = "Knight Axe", chance = 14000},
-	{name = "Mino Shield", chance = 12000},
-	{name = "Terra Boots", chance = 7000},
-	{name = "Terra Hood", chance = 6400},
-	{name = "Beastslayer Axe", chance = 500},
-	{name = "Black Shield", chance = 3500},
-	{name = "Bloody Pincers", chance = 4200},
-	{name = "Dark Shield", chance = 1500},
-	{name = "Obsidian Lance", chance = 1500},
-	{name = "Sickle", chance = 1100},
-	{name = "Titan Axe", chance = 1100},
-	{name = "Wand of Cosmic Energy", chance = 400},
-	{name = "Wand of Defiance", chance = 400},
-	{name = "Warrior's Axe", chance = 400},
-	{name = "Warrior's Shield", chance = 400}
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 20},
+	{name = "Meat", chance = 50370, maxCount = 3},
+	{name = "Ham", chance = 14810, maxCount = 3},
+	{name = "Essence of a Bad Dream", chance = 12780},
+	{name = "Halberd", chance = 11630},
+	{name = "Terra Boots", chance = 9680},
+	{name = "Ultimate Health Potion", chance = 8670},
+	{name = "Terra Hood", chance = 6920},
+	{name = "Great Spirit Potion", chance = 6460, maxCount = 3},
+	{name = "Knight Axe", chance = 5700},
+	{name = "Mino Shield", chance = 5280},
+	{name = "Beastslayer Axe", chance = 4180},
+	{name = "Wand of Cosmic Energy", chance = 3740},
+	{name = "Dark Shield", chance = 3690},
+	{name = "Black Shield", chance = 3140},
+	{name = "Obsidian Lance", chance = 2930},
+	{name = "Warrior's Shield", chance = 2610},
+	{name = "Sickle", chance = 2520},
+	{name = "Warrior's Axe", chance = 2230},
+	{name = "Bloody Pincers", chance = 2100},
+	{name = "Titan Axe", chance = 1660},
+	{name = "Wand of Defiance", chance = 1560}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -450},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -250, maxDamage = -400, radius = 3, effect = CONST_ME_HOLYAREA, target = true},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -280, maxDamage = -450, length = 4, spread = 3, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -250, maxDamage = -400, radius = 6, effect = CONST_ME_BLOCKHIT, target = true}
+	-- Basic attack (0-450 physical)
+	{name = "melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -450},
+	-- Energy Strike (200-350 energy, on target)
+	{
+		name = "energyStrike",
+		interval = 2000,
+		chance = 20,
+		minDamage = -200,
+		maxDamage = -350
+	},
+	-- Holy Box (200-300 holy, on self)
+
+	{
+		name = "holyBoxSelf",
+		interval = 2000,
+		chance = 20,
+		minDamage = -200,
+		maxDamage = -300
+	},
+	-- Sparky Box (200-300 holy, on target)
+
+	{
+		name = "sparkyBoxTarget",
+		interval = 2000,
+		chance = 15,
+		minDamage = -200,
+		maxDamage = -300
+	},
+	-- Great Sparky Ball (250-400 holy, on self)
+	{
+		name = "greatSparkyBallSelf",
+		interval = 2000,
+		chance = 15,
+		minDamage = -250,
+		maxDamage = -400
+	}
 }
 
 monster.defenses = {
 	defense = 25,
-	armor = 78,
-	{name ="combat", interval = 2000, chance = 14, type = COMBAT_HEALING, minDamage = 150, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false}
+	armor = 78
+	-- {name ="combat", interval = 2000, chance = 14, type = COMBAT_HEALING, minDamage = 150, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
@@ -120,7 +160,7 @@ monster.elements = {
 	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 100},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
 	{type = COMBAT_HOLYDAMAGE , percent = 20},
 	{type = COMBAT_DEATHDAMAGE , percent = -20}
