@@ -719,3 +719,44 @@ local eruptionBoxSelf =
 )
 
 eruptionBoxSelf:register()
+
+
+local shortFlameBeam =
+    CREATE_SPELL(
+    {
+        type = COMBAT_FIREDAMAGE,
+        effect = SPELL_ANIMATIONS.FLAME,
+        area = SPELL_AREAS.SHORT_BEAM,
+        name = "shortFlameBeam",
+        words = "###537"
+    }
+)
+
+shortFlameBeam:register()
+
+local detonationBoxSelf =
+    CREATE_SPELL(
+    {
+        type = COMBAT_FIREDAMAGE,
+        effect = SPELL_ANIMATIONS.DETONATION,
+        area = SPELL_AREAS.BOX,
+        name = "detonationBoxSelf",
+        words = "###538"
+    }
+)
+
+detonationBoxSelf:register()
+
+local eruptionBoxTarget =
+    CREATE_SPELL(
+    {
+        type = COMBAT_FIREDAMAGE,
+        effect = SPELL_ANIMATIONS.ERUPTION,
+        area = SPELL_AREAS.BOX,
+        name = "eruptionBoxTarget",
+        words = "###539",
+        needTarget = true
+    }
+)
+
+eruptionBoxTarget:register()
