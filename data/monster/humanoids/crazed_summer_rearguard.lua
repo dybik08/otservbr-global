@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Crazed Summer Rearguard")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "20/03/2022"
+}
+
 monster.description = "a Crazed Summer Rearguard"
 monster.experience = 4700
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 5,
 	Occurrence = 0,
 	Locations = "Court of Winter, Dream Labyrinth."
-	}
+}
 
 monster.health = 5300
 monster.maxHealth = 5300
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -78,31 +83,43 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "power bolt", chance = 1000000},
-	{name = "small enchanted sapphire", chance = 1000000, maxCount = 2},
-	{name = "platinum coin", chance = 1000000, maxCount = 5},
-	{id = 5921, chance = 1500},
-	{name = "dream essence egg", chance = 1155},
-	{name = "elvish talisman", chance = 1355},
-	{name = "violet crystal shard", chance = 1475},
-	{name = "small enchanted ruby", chance = 1755},
-	{name = "red crystal fragment", chance = 1565},
-	{name = "leaf star", chance = 11100, maxCount = 8},
-	{id = 23529, chance = 1000},
-	{name = "sun fruit", chance = 25800},
-	{id = 23542, chance = 1590},-- collar of blue plasma
-	{name = "wood cape", chance = 30000},
-	{name = "small diamond", chance = 800},
-	{name = "yellow gem", chance = 640},
-	{name = "crystal crossbow", chance = 600}
+	{id = 3035, name = "platinum coin", chance = 84950, maxCount = 11},
+	{id = 5921, name = "heaven blossom", chance = 10200},
+	{name = "dream essence egg", chance = 8670},
+	{name = "elvish talisman", chance = 6910},
+	{name = "small enchanted ruby", chance = 6120},
+	{name = "violet crystal shard", chance = 5090},
+	{name = "leaf star", chance = 4880, maxCount = 8},
+	{name = "red crystal fragment", chance = 4090},
+	{id = 23529, name = "ring of blue plasma", chance = 2350},
+	{name = "wood cape", chance = 1380},
+	{name = "yellow gem", chance = 1260},
+	{name = "sun fruit", chance = 1230},
+	{id = 23542, name = "collar of blue plasma", chance = 1000},
+	{name = "small diamond", chance = 970},
+	{name = "small enchanted sapphire", chance = 910, maxCount = 2},
+	{name = "crystal crossbow", chance = 470}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -210, maxDamage = -530},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -270, maxDamage = -710, length = 3, spread = 0, effect = CONST_ME_FIREAREA, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -250, maxDamage = -300, range = 7, shootEffect = CONST_ANI_FIRE, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -350, maxDamage = -380, radius = 5, effect = CONST_ME_EXPLOSIONHIT, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -350, radius = 5, effect = CONST_ME_EXPLOSIONAREA, target = true}
+	-- Basic attack (0-450 physical)
+	{name = "melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -450},
+	-- Flame Strike (220-300 fire, on target)
+	{
+		name = "flameStrike",
+		interval = 2000,
+		chance = 10,
+		minDamage = -220,
+		maxDamage = -300
+	},
+	-- Eruption Ball (250-300 fire, on target)
+	{
+		name = "eruptionBallTarget",
+		interval = 2000,
+		chance = 10,
+		minDamage = -250,
+		maxDamage = -300
+	}
 }
 
 monster.defenses = {
