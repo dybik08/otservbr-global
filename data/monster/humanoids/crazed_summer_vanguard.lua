@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Crazed Summer Vanguard")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "20/03/2022"
+}
+
 monster.description = "a Crazed Summer Vanguard"
 monster.experience = 5000
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Court of Winter, Dream Labyrinth."
-	}
+}
 
 monster.health = 5500
 monster.maxHealth = 5500
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -77,30 +82,61 @@ monster.voices = {
 	{text = "La di da di doo!!", yell = false}
 }
 
+-- sorted descending
 monster.loot = {
-	{name = "platinum coin", chance = 1000000, maxCount = 13},
-	{name = "elven astral observer", chance = 1000000, maxCount = 2},
-	{name = "dream essence egg", chance = 15000},
-	{name = "belted cape", chance = 11550},
-	{name = "two handed sword", chance = 13550},
-	{name = "seeds", chance = 14750},
-	{id = 3307, chance = 17550},
-	{name = "knife", chance = 15650},
-	{name = "dragon necklace", chance = 14550},
-	{name = "magma amulet", chance = 1655},
-	{name = "wand of dragonbreath", chance = 15150},
-	{name = "wand of draconia", chance = 1263},
-	{name = "magma boots", chance = 11100},
-	{name = "sun fruit", chance = 1800},
-	{name = "bullseye potion", chance = 800}
+	{id = 3035, name = "platinum coin", chance = 84000, maxCount = 13},
+	{name = "elven astral observer", chance = 30580, maxCount = 1},
+	{name = "seeds", chance = 8760},
+	{name = "belted cape", chance = 8730},
+	{name = "dream essence egg", chance = 8580},
+	{name = "two handed sword", chance = 8170},
+	{name = "dragon necklace", chance = 7240},
+	{name = "knife", chance = 6870},
+	{id = 3307, name = "scimitar", chance = 6150},
+	{name = "wand of draconia", chance = 4940},
+	{name = "wand of dragonbreath", chance = 4910},
+	{name = "magma amulet", chance = 4820},
+	{name = "magma boots", chance = 2950},
+	{name = "sun fruit", chance = 710},
+	{name = "bullseye potion", chance = 340}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -160, maxDamage = -530},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -270, maxDamage = -710, length = 3, spread = 0, effect = CONST_ME_FIREAREA, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -250, maxDamage = -300, range = 7, shootEffect = CONST_ANI_FIRE, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -350, maxDamage = -380, radius = 5, effect = CONST_ME_EXPLOSIONHIT, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -350, radius = 5, effect = CONST_ME_EXPLOSIONAREA, target = true}
+	-- Basic attack (0-400 physical)
+	{name = "melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -400},
+	-- Fire Chain (240-300 fire)
+	{
+		name = "firechain",
+		interval = 2000,
+		chance = 10,
+		minDamage = -240,
+		maxDamage = -300,
+		target = true
+	},
+	-- Long Detonation Beam (230-280 fire)
+	{
+		name = "longDetonationBeam",
+		interval = 2000,
+		chance = 10,
+		minDamage = -230,
+		maxDamage = -280
+	},
+	-- Eruption Box (200-300 fire, on self)
+	{
+		name = "eruptionBoxSelf",
+		interval = 2000,
+		chance = 10,
+		minDamage = -200,
+		maxDamage = -300
+	},
+	-- Explosion Ball (200-280 fire, on self)
+	{
+		name = "explosionBall",
+		interval = 2000,
+		chance = 10,
+		minDamage = -200,
+		maxDamage = -280
+	}
 }
 
 monster.defenses = {
