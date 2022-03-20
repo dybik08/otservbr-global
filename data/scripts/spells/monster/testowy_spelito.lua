@@ -693,3 +693,29 @@ local eruptionBallTarget =
 )
 
 eruptionBallTarget:register()
+
+local longDetonationBeam =
+    CREATE_SPELL(
+    {
+        type = COMBAT_FIREDAMAGE,
+        effect = SPELL_ANIMATIONS.DETONATION,
+        area = SPELL_AREAS.LONGER_BEAM,
+        name = "longDetonationBeam",
+        words = "###535"
+    }
+)
+
+longDetonationBeam:register()
+
+local eruptionBoxSelf =
+    CREATE_SPELL(
+    {
+        type = COMBAT_FIREDAMAGE,
+        effect = SPELL_ANIMATIONS.ERUPTION,
+        area = SPELL_AREAS.BOX,
+        name = "eruptionBoxSelf",
+        words = "###536"
+    }
+)
+
+eruptionBoxSelf:register()
