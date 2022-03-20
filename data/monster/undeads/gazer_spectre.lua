@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Gazer Spectre")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "20/03/2022"
+}
+
 monster.description = "a Gazer Spectre"
 monster.experience = 4200
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Haunted Temple, Buried Cathedral."
-	}
+}
 
 monster.health = 4500
 monster.maxHealth = 4500
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -77,37 +82,68 @@ monster.voices = {
 	{text = "Tiiimeee... is... a... windowww!", yell = false}
 }
 
+-- ordered descending
 monster.loot = {
-	{name = "platinum coin", chance = 100000, maxCount = 5},
-	{name = "Brown Crystal Splinter", chance = 900},
-	{name = "Red Crystal Fragment", chance = 8500},
-	{name = "Small Enchanted Ruby", chance = 7500},
-	{name = "Small Diamond", chance = 6000},
-	{name = "Small Sapphire", chance = 5000},
-	{id= 3039, chance = 4000},
-	{name = "Yellow Gem", chance = 3000},
-	{id = 29299, chance = 1100},
-	{name = "Wand of Draconia", chance = 3500},
-	{name = "Wand of Inferno", chance = 1100},
-	{id = 30084, chance = 700},
-	{name = "Magma Coat", chance = 900},
-	{name = "Prismatic Quartz", chance = 1500},
-	{name = "Small Enchanted Emerald", chance = 800},
-	{name = "Onyx Chip", chance = 770},
-	{name = "Hexagonal Ruby", chance = 500}
+	{id = 3035, name = "platinum coin", chance = 73550, maxCount = 5},
+	{name = "Small Diamond", chance = 12230},
+	{name = "Brown Crystal Splinter", chance = 11010},
+	{name = "Small Sapphire", chance = 10570},
+	{id = 3039, name = "red gem", chance = 9740},
+	{name = "Red Crystal Fragment", chance = 8170},
+	{id = 29299, name = "golden idol of Tukh", chance = 5190},
+	{name = "Small Enchanted Ruby", chance = 5080},
+	{name = "Yellow Gem", chance = 4290},
+	{name = "Wand of Draconia", chance = 3040},
+	{name = "Wand of Inferno", chance = 2510},
+	{id = 30084, name = "red ectoplasm", chance = 1710},
+	{name = "Magma Coat", chance = 1590},
+	{name = "Onyx Chip", chance = 1380, maxCount = 2},
+	{name = "Prismatic Quartz", chance = 1270},
+	{name = "Small Enchanted Emerald", chance = 1180, maxCount = 3},
+	{name = "Hexagonal Ruby", chance = 860}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -250, maxDamage = -480},
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -350, range = 7, shootEffect = CONST_ANI_FIRE, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -350, radius = 3, effect = CONST_ME_FIREATTACK, target = true},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -250, maxDamage = -430, length = 4, spread = 3, effect = CONST_ME_YELLOWENERGY, target = false}
+	-- Basic attack (0-350 physical)
+	{name = "melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -350},
+	-- Fire Chain (300-400 fire)
+	{
+		name = "singlefirechain",
+		interval = 2000,
+		chance = 25,
+		minDamage = -300,
+		maxDamage = -400,
+		target = true
+	},
+	-- Flame Box (200-350 fire, on target)
+	{
+		name = "flameBox",
+		interval = 2000,
+		chance = 15,
+		minDamage = -200,
+		maxDamage = -350
+	},
+	-- Red Stars Strike (300-400 life drain, on target)
+	{
+		name = "redStarsStrike",
+		interval = 2000,
+		chance = 15,
+		minDamage = -300,
+		maxDamage = -400
+	}
 }
 
 monster.defenses = {
 	defense = 78,
 	armor = 78,
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_HEALING, minDamage = 150, maxDamage = 200, effect = CONST_ME_MAGIC_BLUE, target = false}
+	-- Healing (100-200 heal)
+	{
+		name = "monsterHealing",
+		interval = 2000,
+		chance = 10,
+		minDamage = 100,
+		maxDamage = 200
+	}
 }
 
 monster.reflects = {
@@ -118,7 +154,7 @@ monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 85},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 70},
+	{type = COMBAT_FIREDAMAGE, percent = 60},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
