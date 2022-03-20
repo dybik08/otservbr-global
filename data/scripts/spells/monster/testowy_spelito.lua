@@ -544,3 +544,29 @@ local greaterBlueStarsBall =
 )
 
 greaterBlueStarsBall:register()
+
+local explosionBall =
+    CREATE_SPELL(
+    {
+        type = COMBAT_POISONDAMAGE,
+        effect = SPELL_ANIMATIONS.EXPLOSION,
+        area = SPELL_AREAS.BALL,
+        name = "explosionBall",
+        words = "###524"
+    }
+)
+
+explosionBall:register()
+
+local tinyGroundshakerTWave =
+    CREATE_SPELL(
+    {
+        type = COMBAT_LIFEDRAIN,
+        effect = SPELL_ANIMATIONS.GROUND_SHAKER,
+        area = SPELL_AREAS.TINY_T_WAVE,
+        name = "tinyGroundshakerTWave",
+        words = "###525"
+    }
+)
+
+tinyGroundshakerTWave:register()
