@@ -665,3 +665,31 @@ local deathBoxSelf =
 )
 
 deathBoxSelf:register()
+
+local flameStrike =
+    CREATE_SPELL(
+    {
+        type = COMBAT_FIREDAMAGE,
+        effect = SPELL_ANIMATIONS.FLAME,
+        area = SPELL_AREAS.STRIKE,
+        name = "flameStrike",
+        words = "###533",
+        needTarget = true
+    }
+)
+
+flameStrike:register()
+
+local eruptionBallTarget =
+    CREATE_SPELL(
+    {
+        type = COMBAT_FIREDAMAGE,
+        effect = SPELL_ANIMATIONS.ERUPTION,
+        area = SPELL_AREAS.BALL,
+        name = "eruptionBallTarget",
+        words = "###534",
+        needTarget = true
+    }
+)
+
+eruptionBallTarget:register()
