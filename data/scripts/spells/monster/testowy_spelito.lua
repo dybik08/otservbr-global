@@ -598,3 +598,70 @@ local flameBox =
 )
 
 flameBox:register()
+
+local shorterEnergyTWave =
+    CREATE_SPELL(
+    {
+        type = COMBAT_ENERGYDAMAGE,
+        effect = SPELL_ANIMATIONS.ENERGY,
+        area = SPELL_AREAS.TWAVE,
+        name = "shorterEnergyTWave",
+        words = "###528",
+        needTarget = true
+    }
+)
+
+shorterEnergyTWave:register()
+
+local deathBoxTarget =
+    CREATE_SPELL(
+    {
+        type = COMBAT_DEATHDAMAGE,
+        effect = SPELL_ANIMATIONS.DEATH,
+        area = SPELL_AREAS.BOX,
+        name = "deathBoxTarget",
+        words = "###529",
+        needTarget = true
+    }
+)
+
+deathBoxTarget:register()
+
+local sparkyBall =
+    CREATE_SPELL(
+    {
+        type = COMBAT_ENERGYDAMAGE,
+        effect = SPELL_ANIMATIONS.SPARKY,
+        area = SPELL_AREAS.BALL,
+        name = "sparkyBall",
+        words = "###530"
+    }
+)
+
+sparkyBall:register()
+
+local longerDicerollBeam =
+    CREATE_SPELL(
+    {
+        type = COMBAT_DEATHDAMAGE,
+        effect = SPELL_ANIMATIONS.DICE,
+        area = SPELL_AREAS.LONGER_BEAM,
+        name = "longerDicerollBeam",
+        words = "###531"
+    }
+)
+
+longerDicerollBeam:register()
+
+local deathBoxSelf =
+    CREATE_SPELL(
+    {
+        type = COMBAT_DEATHDAMAGE,
+        effect = SPELL_ANIMATIONS.DEATH,
+        area = SPELL_AREAS.BOX,
+        name = "deathBoxSelf",
+        words = "###532"
+    }
+)
+
+deathBoxSelf:register()
