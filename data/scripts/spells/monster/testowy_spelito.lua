@@ -760,3 +760,57 @@ local eruptionBoxTarget =
 )
 
 eruptionBoxTarget:register()
+
+local energyStrike =
+    CREATE_SPELL(
+    {
+        type = COMBAT_ENERGYDAMAGE,
+        effect = SPELL_ANIMATIONS.ENERGY,
+        area = SPELL_AREAS.STRIKE,
+        name = "energyStrike",
+        words = "###540",
+        needTarget = true
+    }
+)
+
+energyStrike:register()
+
+local holyBoxSelf =
+    CREATE_SPELL(
+    {
+        type = COMBAT_HOLYDAMAGE,
+        effect = SPELL_ANIMATIONS.HOLY,
+        area = SPELL_AREAS.BOX,
+        name = "holyBoxSelf",
+        words = "###541"
+    }
+)
+
+holyBoxSelf:register()
+
+local sparkyBoxTarget =
+    CREATE_SPELL(
+    {
+        type = COMBAT_HOLYDAMAGE,
+        effect = SPELL_ANIMATIONS.SPARKY,
+        area = SPELL_AREAS.BOX,
+        name = "sparkyBoxTarget",
+        words = "###542",
+        needTarget = true
+    }
+)
+
+sparkyBoxTarget:register()
+
+local greatSparkyBallSelf =
+    CREATE_SPELL(
+    {
+        type = COMBAT_HOLYDAMAGE,
+        effect = SPELL_ANIMATIONS.SPARKY,
+        area = SPELL_AREAS.GREAT_BALL,
+        name = "greatSparkyBallSelf",
+        words = "###543"
+    }
+)
+
+greatSparkyBallSelf:register()
