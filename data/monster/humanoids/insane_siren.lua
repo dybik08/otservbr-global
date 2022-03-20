@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Insane Siren")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "20/03/2022"
+}
+
 monster.description = "an insane siren"
 monster.experience = 6000
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Court of Summer."
-	}
+}
 
 monster.health = 6500
 monster.maxHealth = 6500
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -76,29 +81,76 @@ monster.voices = {
 	{text = "Dream or nightmare?", yell = false}
 }
 
+-- ordered descending
 monster.loot = {
-	{name = "Platinum Coin", chance = 100000, maxCount = 12},
-	{name = "Ultimate Health Potion", chance = 14970},
-	{name = "Miraculum", chance = 13090},
-	{name = "Dream Essence Egg", chance = 11980},
-	{name = "Wand of Draconia", chance = 7700},
-	{name = "Holy Orchid", chance = 5650},
-	{name = "Magma Amulet", chance = 5130},
-	{name = "Wand of Inferno", chance = 4360},
-	{name = "Fire Axe", chance = 3590},
-	{name = "Magma Coat", chance = 3340},
-	{name = "Wand of Dragonbreath", chance = 2650},
-	{name = "Sun Fruit", chance = 2570},
-	{name = "Magma Legs", chance = 1200},
-	{name = "Magma Monocle", chance = 260}
+	{id = 3035, name = "platinum coin", chance = 75040, maxCount = 12},
+	{name = "Ultimate Health Potion", chance = 12390},
+	{name = "Dream Essence Egg", chance = 11250},
+	{name = "Miraculum", chance = 9400},
+	{name = "Wand of Draconia", chance = 5980},
+	{name = "Holy Orchid", chance = 4040},
+	{name = "Wand of Inferno", chance = 3080},
+	{name = "Magma Amulet", chance = 3080},
+	{name = "Wand of Dragonbreath", chance = 2810},
+	{name = "Fire Axe", chance = 2370},
+	{name = "Magma Coat", chance = 1850},
+	{name = "Sun Fruit", chance = 1490},
+	{name = "Magma Legs", chance = 790},
+	{name = "Magma Monocle", chance = 350}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -530},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -270, maxDamage = -710, length = 3, spread = 0, effect = CONST_ME_FIREAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -250, maxDamage = -300, range = 7, shootEffect = CONST_ANI_FIRE, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -350, maxDamage = -380, radius = 5, effect = CONST_ME_EXPLOSIONHIT, target = true},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -350, radius = 5, effect = CONST_ME_EXPLOSIONAREA, target = true}
+	-- Basic attack (0-500 physical)
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
+	-- Fire Chain (100-250 fire)
+	{
+		name = "firechain",
+		interval = 2000,
+		chance = 20,
+		minDamage = -100,
+		maxDamage = -250,
+		target = true
+	},
+	-- Flame Strike (100-200 fire, on target)
+	{
+		name = "flameStrike",
+		interval = 2000,
+		chance = 15,
+		minDamage = -100,
+		maxDamage = -200
+	},
+	-- Short Flame Beam (140-230 fire)
+	{
+		name = "shortFlameBeam",
+		interval = 2000,
+		chance = 10,
+		minDamage = -140,
+		maxDamage = -230
+	},
+	-- Detonation Box (250-400 fire, on self)
+	{
+		name = "detonationBoxSelf",
+		interval = 2000,
+		chance = 15,
+		minDamage = -250,
+		maxDamage = -400
+	},
+	-- Eruption Box (100-300 fire, on target) (Burst Arrow)
+	{
+		name = "eruptionBoxTarget",
+		interval = 2000,
+		chance = 15,
+		minDamage = -100,
+		maxDamage = -300
+	},
+	-- Eruption Ball (100-300 fire, on self)
+	{
+		name = "eruptionBall",
+		interval = 2000,
+		chance = 15,
+		minDamage = -100,
+		maxDamage = -300
+	}
 }
 
 monster.defenses = {
@@ -115,8 +167,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -20},
-	{type = COMBAT_HOLYDAMAGE , percent = 25},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 25},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {
