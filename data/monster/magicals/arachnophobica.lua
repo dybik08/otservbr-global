@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Arachnophobica")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "20/03/2022"
+}
+
 monster.description = "an arachnophobica"
 monster.experience = 4700
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Buried Cathedral, Haunted Cellar, Court of Summer, Court of Winter, Dream Labyrinth."
-	}
+}
 
 monster.health = 5000
 monster.maxHealth = 5000
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -76,50 +81,103 @@ monster.voices = {
 	{text = "Tip tap tip tap!", yell = false}
 }
 
+-- ordered descending
 monster.loot = {
-	{name = "platinum coin", chance = 100000, maxCount = 14},
-	{name = "great spirit potion", chance = 100000, maxCount = 3},
-	{name = "essence of a bad dream", chance = 15000},
-	{id = 3051, chance = 12050}, -- Energy ring
-	{name = "silver amulet", chance = 15000},
-	{id = 3091, chance = 11050}, -- Sword ring
-	{name = "spider fangs", chance = 11800},
-	{name = "mind stone", chance = 17800},
-	{name = "wand of cosmic energy", chance = 17800},
-	{name = "magma amulet", chance = 8900},
-	{name = "elven amulet", chance = 8100, maxCount = 2},
-	{id = 23544, chance = 10590},
-	{name = "sacred tree amulet", chance = 7500},
-	{name = "spider silk", chance = 6500},
-	{id = 3052, chance = 5560}, -- Life ring
-	{name = "orb", chance = 7800},
-	{name = "underworld rod", chance = 7120},
-	{id = 23529, chance = 1000},
-	{id = 3098, chance = 9120}, -- Ring of healing
-	{name = "strange talisman", chance = 8110},
-	{id = 3092, chance = 7220}, -- Axe ring
-	{id = 3050, chance = 6080}, -- Power ring
-	{id = 6299, chance = 7502},
-	{name = "garlic necklace", chance = 7550},
-	{name = "platinum amulet", chance = 7650},
-	{id = 23543, chance = 10590}, -- Collar of green plasma
-	{name = "Strange Symbol", chance = 2640},
-	{name = "stone skin amulet", chance = 2600},
-	{name = "necklace of the deep", chance = 1800}
+	{id = 3035, name = "platinum coin", chance = 81510, maxCount = 13},
+	{name = "great spirit potion", chance = 30070, maxCount = 3},
+	{name = "spider fangs", chance = 10200},
+	{name = "essence of a bad dream", chance = 7600},
+	{name = "silver amulet", chance = 6750},
+	{id = 3091, name = "sword ring", chance = 5560}, -- Sword ring
+	{name = "mind stone", chance = 4540},
+	{name = "wand of cosmic energy", chance = 4260},
+	{id = 3051, name = "energy ring", chance = 4240}, -- Energy ring
+	{name = "underworld rod", chance = 2810},
+	{id = 3052, name = "life ring", chance = 2650}, -- Life ring
+	{id = 3092, name = "axe ring", chance = 2600}, -- Axe ring
+	{name = "elven amulet", chance = 2450, maxCount = 1},
+	{id = 3050, name = "power ring", chance = 2250}, -- Power ring
+	{id = 6299, name = "death ring", chance = 2000},
+	{name = "magma amulet", chance = 1940},
+	{name = "orb", chance = 1910},
+	{name = "platinum amulet", chance = 1810},
+	{name = "sacred tree amulet", chance = 1670},
+	{id = 23544, name = "collar of red plasma", chance = 1270},
+	{name = "spider silk", chance = 1180},
+	{id = 3098, name = "ring of healing", chance = 1070}, -- Ring of healing
+	{name = "necklace of the deep", chance = 1070},
+	{id = 23529, name = "ring of blue plasma", chance = 1050},
+	{name = "garlic necklace", chance = 1010},
+	{name = "strange talisman", chance = 660},
+	{name = "stone skin amulet", chance = 620},
+	{name = "Strange Symbol", chance = 530},
+	{id = 23543, name = "collar of green plasma", chance = 400} -- Collar of green plasma
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -350},
-	{name ="arachnophobicawavedice", interval = 2000, chance = 20, minDamage = -250, maxDamage = -350, target = false},
-	{name ="arachnophobicawaveenergy", interval = 2000, chance = 20, minDamage = -250, maxDamage = -350, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -250, maxDamage = -350, radius = 4, effect = CONST_ME_BLOCKHIT, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -300, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = false}
+	-- Basic attack (0-450 physical)
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450},
+	-- Shorter Energy T-Wave (200-350 energy)
+	{
+		name = "shorterEnergyTWave",
+		interval = 2000,
+		chance = 20,
+		minDamage = -250,
+		maxDamage = -350
+	},
+	-- Death Strike (200-300 death, on target)
+	{
+		name = "deathStrike",
+		interval = 2000,
+		chance = 20,
+		minDamage = -200,
+		maxDamage = -300
+	},
+	-- Death Box (250-300 death, on target)
+	{
+		name = "deathBoxTarget",
+		interval = 2000,
+		chance = 10,
+		minDamage = -250,
+		maxDamage = -300
+	},
+	-- Sparky Ball (200-300 energy, on self)
+	{
+		name = "sparkyBall",
+		interval = 2000,
+		chance = 10,
+		minDamage = -200,
+		maxDamage = -300
+	},
+	-- Longer Diceroll Beam (130-200 death)
+	{
+		name = "longerDicerollBeam",
+		interval = 2000,
+		chance = 10,
+		minDamage = -130,
+		maxDamage = -200
+	},
+	-- Death Box (250-300 death, on self)
+	{
+		name = "deathBoxSelf",
+		interval = 2000,
+		chance = 10,
+		minDamage = -250,
+		maxDamage = -300
+	}
 }
 
 monster.defenses = {
 	defense = 0,
 	armor = 70,
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 150, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false}
+	-- Healing (100-200 heal)
+	{
+		name = "monsterHealing",
+		interval = 2000,
+		chance = 10,
+		minDamage = 150,
+		maxDamage = 250
+	}
 }
 
 monster.elements = {
@@ -131,8 +189,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -40},
-	{type = COMBAT_DEATHDAMAGE , percent = 50}
+	{type = COMBAT_HOLYDAMAGE, percent = -40},
+	{type = COMBAT_DEATHDAMAGE, percent = 50}
 }
 
 monster.immunities = {
