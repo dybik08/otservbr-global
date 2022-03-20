@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Ripper Spectre")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "19/03/2022"
+}
+
 monster.description = "a ripper spectre"
 monster.experience = 3500
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Haunted Cellar, Buried Cathedral."
-	}
+}
 
 monster.health = 3800
 monster.maxHealth = 3800
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -72,40 +77,78 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
+-- ordered descending
 monster.loot = {
-	{name = "platinum coin", chance = 100000, maxCount = 5},
-	{name = "Great Spirit Potion", chance = 30910, maxCount = 2},
-	{name = "Two Handed Sword", chance = 16500},
-	{name = "Terra Rod", chance = 4780},
-	{name = "Silver Brooch", chance = 15190},
-	{name = "Emerald Bangle", chance = 14740},
-	{name = "Twin Hooks", chance = 1170},
-	{name = "Springsprout Rod", chance = 1210},
-	{id = 30083, chance = 1890},
-	{name = "Coral Brooch", chance = 1330},
-	{name = "Serpent Sword", chance = 1950},
-	{name = "Hexagonal Ruby", chance = 800},
-	{name = "Assassin Dagger", chance = 970},
-	{name = "Spike Sword", chance = 530},
-	{name = "Wyvern Fang", chance = 120}
+	{id = 3035, name = "platinum coin", chance = 74450, maxCount = 4},
+	{name = "Great Spirit Potion", chance = 22730, maxCount = 2},
+	{name = "Two Handed Sword", chance = 11500},
+	{name = "Terra Rod", chance = 6920},
+	{name = "Emerald Bangle", chance = 3650},
+	{name = "Silver Brooch", chance = 3570},
+	{name = "Twin Hooks", chance = 3070},
+	{name = "Springsprout Rod", chance = 2190},
+	{id = 30083, name = "green ectoplasm", chance = 2160},
+	{name = "Serpent Sword", chance = 1080},
+	{name = "Coral Brooch", chance = 900},
+	{name = "Hexagonal Ruby", chance = 780},
+	{name = "Assassin Dagger", chance = 680},
+	{name = "Spike Sword", chance = 230},
+	{name = "Wyvern Fang", chance = 100}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -370},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -390, radius = 4, effect = CONST_ME_GREEN_RINGS, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -320, maxDamage = -460, radius = 4, effect = CONST_ME_EXPLOSIONAREA, target = true},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -340, length = 3, spread = 0, effect = CONST_ME_GROUNDSHAKER, target = false}
+	-- Basic attack (0-350 physical, effect: poison 10hp/tick)
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		minDamage = 0,
+		maxDamage = -370,
+		condition = {type = CONDITION_POISON, totalDamage = 10, interval = 4000}
+	},
+	-- Poison Ball (210-300 earth, on self)
+	{
+		name = "poisonBall",
+		interval = 2000,
+		chance = 20,
+		minDamage = -210,
+		maxDamage = -300
+	},
+	-- Explosion Ball (150-300 earth, on self)
+	{
+		name = "explosionBall",
+		interval = 2000,
+		chance = 15,
+		minDamage = -150,
+		maxDamage = -300
+	},
+	-- Tiny Groundshaker T-Wave (80-200 life drain)
+	{
+		name = "tinyGroundshakerTWave",
+		interval = 2000,
+		chance = 20,
+		minDamage = -80,
+		maxDamage = -200
+	}
 }
 
 monster.defenses = {
 	defense = 69,
 	armor = 69,
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 150, maxDamage = 200, effect = CONST_ME_MAGIC_BLUE, target = false}
+	-- Healing (60-140 heal)
+	{
+		name = "monsterHealing",
+		interval = 2000,
+		chance = 10,
+		minDamage = 60,
+		maxDamage = 140
+	}
 }
 
+-- Reflect (Odbija ataki z ziemi)
 monster.reflects = {
 	{type = COMBAT_EARTHDAMAGE, percent = 133}
 }
