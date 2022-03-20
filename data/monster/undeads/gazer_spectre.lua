@@ -108,7 +108,7 @@ monster.attacks = {
 	{name = "melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -350},
 	-- Fire Chain (300-400 fire)
 	{
-		name = "singlefirechain",
+		name = "firechain",
 		interval = 2000,
 		chance = 25,
 		minDamage = -300,
