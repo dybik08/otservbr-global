@@ -570,3 +570,31 @@ local tinyGroundshakerTWave =
 )
 
 tinyGroundshakerTWave:register()
+
+local redStarsStrike =
+    CREATE_SPELL(
+    {
+        type = COMBAT_LIFEDRAIN,
+        effect = SPELL_ANIMATIONS.RED_STARS,
+        area = SPELL_AREAS.STRIKE,
+        name = "redStarsStrike",
+        words = "###526",
+        needTarget = true
+    }
+)
+
+redStarsStrike:register()
+
+local flameBox =
+    CREATE_SPELL(
+    {
+        type = COMBAT_FIREDAMAGE,
+        effect = SPELL_ANIMATIONS.FLAME,
+        area = SPELL_AREAS.BOX,
+        name = "flameBox",
+        words = "###527",
+        needTarget = true
+    }
+)
+
+flameBox:register()
