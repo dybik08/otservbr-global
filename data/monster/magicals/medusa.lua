@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Medusa")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "21/03/2022"
+}
+
 monster.description = "a medusa"
 monster.experience = 4050
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 5,
 	Occurrence = 0,
 	Locations = "Vandura Mountain (single spawn), Talahu (Medusa Cave), Deeper Banuta, Medusa Tower."
-	}
+}
 
 monster.health = 4500
 monster.maxHealth = 4500
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -79,36 +84,81 @@ monster.voices = {
 	{text = "Are you tired or why are you moving thhat ssslow <chuckle>", yell = false}
 }
 
+-- ordered descending
 monster.loot = {
-	{name = "gold coin", chance = 50000, maxCount = 100},
-	{name = "gold coin", chance = 50000, maxCount = 90},
-	{name = "small emerald", chance = 3770, maxCount = 4},
-	{name = "platinum coin", chance = 74810, maxCount = 6},
-	{name = "knight armor", chance = 1840},
-	{name = "medusa shield", chance = 3040},
-	{name = "titan axe", chance = 1160},
-	{name = "great mana potion", chance = 10000, maxCount = 2},
-	{name = "terra mantle", chance = 870},
-	{name = "terra legs", chance = 420},
-	{name = "terra amulet", chance = 4060},
-	{name = "ultimate health potion", chance = 9290, maxCount = 2},
-	{id = 8896, chance = 500},
-	{name = "sacred tree amulet", chance = 850},
-	{name = "strand of medusa hair", chance = 9900}
+	{name = "gold coin", chance = 100000, maxCount = 190},
+	{id = 3035, name = "platinum coin", chance = 75150, maxCount = 6},
+	{name = "ultimate health potion", chance = 10110, maxCount = 2},
+	{name = "strand of medusa hair", chance = 9990},
+	{name = "great mana potion", chance = 9930, maxCount = 2},
+	{name = "small emerald", chance = 4040, maxCount = 4},
+	{name = "terra amulet", chance = 3950},
+	{name = "medusa shield", chance = 3050},
+	{name = "knight armor", chance = 2000},
+	{name = "titan axe", chance = 1200},
+	{name = "sacred tree amulet", chance = 890},
+	{name = "terra mantle", chance = 810},
+	{name = "terra legs", chance = 440},
+	{id = 8896, name = "slightly rusted armor", chance = 310}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450, condition = {type = CONDITION_POISON, totalDamage = 840, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -21, maxDamage = -350, range = 7, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_CARNIPHILA, target = true},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -250, maxDamage = -500, length = 8, spread = 3, effect = CONST_ME_CARNIPHILA, target = false},
-	{name ="speed", interval = 2000, chance = 25, radius = 7, effect = CONST_ME_POFF, target = true},
-	{name ="outfit", interval = 2000, chance = 1, range = 7, target = true, duration = 3000, outfitMonster = "clay guardian"}
+	-- Basic attack (0-300 physical, effect: poison 40hp/tick)
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		minDamage = 0,
+		maxDamage = -300,
+		condition = {type = CONDITION_POISON, totalDamage = 840, interval = 4000}
+	},
+	-- Terra Strike (100-250 life drain, on target)
+	{
+		name = "TerraStrikeLifeDrain",
+		interval = 2000,
+		chance = 20,
+		minDamage = -100,
+		maxDamage = -250
+	},
+	-- Great Terra Wave (250-450 earth)
+	{
+		name = "GreatWaterWave",
+		interval = 2000,
+		chance = 15,
+		minDamage = -250,
+		maxDamage = -450
+	},
+	-- Ultimate Smoke Ball (on target, effect: paralyze)
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 25,
+		radius = 7,
+		effect = CONST_ME_POFF,
+		target = true
+	},
+	{
+		name = "outfit",
+		interval = 2000,
+		chance = 1,
+		range = 7,
+		target = true,
+		duration = 3000,
+		outfitMonster = "clay guardian"
+	}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HEALING, minDamage = 150, maxDamage = 300, effect = CONST_ME_MAGIC_BLUE, target = false}
+	-- Healing
+	{
+		name = "monsterHealing",
+		interval = 2000,
+		chance = 25,
+		minDamage = 150,
+		maxDamage = 300
+	}
 }
 
 monster.elements = {
@@ -120,8 +170,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {
