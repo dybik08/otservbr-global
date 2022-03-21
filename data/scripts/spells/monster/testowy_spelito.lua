@@ -1,3 +1,11 @@
+function assign(object1, object2)
+    for key, value in pairs(object2) do
+        object1[key] = value
+    end
+
+    return object1
+end
+
 SPELL_AREAS = {
     STRIKE = {
         {0, 0, 0},
@@ -814,3 +822,73 @@ local greatSparkyBallSelf =
 )
 
 greatSparkyBallSelf:register()
+
+local rangedAttackSpear =
+    CREATE_SPELL(
+    {
+        type = COMBAT_PHYSICALDAMAGE,
+        effect = SPELL_ANIMATIONS.BLOOD,
+        distanceEfect = SHOOT_EFFECTS.SPEAR,
+        area = SPELL_AREAS.STRIKE,
+        name = "rangedAttackSpear",
+        words = "###544",
+        needTarget = true
+    }
+)
+
+rangedAttackSpear:register()
+
+local explosionStrikeDefaultConfig = {
+    effect = SPELL_ANIMATIONS.EXPLOSION,
+    area = SPELL_AREAS.STRIKE,
+    needTarget = true
+}
+
+local explosionStrikeLargeRock =
+    CREATE_SPELL(
+    assign(
+        {
+            type = COMBAT_PHYSICALDAMAGE,
+            name = "explosionStrikeLargeRock",
+            words = "###545",
+            distanceEfect = SHOOT_EFFECTS.LARGE_ROCK
+        },
+        explosionStrikeDefaultConfig
+    )
+)
+
+explosionStrikeLargeRock:register()
+
+local groundshakerBallDefaultConfig = {
+    type = COMBAT_PHYSICALDAMAGE,
+    effect = SPELL_ANIMATIONS.GROUND_SHAKER,
+    area = SPELL_AREAS.BALL
+}
+
+local groundshakerBall =
+    CREATE_SPELL(
+    assign(
+        {
+            name = "groundshakerBall",
+            words = "###546"
+        },
+        groundshakerBallDefaultConfig
+    )
+)
+
+groundshakerBall:register()
+
+local groundshakerBallEarth =
+    CREATE_SPELL(
+    assign(
+        groundshakerBallDefaultConfig,
+        {
+            type = COMBAT_POISONDAMAGE,
+            name = "groundshakerBallEarth",
+            words = "###547"
+        }
+    )
+)
+
+groundshakerBallEarth:register()
+
