@@ -964,3 +964,28 @@ local GreatWaterWave = CREATE_SPELL(GreatWaterWaveDefaultConfig)
 
 GreatWaterWave:register()
 
+
+local TerraStrikeDefaultConfig = {
+    type = COMBAT_POISONDAMAGE,
+    effect = SPELL_ANIMATIONS.TERRA,
+    area = SPELL_AREAS.STRIKE,
+    name = "TerraStrike",
+    words = "###552",
+    needTarget = true
+}
+
+local TerraStrike = CREATE_SPELL(TerraStrikeDefaultConfig)
+
+TerraStrike:register()
+
+local TerraStrikeLifeDrain =
+    CREATE_SPELL(
+    assign(
+        TerraStrikeDefaultConfig,
+        {
+            type = COMBAT_LIFEDRAIN,
+            name = "TerraStrikeLifeDrain",
+            words = "###553"
+        }
+    )
+)
