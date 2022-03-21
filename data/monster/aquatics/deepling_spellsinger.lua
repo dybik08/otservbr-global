@@ -1,10 +1,15 @@
-local mType = Game.createMonsterType("Deepling Spellsinger")
+local mType = Game.createMonsterType("Deathling Spellsinger")
 local monster = {}
 
-monster.description = "a deepling spellsinger"
-monster.experience = 1000
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "21/03/2022"
+}
+
+monster.description = "a deathling spellsinger"
+monster.experience = 6400
 monster.outfit = {
-	lookType = 443,
+	lookType = 1088,
 	lookHead = 0,
 	lookBody = 0,
 	lookLegs = 0,
@@ -13,24 +18,24 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.raceId = 772
+monster.raceId = 1677
 monster.Bestiary = {
 	class = "Aquatic",
 	race = BESTY_RACE_AQUATIC,
-	toKill = 1000,
-	FirstUnlock = 50,
-	SecondUnlock = 500,
-	CharmsPoints = 25,
-	Stars = 3,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
 	Occurrence = 0,
-	Locations = "Fiehonja."
-	}
+	Locations = "Ancient Ancestorial Grounds and Sunken Temple."
+}
 
-monster.health = 850
-monster.maxHealth = 850
+monster.health = 7200
+monster.maxHealth = 7200
 monster.race = "blood"
-monster.corpse = 13771
-monster.speed = 190
+monster.corpse = 28851
+monster.speed = 310
 monster.manaCost = 0
 
 monster.changeTarget = {
@@ -39,10 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 70,
-	health = 10,
-	damage = 10,
-	random = 10,
+	nearest = 100
 }
 
 monster.flags = {
@@ -57,7 +59,7 @@ monster.flags = {
 	canPushCreatures = true,
 	staticAttackChance = 60,
 	targetDistance = 1,
-	runHealth = 60,
+	runHealth = 20,
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
@@ -73,39 +75,64 @@ monster.light = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Jey Obu giotja!!", yell = false},
-	{text = "Mmmmmoooaaaaaahaaa!!", yell = false}
+	{text = 'BOQOL"°', yell = false},
+	{text = 'QOL" VBOXCL°', yell = false}
 }
 
+-- ordered descending
 monster.loot = {
-	{name = "platinum coin", chance = 80120},
-	{name = "gold coin", chance = 75110, maxCount = 60},
-	{name = "spellsinger's seal", chance = 15185},
-	{name = "deepling filet", chance = 14995},
-	{name = "key to the Drowned Library", chance = 10740},
-	{id = 3578, chance = 3448},--fish
-	{name = "small sapphire", chance = 2934},
-	{name = "eye of a deepling", chance = 2540},
-	{id = 3052, chance = 2459}, -- Life ring
-	{name = "deepling staff", chance = 2020},
-	{name = "necklace of the deep", chance = 790},
-	{name = "fish fin", chance = 520},
-	{name = "ornate crossbow", chance = 220}
+	{id = 3035, name = "platinum coin", chance = 84530, maxCount = 14},
+	{name = "crystalline arrow", chance = 25440, maxCount = 25},
+	{name = "Deepling Filet", chance = 13940},
+	{name = "Deeptags", chance = 13160},
+	{name = "Small Emerald", chance = 11770, maxCount = 14},
+	{name = "Deepling Ridge", chance = 10110},
+	{name = "Great Health Potion", chance = 8770},
+	{name = "Deepling Warts", chance = 8590},
+	{name = "Great Mana Potion", chance = 7200},
+	{name = "Vortex Bolt", chance = 5820, maxCount = 25},
+	{name = "Eye of a Deepling", chance = 4890},
+	{name = "Fish Fin", chance = 4340},
+	{name = "Warrior's Shield", chance = 3550},
+	{name = "Heavy Trident", chance = 2860},
+	{name = "Warrior's Axe", chance = 2450},
+	{id = 3052, name = "life ring", chance = 2310}, -- Life ring
+	{name = "Small Enchanted Sapphire", chance = 2080, maxCount = 4},
+	{name = "Necklace of the Deep", chance = 280}
 }
-
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -152, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -180, maxDamage = -350, length = 10, spread = 3, effect = CONST_ME_ICETORNADO, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DROWNDAMAGE, minDamage = -90, maxDamage = -130, radius = 4, effect = CONST_ME_BUBBLES, target = true},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -60, maxDamage = -140, range = 7, effect = CONST_ME_SMALLPLANTS, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = -60, maxDamage = -140, range = 7, effect = CONST_ME_SMALLPLANTS, target = false},
-	{name ="deepling spellsinger skill reducer", interval = 2000, chance = 5, range = 5, target = false}
+	-- Basic attack (0-300 physical)
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
+	-- Ranged attack (100-400 physical) (Spear)
+	{
+		name = "rangedAttackSpear",
+		interval = 4000,
+		chance = 15,
+		minDamage = -100,
+		maxDamage = -400
+	},
+	-- Long Holy Beam (400-700 holy)
+	{
+		name = "longHolyBeam",
+		interval = 2000,
+		chance = 14,
+		minDamage = -400,
+		maxDamage = -700
+	},
+	-- Explosion Strike (150-300 physical, on target) (Big Stone)
+	{
+		name = "explosionStrikeLargeRock",
+		interval = 4000,
+		chance = 15,
+		minDamage = -150,
+		maxDamage = -300
+	}
 }
 
 monster.defenses = {
-	defense = 25,
-	armor = 42
+	defense = 72,
+	armor = 72
 }
 
 monster.elements = {
@@ -117,8 +144,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 50}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 10}
 }
 
 monster.immunities = {
