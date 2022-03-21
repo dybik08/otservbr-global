@@ -1,9 +1,26 @@
+function deepcopy(orig)
+    local orig_type = type(orig)
+    local copy
+    if orig_type == "table" then
+        copy = {}
+        for orig_key, orig_value in next, orig, nil do
+            copy[deepcopy(orig_key)] = deepcopy(orig_value)
+        end
+        setmetatable(copy, deepcopy(getmetatable(orig)))
+    else -- number, string, boolean, etc
+        copy = orig
+    end
+    return copy
+end
+
 function assign(object1, object2)
+    local newObject = deepcopy(object1)
+
     for key, value in pairs(object2) do
-        object1[key] = value
+        newObject[key] = value
     end
 
-    return object1
+    return newObject
 end
 
 SPELL_AREAS = {
@@ -454,15 +471,17 @@ local sparkyBeam = CREATE_SPELL({
 
 sparkyBeam:register()
 
-local poisonBall = CREATE_SPELL({
+local poisonBallDefaultConfig = {
     type = COMBAT_POISONDAMAGE,
     effect = SPELL_ANIMATIONS.POISON,
     distanceEfect = SHOOT_EFFECTS.POISON_ARROW,
     area = SPELL_AREAS.BALL,
-    name ='poisonBall',
-    words ='###516',
-    needTarget = true,
-})
+    name = "poisonBall",
+    words = "###516",
+    needTarget = true
+}
+
+local poisonBall = CREATE_SPELL(poisonBallDefaultConfig)
 
 poisonBall:register()
 
@@ -891,4 +910,57 @@ local groundshakerBallEarth =
 )
 
 groundshakerBallEarth:register()
+
+local longHolyBeamDefaultConfig = {
+    type = COMBAT_HOLYDAMAGE,
+    effect = SPELL_ANIMATIONS.HOLY,
+    area = SPELL_AREAS.LONG_BEAM,
+    name = "longHolyBeam",
+    words = "###548",
+    needDirection = true
+}
+
+local longHolyBeam = CREATE_SPELL(longHolyBeamDefaultConfig)
+
+longHolyBeam:register()
+
+
+local greatTerraWaveDefaultConfig = {
+    type = COMBAT_POISONDAMAGE,
+    effect = SPELL_ANIMATIONS.TERRA,
+    area = SPELL_AREAS.GREAT_WAVE,
+    name = "greatTerraWave",
+    words = "###549",
+    needDirection = true
+}
+
+local greatTerraWave = CREATE_SPELL(greatTerraWaveDefaultConfig)
+
+greatTerraWave:register()
+
+local IcyFlakeStrikeDefaultConfig = {
+    type = COMBAT_ICEDAMAGE,
+    effect = SPELL_ANIMATIONS.ICE_FLAKE,
+    area = SPELL_AREAS.STRIKE,
+    name = "IcyFlakeStrike",
+    words = "###550",
+    needTarget = true
+}
+
+local IcyFlakeStrike = CREATE_SPELL(IcyFlakeStrikeDefaultConfig)
+
+IcyFlakeStrike:register()
+
+local GreatWaterWaveDefaultConfig = {
+    type = COMBAT_ICEDAMAGE,
+    effect = SPELL_ANIMATIONS.WATER,
+    area = SPELL_AREAS.GREAT_WAVE,
+    name = "GreatWaterWave",
+    words = "###551",
+    needDirection = true
+}
+
+local GreatWaterWave = CREATE_SPELL(GreatWaterWaveDefaultConfig)
+
+GreatWaterWave:register()
 
