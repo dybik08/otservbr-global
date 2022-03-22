@@ -989,3 +989,31 @@ local TerraStrikeLifeDrain =
         }
     )
 )
+
+TerraStrikeLifeDrain:register()
+
+local PoisonWaveDefaultConfig = {
+    type = COMBAT_POISONDAMAGE,
+    effect = SPELL_ANIMATIONS.POISON,
+    area = SPELL_AREAS.GREAT_WAVE,
+    name = "PoisonWave",
+    words = "###554",
+    needDirection = true
+}
+
+local PoisonWave = CREATE_SPELL(PoisonWaveDefaultConfig)
+
+PoisonWave:register()
+
+local MusicalNotesBeamDefaultConfig = {
+    type = COMBAT_LIFEDRAIN,
+    effect = SPELL_ANIMATIONS.RED_NOTES,
+    area = SPELL_AREAS.BEAM,
+    name = "MusicalNotesBeam",
+    words = "###555",
+    needDirection = true
+}
+
+local MusicalNotesBeam = CREATE_SPELL(MusicalNotesBeamDefaultConfig)
+
+MusicalNotesBeam:register()
