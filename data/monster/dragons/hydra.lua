@@ -92,7 +92,7 @@ monster.loot = {
 	{name = "gold coin", chance = 87790, maxCount = 249},
 	{name = "ham", chance = 60000, maxCount = 4},
 	{id = 3035, name = "platinum coin", chance = 50110, maxCount = 3},
-	{name = "hydra head", chance = 10080}
+	{name = "hydra head", chance = 10080},
 	{name = "small sapphire", chance = 4970},
 	{name = "cucumber", chance = 4970},
 	{id = 3098, name = "Ring of healing", chance = 1180}, -- Ring of healing
@@ -104,7 +104,7 @@ monster.loot = {
 	{name = "strong mana potion", chance = 410},
 	{name = "royal helmet", chance = 230},
 	{name = "medusa shield", chance = 220},
-	{name = "boots of haste", chance = 120},
+	{name = "boots of haste", chance = 120}
 }
 
 monster.attacks = {
@@ -122,14 +122,14 @@ monster.attacks = {
 		effect = CONST_ME_GREEN_RINGS,
 		target = true,
 		duration = 15000
-	}
+	},
 	-- Great Terra Wave (70-270 earth)
 	{
 		name = "greatTerraWave",
 		interval = 2000,
 		chance = 10,
 		minDamage = -70,
-		maxDamage = -270,
+		maxDamage = -270
 	},
 	-- Icy Flake Strike (70-180 ice, on target)
 	{
@@ -137,7 +137,7 @@ monster.attacks = {
 		interval = 2000,
 		chance = 10,
 		minDamage = -70,
-		maxDamage = -180,
+		maxDamage = -180
 	},
 	-- Great Water Wave (135-200 ice, on target)
 	{
@@ -145,9 +145,8 @@ monster.attacks = {
 		interval = 2000,
 		chance = 10,
 		minDamage = -70,
-		maxDamage = -180,
-	},
-
+		maxDamage = -180
+	}
 }
 
 monster.defenses = {
@@ -158,7 +157,7 @@ monster.defenses = {
 		interval = 2000,
 		chance = 25,
 		minDamage = 260,
-		maxDamage = 407,
+		maxDamage = 407
 	}
 }
 

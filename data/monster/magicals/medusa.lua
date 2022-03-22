@@ -151,7 +151,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	-- Healing
+	-- Healing (150 - 300)
 	{
 		name = "monsterHealing",
 		interval = 2000,
