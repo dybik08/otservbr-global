@@ -906,3 +906,29 @@ function Player:doCheckBossRoom(bossName, fromPos, toPos)
 	end
 	return true
 end
+
+
+function deepcopy(orig)
+	local orig_type = type(orig)
+	local copy
+	if orig_type == "table" then
+		copy = {}
+		for orig_key, orig_value in next, orig, nil do
+			copy[deepcopy(orig_key)] = deepcopy(orig_value)
+		end
+		setmetatable(copy, deepcopy(getmetatable(orig)))
+	else -- number, string, boolean, etc
+		copy = orig
+	end
+	return copy
+end
+
+function concat(object1, object2)
+	local newObject = deepcopy(object1)
+
+	for key, value in pairs(object2) do
+		newObject[key] = value
+	end
+
+	return newObject
+end
