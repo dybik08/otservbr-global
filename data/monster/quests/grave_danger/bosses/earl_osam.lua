@@ -76,7 +76,7 @@ monster.loot = {
 	{name = "mastermind potion", minCount = 0, maxCount = 10, chance = 12000},
 	{name = "berserk potion", minCount = 0, maxCount = 10, chance = 12000},
 	{name = "piece of draconian steel", minCount = 0, maxCount = 3, chance = 9000},
-	{id = 3039, minCount = 0, maxCount = 2, chance = 12000},
+	{id = 3039, name = "red gem", minCount = 0, maxCount = 2, chance = 12000},
 	{name = "silver token", minCount = 0, maxCount = 2, chance = 9500},
 	{id = 23542, name = "collar of blue plasma", chance = 5200},
 	-- collar of blue plasma

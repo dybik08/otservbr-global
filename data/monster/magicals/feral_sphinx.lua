@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Feral Sphinx")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "26/03/2022"
+}
+
 monster.description = "a feral sphinx"
 monster.experience = 8800
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Kilmaresh, south of Issavi."
-	}
+}
 
 monster.health = 9800
 monster.maxHealth = 9800
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,35 +74,83 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
+-- ordered descending
 monster.loot = {
 	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 3},
-	{name = "wand of draconia", chance = 4770},
-	{name = "sphinx feather", chance = 3450},
-	{name = "fire axe", chance = 2650},
-	{id = 31438, chance = 3450},
-	{name = "magma legs", chance = 1860},
-	{name = "magma monocle", chance = 1590},
-	{name = "magma boots", chance = 2120},
-	{name = "magma amulet", chance = 7160},
-	{name = "wand of inferno", chance = 7690},
-	{name = "dragon necklace", chance = 800}
+	{name = "green Crystal Shard", chance = 8610},
+	{id = 3039, name = "red gem", chance = 8340},
+	{name = "cyan Crystal Fragment", chance = 7070},
+	{name = "small sapphire", chance = 6060, maxCount = 2},
+	{name = "magma amulet", chance = 5920},
+	{name = "sphinx feather", chance = 5920},
+	{name = "dragon necklace", chance = 5920},
+	{name = "Blue Gem", chance = 5520},
+	{name = "wand of inferno", chance = 5380},
+	{id = 31438, name = "sphinx tiara", chance = 5110},
+	{name = "fire axe", chance = 3770},
+	{name = "wand of draconia", chance = 2960},
+	{name = "green Gem", chance = 2830},
+	{name = "magma monocle", chance = 1480},
+	{name = "magma boots", chance = 1350},
+	{name = "small enchanted emerald", chance = 1210, maxCount = 2},
+	{name = "magma legs", chance = 940}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450},
-	{name ="fire wave", interval = 2000, chance = 15, minDamage = -350, maxDamage = -500, length = 1, spread = 0, target = true},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_ENERGYDAMAGE, minDamage = -300, maxDamage = -500, radius = 4, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -350, maxDamage = -550, range = 1, shootEffect = CONST_ANI_FIRE, target = false},
-	{name ="combat", interval = 2000, chance = 8, type = COMBAT_HOLYDAMAGE, minDamage = -400, maxDamage = -580, length = 6, spread = 3, effect = CONST_ME_HOLYAREA, target = false}
+	-- Basic attack (0-450 physical)
+
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450},
+	-- Fire Strike (350-550 fire, on target)
+
+	{
+		name = "FlameStrikeFireTarget",
+		chance = 15,
+		minDamage = -350,
+		maxDamage = -550
+	},
+	-- Great Fire Wave (350-500 fire)
+
+	{
+		name = "GreatFireWaveFire",
+		chance = 12,
+		minDamage = -300,
+		maxDamage = -500
+	},
+	-- Energy Ball (300-500 energy, on self)
+
+	{
+		name = "EnergyBallEnergySelf",
+		chance = 10,
+		minDamage = -300,
+		maxDamage = -500
+	},
+	-- Holy Beam (100-460 holy)
+
+	{
+		name = "HolyBeamHoly",
+		chance = 8,
+		minDamage = -100,
+		maxDamage = -460
+	}
 }
 
 monster.defenses = {
 	defense = 90,
 	armor = 90,
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 200, maxDamage = 425, effect = CONST_ME_MAGIC_BLUE, target = false}
+	-- Intense Healing
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_HEALING,
+		minDamage = 200,
+		maxDamage = 425,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {

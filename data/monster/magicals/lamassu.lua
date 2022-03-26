@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Lamassu")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "26/03/2022"
+}
+
 monster.description = "a lamassu"
 monster.experience = 9000
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Kilmaresh."
-	}
+}
 
 monster.health = 8700
 monster.maxHealth = 8700
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,28 +74,60 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
+-- ordered descending
 monster.loot = {
 	{id = 3035, name = "platinum coin", chance = 100000},
-	{name = "Lamassu Horn", chance = 13400, maxCount = 5},
-	{name = "Red Crystal Fragment", chance = 10500},
-	{name = "Terra Amulet", chance = 10000},
-	{name = "Lamassu Hoof", chance = 7700},
-	{name = "Violet Crystal Shard", chance = 6800},
-	{name = "Blue Crystal Shard", chance = 6500},
-	{id= 3039, chance = 6200},
-	{name = "Terra Hood", chance = 5900},
-	{name = "Sacred Tree Amulet", chance = 2300},
-	{name = "Elven Amulet", chance = 2000},
-	{name = "Violet Gem", chance = 1700}
+	{id = 3039, name = "red gem", chance = 18260, maxCount = 2},
+	{name = "Lamassu Horn", chance = 13480, maxCount = 1},
+	{name = "Violet Crystal Shard", chance = 11130, maxCount = 2},
+	{name = "Blue Crystal Shard", chance = 11040, maxCount = 2},
+	{name = "Red Crystal Fragment", chance = 9570},
+	{name = "Lamassu Hoof", chance = 8280},
+	{name = "Terra Amulet", chance = 8140},
+	{name = "Opal", chance = 8100},
+	{name = "small emerald", chance = 6260},
+	{name = "Terra Hood", chance = 5980},
+	{name = "onyx chip", chance = 5010},
+	{name = "green Crystal Fragment", chance = 4050},
+	{name = "green Crystal splinter", chance = 4050},
+	{name = "rainbow quartz", chance = 3130, maxCount = 2},
+	{name = "Sacred Tree Amulet", chance = 2210},
+	{name = "Violet Gem", chance = 2120},
+	{name = "Elven Amulet", chance = 1930},
+	{name = "Blue Gem", chance = 1580},
+	{name = "green Crystal Shard", chance = 1380}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -350, maxDamage = -490, radius = 3, effect = CONST_ME_HOLYAREA, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -330, maxDamage = -410, range = 5, radius = 3, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_SMALLPLANTS, target = true}
+	-- Basic attack (0-500 physical)
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
+	-- Terra Box (300-400 earth, on target)
+	{
+		name = "TerraBoxEarthTarget",
+		interval = 2000,
+		chance = 20,
+		minDamage = -300,
+		maxDamage = -400
+	},
+	-- Holy Box (300-500 holy, on self)
+	{
+		name = "HolyBoxHolySelf",
+		interval = 2000,
+		chance = 20,
+		minDamage = -300,
+		maxDamage = -500
+	},
+	-- Holy Ball (400-500 holy, on self)
+	{
+		name = "HolyBallHolySelf",
+		interval = 2000,
+		chance = 20,
+		minDamage = -400,
+		maxDamage = -500
+	}
 }
 
 monster.defenses = {

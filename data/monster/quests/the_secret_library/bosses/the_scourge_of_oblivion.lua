@@ -82,7 +82,7 @@ monster.loot = {
 	{name = "mastermind potion", chance = 66666, maxCount = 10},
 	{name = "ultimate mana potion", chance = 66666, maxCount = 6},
 	{name = "giant emerald", chance = 66666},
-	{id = 3039, chance = 66666},
+	{id = 3039, name = "red gem", chance = 66666},
 	{name = "small ruby", chance = 33333, maxCount = 12},
 	{name = "bullseye potion", chance = 33333, maxCount = 10},
 	{name = "gold token", chance = 33333, maxCount = 8},
@@ -91,7 +91,7 @@ monster.loot = {
 	{name = "giant sapphire", chance = 33333},
 	{name = "green gem", chance = 33333},
 	{id = 23542, name = "collar of blue plasma", chance = 33333},
-	 -- collar of blue plasma
+	-- collar of blue plasma
 	{name = "huge chunk of crude iron", chance = 33333},
 	{name = "magic sulphur", chance = 33333},
 	{name = "ring of the sky", chance = 33333},

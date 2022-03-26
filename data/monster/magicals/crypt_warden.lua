@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Crypt Warden")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "26/03/2022"
+}
+
 monster.description = "a crypt warden"
 monster.experience = 8400
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Kilmaresh Catacombs."
-	}
+}
 
 monster.health = 8300
 monster.maxHealth = 8300
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,27 +74,59 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
+-- ordered descending
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 3},
-	{name = "cyan crystal fragment", chance = 13670},
-	{name = "green crystal fragment", chance = 1770},
-	{name = "lamassu horn", chance = 10770},
-	{name = "lamassu hoof", chance = 9700},
-	{name = "small amethyst", chance = 8680},
-	{name = "gold ingot", chance = 4660},
-	{name = "green gem", chance = 1290},
-	{name = "elven amulet", chance = 800}
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 6},
+	{name = "cyan crystal fragment", chance = 19770},
+	{name = "lamassu horn", chance = 16890},
+	{name = "lamassu hoof", chance = 10610},
+	{name = "small amethyst", chance = 10570},
+	{name = "gold ingot", chance = 6810},
+	{name = "green crystal fragment", chance = 3990},
+	{name = "green gem", chance = 3930},
+	{name = "elven amulet", chance = 880}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
-	{name ="warden x", interval = 2000, chance = 15, minDamage = -250, maxDamage = -430, target = false},
-	{name ="warden ring", interval = 2000, chance = 8, minDamage = -250, maxDamage = -380, target = false},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -480, radius = 2, effect = CONST_ME_GROUNDSHAKER, target = false},
-	{name ="combat", interval = 2000, chance = 13, type = COMBAT_HOLYDAMAGE, minDamage = -300, maxDamage = -450, length = 5, spread = 3, effect = CONST_ME_HOLYAREA, target = false}
+	-- Basic attack (0-600 physical)
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		minDamage = 0,
+		maxDamage = -600
+	},
+	-- Holy Beam (300-500 holy)
+	{
+		name = "HolyBeamHoly",
+		chance = 15,
+		minDamage = -300,
+		maxDamage = -500
+	},
+	-- Groundshaker Cross (250-350 earth, on self)
+	{
+		name = "GroundshakerCrossEarthSelf",
+		chance = 8,
+		minDamage = -250,
+		maxDamage = -350
+	},
+	-- Groundshaker X-Cross (250-350 earth, on self)
+	{
+		name = "GroundshakerXCrossEarthSelf",
+		chance = 12,
+		minDamage = -250,
+		maxDamage = -350
+	},
+	-- Groundshaker Circle (250-350 earth, on self)
+	{
+		name = "GroundshakerCircleEarthSelf",
+		chance = 13,
+		minDamage = -250,
+		maxDamage = -350
+	}
 }
 
 monster.defenses = {

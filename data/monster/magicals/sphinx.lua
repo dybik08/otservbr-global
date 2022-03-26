@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Sphinx")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "26/03/2022"
+}
+
 monster.description = "a sphinx"
 monster.experience = 7500
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Nykri Delta, Kilmaresh Central Steppe, Kilmaresh Southern Steppe, Kilmaresh Catacombs."
-	}
+}
 
 monster.health = 8500
 monster.maxHealth = 8500
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,7 +74,7 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
@@ -87,10 +92,43 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -500, length = 6, spread = 3, effect = CONST_ME_FIREAREA, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -100, maxDamage = -350, range = 5, radius = 3, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYAREA, target = true},
-	{name ="combat", interval = 2000, chance = 18, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -400, radius = 3, effect = CONST_ME_ENERGYAREA, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -200,
+		maxDamage = -500,
+		length = 6,
+		spread = 3,
+		effect = CONST_ME_FIREAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_HOLYDAMAGE,
+		minDamage = -100,
+		maxDamage = -350,
+		range = 5,
+		radius = 3,
+		shootEffect = CONST_ANI_SMALLHOLY,
+		effect = CONST_ME_HOLYAREA,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 18,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -200,
+		maxDamage = -400,
+		radius = 3,
+		effect = CONST_ME_ENERGYAREA,
+		target = false
+	}
 }
 
 monster.defenses = {
