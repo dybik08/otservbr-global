@@ -24,6 +24,7 @@ spell:needTarget(true)
 spell:needLearn(true)
 spell:register()
 
+
 local reflectChainedDeathMissile = CreatureEvent("reflectChainedDeathMissile")
 function reflectChainedDeathMissile.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
 	local reflectChance = math.random(1, 10)
@@ -41,8 +42,8 @@ function reflectChainedDeathMissile.onHealthChange(creature, attacker, primaryDa
 			end
 			attacker:addHealth(-math.random(600, 900), COMBAT_DEATHDAMAGE)
 			combat:execute(creature, attacker)
-			return primaryDamage, primaryType, secondaryDamage, secondaryType
-	end
+			return primaryDamage, primaryType, secondaryDamage, secondaryType	
+	end	
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
 end
 
