@@ -44,7 +44,7 @@ monster.flags = {
 }
 
 monster.loot = {
-	{name = "platinum coin", minCount = 1, maxCount = 5, chance = 100000},
+	{id = 3035, name = "platinum coin", minCount = 1, maxCount = 5, chance = 100000},
 	{name = "crystal coin", minCount = 0, maxCount = 5, chance = 50000},
 	{name = "supreme health potion", minCount = 0, maxCount = 20, chance = 45000},
 	{name = "ultimate mana potion", minCount = 0, maxCount = 6, chance = 42000},
@@ -54,34 +54,64 @@ monster.loot = {
 	{name = "gold token", minCount = 0, maxCount = 3, chance = 18000},
 	{name = "silver token", minCount = 0, maxCount = 3, chance = 25000},
 	{name = "green gem", chance = 19000},
-	{id= 3039, chance = 18500},
+	{id = 3039, chance = 18500},
 	{name = "yellow gem", chance = 18500},
 	{name = "giant sapphire", chance = 16800},
-	{id = 23543, chance = 15200}, -- Collar of green plasma
+	{id = 23543, name = "collar of green plasma", chance = 15200}, -- Collar of green plasma
 	{name = "magma coat", chance = 15200},
 	{name = "gold ingot", minCount = 0, maxCount = 1, chance = 18000},
 	{name = "red tome", chance = 18200},
-	{id = 23529, chance = 12000},-- ring of blue plasma
-	{id = 23533, chance = 12000},-- ring of red plasma
+	{id = 23529, name = "ring of blue plasma", chance = 12000},
+	-- ring of blue plasma
+	{id = 23533, name = "ring of red plasma", chance = 12000},
+	-- ring of red plasma
 	{name = "young lich worm", chance = 5500},
 	{name = "mortal mace", chance = 1300},
 	{name = "golden hyaena pendant", chance = 1100},
 	{name = "bow of cataclysm", chance = 600},
 	{name = "galea mortis", chance = 550},
 	{name = "shadow cowl", chance = 530},
-	{name = "toga mortis", chance = 500},
+	{name = "toga mortis", chance = 500}
 }
 
 monster.attacks = {
 	{name = "melee", type = COMBAT_PHYSICALDAMAGE, interval = 2000, minDamage = -900, maxDamage = -2700},
-	{name = "combat", type = COMBAT_FIREDAMAGE, interval = 2000, chance = 15, length = 8, spread = 0, minDamage = -1200, maxDamage = -3200, effect = CONST_ME_HITBYFIRE},
-	{name = "combat", type = COMBAT_LIFEDRAIN, interval = 2000, chance = 10, length = 8, spread = 3, minDamage = -600, maxDamage = -1600, effect = CONST_ME_SMALLCLOUDS},
+	{
+		name = "combat",
+		type = COMBAT_FIREDAMAGE,
+		interval = 2000,
+		chance = 15,
+		length = 8,
+		spread = 0,
+		minDamage = -1200,
+		maxDamage = -3200,
+		effect = CONST_ME_HITBYFIRE
+	},
+	{
+		name = "combat",
+		type = COMBAT_LIFEDRAIN,
+		interval = 2000,
+		chance = 10,
+		length = 8,
+		spread = 3,
+		minDamage = -600,
+		maxDamage = -1600,
+		effect = CONST_ME_SMALLCLOUDS
+	}
 }
 
 monster.defenses = {
 	defense = 78,
 	armor = 78,
-	{name = "combat", type = COMBAT_HEALING, chance = 15, interval = 2000, minDamage = 1450, maxDamage = 5350, effect = CONST_ME_MAGIC_BLUE},
+	{
+		name = "combat",
+		type = COMBAT_HEALING,
+		chance = 15,
+		interval = 2000,
+		minDamage = 1450,
+		maxDamage = 5350,
+		effect = CONST_ME_MAGIC_BLUE
+	}
 }
 
 monster.elements = {
@@ -93,13 +123,13 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {
 	{type = "paralyze", condition = true},
-	{type = "invisible", condition = true},
+	{type = "invisible", condition = true}
 }
 
 monster.voices = {
@@ -107,7 +137,7 @@ monster.voices = {
 	chance = 10,
 	{text = "Feel the power of death unleashed!", yell = false},
 	{text = "I will rule again and my realm of death will span the world!", yell = false},
-	{text = "My lich-knights will conquer this world for me!", yell = false},
+	{text = "My lich-knights will conquer this world for me!", yell = false}
 }
 
 mType.onThink = function(monster, interval)

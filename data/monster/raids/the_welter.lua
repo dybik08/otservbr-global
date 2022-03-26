@@ -78,18 +78,18 @@ monster.loot = {
 	{id = 3079, chance = 1000},
 	{id = 3436, chance = 2000},
 	{id = 3284, chance = 2000},
-	{id = 3029, chance = 20000, maxCount = 2},
+	{name="small sapphire", chance = 20000, maxCount = 2},
 	{id = 3370, chance = 3000},
 	{id = 236, chance = 20000, maxCount = 2},
 	{id = 9302, chance = 1000},
 	{id = 3081, chance = 20000},
-	{id = 9058, chance = 800},
+	{name="gold ingot", chance = 800},
 	{id = 3392, chance = 500},
 	{id = 281, chance = 600},
 	{id = 4839, chance = 2000},
 	{id = 237, chance = 20000, maxCount = 2},
-	{id = 3035, chance = 20000, maxCount = 10},
-	{id = 3031, chance = 20000, maxCount = 100}
+	{id = 3035, name = "platinum coin", chance = 20000, maxCount = 10},
+	{name = "gold coin", chance = 20000, maxCount = 100}
 }
 
 monster.attacks = {

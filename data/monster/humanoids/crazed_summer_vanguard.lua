@@ -115,7 +115,7 @@ monster.attacks = {
 	},
 	-- Long Detonation Beam (230-280 fire)
 	{
-		name = "longDetonationBeam",
+		name = "LongDetonationBeamFire",
 		interval = 2000,
 		chance = 10,
 		minDamage = -230,
@@ -123,7 +123,7 @@ monster.attacks = {
 	},
 	-- Eruption Box (200-300 fire, on self)
 	{
-		name = "eruptionBoxSelf",
+		name = "EruptionBoxFireSelf",
 		interval = 2000,
 		chance = 10,
 		minDamage = -200,
@@ -131,7 +131,7 @@ monster.attacks = {
 	},
 	-- Explosion Ball (200-280 fire, on self)
 	{
-		name = "explosionBall",
+		name = "ExplosionBallFireSelf",
 		interval = 2000,
 		chance = 10,
 		minDamage = -200,

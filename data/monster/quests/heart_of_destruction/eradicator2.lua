@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -64,18 +64,18 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 200},
-	{id = 3035, chance = 100000, maxCount = 25},
+	{name = "gold coin", chance = 100000, maxCount = 200},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 25},
 	{id = 16121, chance = 8000, maxCount = 3},
-	{id = 238, chance = 8000, maxCount = 5},
+	{name = "great mana potion", chance = 8000, maxCount = 5},
 	{id = 7642, chance = 8000, maxCount = 5},
-	{id = 3033, chance = 8000, maxCount = 5},
-	{id = 3030, chance = 8000, maxCount = 5},
-	{id = 9057, chance = 8000, maxCount = 5},
+	{name = "small amethyst", chance = 8000, maxCount = 5},
+	{name = "small ruby", chance = 8000, maxCount = 5},
+	{name = "small topaz", chance = 8000, maxCount = 5},
 	{id = 7643, chance = 8000, maxCount = 10},
 	{id = 16120, chance = 8000, maxCount = 3},
 	{id = 23535, chance = 8000},
@@ -84,30 +84,71 @@ monster.loot = {
 	{id = 22721, chance = 100000},
 	{id = 23509, chance = 100000},
 	{id = 23510, chance = 100000},
-	{id = 3041, chance = 6000},
+	{name = "blue gem", chance = 6000},
 	{id = 3038, chance = 6000},
 	{id = 8073, chance = 6000},
 	{id = 3333, chance = 4000},
-	{id = 23529, chance = 3500},
+	{id = 23529, name = "ring of blue plasma", chance = 3500},
 	{id = 23531, chance = 3500},
-	{id = 23533, chance = 3500},
+	{id = 23533, name = "ring of red plasma", chance = 3500},
 	{id = 3554, chance = 5000, unique = true},
 	{id = 8075, chance = 3000, unique = true}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -300, maxDamage = -1800},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -600, maxDamage = -1000, length = 8, spread = 3, effect = CONST_ME_BLOCKHIT, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -450, maxDamage = -900, radius = 8, effect = CONST_ME_BLOCKHIT, target = false},
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HOLYDAMAGE, minDamage = -300, maxDamage = -600, radius = 4, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYDAMAGE, target = true},
-	{name ="big lifedrain wave", interval = 2000, chance = 20, minDamage = -700, maxDamage = -1000, target = false},
-	{name ="anomaly break", interval = 2000, chance = 40, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = -300, maxDamage = -1800},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = -600,
+		maxDamage = -1000,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_BLOCKHIT,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = -450,
+		maxDamage = -900,
+		radius = 8,
+		effect = CONST_ME_BLOCKHIT,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 25,
+		type = COMBAT_HOLYDAMAGE,
+		minDamage = -300,
+		maxDamage = -600,
+		radius = 4,
+		shootEffect = CONST_ANI_SMALLHOLY,
+		effect = CONST_ME_HOLYDAMAGE,
+		target = true
+	},
+	{name = "big lifedrain wave", interval = 2000, chance = 20, minDamage = -700, maxDamage = -1000, target = false},
+	{name = "anomaly break", interval = 2000, chance = 40, target = false}
 }
 
 monster.defenses = {
 	defense = 60,
 	armor = 60,
-	{name ="combat", interval = 2000, chance = 100, type = COMBAT_HEALING, minDamage = 500, maxDamage = 1200, effect = CONST_ME_MAGIC_GREEN, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 100,
+		type = COMBAT_HEALING,
+		minDamage = 500,
+		maxDamage = 1200,
+		effect = CONST_ME_MAGIC_GREEN,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -119,8 +160,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 15},
-	{type = COMBAT_HOLYDAMAGE , percent = 15},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 15},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

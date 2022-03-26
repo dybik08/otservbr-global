@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Underground Glooth Factory, Oramond Minotaur Camp, Oramond Dungeon."
-	}
+}
 
 monster.health = 2600
 monster.maxHealth = 2600
@@ -39,7 +39,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -76,40 +76,82 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 7368, chance = 3040, maxCount = 5},
+	{name = "assassin star", chance = 3040, maxCount = 5},
 	{id = 21204, chance = 19830},
-	{id = 3031, chance = 100000, maxCount = 196},
+	{name = "gold coin", chance = 100000, maxCount = 196},
 	{id = 3582, chance = 60780},
 	{id = 3577, chance = 4920},
-	{id = 3035, chance = 62080, maxCount = 3},
-	{id = 9058, chance = 290},
+	{id = 3035, name = "platinum coin", chance = 62080, maxCount = 3},
+	{name = "gold ingot", chance = 290},
 	{id = 5878, chance = 17950},
-	{id = 239, chance = 7670},
-	{id = 238, chance = 7380},
+	{name = "great health potion", chance = 7670},
+	{name = "great mana potion", chance = 7380},
 	{id = 11472, chance = 6800, maxCount = 2},
-	{id = 3098, chance = 3040}, -- Ring of healing
-	{id = 3030, chance = 5500, maxCount = 2},
-	{id = 9057, chance = 900, maxCount = 2},
-	{id = 3033, chance = 970, maxCount = 2},
-	{id = 3032, chance = 4050, maxCount = 2},
+	{id = 3098, name = "Ring of healing", chance = 3040}, -- Ring of healing
+	{name = "small ruby", chance = 5500, maxCount = 2},
+	{name = "small topaz", chance = 900, maxCount = 2},
+	{name = "small amethyst", chance = 970, maxCount = 2},
+	{name = "small emerald", chance = 4050, maxCount = 2},
 	{id = 21175, chance = 3040},
 	{id = 21174, chance = 1740},
-	{id = 5911, chance = 710},
-	{id = 3039, chance = 430},
+	{name = "red piece of cloth", chance = 710},
+	{id = 3039, name = "red gem", chance = 430},
 	{id = 3081, chance = 850},
-	{id = 3037, chance = 870},
+	{name = "yellow gem", chance = 870},
 	{id = 3369, chance = 1160},
 	{id = 7443, chance = 720}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 50, attack = 50},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = -50, maxDamage = -305, length = 8, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 16, type = COMBAT_LIFEDRAIN, minDamage = -50, maxDamage = -150, radius = 4, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 22, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -150, range = 7, shootEffect = CONST_ANI_HUNTINGSPEAR, effect = CONST_ME_EXPLOSIONAREA, target = false},
+	{name = "melee", interval = 2000, chance = 100, skill = 50, attack = 50},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_MANADRAIN,
+		minDamage = -50,
+		maxDamage = -305,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_MAGIC_RED,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 16,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -50,
+		maxDamage = -150,
+		radius = 4,
+		effect = CONST_ME_MAGIC_RED,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 22,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = 0,
+		maxDamage = -150,
+		range = 7,
+		shootEffect = CONST_ANI_HUNTINGSPEAR,
+		effect = CONST_ME_EXPLOSIONAREA,
+		target = false
+	},
 	-- bleed
-	{name ="condition", type = CONDITION_BLEEDING, interval = 2000, chance = 40, minDamage = -300, maxDamage = -400, radius = 4, shootEffect = CONST_ANI_THROWINGKNIFE, target = true},
-	{name ="minotaur amazon paralyze", interval = 2000, chance = 15, target = false}
+	{
+		name = "condition",
+		type = CONDITION_BLEEDING,
+		interval = 2000,
+		chance = 40,
+		minDamage = -300,
+		maxDamage = -400,
+		radius = 4,
+		shootEffect = CONST_ANI_THROWINGKNIFE,
+		target = true
+	},
+	{name = "minotaur amazon paralyze", interval = 2000, chance = 15, target = false}
 }
 
 monster.defenses = {
@@ -126,8 +168,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 5},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = 10}
 }
 
 monster.immunities = {

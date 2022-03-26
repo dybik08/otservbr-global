@@ -64,12 +64,12 @@ monster.voices = {
 
 monster.loot = {
 	{id = 3436, chance = 100000},
-	{id = 3035, chance = 100000, maxCount = 20},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 20},
 	{id = 10309, chance = 100000},
-	{id = 238, chance = 87000, maxCount = 2},
+	{name="great mana potion", chance = 87000, maxCount = 2},
 	{id = 9302, chance = 60000},
 	{id = 7643, chance = 60000, maxCount = 2},
-	{id = 3032, chance = 46470, maxCount = 4},
+	{name="small emerald", chance = 46470, maxCount = 4},
 	{id = 814, chance = 46470},
 	{id = 811, chance = 46470},
 	{id = 812, chance = 33300},

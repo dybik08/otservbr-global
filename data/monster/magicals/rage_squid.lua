@@ -74,7 +74,7 @@ monster.voices = {
 
 --  ordered descending
 monster.loot = {
-    {name = "platinum coin", chance = 100000, maxCount = 29},
+    {id = 3035, name = "platinum coin", chance = 100000, maxCount = 29},
     {name = "ultimate health potion", chance = 30310, maxCount = 5},
 	{name = "great spirit potion", chance = 18580, maxCount = 3},
 	{name = "great mana potion", chance = 18580, maxCount = 3},

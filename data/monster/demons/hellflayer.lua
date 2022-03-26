@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "The Dungeons of The Ruthless Seven."
-	}
+}
 
 monster.health = 14000
 monster.maxHealth = 14000
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -78,53 +78,123 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 90000, maxCount = 130},
-	{id = 3035, chance = 20000, maxCount = 9},
-	{id = 6558, chance = 4000, maxCount = 3},
-	{id = 9058, chance = 1300, maxCount = 2},
-	{id = 238, chance = 9600, maxCount = 2},
+	{name = "gold coin", chance = 90000, maxCount = 130},
+	{id = 3035, name = "platinum coin", chance = 20000, maxCount = 9},
+	{name = "flask of demonic blood", chance = 4000, maxCount = 3},
+	{name = "gold ingot", chance = 1300, maxCount = 2},
+	{name = "great mana potion", chance = 9600, maxCount = 2},
 	{id = 7642, chance = 2300, maxCount = 2},
-	{id = 3033, chance = 2000, maxCount = 5},
-	{id = 3028, chance = 900, maxCount = 5},
-	{id = 3032, chance = 900, maxCount = 5},
-	{id = 3030, chance = 2000, maxCount = 5},
-	{id = 9057, chance = 900, maxCount = 5},
+	{name = "small amethyst", chance = 2000, maxCount = 5},
+	{name = "small diamond", chance = 900, maxCount = 5},
+	{name = "small emerald", chance = 900, maxCount = 5},
+	{name = "small ruby", chance = 2000, maxCount = 5},
+	{name = "small topaz", chance = 900, maxCount = 5},
 	{id = 7643, chance = 5300, maxCount = 2},
 	{id = 3019, chance = 1000},
-	{id = 6499, chance = 1600},
+	{name = "demonic essence", chance = 1600},
 	{id = 281, chance = 800},
 	{id = 3038, chance = 800},
 	{id = 818, chance = 500},
 	{id = 821, chance = 1200},
 	{id = 3414, chance = 350},
 	{id = 22729, chance = 800},
-	{id = 3039, chance = 500},
+	{id = 3039, name = "red gem", chance = 500},
 	{id = 22866, chance = 280},
 	{id = 22867, chance = 180},
 	{id = 5741, chance = 450},
 	{id = 22727, chance = 200},
 	{id = 7413, chance = 900},
 	{id = 3360, chance = 750},
-	{id = 8074, chance = 900},
+	{name = "spellbook of mind control", chance = 900},
 	{id = 3340, chance = 400}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 200, maxDamage = -869, condition = {type = CONDITION_FIRE, totalDamage = 6, interval = 9000}},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -170, maxDamage = -300, range = 7, shootEffect = CONST_ANI_POISON, target = false},
-	{name ="renegade knight", interval = 2000, chance = 20, target = false},
-	{name ="choking fear drown", interval = 2000, chance = 20, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -250, maxDamage = -500, radius = 4, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -50, maxDamage = -200, length = 8, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -300, maxDamage = -550, radius = 1, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = true},
-	{name ="warlock skill reducer", interval = 2000, chance = 5, range = 5, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = 300, maxDamage = -500, radius = 1, shootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_SLEEP, target = true}
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		minDamage = 200,
+		maxDamage = -869,
+		condition = {type = CONDITION_FIRE, totalDamage = 6, interval = 9000}
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -170,
+		maxDamage = -300,
+		range = 7,
+		shootEffect = CONST_ANI_POISON,
+		target = false
+	},
+	{name = "renegade knight", interval = 2000, chance = 20, target = false},
+	{name = "choking fear drown", interval = 2000, chance = 20, target = false},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -250,
+		maxDamage = -500,
+		radius = 4,
+		shootEffect = CONST_ANI_SUDDENDEATH,
+		effect = CONST_ME_MORTAREA,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -50,
+		maxDamage = -200,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_PURPLEENERGY,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -300,
+		maxDamage = -550,
+		radius = 1,
+		shootEffect = CONST_ANI_FIRE,
+		effect = CONST_ME_FIREATTACK,
+		target = true
+	},
+	{name = "warlock skill reducer", interval = 2000, chance = 5, range = 5, target = false},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = 300,
+		maxDamage = -500,
+		radius = 1,
+		shootEffect = CONST_ANI_EXPLOSION,
+		effect = CONST_ME_SLEEP,
+		target = true
+	}
 }
 
 monster.defenses = {
 	defense = 20,
 	armor = 20,
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 80, maxDamage = 95, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_HEALING,
+		minDamage = 80,
+		maxDamage = 95,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {

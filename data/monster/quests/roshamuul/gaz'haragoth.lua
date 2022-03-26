@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -80,26 +80,26 @@ monster.voices = {
 monster.loot = {
 	{id = 3043, chance = 10000, maxCount = 6},
 	{id = 16124, chance = 10000, maxCount = 15},
-	{id = 7368, chance = 10000, maxCount = 100},
+	{name = "assassin star", chance = 10000, maxCount = 100},
 	{id = 20264, chance = 7000, maxCount = 3},
-	{id = 6499, chance = 1000, maxCount = 2},
+	{name = "demonic essence", chance = 1000, maxCount = 2},
 	{id = 7643, chance = 10000, maxCount = 100},
-	{id = 238, chance = 10000, maxCount = 100},
+	{name = "great mana potion", chance = 10000, maxCount = 100},
 	{id = 7642, chance = 10000, maxCount = 100},
 	{id = 20063, chance = 2000, maxCount = 3},
 	{id = 20062, chance = 2000, maxCount = 14},
-	{id = 3041, chance = 10000, maxCount = 2},
+	{name = "blue gem", chance = 10000, maxCount = 2},
 	{id = 16122, chance = 10000, maxCount = 10},
 	{id = 16120, chance = 10000, maxCount = 15},
 	{id = 6528, chance = 6000},
 	{id = 20278, chance = 6000},
 	{id = 5914, chance = 6000},
-	{id = 5911, chance = 6000},
+	{name = "red piece of cloth", chance = 6000},
 	{id = 20276, chance = 1100},
 	{id = 281, chance = 6000},
 	{id = 5954, chance = 6000},
 	{id = 20274, chance = 6000, unique = true},
-	{id = 3052, chance = 6000}, -- Life ring
+	{id = 3052, name = "life ring", chance = 6000}, -- Life ring
 	{id = 20280, chance = 6000},
 	{id = 20279, chance = 6000},
 	{id = 20277, chance = 6000},
@@ -138,24 +138,109 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -5000},
-	{name ="combat", interval = 3000, chance = 35, type = COMBAT_ICEDAMAGE, minDamage = -900, maxDamage = -1100, range = 7, radius = 7, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEAREA, target = true},
-	{name ="combat", interval = 2000, chance = 13, type = COMBAT_DEATHDAMAGE, minDamage = -100, maxDamage = -1000, length = 8, spread = 3, effect = CONST_ME_POFF, target = false},
-	{name ="combat", interval = 2000, chance = 19, type = COMBAT_DEATHDAMAGE, minDamage = -100, maxDamage = -800, range = 7, radius = 6, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
-	{name ="melee", interval = 1800, chance = 40, minDamage = 0, maxDamage = -1000},
-	{name ="combat", interval = 3000, chance = 30, type = COMBAT_FIREDAMAGE, minDamage = -4000, maxDamage = -6000, length = 8, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="combat", interval = 2000, chance = 14, type = COMBAT_FIREDAMAGE, minDamage = -1600, maxDamage = -3400, length = 8, spread = 3, effect = CONST_ME_FIREAREA, target = false},
-	{name ="combat", interval = 2500, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -480, range = 7, radius = 5, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="gaz'haragoth iceball", interval = 2000, chance = 24, minDamage = -1000, maxDamage = -1000, target = false},
-	{name ="gaz'haragoth death", interval = 4000, chance = 6, target = false},
-	{name ="gaz'haragoth paralyze", interval = 2000, chance = 12, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -5000},
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 35,
+		type = COMBAT_ICEDAMAGE,
+		minDamage = -900,
+		maxDamage = -1100,
+		range = 7,
+		radius = 7,
+		shootEffect = CONST_ANI_ICE,
+		effect = CONST_ME_ICEAREA,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 13,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -100,
+		maxDamage = -1000,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_POFF,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 19,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -100,
+		maxDamage = -800,
+		range = 7,
+		radius = 6,
+		shootEffect = CONST_ANI_SUDDENDEATH,
+		effect = CONST_ME_MORTAREA,
+		target = true
+	},
+	{name = "melee", interval = 1800, chance = 40, minDamage = 0, maxDamage = -1000},
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 30,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -4000,
+		maxDamage = -6000,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_HITBYFIRE,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 14,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -1600,
+		maxDamage = -3400,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_FIREAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2500,
+		chance = 20,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = -200,
+		maxDamage = -480,
+		range = 7,
+		radius = 5,
+		effect = CONST_ME_MAGIC_GREEN,
+		target = false
+	},
+	{name = "gaz'haragoth iceball", interval = 2000, chance = 24, minDamage = -1000, maxDamage = -1000, target = false},
+	{name = "gaz'haragoth death", interval = 4000, chance = 6, target = false},
+	{name = "gaz'haragoth paralyze", interval = 2000, chance = 12, target = false}
 }
 
 monster.defenses = {
 	defense = 65,
 	armor = 55,
-	{name ="combat", interval = 3000, chance = 35, type = COMBAT_HEALING, minDamage = 2500, maxDamage = 3500, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 4000, chance = 80, speedChange = 700, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000}
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 35,
+		type = COMBAT_HEALING,
+		minDamage = 2500,
+		maxDamage = 3500,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 4000,
+		chance = 80,
+		speedChange = 700,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 6000
+	}
 }
 
 monster.elements = {
@@ -167,8 +252,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 50},
-	{type = COMBAT_HOLYDAMAGE , percent = 50},
-	{type = COMBAT_DEATHDAMAGE , percent = 50}
+	{type = COMBAT_HOLYDAMAGE, percent = 50},
+	{type = COMBAT_DEATHDAMAGE, percent = 50}
 }
 
 monster.immunities = {

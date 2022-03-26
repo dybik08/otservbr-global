@@ -30,7 +30,7 @@ monster.health = 4100
 monster.maxHealth = 4100
 monster.race = "blood"
 monster.corpse = 20233
-monster.speed = 400
+monster.speed = 200
 monster.manaCost = 0
 
 monster.changeTarget = {
@@ -81,7 +81,7 @@ monster.voices = {
 
 -- ordered descending
 monster.loot = {
-	{name = "platinum coin", chance = 100000, maxCount = 7},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 7},
 	{name = "gold coin", chance = 100000, maxCount = 100},
 	{name = "frazzle tongue", chance = 15030},
 	{name = "brown crystal splinter", chance = 11870},

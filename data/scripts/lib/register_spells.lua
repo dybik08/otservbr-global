@@ -693,4 +693,23 @@ function CREATE_SPELL(spellConfig)
     return spell
 end
 
+poisonBallDefaultConfig = {
+    type = COMBAT_POISONDAMAGE,
+    effect = SPELL_ANIMATIONS.POISON,
+    distanceEfect = SHOOT_EFFECTS.POISON_ARROW,
+    area = SPELL_AREAS.BALL,
+    name = "poisonBall",
+    words = "###516",
+    needTarget = true
+}
+
+
+greatTerraWaveDefaultConfig = {
+    type = COMBAT_POISONDAMAGE,
+    effect = SPELL_ANIMATIONS.TERRA,
+    area = SPELL_AREAS.GREAT_WAVE,
+    name = "greatTerraWave",
+    words = "###549",
+    needDirection = true
+}
 

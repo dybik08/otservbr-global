@@ -72,7 +72,7 @@ monster.voices = {
 
 monster.loot = {
 	{id = 10320, chance = 100000},
-	{id = 3031, chance = 100000, maxCount = 99},
+	{name = "gold coin", chance = 100000, maxCount = 99},
 	{id = 11475, chance = 100000},
 	{id = 5809, chance = 100000},
 	{id = 3311, chance = 52000},
@@ -80,11 +80,11 @@ monster.loot = {
 	{id = 3337, chance = 38000},
 	{id = 3114, chance = 19000},
 	{id = 3732, chance = 14000},
-	{id = 3070, chance = 14000},
+	{name="moonlight rod", chance = 14000},
 	{id = 3116, chance = 9500},
 	{id = 3441, chance = 9500},
 	{id = 3079, chance = 4700},
-	{id = 3574, chance = 4700},
+	{name="mystic turban", chance = 4700},
 	{id = 237, chance = 4700}
 }
 

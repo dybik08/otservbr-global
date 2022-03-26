@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Sea Serpent Area and Seacrest Grounds."
-	}
+}
 
 monster.health = 1950
 monster.maxHealth = 1950
@@ -39,7 +39,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -79,9 +79,9 @@ monster.loot = {
 	{name = "gold coin", chance = 38000, maxCount = 100},
 	{name = "gold coin", chance = 30000, maxCount = 100},
 	{name = "gold coin", chance = 30000, maxCount = 36},
-	{name = "platinum coin", chance = 25000, maxCount = 3},
+	{id = 3035, name = "platinum coin", chance = 25000, maxCount = 3},
 	{id = 3049, chance = 400}, -- Stealth ring
-	{id = 3098, chance = 1100}, -- Ring of healing
+	{id = 3098, name = "Ring of healing", chance = 1100}, -- Ring of healing
 	{name = "serpent sword", chance = 4200},
 	{name = "plate legs", chance = 7150},
 	{name = "dragon ham", chance = 60000, maxCount = 2},
@@ -98,17 +98,56 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -60, maxDamage = -300, length = 7, spread = 2, effect = CONST_ME_SMALLPLANTS, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -101, maxDamage = -300, length = 7, spread = 2, effect = CONST_ME_ICEATTACK, target = false},
-	{name ="sea serpent drown", interval = 2000, chance = 15, range = 5, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -60,
+		maxDamage = -300,
+		length = 7,
+		spread = 2,
+		effect = CONST_ME_SMALLPLANTS,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_ICEDAMAGE,
+		minDamage = -101,
+		maxDamage = -300,
+		length = 7,
+		spread = 2,
+		effect = CONST_ME_ICEATTACK,
+		target = false
+	},
+	{name = "sea serpent drown", interval = 2000, chance = 15, range = 5, target = false}
 }
 
 monster.defenses = {
 	defense = 45,
 	armor = 45,
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_HEALING, minDamage = 70, maxDamage = 273, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = 400, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 30,
+		type = COMBAT_HEALING,
+		minDamage = 70,
+		maxDamage = 273,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = 400,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 5000
+	}
 }
 
 monster.elements = {
@@ -120,8 +159,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 10}
 }
 
 monster.immunities = {

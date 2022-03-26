@@ -20,7 +20,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -50,13 +50,13 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
 	{name = "piggy bank", chance = 80000},
 	{name = "royal star", chance = 80000, maxCount = 100},
-	{name = "platinum coin", chance = 80000, maxCount = 5},
+	{id = 3035, name = "platinum coin", chance = 80000, maxCount = 5},
 	{name = "energy bar", chance = 75000},
 	{name = "supreme health potion", chance = 65000, maxCount = 20},
 	{name = "huge chunk of crude iron", chance = 64000},
@@ -67,7 +67,7 @@ monster.loot = {
 	{name = "chaos mace", chance = 25000},
 	{id = 30279, chance = 24500},
 	{name = "berserk potion", chance = 23000, maxCount = 10},
-	{id= 3039, chance = 22500},
+	{id = 3039, chance = 22500},
 	{name = "soul stone", chance = 224000},
 	{id = 30275, chance = 25000},
 	{name = "flames of the percht queen", chance = 18000},
@@ -83,20 +83,21 @@ monster.loot = {
 	{name = "silver token", chance = 5480, maxCount = 5},
 	{name = "percht handkerchief", chance = 5808},
 	{name = "ring of the sky", chance = 5100},
-	{id = 23529, chance = 8486},
+	{id = 23529, name = "ring of blue plasma", chance = 8486},
 	{id = 30321, chance = 4848},
 	{name = "percht broom", chance = 6485},
 	{name = "ice hatchet", chance = 5485},
-	{id = 23533, chance = 4858},
+	{id = 23533, name = "ring of red plasma", chance = 4858},
 	{id = 23531, chance = 3485},
 	{name = "yellow gem", chance = 5485},
 	{name = "violet gem", chance = 6485},
-	{id = 23544, chance = 7848},
-	{id = 23543, chance = 5485}, -- Collar of green plasma
+	{id = 23544, name = "collar of red plasma", chance = 7848},
+	{id = 23543, name = "collar of green plasma", chance = 5485}, -- Collar of green plasma
 	{name = "green gem", chance = 5485},
 	{name = "blue gem", chance = 5845},
 	{name = "frozen chain", chance = 5485},
-	{id = 23542, chance = 5158},-- collar of blue plasma
+	{id = 23542, name = "collar of blue plasma", chance = 5158},
+	-- collar of blue plasma
 	{name = "horseshoe", chance = 1250},
 	{name = "golden horseshoe", chance = 2510},
 	{name = "abyss hammer", chance = 1480},
@@ -106,8 +107,18 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -200},
-	{name ="combat", interval = 1000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -100, maxDamage = -200, range = 7, shootEffect = CONST_ANI_ICE, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -200},
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 15,
+		type = COMBAT_ICEDAMAGE,
+		minDamage = -100,
+		maxDamage = -200,
+		range = 7,
+		shootEffect = CONST_ANI_ICE,
+		target = false
+	}
 }
 
 monster.defenses = {
@@ -124,8 +135,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 80},
-	{type = COMBAT_DEATHDAMAGE , percent = 90}
+	{type = COMBAT_HOLYDAMAGE, percent = 80},
+	{type = COMBAT_DEATHDAMAGE, percent = 90}
 }
 
 monster.immunities = {

@@ -73,23 +73,23 @@ monster.loot = {
 	{id = 16125, chance = 23000, maxCount = 6},
 	{id = 16126, chance = 23000, maxCount = 6},
 	{id = 16127, chance = 23000, maxCount = 6},
-	{id = 3026, chance = 12000, maxCount = 8},
-	{id = 3029, chance = 12000, maxCount = 9},
-	{id = 3031, chance = 98000, maxCount = 200},
-	{id = 3033, chance = 10000, maxCount = 5},
-	{id = 3035, chance = 8000, maxCount = 58},
+	{name="white pearl", chance = 12000, maxCount = 8},
+	{name="small sapphire", chance = 12000, maxCount = 9},
+	{name = "gold coin", chance = 98000, maxCount = 200},
+	{name="small amethyst", chance = 10000, maxCount = 5},
+	{id = 3035, name = "platinum coin", chance = 8000, maxCount = 58},
 	{id = 22727, chance = 800},
 	{id = 22759, chance = 500, unique = true},
 	{id = 22866, chance = 800},
 	{id = 22867, chance = 800},
-	{id = 6499, chance = 11000},
+	{name="demonic essence", chance = 11000},
 	{id = 7386, chance = 5000},
 	{id = 281, chance = 14000, maxCount = 5},
 	{id = 282, chance = 14000, maxCount = 5},
 	{id = 814, chance = 5000},
 	{id = 7643, chance = 23000, maxCount = 15},
 	{id = 8073, chance = 4000},
-	{id = 9057, chance = 10000, maxCount = 8}
+	{name="small topaz", chance = 10000, maxCount = 8}
 }
 
 monster.attacks = {

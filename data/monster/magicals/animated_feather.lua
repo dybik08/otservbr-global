@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "The Secret Library."
-	}
+}
 
 monster.health = 13000
 monster.maxHealth = 13000
@@ -39,7 +39,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,14 +69,14 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
 	{name = "Small Sapphire", chance = 8700, maxCount = 5},
-	{name = "Platinum Coin", chance = 87000, maxCount = 50},
+	{id = 3035, name = "platinum coin", chance = 87000, maxCount = 50},
 	{id = 28570, chance = 500, maxCount = 10},
-	{id = 3051, chance = 8700}, -- Energy ring
+	{id = 3051, name = "energy ring", chance = 8700}, -- Energy ring
 	{id = 7441, chance = 4000},
 	{name = "Shard", chance = 250, maxCount = 3},
 	{name = "Glacier Mask", chance = 250},
@@ -85,17 +85,61 @@ monster.loot = {
 	{name = "Great Mana Potion", chance = 900, maxCount = 6},
 	{name = "Golden Mug", chance = 500},
 	{name = "Glowing Rune", chance = 500, maxCount = 10},
-	{id = 3051, chance = 8700}, -- Energy ring
+	{id = 3051, name = "energy ring", chance = 8700}, -- Energy ring
 	{name = "Quill", chance = 250},
 	{name = "Small Diamond", chance = 500, maxCount = 5}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -200},
-	{name ="combat", interval = 1000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -100, maxDamage = -200, range = 7, shootEffect = CONST_ANI_ICE, target = false},
-	{name ="combat", interval = 1000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -200, maxDamage = -780, range = 7, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICEATTACK, target = false},
-	{name ="combat", interval = 1000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -200, maxDamage = -275, length = 3, spread = 2, effect = CONST_ME_ICEATTACK, target = false},
-	{name ="combat", interval = 1000, chance = 12, type = COMBAT_ICEDAMAGE, minDamage = -230, maxDamage = -680, range = 7, radius = 3, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICETORNADO, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -200},
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 15,
+		type = COMBAT_ICEDAMAGE,
+		minDamage = -100,
+		maxDamage = -200,
+		range = 7,
+		shootEffect = CONST_ANI_ICE,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 10,
+		type = COMBAT_ICEDAMAGE,
+		minDamage = -200,
+		maxDamage = -780,
+		range = 7,
+		shootEffect = CONST_ANI_SMALLICE,
+		effect = CONST_ME_ICEATTACK,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 10,
+		type = COMBAT_ICEDAMAGE,
+		minDamage = -200,
+		maxDamage = -275,
+		length = 3,
+		spread = 2,
+		effect = CONST_ME_ICEATTACK,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 12,
+		type = COMBAT_ICEDAMAGE,
+		minDamage = -230,
+		maxDamage = -680,
+		range = 7,
+		radius = 3,
+		shootEffect = CONST_ANI_SMALLICE,
+		effect = CONST_ME_ICETORNADO,
+		target = false
+	}
 }
 
 monster.defenses = {
@@ -112,8 +156,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Brain Grounds, Netherworld, Zarganash."
-	}
+}
 
 monster.health = 7000
 monster.maxHealth = 7000
@@ -39,7 +39,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,28 +69,69 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{name = "platinum coin", chance = 10000, maxCount = 3},
+	{id = 3035, name = "platinum coin", chance = 10000, maxCount = 3},
 	{name = "lost soul", chance = 45240},
 	{name = "death toll", chance = 6250},
 	{name = "emerald bangle", chance = 5980},
 	{name = "gemmed figurine", chance = 3800},
 	{name = "ensouled essence", chance = 2720},
-	{id = 23529, chance = 1220},
+	{id = 23529, name = "ring of blue plasma", chance = 1220},
 	{name = "silver hand mirror", chance = 1090},
 	{name = "ornate crossbow", chance = 1090},
 	{name = "crystal crossbow", chance = 270}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -500},
-	{name ="combat", interval = 1700, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -300, maxDamage = -550, radius = 3, shootEffect = CONST_ANI_ENVENOMEDARROW, target = true},
-	{name ="combat", interval = 1700, chance = 25, type = COMBAT_ENERGYDAMAGE, minDamage = -150, maxDamage = -550, length = 4, spread = 3, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="combat", interval = 1700, chance = 35, type = COMBAT_DEATHDAMAGE, minDamage = -150, maxDamage = -550, radius = 4, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 1700, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -150, maxDamage = -550, radius = 4, effect = CONST_ME_ENERGYAREA, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -500},
+	{
+		name = "combat",
+		interval = 1700,
+		chance = 15,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -300,
+		maxDamage = -550,
+		radius = 3,
+		shootEffect = CONST_ANI_ENVENOMEDARROW,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 1700,
+		chance = 25,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -150,
+		maxDamage = -550,
+		length = 4,
+		spread = 3,
+		effect = CONST_ME_ENERGYHIT,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 1700,
+		chance = 35,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -150,
+		maxDamage = -550,
+		radius = 4,
+		effect = CONST_ME_MORTAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 1700,
+		chance = 20,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -150,
+		maxDamage = -550,
+		radius = 4,
+		effect = CONST_ME_ENERGYAREA,
+		target = false
+	}
 }
 
 monster.defenses = {
@@ -107,8 +148,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -40},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -40},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

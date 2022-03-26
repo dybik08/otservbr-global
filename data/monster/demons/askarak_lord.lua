@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 2,
 	Locations = "Demonwar Crypt."
-	}
+}
 
 monster.health = 2100
 monster.maxHealth = 2100
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -84,8 +84,8 @@ monster.loot = {
 	{name = "gold coin", chance = 50000, maxCount = 100},
 	{name = "gold coin", chance = 50000, maxCount = 90},
 	{name = "small emerald", chance = 5882, maxCount = 5},
-	{name = "platinum coin", chance = 35333, maxCount = 2},
-	{id = 3051, chance = 606}, -- Energy ring
+	{id = 3035, name = "platinum coin", chance = 35333, maxCount = 2},
+	{id = 3051, name = "energy ring", chance = 606}, -- Energy ring
 	{name = "brown mushroom", chance = 5263, maxCount = 5},
 	{name = "magic sulphur", chance = 620},
 	{name = "assassin star", chance = 70, maxCount = 5},
@@ -98,17 +98,58 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -186},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -40, maxDamage = -80, range = 7, radius = 6, shootEffect = CONST_ANI_POISON, effect = CONST_ME_GREEN_RINGS, target = false},
-	{name ="askarak wave", interval = 2000, chance = 15, minDamage = -95, maxDamage = -180, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -130, maxDamage = -180, length = 4, spread = 0, effect = CONST_ME_GREEN_RINGS, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = -650, radius = 1, effect = CONST_ME_MAGIC_RED, target = true, duration = 15000}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -186},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -40,
+		maxDamage = -80,
+		range = 7,
+		radius = 6,
+		shootEffect = CONST_ANI_POISON,
+		effect = CONST_ME_GREEN_RINGS,
+		target = false
+	},
+	{name = "askarak wave", interval = 2000, chance = 15, minDamage = -95, maxDamage = -180, target = false},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -130,
+		maxDamage = -180,
+		length = 4,
+		spread = 0,
+		effect = CONST_ME_GREEN_RINGS,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = -650,
+		radius = 1,
+		effect = CONST_ME_MAGIC_RED,
+		target = true,
+		duration = 15000
+	}
 }
 
 monster.defenses = {
 	defense = 20,
 	armor = 20,
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 120, maxDamage = 160, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_HEALING,
+		minDamage = 120,
+		maxDamage = 160,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {

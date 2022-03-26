@@ -104,7 +104,7 @@ monster.loot = {
 	{name = "sacred tree amulet", chance = 1670},
 	{id = 23544, name = "collar of red plasma", chance = 1270},
 	{name = "spider silk", chance = 1180},
-	{id = 3098, name = "ring of healing", chance = 1070}, -- Ring of healing
+	{id = 3098, name = "Ring of healing", name = "ring of healing", chance = 1070}, -- Ring of healing
 	{name = "necklace of the deep", chance = 1070},
 	{id = 23529, name = "ring of blue plasma", chance = 1050},
 	{name = "garlic necklace", chance = 1010},
@@ -119,7 +119,7 @@ monster.attacks = {
 	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450},
 	-- Shorter Energy T-Wave (200-350 energy)
 	{
-		name = "shorterEnergyTWave",
+		name = "ShorterEnergyTWaveEnergy",
 		interval = 2000,
 		chance = 20,
 		minDamage = -250,
@@ -127,7 +127,7 @@ monster.attacks = {
 	},
 	-- Death Strike (200-300 death, on target)
 	{
-		name = "deathStrike",
+		name = "DeathStrikeDeathTarget",
 		interval = 2000,
 		chance = 20,
 		minDamage = -200,
@@ -135,7 +135,7 @@ monster.attacks = {
 	},
 	-- Death Box (250-300 death, on target)
 	{
-		name = "deathBoxTarget",
+		name = "DeathBoxDeathTarget",
 		interval = 2000,
 		chance = 10,
 		minDamage = -250,
@@ -143,7 +143,7 @@ monster.attacks = {
 	},
 	-- Sparky Ball (200-300 energy, on self)
 	{
-		name = "sparkyBall",
+		name = "SparkyBallEnergySelf",
 		interval = 2000,
 		chance = 10,
 		minDamage = -200,
@@ -151,7 +151,7 @@ monster.attacks = {
 	},
 	-- Longer Diceroll Beam (130-200 death)
 	{
-		name = "longerDicerollBeam",
+		name = "LongerDicerollBeamDeath",
 		interval = 2000,
 		chance = 10,
 		minDamage = -130,
@@ -159,7 +159,7 @@ monster.attacks = {
 	},
 	-- Death Box (250-300 death, on self)
 	{
-		name = "deathBoxSelf",
+		name = "DeathBoxDeathSelf",
 		interval = 2000,
 		chance = 10,
 		minDamage = -250,

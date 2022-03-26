@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Pits of Inferno, Vengoth, Blood Halls, Oramond Dungeon, Roshamuul Prison."
-	}
+}
 
 monster.health = 7350
 monster.maxHealth = 7350
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -83,7 +83,7 @@ monster.voices = {
 monster.loot = {
 	{name = "gold coin", chance = 50000, maxCount = 100},
 	{name = "gold coin", chance = 40000, maxCount = 99},
-	{name = "platinum coin", chance = 55000, maxCount = 8},
+	{id = 3035, name = "platinum coin", chance = 55000, maxCount = 8},
 	{name = "golden legs", chance = 30},
 	{id = 3461, chance = 5250},
 	{name = "steel boots", chance = 5050},
@@ -92,7 +92,7 @@ monster.loot = {
 	{name = "cat's paw", chance = 2222},
 	{name = "jewelled backpack", chance = 1192},
 	{name = "soul orb", chance = 23000},
-	{id = 6299, chance = 2008},
+	{id = 6299, name = "death ring", chance = 2008},
 	{name = "demonic essence", chance = 8520},
 	{name = "flask of demonic blood", chance = 33333, maxCount = 3},
 	{name = "assassin star", chance = 2222, maxCount = 5},
@@ -104,15 +104,34 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -781, range = 7, shootEffect = CONST_ANI_THROWINGKNIFE, target = false},
-	{name ="dark torturer skill reducer", interval = 2000, chance = 5, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = 0,
+		maxDamage = -781,
+		range = 7,
+		shootEffect = CONST_ANI_THROWINGKNIFE,
+		target = false
+	},
+	{name = "dark torturer skill reducer", interval = 2000, chance = 5, target = false}
 }
 
 monster.defenses = {
 	defense = 40,
 	armor = 40,
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 200, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_HEALING,
+		minDamage = 200,
+		maxDamage = 250,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -124,8 +143,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 10}
 }
 
 monster.immunities = {

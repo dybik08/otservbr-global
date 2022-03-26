@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Secret Library."
-	}
+}
 
 monster.health = 18000
 monster.maxHealth = 18000
@@ -39,7 +39,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,12 +69,12 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
 	{name = "Violet Crystal Shard", chance = 900, maxCount = 4},
-	{name = "Platinum Coin", chance = 100000, maxCount = 12},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 12},
 	{name = "Glowing Rune", chance = 900, maxCount = 4},
 	{name = "Instable Proto Matter", chance = 1200, maxCount = 4},
 	{name = "Energy Ball", chance = 1200, maxCount = 4},
@@ -94,18 +94,39 @@ monster.loot = {
 	{name = "Lightning Pendant", chance = 850},
 	{name = "Might Ring", chance = 1300},
 	{name = "Slime Heart", chance = 1200, maxCount = 4},
-	{id = 23544, chance = 560},
-	{id = 23542, chance = 560},-- collar of blue plasma
-	{id = 23543, chance = 560}, -- Collar of green plasma
-	{id = 23533, chance = 560},
-	{id = 23529, chance = 560},
+	{id = 23544, name = "collar of red plasma", chance = 560},
+	{id = 23542, name = "collar of blue plasma", chance = 560},
+	-- collar of blue plasma
+	{id = 23543, name = "collar of green plasma", chance = 560}, -- Collar of green plasma
+	{id = 23533, name = "ring of red plasma", chance = 560},
+	{id = 23529, name = "ring of blue plasma", chance = 560},
 	{id = 23531, chance = 560}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -200},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -470, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 13, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -505, radius = 3, effect = CONST_ME_ENERGYAREA, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -200},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -200,
+		maxDamage = -470,
+		range = 7,
+		shootEffect = CONST_ANI_ENERGY,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 13,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -200,
+		maxDamage = -505,
+		radius = 3,
+		effect = CONST_ME_ENERGYAREA,
+		target = false
+	}
 }
 
 monster.defenses = {

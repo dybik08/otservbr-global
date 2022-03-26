@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Roshamuul Prison."
-	}
+}
 
 monster.health = 6900
 monster.maxHealth = 6900
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -92,11 +92,11 @@ monster.loot = {
 	{name = "small ruby", chance = 12000, maxCount = 5},
 	{name = "gold coin", chance = 100000, maxCount = 100},
 	{name = "small emerald", chance = 10000, maxCount = 5},
-	{name = "platinum coin", chance = 100000, maxCount = 6},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 6},
 	{name = "might ring", chance = 910},
 	{id = 3049, chance = 1300}, -- Stealth ring
 	{name = "platinum amulet", chance = 1000},
-	{id = 3098, chance = 3000}, -- Ring of healing
+	{id = 3098, name = "Ring of healing", chance = 3000}, -- Ring of healing
 	{name = "giant sword", chance = 2000},
 	{name = "ice rapier", chance = 660},
 	{name = "devil helmet", chance = 910},
@@ -114,18 +114,69 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -250, maxDamage = -450, length = 6, spread = 3, effect = CONST_ME_PURPLEENERGY, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -350, maxDamage = -550, length = 8, spread = 3, effect = CONST_ME_YELLOWENERGY, target = true},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -100, maxDamage = -250, radius = 3, effect = CONST_ME_ENERGYHIT, target = true},
-	{name ="demon outcast skill reducer", interval = 2000, chance = 10, range = 5, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = -80, maxDamage = -150, radius = 4, effect = CONST_ME_MAGIC_GREEN, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -250,
+		maxDamage = -450,
+		length = 6,
+		spread = 3,
+		effect = CONST_ME_PURPLEENERGY,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -350,
+		maxDamage = -550,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_YELLOWENERGY,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -100,
+		maxDamage = -250,
+		radius = 3,
+		effect = CONST_ME_ENERGYHIT,
+		target = true
+	},
+	{name = "demon outcast skill reducer", interval = 2000, chance = 10, range = 5, target = false},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_MANADRAIN,
+		minDamage = -80,
+		maxDamage = -150,
+		radius = 4,
+		effect = CONST_ME_MAGIC_GREEN,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 40,
 	armor = 40,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 250, maxDamage = 425, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 250,
+		maxDamage = 425,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {

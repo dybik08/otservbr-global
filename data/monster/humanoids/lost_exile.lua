@@ -80,7 +80,7 @@ monster.voices = {
 --  ordered descending
 monster.loot = {
 	{name = "gold coin", chance = 100000, maxCount = 100},
-	{name = "platinum coin", chance = 60240, maxCount = 2},
+	{id = 3035, name = "platinum coin", chance = 60240, maxCount = 2},
 	{name = "red hair dye", chance = 14690},
 	{name = "brown mushroom", chance = 13820, maxCount = 2},
 	{name = "holy ash", chance = 13100},

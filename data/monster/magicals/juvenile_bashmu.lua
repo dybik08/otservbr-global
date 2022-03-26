@@ -65,11 +65,11 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{name = "platinum coin", chance = 70000, maxCount = 19},
+	{id = 3035, name = "platinum coin", chance = 70000, maxCount = 19},
 	{name = "great spirit potion", chance = 14700, maxCount = 4},
 	{name = "ultimate health potion", chance = 1300, maxCount = 4},
 	{name = "blue crystal shard", chance = 6160, maxCount = 3},
@@ -77,7 +77,7 @@ monster.loot = {
 	{name = "bashmu feather", chance = 4620, maxCount = 2},
 	{name = "green crystal shard", chance = 3666},
 	{name = "cyan crystal fragment", chance = 3340},
-	{id = 3039, chance = 2390, maxCount = 1}, -- red gem
+	{id = 3039, name = "red gem", chance = 2390, maxCount = 1}, -- red gem
 	{name = "violet gem", chance = 2340, maxCount = 1},
 	{name = "lightning legs", chance = 2230},
 	{name = "diamond sceptre", chance = 2180},
@@ -98,16 +98,57 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
-	{name ="combat", interval = 2000, chance = 50, type = COMBAT_ENERGYDAMAGE, minDamage = -300, maxDamage = -400, length = 4, spread = 0, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="combat", interval = 2000, chance = 40, type = COMBAT_ENERGYDAMAGE, minDamage = -400, maxDamage = -500, range = 3, radius = 3, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -400, maxDamage = -500, range = 7, shootEffect = CONST_ANI_EARTHARROW, target = true},
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 50,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -300,
+		maxDamage = -400,
+		length = 4,
+		spread = 0,
+		effect = CONST_ME_ENERGYAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 40,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -400,
+		maxDamage = -500,
+		range = 3,
+		radius = 3,
+		effect = CONST_ME_ENERGYHIT,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -400,
+		maxDamage = -500,
+		range = 7,
+		shootEffect = CONST_ANI_EARTHARROW,
+		target = true
+	}
 }
 
 monster.defenses = {
 	defense = 75,
 	armor = 75,
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 100, maxDamage = 150, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_HEALING,
+		minDamage = 100,
+		maxDamage = 150,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -119,8 +160,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = -20},
-	{type = COMBAT_DEATHDAMAGE , percent = 5}
+	{type = COMBAT_HOLYDAMAGE, percent = -20},
+	{type = COMBAT_DEATHDAMAGE, percent = 5}
 }
 
 monster.immunities = {

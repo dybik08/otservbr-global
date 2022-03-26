@@ -28,7 +28,7 @@ monster.changeTarget = {
 monster.strategiesTarget = {
 	nearest = 70,
 	health = 20,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -65,18 +65,18 @@ monster.summon = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 99},
-	{id = 3035, chance = 100000, maxCount = 10},
+	{name = "gold coin", chance = 100000, maxCount = 99},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 10},
 	{id = 5879, chance = 100000},
 	{id = 3351, chance = 100000},
-	{id = 239, chance = 100000, maxCount = 4},
+	{name = "great health potion", chance = 100000, maxCount = 4},
 	{id = 3370, chance = 50000},
 	{id = 3049, chance = 33333}, -- Stealth ring
-	{id = 3051, chance = 33333}, -- Energy ring
+	{id = 3051, name = "energy ring", chance = 33333}, -- Energy ring
 	{id = 3053, chance = 33333},
 	{id = 12320, chance = 33333},
 	{id = 3371, chance = 25000},
@@ -87,17 +87,63 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -500},
-	{name ="combat", interval = 1000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -250, maxDamage = -300, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false},
-	{name ="speed", interval = 1000, chance = 20, speedChange = -850, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false, duration = 25000},
-	{name ="poisonfield", interval = 1000, chance = 10, range = 7, radius = 4, shootEffect = CONST_ANI_POISON, target = true}
+	{name = "melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -500},
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 15,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -250,
+		maxDamage = -300,
+		range = 7,
+		shootEffect = CONST_ANI_POISON,
+		effect = CONST_ME_POISONAREA,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 1000,
+		chance = 20,
+		speedChange = -850,
+		range = 7,
+		shootEffect = CONST_ANI_POISON,
+		effect = CONST_ME_POISONAREA,
+		target = false,
+		duration = 25000
+	},
+	{
+		name = "poisonfield",
+		interval = 1000,
+		chance = 10,
+		range = 7,
+		radius = 4,
+		shootEffect = CONST_ANI_POISON,
+		target = true
+	}
 }
 
 monster.defenses = {
 	defense = 21,
 	armor = 17,
-	{name ="combat", interval = 1000, chance = 17, type = COMBAT_HEALING, minDamage = 225, maxDamage = 275, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 1000, chance = 8, speedChange = 345, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000}
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 17,
+		type = COMBAT_HEALING,
+		minDamage = 225,
+		maxDamage = 275,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 1000,
+		chance = 8,
+		speedChange = 345,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 6000
+	}
 }
 
 monster.elements = {
@@ -109,8 +155,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

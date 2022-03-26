@@ -73,16 +73,16 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 340},
-	{id = 3035, chance = 48000, maxCount = 5},
+	{name = "gold coin", chance = 100000, maxCount = 340},
+	{id = 3035, name = "platinum coin", chance = 48000, maxCount = 5},
 	{id = 237, chance = 21000, maxCount = 5},
 	{id = 236, chance = 17000, maxCount = 5},
 	{id = 3062, chance = 9000},
 	{id = 3049, chance = 6000}, -- Stealth ring
-	{id = 7368, chance = 4000, maxCount = 4},
+	{name="assassin star", chance = 4000, maxCount = 4},
 	{id = 3728, chance = 4000, maxCount = 3},
-	{id = 5911, chance = 5000},
-	{id = 3033, chance = 4000, maxCount = 3},
+	{name="red piece of cloth", chance = 5000},
+	{name="small amethyst", chance = 4000, maxCount = 3},
 	{id = 12599, chance = 1680, unique = true},
 	{id = 7443, chance = 1100},
 	{id = 9027, chance = 740},

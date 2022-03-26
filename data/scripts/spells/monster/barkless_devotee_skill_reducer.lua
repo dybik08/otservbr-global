@@ -6,9 +6,9 @@ for i = 40, 70 do
 
     local condition = Condition(CONDITION_ATTRIBUTES)
     condition:setParameter(CONDITION_PARAM_TICKS, 7000)
-    condition:setParameter(CONDITION_PARAM_SKILL_DISTANCE, i)
+    condition:setParameter(CONDITION_PARAM_SKILL_DISTANCEPERCENT, i)
 
-    local area = createCombatArea(SPELL_AREA.BOX)
+    local area = createCombatArea(AREA_SQUARE1X1)
     combat[i]:setArea(area)
     combat[i]:addCondition(condition)
 end
@@ -23,6 +23,6 @@ spell:name("barkless devotee skill reducer")
 spell:words("###barkless_devotee_skill_reducer")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
+spell:needTarget(false)
 spell:needLearn(true)
 spell:register()

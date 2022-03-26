@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -67,22 +67,22 @@ monster.voices = {
 
 monster.loot = {
 	{id = 22516, chance = 1000000},
-	{id = 6558, chance = 10000},
-	{id = 6558, chance = 10000},
-	{id = 6558, chance = 10000},
-	{id = 6558, chance = 10000},
-	{id = 6558, chance = 10000},
+	{name = "flask of demonic blood", chance = 10000},
+	{name = "flask of demonic blood", chance = 10000},
+	{name = "flask of demonic blood", chance = 10000},
+	{name = "flask of demonic blood", chance = 10000},
+	{name = "flask of demonic blood", chance = 10000},
 	{id = 17838, chance = 1800},
 	{id = 3019, chance = 1000},
-	{id = 3026, chance = 12000, maxCount = 8},
-	{id = 3029, chance = 12000, maxCount = 9},
-	{id = 3031, chance = 98000, maxCount = 200},
-	{id = 3033, chance = 10000, maxCount = 5},
-	{id = 3035, chance = 8000, maxCount = 58},
+	{name = "white pearl", chance = 12000, maxCount = 8},
+	{name = "small sapphire", chance = 12000, maxCount = 9},
+	{name = "gold coin", chance = 98000, maxCount = 200},
+	{name = "small amethyst", chance = 10000, maxCount = 5},
+	{id = 3035, name = "platinum coin", chance = 8000, maxCount = 58},
 	{id = 3036, chance = 1000},
-	{id = 3037, chance = 1000},
+	{name = "yellow gem", chance = 1000},
 	{id = 3038, chance = 1000},
-	{id = 3039, chance = 1000},
+	{id = 3039, name = "red gem", chance = 1000},
 	{id = 3366, chance = 700},
 	{id = 22193, chance = 46100, maxCount = 5},
 	{id = 22194, chance = 46100, maxCount = 5},
@@ -91,37 +91,106 @@ monster.loot = {
 	{id = 22756, chance = 500, unique = true},
 	{id = 22867, chance = 700},
 	{id = 5021, chance = 46100, maxCount = 5},
-	{id = 6299, chance = 1300},
-	{id = 6499, chance = 11000},
+	{id = 6299, name = "death ring", chance = 1300},
+	{name = "demonic essence", chance = 11000},
 	{id = 7416, chance = 1000},
 	{id = 7419, chance = 1300},
 	{id = 7427, chance = 1000},
 	{id = 7451, chance = 1900},
-	{id = 238, chance = 23000, maxCount = 5},
+	{name = "great mana potion", chance = 23000, maxCount = 5},
 	{id = 281, chance = 14000, maxCount = 5},
 	{id = 282, chance = 14000, maxCount = 5},
 	{id = 816, chance = 1000},
 	{id = 822, chance = 1000},
 	{id = 7642, chance = 46100, maxCount = 10},
 	{id = 7643, chance = 23000, maxCount = 5},
-	{id = 9057, chance = 10000, maxCount = 5}
+	{name = "small topaz", chance = 10000, maxCount = 5}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -1500, maxDamage = -2500},
-	{name ="combat", interval = 3000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -1000, length = 10, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="speed", interval = 2000, chance = 25, speedChange = -600, radius = 7, effect = CONST_ME_MAGIC_RED, target = false, duration = 15000},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -300, maxDamage = -700, radius = 5, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -500, maxDamage = -800, length = 10, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -800, length = 8, spread = 3, effect = CONST_ME_FIREATTACK, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = -1500, maxDamage = -2500},
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 20,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -500,
+		maxDamage = -1000,
+		length = 10,
+		spread = 3,
+		effect = CONST_ME_HITBYFIRE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 25,
+		speedChange = -600,
+		radius = 7,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 15000
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -300,
+		maxDamage = -700,
+		radius = 5,
+		effect = CONST_ME_HITBYFIRE,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -500,
+		maxDamage = -800,
+		length = 10,
+		spread = 3,
+		effect = CONST_ME_EXPLOSIONHIT,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -500,
+		maxDamage = -800,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_FIREATTACK,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 65,
 	armor = 55,
-	{name ="combat", interval = 3000, chance = 35, type = COMBAT_HEALING, minDamage = 400, maxDamage = 6000, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="shulgrax summon", interval = 5000, chance = 5, target = false},
-	{name ="speed", interval = 4000, chance = 80, speedChange = 440, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000}
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 35,
+		type = COMBAT_HEALING,
+		minDamage = 400,
+		maxDamage = 6000,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{name = "shulgrax summon", interval = 5000, chance = 5, target = false},
+	{
+		name = "speed",
+		interval = 4000,
+		chance = 80,
+		speedChange = 440,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 6000
+	}
 }
 
 monster.elements = {
@@ -133,8 +202,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = 10}
 }
 
 monster.immunities = {

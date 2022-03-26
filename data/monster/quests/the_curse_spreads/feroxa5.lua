@@ -30,7 +30,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -60,20 +60,20 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
 	{id = 16119, chance = 10000, maxCount = 5},
 	{id = 16120, chance = 10000, maxCount = 5},
 	{id = 16124, chance = 10000, maxCount = 5},
-	{id = 3041, chance = 2500},
-	{id = 3039, chance = 2500},
+	{name = "blue gem", chance = 2500},
+	{id = 3039, name = "red gem", chance = 2500},
 	{id = 3079, chance = 1500},
-	{id = 3035, chance = 100000, maxCount = 50},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 50},
 	{id = 7643, chance = 10000, maxCount = 5},
-	{id = 238, chance = 10000, maxCount = 5},
-	{id = 239, chance = 10000, maxCount = 5},
+	{name = "great mana potion", chance = 10000, maxCount = 5},
+	{name = "great health potion", chance = 10000, maxCount = 5},
 	{id = 22062, chance = 10000, unique = true},
 	{id = 22060, chance = 1500},
 	{id = 22084, chance = 1500},
@@ -85,17 +85,56 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -1400, maxDamage = -1800},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -700, maxDamage = -1050, radius = 6, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -700, maxDamage = -1250, length = 9, spread = 1, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -450, maxDamage = -700, radius = 7, effect = CONST_ME_BLOCKHIT, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = -1400, maxDamage = -1800},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -700,
+		maxDamage = -1050,
+		radius = 6,
+		effect = CONST_ME_MORTAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_MANADRAIN,
+		minDamage = -700,
+		maxDamage = -1250,
+		length = 9,
+		spread = 1,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = -450,
+		maxDamage = -700,
+		radius = 7,
+		effect = CONST_ME_BLOCKHIT,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 55,
 	armor = 50,
-	{name ="speed", interval = 2000, chance = 12, speedChange = 1250, effect = CONST_ME_MAGIC_RED, target = false, duration = 10000},
-	{name ="feroxa summon", interval = 2000, chance = 20, target = false}
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 12,
+		speedChange = 1250,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 10000
+	},
+	{name = "feroxa summon", interval = 2000, chance = 20, target = false}
 }
 
 monster.elements = {
@@ -107,8 +146,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

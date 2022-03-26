@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 5,
 	Occurrence = 0,
 	Locations = "Mirrored Nightmare."
-	}
+}
 
 monster.health = 26000
 monster.maxHealth = 26000
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -80,7 +80,7 @@ monster.voices = {
 
 monster.loot = {
 	{name = "crystal coin", chance = 70540},
-	{name = "platinum coin", chance = 81920, maxCount = 33},
+	{id = 3035, name = "platinum coin", chance = 81920, maxCount = 33},
 	{name = "great spirit potion", chance = 51920, maxCount = 8},
 	{name = "violet gem", chance = 74560},
 	{name = "spellbook of warding", chance = 41920},
@@ -88,19 +88,62 @@ monster.loot = {
 	{name = "springsprout rod", chance = 28920},
 	{name = "gold ingot", chance = 54560},
 	{name = "glacial rod", chance = 44560},
-	{id = 23529, chance = 28920}, -- Ring of blue plasma
+	{id = 23529, name = "ring of blue plasma", chance = 28920}, -- Ring of blue plasma
 	{id = 23531, chance = 28920}, -- Ring of green plasma
-	{id = 23533, chance = 28920}, -- Ring of red plasma
+	{id = 23533, name = "ring of red plasma", chance = 28920}, -- Ring of red plasma
 	{id = 34142, chance = 18920}, -- Distorted hearth
 	{id = 34149, chance = 11920}, -- Distorted robe
 	{id = 34109, chance = 50} -- Bag you desire
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 17, type = COMBAT_ICEDAMAGE, minDamage = -600, maxDamage = -1100, range = 7, shootEffect = CONST_ANI_FLASHARROW, effect = CONST_ME_GROUNDSHAKER, target = true},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HOLYDAMAGE, minDamage = -700, maxDamage = -1100, range = 7, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYDAMAGE, target = true},
-	{name ="combat", interval = 3000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -650, maxDamage = -900, radius = 4, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_ICEDAMAGE, minDamage = -600, maxDamage = -1000, range = 7, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICETORNADO, target = true}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 17,
+		type = COMBAT_ICEDAMAGE,
+		minDamage = -600,
+		maxDamage = -1100,
+		range = 7,
+		shootEffect = CONST_ANI_FLASHARROW,
+		effect = CONST_ME_GROUNDSHAKER,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_HOLYDAMAGE,
+		minDamage = -700,
+		maxDamage = -1100,
+		range = 7,
+		shootEffect = CONST_ANI_SMALLHOLY,
+		effect = CONST_ME_HOLYDAMAGE,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 20,
+		type = COMBAT_HOLYDAMAGE,
+		minDamage = -650,
+		maxDamage = -900,
+		radius = 4,
+		effect = CONST_ME_EXPLOSIONHIT,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 25,
+		type = COMBAT_ICEDAMAGE,
+		minDamage = -600,
+		maxDamage = -1000,
+		range = 7,
+		shootEffect = CONST_ANI_ICE,
+		effect = CONST_ME_ICETORNADO,
+		target = true
+	}
 	-- Chain: const_me-> CONST_ME_BLUE_ENERGY_SPARK, combat_t->COMBAT_ICEDAMAGE
 }
 
@@ -118,8 +161,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

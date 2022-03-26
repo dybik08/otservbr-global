@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 1,
 	Locations = "Secret Library."
-	}
+}
 
 monster.health = 10500
 monster.maxHealth = 10500
@@ -39,7 +39,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,11 +69,11 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{name = "Platinum Coin", chance = 100000, maxCount = 9},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 9},
 	{name = "Book Page", chance = 10000, maxCount = 6},
 	{name = "Small Amethyst", chance = 10000, maxCount = 8},
 	{name = "Glowing Rune", chance = 10000, maxCount = 3},
@@ -82,7 +82,7 @@ monster.loot = {
 	{name = "Flash Arrow", chance = 10000, maxCount = 6},
 	{name = "Throwing Star", chance = 10000, maxCount = 10},
 	{name = "Crystal Sword", chance = 10000},
-	{id = 3051, chance = 10000}, -- Energy ring
+	{id = 3051, name = "energy ring", chance = 10000}, -- Energy ring
 	{name = "Guardian Shield", chance = 10000},
 	{name = "Mana Potion", chance = 10000, maxCount = 10},
 	{name = "Ultimate Mana Potion", chance = 10000, maxCount = 8},
@@ -91,16 +91,56 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -400},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HOLYDAMAGE, minDamage = -200, maxDamage = -680, radius = 3, effect = CONST_ME_HOLYDAMAGE, target = true},
-	{name ="combat", interval = 2000, chance = 14, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -680, range = 7, shootEffect = CONST_ANI_ENERGY, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -400},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_HOLYDAMAGE,
+		minDamage = -200,
+		maxDamage = -680,
+		radius = 3,
+		effect = CONST_ME_HOLYDAMAGE,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 14,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -200,
+		maxDamage = -680,
+		range = 7,
+		shootEffect = CONST_ANI_ENERGY,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 33,
 	armor = 76,
-	{name ="combat", interval = 2000, chance = 40, type = COMBAT_PHYSICALDAMAGE, minDamage = 100, maxDamage = 300, radius = 3, effect = CONST_ME_BLOCKHIT, target = false},
-	{name ="combat", interval = 200, chance = 55, type = COMBAT_PHYSICALDAMAGE, minDamage = 100, maxDamage = 300, radius = 3, effect = CONST_ME_ENERGYHIT, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 40,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = 100,
+		maxDamage = 300,
+		radius = 3,
+		effect = CONST_ME_BLOCKHIT,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 200,
+		chance = 55,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = 100,
+		maxDamage = 300,
+		radius = 3,
+		effect = CONST_ME_ENERGYHIT,
+		target = false
+	}
 }
 
 monster.elements = {

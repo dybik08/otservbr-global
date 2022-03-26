@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Chor."
-	}
+}
 
 monster.health = 325
 monster.maxHealth = 325
@@ -39,7 +39,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -85,7 +85,7 @@ monster.loot = {
 	{name = "gold coin", chance = 83740, maxCount = 55},
 	{name = "small amethyst", chance = 520},
 	{name = "yellow gem", chance = 150},
-	{id = 3052, chance = 340}, -- Life ring
+	{id = 3052, name = "life ring", chance = 340}, -- Life ring
 	{name = "life crystal", chance = 1430},
 	{name = "terra rod", chance = 920},
 	{name = "snakebite rod", chance = 230},
@@ -97,17 +97,48 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -30},
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -30},
 	-- poison
-	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 15, minDamage = -100, maxDamage = -200, range = 7, shootEffect = CONST_ANI_POISON, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -50, maxDamage = -110, range = 7, radius = 1, shootEffect = CONST_ANI_POISON, effect = CONST_ME_GREEN_RINGS, target = true}
+	{
+		name = "condition",
+		type = CONDITION_POISON,
+		interval = 2000,
+		chance = 15,
+		minDamage = -100,
+		maxDamage = -200,
+		range = 7,
+		shootEffect = CONST_ANI_POISON,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -50,
+		maxDamage = -110,
+		range = 7,
+		radius = 1,
+		shootEffect = CONST_ANI_POISON,
+		effect = CONST_ME_GREEN_RINGS,
+		target = true
+	}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="combat", interval = 2000, chance = 50, type = COMBAT_HEALING, minDamage = 50, maxDamage = 100, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="invisible", interval = 2000, chance = 10, effect = CONST_ME_MAGIC_BLUE}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 50,
+		type = COMBAT_HEALING,
+		minDamage = 50,
+		maxDamage = 100,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{name = "invisible", interval = 2000, chance = 10, effect = CONST_ME_MAGIC_BLUE}
 }
 
 monster.elements = {
@@ -119,8 +150,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

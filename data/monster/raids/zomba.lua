@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -64,14 +64,14 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 25},
+	{name = "gold coin", chance = 100000, maxCount = 25},
 	{id = 9691, chance = 100000, maxCount = 2},
-	{id = 3035, chance = 25000},
-	{id = 3052, chance = 12500} -- Life ring
+	{id = 3035, name = "platinum coin", chance = 25000},
+	{id = 3052, name = "life ring", chance = 12500} -- Life ring
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 30, attack = 20}
+	{name = "melee", interval = 2000, chance = 100, skill = 30, attack = 20}
 }
 
 monster.defenses = {
@@ -88,8 +88,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -15},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = -8}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = -8}
 }
 
 monster.immunities = {

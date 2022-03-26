@@ -68,20 +68,20 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 200},
-	{id = 3035, chance = 100000, maxCount = 10},
+	{name = "gold coin", chance = 100000, maxCount = 200},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 10},
 	{id = 16119, chance = 8000, maxCount = 3},
-	{id = 238, chance = 8000, maxCount = 10},
+	{name="great mana potion", chance = 8000, maxCount = 10},
 	{id = 16121, chance = 8000, maxCount = 3},
-	{id = 3033, chance = 8000, maxCount = 10},
-	{id = 3029, chance = 8000, maxCount = 5},
+	{name="small amethyst", chance = 8000, maxCount = 10},
+	{name="small sapphire", chance = 8000, maxCount = 5},
 	{id = 7643, chance = 8000, maxCount = 5},
 	{id = 16120, chance = 8000, maxCount = 3},
 	{id = 22721, chance = 100000},
 	{id = 23509, chance = 100000},
 	{id = 3038, chance = 8000},
 	{id = 7427, chance = 6000},
-	{id = 23533, chance = 5000},
+	{id = 23533, name="ring of red plasma", chance = 5000},
 	{id = 23474, chance = 2000, unique = true},
 	{id = 23477, chance = 2000, unique = true},
 	{id = 16160, chance = 2000, unique = true}

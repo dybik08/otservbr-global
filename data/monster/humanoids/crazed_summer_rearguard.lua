@@ -106,7 +106,7 @@ monster.attacks = {
 	{name = "melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -450},
 	-- Flame Strike (220-300 fire, on target)
 	{
-		name = "flameStrike",
+		name = "FlameStrikeFireTarget",
 		interval = 2000,
 		chance = 10,
 		minDamage = -220,
@@ -114,7 +114,7 @@ monster.attacks = {
 	},
 	-- Eruption Ball (250-300 fire, on target)
 	{
-		name = "eruptionBallTarget",
+		name = "EruptionBallFireTarget",
 		interval = 2000,
 		chance = 10,
 		minDamage = -250,

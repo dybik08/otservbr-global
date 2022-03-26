@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "Helheim (single, isolated spawn), Pits of Inferno (Ashfalor's throneroom), \z
 		Demon Forge (The Shadow Nexus and The Arcanum), under Razachai (including the Inner Sanctum), \z
 		Chyllfroest, Oramond Fury Dungeon."
-	}
+}
 
 monster.health = 8350
 monster.maxHealth = 8350
@@ -44,7 +44,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -85,7 +85,7 @@ monster.loot = {
 	{name = "small sapphire", chance = 28370, maxCount = 2},
 	{name = "gold coin", chance = 35500, maxCount = 100},
 	{name = "gold coin", chance = 55500, maxCount = 98},
-	{name = "platinum coin", chance = 52000, maxCount = 5},
+	{id = 3035, name = "platinum coin", chance = 52000, maxCount = 5},
 	{name = "life crystal", chance = 2500},
 	{name = "war axe", chance = 1290},
 	{name = "golden armor", chance = 860},
@@ -93,7 +93,7 @@ monster.loot = {
 	{name = "royal helmet", chance = 1720},
 	{name = "power bolt", chance = 15190, maxCount = 15},
 	{name = "hardened bone", chance = 14180},
-	{id = 6299, chance = 1150},
+	{id = 6299, name = "death ring", chance = 1150},
 	{name = "demonic essence", chance = 12460},
 	{name = "assassin star", chance = 26650, maxCount = 5},
 	{name = "dragon slayer", chance = 860},
@@ -108,21 +108,106 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -480},
-	{name ="combat", interval = 2000, chance = 5, type = COMBAT_PHYSICALDAMAGE, minDamage = -300, maxDamage = -400, range = 7, radius = 4, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -125, maxDamage = -600, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = false},
-	{name ="combat", interval = 2000, chance = 5, type = COMBAT_EARTHDAMAGE, minDamage = -100, maxDamage = -390, range = 7, radius = 4, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = 0, maxDamage = -180, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -150, maxDamage = -690, length = 8, spread = 3, effect = CONST_ME_POISONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -300, maxDamage = -700, length = 8, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -100, maxDamage = -200, radius = 3, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="undead dragon curse", interval = 2000, chance = 10, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -480},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 5,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = -300,
+		maxDamage = -400,
+		range = 7,
+		radius = 4,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -125,
+		maxDamage = -600,
+		range = 7,
+		shootEffect = CONST_ANI_SUDDENDEATH,
+		effect = CONST_ME_SMALLCLOUDS,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 5,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -100,
+		maxDamage = -390,
+		range = 7,
+		radius = 4,
+		shootEffect = CONST_ANI_POISON,
+		effect = CONST_ME_POISONAREA,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = 0,
+		maxDamage = -180,
+		range = 7,
+		shootEffect = CONST_ANI_POISON,
+		effect = CONST_ME_POISONAREA,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -150,
+		maxDamage = -690,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_POISONAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -300,
+		maxDamage = -700,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_MAGIC_RED,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -100,
+		maxDamage = -200,
+		radius = 3,
+		effect = CONST_ME_MAGIC_RED,
+		target = false
+	},
+	{name = "undead dragon curse", interval = 2000, chance = 10, target = false}
 }
 
 monster.defenses = {
 	defense = 40,
 	armor = 40,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 200, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 200,
+		maxDamage = 250,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -134,8 +219,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 50},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -25},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

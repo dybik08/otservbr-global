@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -69,40 +69,80 @@ monster.loot = {
 	{id = 19361, chance = 3000},
 	{id = 3583, chance = 55000, maxCount = 3},
 	{id = 3155, chance = 15000},
-	{id = 3031, chance = 100000, maxCount = 50},
-	{id = 3035, chance = 60000, maxCount = 8},
-	{id = 7368, chance = 30000, maxCount = 5},
+	{name = "gold coin", chance = 100000, maxCount = 50},
+	{id = 3035, name = "platinum coin", chance = 60000, maxCount = 8},
+	{name = "assassin star", chance = 30000, maxCount = 5},
 	{id = 236, chance = 25000, maxCount = 5},
 	{id = 237, chance = 25000, maxCount = 5},
 	{id = 9665, chance = 100000},
-	{id = 3039, chance = 9000},
-	{id = 3037, chance = 9000},
+	{id = 3039, name = "red gem", chance = 9000},
+	{name = "yellow gem", chance = 9000},
 	{id = 3036, chance = 9000},
 	{id = 3415, chance = 9000},
 	{id = 8045, chance = 9000},
-	{id = 3028, chance = 15000, maxCount = 5},
-	{id = 3033, chance = 15000, maxCount = 5},
-	{id = 3032, chance = 15000, maxCount = 5},
-	{id = 3029, chance = 15000, maxCount = 5},
-	{id = 9057, chance = 15000, maxCount = 5},
-	{id = 3030, chance = 15000, maxCount = 5}
+	{name = "small diamond", chance = 15000, maxCount = 5},
+	{name = "small amethyst", chance = 15000, maxCount = 5},
+	{name = "small emerald", chance = 15000, maxCount = 5},
+	{name = "small sapphire", chance = 15000, maxCount = 5},
+	{name = "small topaz", chance = 15000, maxCount = 5},
+	{name = "small ruby", chance = 15000, maxCount = 5}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 70, attack = 130},
-	{name ="drunk", interval = 2000, chance = 8, radius = 8, effect = CONST_ME_SOUND_YELLOW, target = false, duration = 25000},
-	{name ="combat", interval = 2000, chance = 33, type = COMBAT_ENERGYDAMAGE, minDamage = -100, maxDamage = -190, range = 7, shootEffect = CONST_ANI_ENERGYBALL, effect = CONST_ME_ENERGYAREA, target = true},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -300, range = 7, radius = 4, shootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_EXPLOSIONHIT, target = true},
-	{name ="tyrn electrify", interval = 2000, chance = 11, target = false},
-	{name ="tyrn skill reducer", interval = 2000, chance = 14, target = false}
+	{name = "melee", interval = 2000, chance = 100, skill = 70, attack = 130},
+	{
+		name = "drunk",
+		interval = 2000,
+		chance = 8,
+		radius = 8,
+		effect = CONST_ME_SOUND_YELLOW,
+		target = false,
+		duration = 25000
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 33,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -100,
+		maxDamage = -190,
+		range = 7,
+		shootEffect = CONST_ANI_ENERGYBALL,
+		effect = CONST_ME_ENERGYAREA,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 12,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -200,
+		maxDamage = -300,
+		range = 7,
+		radius = 4,
+		shootEffect = CONST_ANI_EXPLOSION,
+		effect = CONST_ME_EXPLOSIONHIT,
+		target = true
+	},
+	{name = "tyrn electrify", interval = 2000, chance = 11, target = false},
+	{name = "tyrn skill reducer", interval = 2000, chance = 14, target = false}
 }
 
 monster.defenses = {
 	defense = 68,
 	armor = 58,
-	{name ="combat", interval = 2000, chance = 33, type = COMBAT_HEALING, minDamage = 200, maxDamage = 300, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="invisible", interval = 2000, chance = 11, effect = CONST_ME_ENERGYHIT},
-	{name ="tyrn heal", interval = 1000, chance = 100, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 33,
+		type = COMBAT_HEALING,
+		minDamage = 200,
+		maxDamage = 300,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{name = "invisible", interval = 2000, chance = 11, effect = CONST_ME_ENERGYHIT},
+	{name = "tyrn heal", interval = 1000, chance = 100, target = false}
 }
 
 monster.elements = {
@@ -114,8 +154,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

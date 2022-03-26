@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Magician Quarter, Vengoth, Deeper Banuta, Formorgar Mines, Chyllfroest, Oramond Dungeon."
-	}
+}
 
 monster.health = 3500
 monster.maxHealth = 3500
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -96,7 +96,7 @@ monster.loot = {
 	{name = "great health potion", chance = 40333},
 	{name = "ultimate health potion", chance = 9090},
 	{id = 8895, chance = 3125},
-	{id = 8896, chance = 3125},
+	{id = 8896, name = "slightly rusted armor", chance = 3125},
 	{id = 9034, chance = 140},
 	{name = "black skull", chance = 151},
 	{name = "small topaz", chance = 5882, maxCount = 3},
@@ -104,16 +104,43 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -352},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -150, maxDamage = -175, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = false},
-	{name ="hellspawn soulfire", interval = 2000, chance = 10, range = 5, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -352},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -150,
+		maxDamage = -175,
+		shootEffect = CONST_ANI_FIRE,
+		effect = CONST_ME_FIREATTACK,
+		target = false
+	},
+	{name = "hellspawn soulfire", interval = 2000, chance = 10, range = 5, target = false}
 }
 
 monster.defenses = {
 	defense = 40,
 	armor = 40,
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 120, maxDamage = 230, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = 270, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_HEALING,
+		minDamage = 120,
+		maxDamage = 230,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = 270,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 5000
+	}
 }
 
 monster.elements = {
@@ -125,8 +152,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 30},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 30},
+	{type = COMBAT_DEATHDAMAGE, percent = -5}
 }
 
 monster.immunities = {

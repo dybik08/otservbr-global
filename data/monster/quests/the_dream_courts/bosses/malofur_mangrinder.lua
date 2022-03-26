@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -75,15 +75,15 @@ monster.loot = {
 	{name = "Silver Token", chance = 100000, maxCount = 2},
 	{id = 281, chance = 100000},
 	{name = "Green Gem", chance = 100000},
-	{id= 3039, chance = 50000},
+	{id = 3039, chance = 50000},
 	{name = "Blue Gem", chance = 100000},
-	{id = 23529, chance = 50000},
-	{name = "Platinum Coin", chance = 50000, maxCount = 5},
+	{id = 23529, name = "ring of blue plasma", chance = 50000},
+	{id = 3035, name = "platinum coin", chance = 50000, maxCount = 5},
 	{name = "Bullseye Potion", chance = 50000, maxCount = 10},
 	{name = "Piggy Bank", chance = 100000},
 	{name = "Mysterious Remains", chance = 100000},
 	{name = "Energy Bar", chance = 100000},
-	{id = 23543, chance = 50000}, -- Collar of green plasma
+	{id = 23543, name = "collar of green plasma", chance = 50000}, -- Collar of green plasma
 	{name = "Ring of the Sky", chance = 100000},
 	{name = "Crunor Idol", chance = 100000},
 	{name = "Resizer", chance = 100000},
@@ -93,7 +93,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -5}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -5}
 }
 
 monster.defenses = {
@@ -110,8 +110,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

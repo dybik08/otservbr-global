@@ -3,8 +3,8 @@ local monster = {}
 
 monster.Credits = {
 	Developer = "Wojciech Dybikowski",
-	lastUpdate = "16/03/2022",
- }
+	lastUpdate = "16/03/2022"
+}
 
 monster.description = "a cobra assassin"
 monster.experience = 6980
@@ -29,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Cobra Bastion."
-	}
+}
 
 monster.health = 8200
 monster.maxHealth = 8200
@@ -44,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -82,7 +82,7 @@ monster.voices = {
 
 -- order descending
 monster.loot = {
-	{name = "platinum coin", chance = 74990, maxCount = 9},
+	{id = 3035, name = "platinum coin", chance = 74990, maxCount = 9},
 	{name = "opal", chance = 33630, maxCount = 5},
 	{name = "small emerald", chance = 27820, maxCount = 3},
 	{name = "knife", chance = 23610},
@@ -96,23 +96,19 @@ monster.loot = {
 	{id = 9058, name = "gold ingot", chance = 5140},
 	{name = "carlin sword", chance = 4700},
 	{id = 5944, name = "soul orb", chance = 1810},
-	{id=16126, name="red crystal fragment", chance = 1030},
-	{id=31297, name="empty ritual flask", chance = 100},
+	{id = 16126, name = "red crystal fragment", chance = 1030},
+	{id = 31297, name = "empty ritual flask", chance = 100}
 }
-
 
 monster.attacks = {
 	-- Basic attack (0-500 physical)
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
-
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
 	-- Eruption Ball (350-500 physical, on self)
-	{name ="eruptionBall", interval = 2000, chance = 10, minDamage = -350, maxDamage = -500},
-
+	{name = "EruptionBallPhysicalSelf", interval = 2000, chance = 10, minDamage = -350, maxDamage = -500},
 	-- Shorter Poison T-Wave (240-400 earth)
-	{name ="shorterPoisonTWave", interval = 2000, chance = 15, minDamage = -240, maxDamage = -400},
-
+	{name = "ShorterPoisonTWaveEarth", interval = 2000, chance = 15, minDamage = -240, maxDamage = -400},
 	-- Sparky Beam (380-500 physical)
-	{name ="sparkyBeam", interval = 2000, chance = 92, minDamage = -380, maxDamage = -500}
+	{name = "SparkyBeamPhysical", interval = 2000, chance = 92, minDamage = -380, maxDamage = -500}
 }
 
 monster.defenses = {
@@ -129,8 +125,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

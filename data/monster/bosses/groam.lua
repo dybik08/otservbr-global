@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -68,14 +68,25 @@ monster.voices = {
 monster.loot = {
 	{name = "gold coin", chance = 100000, maxCount = 50},
 	{name = "hunting spear", chance = 31250, maxCount = 4},
-	{id = 3052, chance = 25000}, -- Life ring
+	{id = 3052, name = "life ring", chance = 25000}, -- Life ring
 	{name = "rusted armor", chance = 6250},
 	{name = "fish fin", chance = 1500}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 34, attack = 45},
-	{name ="combat", interval = 1000, chance = 11, type = COMBAT_DROWNDAMAGE, minDamage = -15, maxDamage = -100, range = 5, shootEffect = CONST_ANI_SPEAR, effect = CONST_ME_LOSEENERGY, target = true}
+	{name = "melee", interval = 2000, chance = 100, skill = 34, attack = 45},
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 11,
+		type = COMBAT_DROWNDAMAGE,
+		minDamage = -15,
+		maxDamage = -100,
+		range = 5,
+		shootEffect = CONST_ANI_SPEAR,
+		effect = CONST_ME_LOSEENERGY,
+		target = true
+	}
 }
 
 monster.defenses = {
@@ -92,8 +103,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = -20}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = -20}
 }
 
 monster.immunities = {

@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -77,36 +77,76 @@ monster.voices = {
 
 monster.loot = {
 	{id = 7290, chance = 100000},
-	{id = 3031, chance = 97000, maxCount = 283},
+	{name = "gold coin", chance = 97000, maxCount = 283},
 	{id = 5912, chance = 74000},
 	{id = 7440, chance = 65000},
-	{id = 9058, chance = 33000},
+	{name = "gold ingot", chance = 33000},
 	{id = 7449, chance = 22000},
 	{id = 3085, chance = 15000},
 	{id = 823, chance = 12000},
-	{id = 238, chance = 9500},
+	{name = "great mana potion", chance = 9500},
 	{id = 7443, chance = 8000},
 	{id = 824, chance = 8000},
 	{id = 3324, chance = 8000},
 	{id = 7459, chance = 6350},
 	{id = 7439, chance = 4700},
-	{id = 3052, chance = 4700}, -- Life ring
+	{id = 3052, name = "life ring", chance = 4700}, -- Life ring
 	{id = 7410, chance = 4700},
 	{id = 3079, chance = 1500},
 	{id = 3732, chance = 1500}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -389},
-	{name ="combat", interval = 2000, chance = 18, type = COMBAT_ICEDAMAGE, minDamage = 0, maxDamage = -430, radius = 4, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICEAREA, target = true},
-	{name ="combat", interval = 3000, chance = 34, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -300, range = 7, radius = 3, shootEffect = CONST_ANI_SNOWBALL, target = true},
-	{name ="speed", interval = 2000, chance = 10, speedChange = -300, range = 7, effect = CONST_ME_MAGIC_RED, target = false, duration = 20000}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -389},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 18,
+		type = COMBAT_ICEDAMAGE,
+		minDamage = 0,
+		maxDamage = -430,
+		radius = 4,
+		shootEffect = CONST_ANI_SMALLICE,
+		effect = CONST_ME_ICEAREA,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 34,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = -200,
+		maxDamage = -300,
+		range = 7,
+		radius = 3,
+		shootEffect = CONST_ANI_SNOWBALL,
+		target = true
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 10,
+		speedChange = -300,
+		range = 7,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 20000
+	}
 }
 
 monster.defenses = {
 	defense = 20,
 	armor = 15,
-	{name ="combat", interval = 1000, chance = 25, type = COMBAT_HEALING, minDamage = 50, maxDamage = 100, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 25,
+		type = COMBAT_HEALING,
+		minDamage = 50,
+		maxDamage = 100,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -118,8 +158,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 50},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 50},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

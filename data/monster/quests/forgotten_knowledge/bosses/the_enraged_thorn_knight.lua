@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -63,28 +63,28 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3031, chance = 50320, maxCount = 165},
-	{id = 3035, chance = 50320, maxCount = 30},
+	{name = "gold coin", chance = 50320, maxCount = 165},
+	{id = 3035, name = "platinum coin", chance = 50320, maxCount = 30},
 	{id = 16119, chance = 9660, maxCount = 5},
 	{id = 16120, chance = 9660, maxCount = 5},
 	{id = 16121, chance = 9660, maxCount = 5},
-	{id = 3032, chance = 9660, maxCount = 5},
-	{id = 3030, chance = 7360, maxCount = 5},
-	{id = 9057, chance = 7350, maxCount = 5},
-	{id = 3033, chance = 7150, maxCount = 5},
+	{name = "small emerald", chance = 9660, maxCount = 5},
+	{name = "small ruby", chance = 7360, maxCount = 5},
+	{name = "small topaz", chance = 7350, maxCount = 5},
+	{name = "small amethyst", chance = 7150, maxCount = 5},
 	{id = 5887, chance = 5909, maxCount = 2},
-	{id = 238, chance = 22120, maxCount = 3},
+	{name = "great mana potion", chance = 22120, maxCount = 3},
 	{id = 7643, chance = 19500, maxCount = 3},
 	{id = 7642, chance = 18250, maxCount = 3},
-	{id = 3041, chance = 5000},
-	{id = 3039, chance = 2200},
+	{name = "blue gem", chance = 5000},
+	{id = 3039, name = "red gem", chance = 2200},
 	{id = 3038, chance = 5000},
-	{id = 3037, chance = 5000},
-	{id = 6499, chance = 14460},
+	{name = "yellow gem", chance = 5000},
+	{name = "demonic essence", chance = 14460},
 	{id = 7439, chance = 14460},
 	{id = 7443, chance = 14460},
 	{id = 281, chance = 7000},
@@ -104,18 +104,78 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -600, maxDamage = -1000},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_LIFEDRAIN, minDamage = -400, maxDamage = -700, length = 4, spread = 3, effect = CONST_ME_POFF, target = false},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_MANADRAIN, minDamage = -1400, maxDamage = -1700, length = 9, spread = 3, effect = CONST_ME_CARNIPHILA, target = false},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_DEATHDAMAGE, minDamage = -400, maxDamage = -700, length = 9, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -250, radius = 10, effect = CONST_ME_BLOCKHIT, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = -600, maxDamage = -1000},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 12,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -400,
+		maxDamage = -700,
+		length = 4,
+		spread = 3,
+		effect = CONST_ME_POFF,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 12,
+		type = COMBAT_MANADRAIN,
+		minDamage = -1400,
+		maxDamage = -1700,
+		length = 9,
+		spread = 3,
+		effect = CONST_ME_CARNIPHILA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 12,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -400,
+		maxDamage = -700,
+		length = 9,
+		spread = 3,
+		effect = CONST_ME_MORTAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = -200,
+		maxDamage = -250,
+		radius = 10,
+		effect = CONST_ME_BLOCKHIT,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 60,
 	armor = 60,
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 1550, maxDamage = 2550, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 1000, chance = 12, speedChange = 620, effect = CONST_ME_MAGIC_RED, target = false, duration = 4000}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_HEALING,
+		minDamage = 1550,
+		maxDamage = 2550,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 1000,
+		chance = 12,
+		speedChange = 620,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 4000
+	}
 }
 
 monster.elements = {
@@ -127,8 +187,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 80},
-	{type = COMBAT_HOLYDAMAGE , percent = 80},
-	{type = COMBAT_DEATHDAMAGE , percent = 80}
+	{type = COMBAT_HOLYDAMAGE, percent = 80},
+	{type = COMBAT_DEATHDAMAGE, percent = 80}
 }
 
 monster.immunities = {

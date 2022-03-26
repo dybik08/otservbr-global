@@ -105,7 +105,7 @@ monster.loot = {
 	{name = "charmer's tiara", chance = 200},
 	{name = "royal helmet", chance = 110},
 	{name = "spellbook of mind control", chance = 110},
-	{name = "swamplair armor", chance = 110},
+	{name = "swamplair armor", chance = 110}
 }
 
 monster.attacks = {
@@ -113,7 +113,7 @@ monster.attacks = {
 	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250},
 	-- Poison Hit(0-300 earth)
 	{
-		name = "poisonHit",
+		name = "PoisonHitEarthTarget",
 		interval = 2000,
 		chance = 20,
 		minDamage = -0,
@@ -144,7 +144,7 @@ monster.attacks = {
 	},
 	-- Poison Wave (Earth, 0-500)
 	{
-		name = "PoisonWave",
+		name = "PoisonWaveEarth",
 		interval = 2000,
 		chance = 10,
 		minDamage = -0,
@@ -152,7 +152,7 @@ monster.attacks = {
 	},
 	-- Musical Notes Beam(0-400 lifedrain)
 	{
-		name = "MusicalNotesBeam",
+		name = "MusicalNotesBeamLifeDrain",
 		interval = 2000,
 		chance = 100,
 		minDamage = -0,

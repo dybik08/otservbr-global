@@ -73,12 +73,12 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "Platinum Coin", chance = 44000, maxCount = 40},
+	{id = 3035, name = "platinum coin", chance = 44000, maxCount = 40},
 	{name = "Belted Cape", chance = 500},
 	{name = "Ultimate Health Potion", chance = 500, maxCount = 2},
 	{name = "Throwing Star", chance = 500, maxCount = 18},
 	{name = "Knight Axe", chance = 250},
-	{id = 3307, chance = 500},
+	{id = 3307, name = "scimitar", chance = 500},
 	{name = "protection amulet", chance = 250},
 	{name = "hunting spear", chance = 250},
 	{name = "broken gladiator shield", chance = 250},

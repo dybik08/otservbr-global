@@ -27,7 +27,7 @@ monster.Bestiary = {
 		Mad Technomancer room, Dark Cathedral, Demona, Goroma, Tarpit Tomb, Peninsula Tomb, \z
 		Deeper Banuta, Forbidden Lands, Beregar Mines, Farmine Mines, Drillworm Caves, 2 caves on Hrodmir, \z
 		Orc Fortress (single spawn) and Medusa Tower."
-	}
+}
 
 monster.health = 270
 monster.maxHealth = 270
@@ -42,7 +42,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -72,15 +72,15 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
 	{name = "small stone", chance = 13890, maxCount = 4},
 	{id = 3007, chance = 120},
 	{name = "gold coin", chance = 90000, maxCount = 40},
-	{id= 3039, chance = 30},
-	{id = 3050, chance = 5070}, -- Power ring
+	{id = 3039, chance = 30},
+	{id = 3050, name = "power ring", chance = 5070}, -- Power ring
 	{name = "carlin sword", chance = 2500},
 	{name = "iron ore", chance = 1980},
 	{name = "ancient stone", chance = 1020},
@@ -91,7 +91,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -110}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -110}
 }
 
 monster.defenses = {
@@ -108,8 +108,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 20}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 20}
 }
 
 monster.immunities = {

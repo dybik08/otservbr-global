@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Pits of Inferno, Formorgar Mines, Cemetery Quarter, Edron \z
 		(In multiple places during The Inquisition Quest), Alchemist Quarter, Vengoth Castle, Deeper Banuta, Krailos Ruins."
-	}
+}
 
 monster.health = 2700
 monster.maxHealth = 2700
@@ -43,7 +43,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -85,7 +85,7 @@ monster.voices = {
 monster.loot = {
 	{name = "gold coin", chance = 50000, maxCount = 100},
 	{name = "gold coin", chance = 50000, maxCount = 55},
-	{name = "platinum coin", chance = 2564, maxCount = 3},
+	{id = 3035, name = "platinum coin", chance = 2564, maxCount = 3},
 	{name = "boots of haste", chance = 337},
 	{name = "war axe", chance = 95},
 	{name = "knight legs", chance = 961},
@@ -94,7 +94,7 @@ monster.loot = {
 	{name = "ham", chance = 29000, maxCount = 2},
 	{name = "mysterious voodoo skull", chance = 123},
 	{name = "soul orb", chance = 20000},
-	{id = 6299, chance = 1298},
+	{id = 6299, name = "death ring", chance = 1298},
 	{name = "demonic essence", chance = 10000},
 	{name = "skeleton decoration", chance = 337},
 	{name = "flask of demonic blood", chance = 19666, maxCount = 2},
@@ -103,16 +103,57 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -150},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -120, maxDamage = -170, range = 7, radius = 1, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_SMALLCLOUDS, target = true},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -150, maxDamage = -350, range = 7, radius = 4, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -150},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -120,
+		maxDamage = -170,
+		range = 7,
+		radius = 1,
+		shootEffect = CONST_ANI_DEATH,
+		effect = CONST_ME_SMALLCLOUDS,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -150,
+		maxDamage = -350,
+		range = 7,
+		radius = 4,
+		shootEffect = CONST_ANI_POISON,
+		effect = CONST_ME_POISONAREA,
+		target = true
+	}
 }
 
 monster.defenses = {
 	defense = 25,
 	armor = 25,
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 60, maxDamage = 100, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = 420, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_HEALING,
+		minDamage = 60,
+		maxDamage = 100,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = 420,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 5000
+	}
 }
 
 monster.elements = {
@@ -124,8 +165,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -25},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

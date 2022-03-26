@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Gnome Deep Hub."
-	}
+}
 
 monster.health = 3500
 monster.maxHealth = 3500
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -87,29 +87,59 @@ monster.loot = {
 	{name = "Dark Mushroom", chance = 14960},
 	{id = 27593, chance = 11450, maxCount = 1}, -- deepworm spike roots
 	{name = "Deepworm Spikes", chance = 10120},
-	{id = 3052, chance = 7780}, -- Life ring
+	{id = 3052, name = "life ring", chance = 7780}, -- Life ring
 	{name = "Green Crystal Shard", chance = 6060},
 	{name = "Terra Amulet", chance = 4870},
 	{name = "Small Enchanted Amethyst", chance = 3430, maxCount = 2},
 	{name = "Sacred Tree Amulet", chance = 2640},
 	{name = "Springsprout Rod", chance = 1250},
 	{name = "Suspicious Device", chance = 1250},
-	{id = 281, chance = 920}, -- giant shimmering pearl
+	{id = 281, chance = 920} -- giant shimmering pearl
 }
 
 monster.attacks = {
-    -- Basic attack (0-380 physical)
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -380},
+	-- Basic attack (0-380 physical)
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -380},
 	-- Envenom Ball (320-390 earth, on target)
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -320, maxDamage = -390, range = 7, radius = 4, effect = SPELL_ANIMATIONS.ENVENOM, target = true},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -320,
+		maxDamage = -390,
+		range = 7,
+		radius = 4,
+		effect = SPELL_ANIMATIONS.ENVENOM,
+		target = true
+	},
 	-- Envenom Beam (200-300 earth)
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -300, length = 4, effect = SPELL_ANIMATIONS.ENVENOM, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -200,
+		maxDamage = -300,
+		length = 4,
+		effect = SPELL_ANIMATIONS.ENVENOM,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 5,
 	armor = 10,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 80, maxDamage = 100, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 80,
+		maxDamage = 100,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -121,8 +151,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 5,
 	Occurrence = 0,
 	Locations = "Ebb and Flow."
-	}
+}
 
 monster.health = 30000
 monster.maxHealth = 30000
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -81,7 +81,7 @@ monster.voices = {
 
 monster.loot = {
 	{name = "crystal coin", chance = 70540},
-	{name = "platinum coin", chance = 82220, maxCount = 32},
+	{id = 3035, name = "platinum coin", chance = 82220, maxCount = 32},
 	{name = "great spirit potion", chance = 32220, maxCount = 7},
 	{name = "blue gem", chance = 54560},
 	{name = "gold ingot", chance = 54560},
@@ -92,16 +92,60 @@ monster.loot = {
 	{name = "fur armor", chance = 18920},
 	{id = 34138, chance = 14560}, -- Capricious heart
 	{id = 34145, chance = 11560}, -- Capricious robe
-	{id = 23529, chance = 28920}, -- Ring of blue plasma
-	{id = 23542, chance = 24920}, -- Collar of blue plasma
+	{id = 23529, name = "ring of blue plasma", chance = 28920}, -- Ring of blue plasma
+	{id = 23542, name = "collar of blue plasma", chance = 24920}, -- Collar of blue plasma
 	{id = 34109, chance = 50} -- Bag you desire
 }
 
 monster.attacks = {
-	{name ="combat", interval = 3000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -650, maxDamage = -1000, range = 7, radius = 3, shootEffect = CONST_ANI_POISONARROW, effect = CONST_ME_GREEN_RINGS, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -600, maxDamage = -1050, length = 6, spread = 4, effect = CONST_ME_GREEN_RINGS, target = false},
-	{name ="combat", interval = 3000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -650, maxDamage = -900, radius = 3, effect = CONST_ME_ICETORNADO, target = false},
-	{name ="combat", interval = 3000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -650, maxDamage = -900, range = 7, radius = 4, effect = CONST_ME_ICEATTACK, target = true}
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 20,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -650,
+		maxDamage = -1000,
+		range = 7,
+		radius = 3,
+		shootEffect = CONST_ANI_POISONARROW,
+		effect = CONST_ME_GREEN_RINGS,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -600,
+		maxDamage = -1050,
+		length = 6,
+		spread = 4,
+		effect = CONST_ME_GREEN_RINGS,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 20,
+		type = COMBAT_ICEDAMAGE,
+		minDamage = -650,
+		maxDamage = -900,
+		radius = 3,
+		effect = CONST_ME_ICETORNADO,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 20,
+		type = COMBAT_ICEDAMAGE,
+		minDamage = -650,
+		maxDamage = -900,
+		range = 7,
+		radius = 4,
+		effect = CONST_ME_ICEATTACK,
+		target = true
+	}
 	-- Chain: const_me-> CONST_ME_ICEATTACK, combat_t->COMBAT_ICEDAMAGE
 }
 
@@ -119,8 +163,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

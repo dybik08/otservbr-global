@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 2,
 	Locations = "Seacrest Grounds during a world change."
-	}
+}
 
 monster.health = 1200
 monster.maxHealth = 1200
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -72,7 +72,7 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
@@ -87,17 +87,17 @@ monster.loot = {
 	{name = "two handed sword", chance = 820},
 	{name = "fish fin", chance = 740},
 	{name = "blue robe", chance = 660},
-	{id = 3051, chance = 580} -- Energy ring
+	{id = 3051, name = "energy ring", chance = 580} -- Energy ring
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 40, attack = 55, effect = CONST_ME_DRAWBLOOD}
+	{name = "melee", interval = 2000, chance = 100, skill = 40, attack = 55, effect = CONST_ME_DRAWBLOOD}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 16,
-	{name ="invisible", interval = 2000, chance = 20, effect = CONST_ME_MAGIC_BLUE}
+	{name = "invisible", interval = 2000, chance = 20, effect = CONST_ME_MAGIC_BLUE}
 }
 
 monster.elements = {
@@ -109,8 +109,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -77,11 +77,11 @@ monster.loot = {
 	{name = "demon shield", chance = 15500},
 	{name = "devil helmet", chance = 11000},
 	{name = "dragon hammer", chance = 34500},
-	{id = 3051, chance = 13500}, -- Energy ring
+	{id = 3051, name = "energy ring", chance = 13500}, -- Energy ring
 	{name = "fire axe", chance = 17000},
 	{name = "giant sword", chance = 12500},
-	{name = "platinum coin", chance = 69900, maxCount = 100},
-	{name = "platinum coin", chance = 68800, maxCount = 100},
+	{id = 3035, name = "platinum coin", chance = 69900, maxCount = 100},
+	{id = 3035, name = "platinum coin", chance = 68800, maxCount = 100},
 	{name = "crystal coin", chance = 47700, maxCount = 40},
 	{name = "crystal coin", chance = 36600, maxCount = 15},
 	{name = "gold ring", chance = 28000},
@@ -104,23 +104,120 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 230, attack = 210},
-	{name ="combat", interval = 1000, chance = 8, type = COMBAT_DEATHDAMAGE, minDamage = -800, maxDamage = -1900, radius = 9, effect = CONST_ME_MORTAREA, target = false},
-	{name ="speed", interval = 1000, chance = 12, speedChange = -850, radius = 6, effect = CONST_ME_POISONAREA, target = false, duration = 60000},
-	{name ="strength", interval = 1000, chance = 10, minDamage = -600, maxDamage = -1450, radius = 5, effect = CONST_ME_HITAREA, target = false},
-	{name ="combat", interval = 3000, chance = 13, type = COMBAT_FIREDAMAGE, minDamage = -300, maxDamage = -800, range = 7, radius = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
-	{name ="combat", interval = 3000, chance = 8, type = COMBAT_MANADRAIN, minDamage = -600, maxDamage = -700, radius = 10, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="combat", interval = 2000, chance = 9, type = COMBAT_ENERGYDAMAGE, minDamage = -400, maxDamage = -800, length = 8, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
+	{name = "melee", interval = 2000, chance = 100, skill = 230, attack = 210},
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 8,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -800,
+		maxDamage = -1900,
+		radius = 9,
+		effect = CONST_ME_MORTAREA,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 1000,
+		chance = 12,
+		speedChange = -850,
+		radius = 6,
+		effect = CONST_ME_POISONAREA,
+		target = false,
+		duration = 60000
+	},
+	{
+		name = "strength",
+		interval = 1000,
+		chance = 10,
+		minDamage = -600,
+		maxDamage = -1450,
+		radius = 5,
+		effect = CONST_ME_HITAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 13,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -300,
+		maxDamage = -800,
+		range = 7,
+		radius = 7,
+		shootEffect = CONST_ANI_FIRE,
+		effect = CONST_ME_FIREAREA,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 8,
+		type = COMBAT_MANADRAIN,
+		minDamage = -600,
+		maxDamage = -700,
+		radius = 10,
+		effect = CONST_ME_ENERGYAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 9,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -400,
+		maxDamage = -800,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_MAGIC_RED,
+		target = false
+	},
 	-- poison
-	{name ="condition", type = CONDITION_POISON, interval = 5000, chance = 18, minDamage = -800, maxDamage = -1000, effect = CONST_ME_HITBYPOISON, target = false},
-	{name ="combat", interval = 2000, chance = 6, type = COMBAT_LIFEDRAIN, minDamage = -600, maxDamage = -1200, radius = 14, effect = CONST_ME_MAGIC_GREEN, target = false}
+	{
+		name = "condition",
+		type = CONDITION_POISON,
+		interval = 5000,
+		chance = 18,
+		minDamage = -800,
+		maxDamage = -1000,
+		effect = CONST_ME_HITBYPOISON,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 6,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -600,
+		maxDamage = -1200,
+		radius = 14,
+		effect = CONST_ME_MAGIC_GREEN,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 145,
 	armor = 188,
-	{name ="combat", interval = 1000, chance = 15, type = COMBAT_HEALING, minDamage = 1000, maxDamage = 3000, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 8, speedChange = 480, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000}
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 1000,
+		maxDamage = 3000,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 8,
+		speedChange = 480,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 6000
+	}
 }
 
 monster.elements = {
@@ -132,8 +229,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

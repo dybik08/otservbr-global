@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Pits of Inferno, Edron (In the Vats during The Inquisition Quest), Roshamuul Prison."
-	}
+}
 
 monster.health = 8900
 monster.maxHealth = 8900
@@ -41,7 +41,7 @@ monster.changeTarget = {
 monster.strategiesTarget = {
 	nearest = 80,
 	health = 10,
-	damage = 10,
+	damage = 10
 }
 
 monster.flags = {
@@ -79,7 +79,7 @@ monster.voices = {
 
 monster.loot = {
 	{name = "gold coin", chance = 100000, maxCount = 197},
-	{name = "platinum coin", chance = 100000, maxCount = 5},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 5},
 	{name = "amulet of loss", chance = 120},
 	{name = "gold ring", chance = 1870},
 	{name = "hailstorm rod", chance = 10000},
@@ -90,7 +90,7 @@ monster.loot = {
 	{name = "scythe", chance = 3000},
 	{name = "bunch of wheat", chance = 50000},
 	{name = "soul orb", chance = 23720},
-	{id = 6299, chance = 1410},
+	{id = 6299, name = "death ring", chance = 1410},
 	{name = "demonic essence", chance = 28000},
 	{name = "assassin star", chance = 5900, maxCount = 10},
 	{name = "great mana potion", chance = 31360, maxCount = 3},
@@ -105,12 +105,50 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -490},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -220, maxDamage = -405, range = 7, radius = 1, shootEffect = CONST_ANI_POISON, target = true},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -65, maxDamage = -135, radius = 4, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="drunk", interval = 2000, chance = 10, radius = 3, effect = CONST_ME_HITBYPOISON, target = false, duration = 5000},
-	{name ="blightwalker curse", interval = 2000, chance = 15, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = -300, range = 7, shootEffect = CONST_ANI_POISON, target = true, duration = 30000}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -490},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -220,
+		maxDamage = -405,
+		range = 7,
+		radius = 1,
+		shootEffect = CONST_ANI_POISON,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -65,
+		maxDamage = -135,
+		radius = 4,
+		effect = CONST_ME_MAGIC_GREEN,
+		target = false
+	},
+	{
+		name = "drunk",
+		interval = 2000,
+		chance = 10,
+		radius = 3,
+		effect = CONST_ME_HITBYPOISON,
+		target = false,
+		duration = 5000
+	},
+	{name = "blightwalker curse", interval = 2000, chance = 15, target = false},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = -300,
+		range = 7,
+		shootEffect = CONST_ANI_POISON,
+		target = true,
+		duration = 30000
+	}
 }
 
 monster.defenses = {
@@ -127,8 +165,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 50},
-	{type = COMBAT_HOLYDAMAGE , percent = -30},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -30},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

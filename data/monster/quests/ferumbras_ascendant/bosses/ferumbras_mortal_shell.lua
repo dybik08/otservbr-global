@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -75,28 +75,28 @@ monster.voices = {
 monster.loot = {
 	{id = 822, chance = 800},
 	{id = 8041, chance = 400},
-	{id = 3029, chance = 10000, maxCount = 10},
+	{name = "small sapphire", chance = 10000, maxCount = 10},
 	{id = 7416, chance = 800},
 	{id = 7427, chance = 800},
 	{id = 3360, chance = 800},
 	{id = 8102, chance = 400},
 	{id = 22773, chance = 800},
-	{id = 3031, chance = 100000, maxCount = 100},
-	{id = 3032, chance = 10000, maxCount = 10},
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{name = "small emerald", chance = 10000, maxCount = 10},
 	{id = 281, chance = 1000},
-	{id = 3039, chance = 1000},
+	{id = 3039, name = "red gem", chance = 1000},
 	{id = 8040, chance = 300},
 	{id = 3010, chance = 1000},
 	{id = 7423, chance = 300},
-	{id = 3033, chance = 10000, maxCount = 10},
+	{name = "small amethyst", chance = 10000, maxCount = 10},
 	{id = 22764, chance = 800},
 	{id = 7422, chance = 800},
-	{id = 3026, chance = 10000, maxCount = 5},
+	{name = "white pearl", chance = 10000, maxCount = 5},
 	{id = 7418, chance = 600},
 	{id = 3439, chance = 800},
 	{id = 3420, chance = 800},
 	{id = 30146, chance = 150},
-	{id = 3031, chance = 100000, maxCount = 100},
+	{name = "gold coin", chance = 100000, maxCount = 100},
 	{id = 823, chance = 800},
 	{id = 3366, chance = 400},
 	{id = 22758, chance = 100, unique = true},
@@ -105,8 +105,8 @@ monster.loot = {
 	{id = 8098, chance = 300},
 	{id = 22731, chance = 3000},
 	{id = 7410, chance = 800},
-	{id = 3041, chance = 800},
-	{id = 3035, chance = 100000, maxCount = 25},
+	{name = "blue gem", chance = 800},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 25},
 	{id = 8100, chance = 400},
 	{id = 7414, chance = 800},
 	{id = 5903, chance = 100, unique = true},
@@ -116,42 +116,129 @@ monster.loot = {
 	{id = 3414, chance = 600},
 	{id = 7435, chance = 800},
 	{id = 22516, chance = 1000000, maxCount = 3},
-	{id = 3027, chance = 10000, maxCount = 5},
-	{id = 3028, chance = 10000, maxCount = 10},
+	{name = "black pearl", chance = 10000, maxCount = 5},
+	{name = "small diamond", chance = 10000, maxCount = 10},
 	{id = 22771, chance = 800},
-	{id = 9057, chance = 10000, maxCount = 10},
+	{name = "small topaz", chance = 10000, maxCount = 10},
 	{id = 22767, chance = 800},
 	{id = 22867, chance = 500},
 	{id = 8057, chance = 800},
 	{id = 3303, chance = 700},
 	{id = 3422, chance = 100, unique = true},
 	{id = 821, chance = 800},
-	{id = 9058, chance = 800},
+	{name = "gold ingot", chance = 800},
 	{id = 7405, chance = 800},
 	{id = 7411, chance = 400},
 	{id = 22737, chance = 3500}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 90, attack = 200},
+	{name = "melee", interval = 2000, chance = 100, skill = 90, attack = 200},
 	-- poison
-	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 20, minDamage = -250, maxDamage = -520, radius = 6, effect = CONST_ME_POISONAREA, target = false},
-	{name ="ferumbras electrify", interval = 2000, chance = 18, target = false},
-	{name ="combat", interval = 2000, chance = 16, type = COMBAT_MANADRAIN, minDamage = -225, maxDamage = -410, radius = 6, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -425, maxDamage = -810, radius = 9, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="combat", interval = 2000, chance = 21, type = COMBAT_ENERGYDAMAGE, minDamage = -400, maxDamage = -650, radius = 9, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="combat", interval = 2000, chance = 21, type = COMBAT_LIFEDRAIN, minDamage = -200, maxDamage = -450, radius = 6, effect = CONST_ME_POFF, target = false},
-	{name ="ferumbras soulfire", interval = 2000, chance = 20, range = 7, target = false},
-	{name ="combat", interval = 2000, chance = 17, type = COMBAT_LIFEDRAIN, minDamage = -590, maxDamage = -1050, length = 8, spread = 3, effect = CONST_ME_HITBYPOISON, target = false}
+	{
+		name = "condition",
+		type = CONDITION_POISON,
+		interval = 2000,
+		chance = 20,
+		minDamage = -250,
+		maxDamage = -520,
+		radius = 6,
+		effect = CONST_ME_POISONAREA,
+		target = false
+	},
+	{name = "ferumbras electrify", interval = 2000, chance = 18, target = false},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 16,
+		type = COMBAT_MANADRAIN,
+		minDamage = -225,
+		maxDamage = -410,
+		radius = 6,
+		effect = CONST_ME_MAGIC_RED,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_MANADRAIN,
+		minDamage = -425,
+		maxDamage = -810,
+		radius = 9,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 21,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -400,
+		maxDamage = -650,
+		radius = 9,
+		effect = CONST_ME_ENERGYHIT,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 21,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -200,
+		maxDamage = -450,
+		radius = 6,
+		effect = CONST_ME_POFF,
+		target = false
+	},
+	{name = "ferumbras soulfire", interval = 2000, chance = 20, range = 7, target = false},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 17,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -590,
+		maxDamage = -1050,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_HITBYPOISON,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 120,
 	armor = 100,
-	{name ="combat", interval = 2000, chance = 23, type = COMBAT_HEALING, minDamage = 600, maxDamage = 2490, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="combat", interval = 2000, chance = 3, type = COMBAT_HEALING, minDamage = 20000, maxDamage = 35000, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="speed", interval = 2000, chance = 14, speedChange = 700, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 7000},
-	{name ="invisible", interval = 2000, chance = 10, effect = CONST_ME_MAGIC_BLUE}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 23,
+		type = COMBAT_HEALING,
+		minDamage = 600,
+		maxDamage = 2490,
+		effect = CONST_ME_MAGIC_GREEN,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 3,
+		type = COMBAT_HEALING,
+		minDamage = 20000,
+		maxDamage = 35000,
+		effect = CONST_ME_MAGIC_GREEN,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 14,
+		speedChange = 700,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false,
+		duration = 7000
+	},
+	{name = "invisible", interval = 2000, chance = 10, effect = CONST_ME_MAGIC_BLUE}
 }
 
 monster.elements = {
@@ -163,8 +250,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -20},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = -20},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

@@ -71,8 +71,8 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 37500, maxCount = 70},
-	{id = 3031, chance = 37500, maxCount = 50},
+	{name = "gold coin", chance = 37500, maxCount = 70},
+	{name = "gold coin", chance = 37500, maxCount = 50},
 	{id = 3449, chance = 4000, maxCount = 12}, -- Burst arrow
 	{id = 3583, chance = 15500, maxCount = 3},
 	{id = 3294, chance = 25000},
@@ -84,7 +84,7 @@ monster.loot = {
 	{id = 3557, chance = 2000},
 	{id = 3301, chance = 2000},
 	{id = 3275, chance = 1333},
-	{id = 3071, chance = 1800},
+	{name="wand of inferno", chance = 1800},
 	{id = 5920, chance = 100000},
 	{id = 3322, chance = 600},
 	{id = 5877, chance = 100000},

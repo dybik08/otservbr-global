@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 2,
 	Locations = "Seacrest Grounds during a world change."
-	}
+}
 
 monster.health = 2000
 monster.maxHealth = 2000
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -72,11 +72,11 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{name = "platinum coin", chance = 78000, maxCount = 4},
+	{id = 3035, name = "platinum coin", chance = 78000, maxCount = 4},
 	{name = "quara eye", chance = 20160},
 	{name = "mind stone", chance = 10710},
 	{name = "shrimp", chance = 7140, maxCount = 4},
@@ -88,7 +88,7 @@ monster.loot = {
 	{name = "yellow piece of cloth", chance = 3230},
 	{name = "green crystal shard", chance = 3000},
 	{name = "green piece of cloth", chance = 2880},
-	{id = 3052, chance = 2190}, -- Life ring
+	{id = 3052, name = "life ring", chance = 2190}, -- Life ring
 	{name = "fish fin", chance = 1380},
 	{id = 281, chance = 1150}, -- giant shimmering pearl
 	{name = "wand of cosmic energy", chance = 1150},
@@ -97,14 +97,40 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 110, attack = 90, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 5, interval = 4000}},
-	{name ="speed", interval = 2000, chance = 15, speedChange = -350, range = 7, effect = CONST_ME_MAGIC_RED, target = false, duration = 15000}
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		skill = 110,
+		attack = 90,
+		effect = CONST_ME_DRAWBLOOD,
+		condition = {type = CONDITION_POISON, totalDamage = 5, interval = 4000}
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = -350,
+		range = 7,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 15000
+	}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 100, maxDamage = 120, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 100,
+		maxDamage = 120,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -116,8 +142,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

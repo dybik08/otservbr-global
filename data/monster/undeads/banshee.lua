@@ -27,7 +27,7 @@ monster.Bestiary = {
 		Banshee Quest area in Ghostlands (also accesible by Isle of the Kings), Demon Quest Room, Drefia, \z
 		Ancient Ruins Tomb, Desert Dungeon (unreachable), Pits of Inferno in Tafariel's Throne room, \z
 		Cemetery Quarter in Yalahar, Vengoth Castle, one in Robson Isle."
-	}
+}
 
 monster.health = 1000
 monster.maxHealth = 1000
@@ -44,7 +44,7 @@ monster.changeTarget = {
 monster.strategiesTarget = {
 	nearest = 80,
 	health = 10,
-	damage = 10,
+	damage = 10
 }
 
 monster.flags = {
@@ -96,7 +96,7 @@ monster.loot = {
 	{id = 3059, chance = 520},
 	{name = "life crystal", chance = 70},
 	{name = "stone skin amulet", chance = 820},
-	{id = 3098, chance = 730}, -- Ring of healing
+	{id = 3098, name = "Ring of healing", chance = 730}, -- Ring of healing
 	{id = 3260, chance = 910},
 	{name = "poison dagger", chance = 1350},
 	{name = "red robe", chance = 150},
@@ -110,16 +110,62 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, condition = {type = CONDITION_POISON, totalDamage = 3, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -100, maxDamage = -200, radius = 4, effect = CONST_ME_SOUND_RED, target = false},
-	{name ="combat", interval = 2000, chance = 5, type = COMBAT_DEATHDAMAGE, minDamage = -55, maxDamage = -350, range = 1, radius = 1, effect = CONST_ME_SMALLCLOUDS, target = true},
-	{name ="speed", interval = 2000, chance = 10, speedChange = -300, range = 7, effect = CONST_ME_MAGIC_RED, target = false, duration = 15000}
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		minDamage = 0,
+		maxDamage = -100,
+		condition = {type = CONDITION_POISON, totalDamage = 3, interval = 4000}
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -100,
+		maxDamage = -200,
+		radius = 4,
+		effect = CONST_ME_SOUND_RED,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 5,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -55,
+		maxDamage = -350,
+		range = 1,
+		radius = 1,
+		effect = CONST_ME_SMALLCLOUDS,
+		target = true
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 10,
+		speedChange = -300,
+		range = 7,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 15000
+	}
 }
 
 monster.defenses = {
 	defense = 25,
 	armor = 25,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 120, maxDamage = 190, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 120,
+		maxDamage = 190,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -131,8 +177,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -25},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

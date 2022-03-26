@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -59,11 +59,11 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{name = "platinum coin", chance = 100000, maxCount = 5},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 5},
 	{name = "piggy bank", chance = 100000},
 	{name = "mysterious remains", chance = 100000},
 	{name = "energy bar", chance = 100000},
@@ -73,7 +73,7 @@ monster.loot = {
 	{name = "supreme health potion", chance = 53240, maxCount = 6},
 	{name = "ultimate spirit potion", chance = 47480, maxCount = 20},
 	{name = "huge chunk of crude iron", chance = 40290},
-	{id= 3039, chance = 32370},
+	{id = 3039, chance = 32370},
 	{name = "yellow gem", chance = 28780},
 	{name = "royal star", chance = 25900, maxCount = 100},
 	{name = "berserk potion", chance = 24460, maxCount = 10},
@@ -87,17 +87,18 @@ monster.loot = {
 	{name = "chaos mace", chance = 13670},
 	{name = "gold ingot", chance = 12950},
 	{id = 282, chance = 10790},
-	{id = 23544, chance = 10070},
-	{id = 23542, chance = 9350},-- collar of blue plasma
+	{id = 23544, name = "collar of red plasma", chance = 10070},
+	{id = 23542, name = "collar of blue plasma", chance = 9350},
+	-- collar of blue plasma
 	{id = 23531, chance = 8630},
 	{name = "ring of the sky", chance = 8630},
-	{id = 23543, chance = 7910}, -- Collar of green plasma
+	{id = 23543, name = "collar of green plasma", chance = 7910}, -- Collar of green plasma
 	{name = "beast's nightmare-cushion", chance = 6470},
 	{name = "violet gem", chance = 6470},
 	{name = "magic sulphur", chance = 6470},
 	{name = "purple tendril lantern", chance = 5760},
-	{id = 23529, chance = 5040},
-	{id = 23533, chance = 5040},
+	{id = 23529, name = "ring of blue plasma", chance = 5040},
+	{id = 23533, name = "ring of red plasma", chance = 5040},
 	{name = "soul stone", chance = 5040},
 	{name = "dragon figurine", chance = 5040},
 	{name = "giant sapphire", chance = 4320},
@@ -112,7 +113,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250}
 }
 
 monster.defenses = {
@@ -129,8 +130,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -83,14 +83,14 @@ monster.loot = {
 	{id = 11449, chance = 50000},
 	{id = 9685, chance = 50000},
 	{id = 19083, chance = 5000},
-	{id = 3031, chance = 1000000, maxCount = 100},
-	{id = 3035, chance = 100000, maxCount = 5},
+	{name = "gold coin", chance = 1000000, maxCount = 100},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 5},
 	{id = 237, chance = 50000, maxCount = 3},
 	{id = 236, chance = 50000, maxCount = 3},
 	{id = 3049, chance = 10000}, -- Stealth ring
-	{id = 3098, chance = 10000}, -- Ring of healing
+	{id = 3098, name = "Ring of healing", chance = 10000}, -- Ring of healing
 	{id = 5909, chance = 10000},
-	{id = 5911, chance = 10000},
+	{name = "red piece of cloth", chance = 10000},
 	{id = 5912, chance = 10000},
 	{id = 7427, chance = 5000},
 	{id = 3326, chance = 10000},
@@ -99,18 +99,50 @@ monster.loot = {
 	{id = 19373, chance = 5000},
 	{id = 3434, chance = 5000},
 	{id = 19374, chance = 5000},
-	{id = 3028, chance = 50000, maxCount = 5},
-	{id = 3027, chance = 50000, maxCount = 5},
-	{id = 3029, chance = 50000, maxCount = 5},
-	{id = 3032, chance = 50000, maxCount = 5},
+	{name = "small diamond", chance = 50000, maxCount = 5},
+	{name = "black pearl", chance = 50000, maxCount = 5},
+	{name = "small sapphire", chance = 50000, maxCount = 5},
+	{name = "small emerald", chance = 50000, maxCount = 5},
 	{id = 3036, chance = 10000}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 80, attack = 120},
-	{name ="speed", interval = 1000, chance = 17, speedChange = -600, range = 7, radius = 4, target = true, duration = 1500},
-	{name ="combat", interval = 2000, chance = 21, type = COMBAT_ICEDAMAGE, minDamage = -130, maxDamage = -350, range = 6, radius = 2, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_GIANTICE, target = true},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_MANADRAIN, minDamage = -60, maxDamage = -120, range = 7, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_CARNIPHILA, target = false}
+	{name = "melee", interval = 2000, chance = 100, skill = 80, attack = 120},
+	{
+		name = "speed",
+		interval = 1000,
+		chance = 17,
+		speedChange = -600,
+		range = 7,
+		radius = 4,
+		target = true,
+		duration = 1500
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 21,
+		type = COMBAT_ICEDAMAGE,
+		minDamage = -130,
+		maxDamage = -350,
+		range = 6,
+		radius = 2,
+		shootEffect = CONST_ANI_SMALLICE,
+		effect = CONST_ME_GIANTICE,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_MANADRAIN,
+		minDamage = -60,
+		maxDamage = -120,
+		range = 7,
+		shootEffect = CONST_ANI_EARTH,
+		effect = CONST_ME_CARNIPHILA,
+		target = false
+	}
 }
 
 monster.defenses = {
@@ -127,8 +159,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

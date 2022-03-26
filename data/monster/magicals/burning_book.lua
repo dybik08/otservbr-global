@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Secret Library."
-	}
+}
 
 monster.health = 18000
 monster.maxHealth = 18000
@@ -39,7 +39,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,12 +69,12 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 -- sorted descending
 monster.loot = {
-	{name = "Platinum Coin", chance = 89960, maxCount = 35},
+	{id = 3035, name = "platinum coin", chance = 89960, maxCount = 35},
 	{name = "Book Page", chance = 50600, maxCount = 4},
 	{name = "flask of demonic blood", chance = 41460, maxCount = 4},
 	{name = "Demonic Essence", chance = 18390, maxCount = 1},
@@ -83,38 +83,80 @@ monster.loot = {
 	{name = "Guardian Shield", chance = 10230},
 	{name = "Soul Orb", chance = 6420, maxCount = 1},
 	{name = "Small Amethyst", chance = 5980, maxCount = 7},
-	{id = 3307, chance = 4130}, -- scimitar
+	{id = 3307, name = "scimitar", chance = 4130}, -- scimitar
 	{name = "Necrotic Rod", chance = 3920},
-	{id = 6299, chance = 2290}, -- death ring
+	{id = 6299, name = "death ring", chance = 2290}, -- death ring
 	{name = "Magma Monocle", chance = 1090},
 	{name = "Shadow Sceptre", chance = 650},
-	{id = 3049, chance = 600}, -- Stealth ring
+	{id = 3049, chance = 600} -- Stealth ring
 }
 
 monster.attacks = {
-    -- Basic attack (0-700 physical)
-	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -700},
-
+	-- Basic attack (0-700 physical)
+	{name = "melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -700},
 	-- Ranged attack (800-1100 fire) (Flaming Arrow)
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -800, maxDamage = -1100, range = 7, shootEffect = CONST_ANI_FLAMMINGARROW, effect = SPELL_ANIMATIONS.FIRE, target = false},
-
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 100,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -800,
+		maxDamage = -1100,
+		range = 7,
+		shootEffect = CONST_ANI_FLAMMINGARROW,
+		effect = SPELL_ANIMATIONS.FIRE,
+		target = false
+	},
 	-- Explosion Box (700-950 fire, on self)
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -700, maxDamage = -950, radius = 3, effect = SPELL_ANIMATIONS.EXPLOSION, target = false},
-
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -700,
+		maxDamage = -950,
+		radius = 3,
+		effect = SPELL_ANIMATIONS.EXPLOSION,
+		target = false
+	},
 	-- Red Stars Beam (750-950 fire)
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -750, maxDamage = -950, length = 5, effect = SPELL_ANIMATIONS.RED_STARS, target = false},
-
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -750,
+		maxDamage = -950,
+		length = 5,
+		effect = SPELL_ANIMATIONS.RED_STARS,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 33,
 	armor = 82,
-
-    -- Healing
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 475, maxDamage = 600, effect = CONST_ME_MAGIC_BLUE, target = false},
-
+	-- Healing
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_HEALING,
+		minDamage = 475,
+		maxDamage = 600,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
 	-- Haste (effect: haste)
-    {name ="speed", interval = 2000, chance = 15, speedChange = 300, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = 300,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 5000
+	}
 }
 
 monster.elements = {
@@ -126,8 +168,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

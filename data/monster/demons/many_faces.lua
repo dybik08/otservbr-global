@@ -80,7 +80,7 @@ monster.voices = {
 
 monster.loot = {
 	{name = "crystal coin", chance = 70540},
-	{name = "platinum coin", chance = 90540, maxCount = 32},
+	{id = 3035, name = "platinum coin", chance = 90540, maxCount = 32},
 	{name = "ultimate health potion", chance = 32220, maxCount = 7},
 	{name = "violet gem", chance = 74560},
 	{name = "green gem", chance = 64560},
@@ -91,7 +91,7 @@ monster.loot = {
 	{name = "glacier shoes", chance = 12920},
 	{name = "glacier robe", chance = 22920},
 	{name = "stone skin amulet", chance = 8920},
-	{id = 23533, chance = 28920}, -- Ring of red plasma
+	{id = 23533, name="ring of red plasma", chance = 28920}, -- Ring of red plasma
 	{id = 33932, chance = 5920}, -- Head
 	{name = "glacial rod", chance = 3920},
 	{id = 34024, chance = 450}, -- Gruesome fan

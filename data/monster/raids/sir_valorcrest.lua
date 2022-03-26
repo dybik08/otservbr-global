@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -75,24 +75,44 @@ monster.loot = {
 	{id = 7427, chance = 250},
 	{id = 8192, chance = 100000},
 	{id = 236, chance = 1500},
-	{id = 3091, chance = 1400}, -- Sword ring
+	{id = 3091, name = "sword ring", chance = 1400}, -- Sword ring
 	{id = 3114, chance = 15000},
 	{id = 8192, chance = 100000},
-	{id = 3035, chance = 50000, maxCount = 5},
-	{id = 3031, chance = 100000, maxCount = 93},
+	{id = 3035, name = "platinum coin", chance = 50000, maxCount = 5},
+	{name = "gold coin", chance = 100000, maxCount = 93},
 	{id = 3434, chance = 6300}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 70, attack = 95},
-	{name ="combat", interval = 1000, chance = 12, type = COMBAT_DEATHDAMAGE, minDamage = 0, maxDamage = -190, radius = 4, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true}
+	{name = "melee", interval = 2000, chance = 100, skill = 70, attack = 95},
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 12,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = 0,
+		maxDamage = -190,
+		radius = 4,
+		shootEffect = CONST_ANI_SUDDENDEATH,
+		effect = CONST_ME_MORTAREA,
+		target = true
+	}
 }
 
 monster.defenses = {
 	defense = 35,
 	armor = 38,
-	{name ="combat", interval = 1000, chance = 12, type = COMBAT_HEALING, minDamage = 100, maxDamage = 235, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="invisible", interval = 3000, chance = 25, effect = CONST_ME_MAGIC_BLUE}
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 12,
+		type = COMBAT_HEALING,
+		minDamage = 100,
+		maxDamage = 235,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{name = "invisible", interval = 3000, chance = 25, effect = CONST_ME_MAGIC_BLUE}
 }
 
 monster.elements = {
@@ -104,8 +124,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -15},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -15},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

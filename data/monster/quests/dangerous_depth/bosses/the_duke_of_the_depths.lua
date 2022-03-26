@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -59,29 +59,29 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3035, chance = 67610, maxCount = 58},
+	{id = 3035, name = "platinum coin", chance = 67610, maxCount = 58},
 	{id = 3043, chance = 67610},
 	{id = 16119, chance = 14710, maxCount = 4},
-	{id = 3032, chance = 13160, maxCount = 12},
-	{id = 9057, chance = 11480, maxCount = 12},
-	{id = 3033, chance = 14520, maxCount = 12},
-	{id = 238, chance = 14520, maxCount = 18},
-	{id = 3028, chance = 14520, maxCount = 2},
-	{id = 3030, chance = 14520, maxCount = 12},
-	{id = 239, chance = 14520, maxCount = 8},
+	{name = "small emerald", chance = 13160, maxCount = 12},
+	{name = "small topaz", chance = 11480, maxCount = 12},
+	{name = "small amethyst", chance = 14520, maxCount = 12},
+	{name = "great mana potion", chance = 14520, maxCount = 18},
+	{name = "small diamond", chance = 14520, maxCount = 2},
+	{name = "small ruby", chance = 14520, maxCount = 12},
+	{name = "great health potion", chance = 14520, maxCount = 8},
 	{id = 7642, chance = 14520, maxCount = 10},
 	{id = 7643, chance = 14520, maxCount = 8},
 	{id = 7440, chance = 10060},
-	{id = 3039, chance = 14520},
-	{id = 3037, chance = 14520},
+	{id = 3039, name = "red gem", chance = 14520},
+	{name = "yellow gem", chance = 14520},
 	{id = 27619, chance = 10000},
 	{id = 8900, chance = 17230},
 	{id = 5892, chance = 14520},
-	{id = 3071, chance = 14520},
+	{name = "wand of inferno", chance = 14520},
 	{id = 3320, chance = 15810},
 	{id = 3280, chance = 14520},
 	{id = 811, chance = 14520},
@@ -99,11 +99,55 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -800},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = 0, maxDamage = -1000, range = 3, length = 6, spread = 8, effect = CONST_ME_FIREAREA, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = 0, maxDamage = -1000, range = 3, length = 9, spread = 4, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -135, maxDamage = -1000, radius = 2, effect = CONST_ME_EXPLOSIONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -1000, radius = 8, effect = CONST_ME_HITAREA, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -800},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = 0,
+		maxDamage = -1000,
+		range = 3,
+		length = 6,
+		spread = 8,
+		effect = CONST_ME_FIREAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = 0,
+		maxDamage = -1000,
+		range = 3,
+		length = 9,
+		spread = 4,
+		effect = CONST_ME_HITBYFIRE,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = -135,
+		maxDamage = -1000,
+		radius = 2,
+		effect = CONST_ME_EXPLOSIONAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = 0,
+		maxDamage = -1000,
+		radius = 8,
+		effect = CONST_ME_HITAREA,
+		target = false
+	}
 }
 
 monster.defenses = {
@@ -120,8 +164,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 60},
-	{type = COMBAT_HOLYDAMAGE , percent = 60},
-	{type = COMBAT_DEATHDAMAGE , percent = 60}
+	{type = COMBAT_HOLYDAMAGE, percent = 60},
+	{type = COMBAT_DEATHDAMAGE, percent = 60}
 }
 
 monster.immunities = {
@@ -132,7 +176,7 @@ monster.immunities = {
 }
 
 monster.heals = {
-	{type = COMBAT_FIREDAMAGE, percent = 100},
+	{type = COMBAT_FIREDAMAGE, percent = 100}
 }
 
 mType.onThink = function(monster, interval)

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Goroma, Deeper Cult Cave, Formorgar Mines, Magician Quarter, Forbidden Temple."
-	}
+}
 
 monster.health = 390
 monster.maxHealth = 390
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -89,7 +89,7 @@ monster.loot = {
 	{id = 2828, chance = 730},
 	{name = "gold coin", chance = 66940, maxCount = 40},
 	{name = "small emerald", chance = 550},
-	{id = 3052, chance = 560}, -- Life ring
+	{id = 3052, name = "life ring", chance = 560}, -- Life ring
 	{name = "terra rod", chance = 250},
 	{name = "dragon necklace", chance = 1050},
 	{name = "morning star", chance = 4990},
@@ -102,15 +102,53 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, condition = {type = CONDITION_POISON, totalDamage = 2, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -60, maxDamage = -120, range = 7, radius = 1, shootEffect = CONST_ANI_POISON, effect = CONST_ME_MAGIC_RED, target = true},
-	{name ="drunk", interval = 2000, chance = 5, range = 7, radius = 1, shootEffect = CONST_ANI_HOLY, effect = CONST_ME_HOLYDAMAGE, target = true, duration = 3000}
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		minDamage = 0,
+		maxDamage = -100,
+		condition = {type = CONDITION_POISON, totalDamage = 2, interval = 4000}
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -60,
+		maxDamage = -120,
+		range = 7,
+		radius = 1,
+		shootEffect = CONST_ANI_POISON,
+		effect = CONST_ME_MAGIC_RED,
+		target = true
+	},
+	{
+		name = "drunk",
+		interval = 2000,
+		chance = 5,
+		range = 7,
+		radius = 1,
+		shootEffect = CONST_ANI_HOLY,
+		effect = CONST_ME_HOLYDAMAGE,
+		target = true,
+		duration = 3000
+	}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 40, maxDamage = 60, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 40,
+		maxDamage = 60,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -122,8 +160,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = -5}
 }
 
 monster.immunities = {

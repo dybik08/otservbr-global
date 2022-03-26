@@ -30,7 +30,7 @@ monster.Bestiary = {
 		Thais Dragon Lair, Goroma Dragon Lairs, Hot Spot, Venore Dragon Lair, Arena and Zoo Quarter (Yalahar), \z
 		beneath Fenrock, Darashia Dragon Lair, Razzachai, Dragonblaze Peaks, Ferumbras Citadel, \z
 		Fury Dungeon, Lower Spike, Krailos Steppe."
-	}
+}
 
 monster.health = 1900
 monster.maxHealth = 1900
@@ -48,7 +48,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -90,7 +90,7 @@ monster.loot = {
 	{name = "gold coin", chance = 33750, maxCount = 100},
 	{name = "gold coin", chance = 33750, maxCount = 100},
 	{name = "gold coin", chance = 33750, maxCount = 45},
-	{id = 3051, chance = 5250}, -- Energy ring
+	{id = 3051, name = "energy ring", chance = 5250}, -- Energy ring
 	{name = "life crystal", chance = 680},
 	{name = "fire sword", chance = 290},
 	{name = "strange helmet", chance = 360},
@@ -109,16 +109,48 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -230},
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_FIREDAMAGE, minDamage = -100, maxDamage = -220, range = 7, radius = 4, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
-	{name ="firefield", interval = 2000, chance = 10, range = 7, radius = 4, shootEffect = CONST_ANI_FIRE, target = true},
-	{name ="combat", interval = 2000, chance = 22, type = COMBAT_FIREDAMAGE, minDamage = -150, maxDamage = -270, length = 8, spread = 3, effect = CONST_ME_FIREAREA, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -230},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 30,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -100,
+		maxDamage = -220,
+		range = 7,
+		radius = 4,
+		shootEffect = CONST_ANI_FIRE,
+		effect = CONST_ME_FIREAREA,
+		target = true
+	},
+	{name = "firefield", interval = 2000, chance = 10, range = 7, radius = 4, shootEffect = CONST_ANI_FIRE, target = true},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 22,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -150,
+		maxDamage = -270,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_FIREAREA,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 34,
 	armor = 34,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 57, maxDamage = 93, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 57,
+		maxDamage = 93,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -130,8 +162,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

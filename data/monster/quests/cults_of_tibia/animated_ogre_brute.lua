@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -66,17 +66,17 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 92000, maxCount = 130},
+	{name = "gold coin", chance = 92000, maxCount = 130},
 	{id = 3577, chance = 6200},
-	{id = 3030, chance = 4200},
-	{id = 3026, chance = 6200, maxCount = 3},
+	{name = "small ruby", chance = 4200},
+	{name = "white pearl", chance = 6200, maxCount = 3},
 	{id = 11447, chance = 6200},
 	{id = 3598, chance = 6200, maxCount = 7},
 	{id = 22188, chance = 5200},
 	{id = 22189, chance = 1200},
 	{id = 22193, chance = 3200, maxCount = 2},
 	{id = 22194, chance = 3200, maxCount = 3},
-	{id = 3050, chance = 2200}, -- Power ring
+	{id = 3050, name = "power ring", chance = 2200}, -- Power ring
 	{id = 22191, chance = 1200},
 	{id = 236, chance = 6200, maxCount = 3},
 	{id = 7428, chance = 500},
@@ -88,15 +88,49 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -269, condition = {type = CONDITION_FIRE, totalDamage = 6, interval = 9000}},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -70, maxDamage = -180, range = 7, shootEffect = CONST_ANI_POISON, target = false},
-	{name ="drunk", interval = 2000, chance = 10, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_TELEPORT, target = false}
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		minDamage = 0,
+		maxDamage = -269,
+		condition = {type = CONDITION_FIRE, totalDamage = 6, interval = 9000}
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -70,
+		maxDamage = -180,
+		range = 7,
+		shootEffect = CONST_ANI_POISON,
+		target = false
+	},
+	{
+		name = "drunk",
+		interval = 2000,
+		chance = 10,
+		range = 7,
+		shootEffect = CONST_ANI_ENERGY,
+		effect = CONST_ME_TELEPORT,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 20,
 	armor = 20,
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 80, maxDamage = 95, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_HEALING,
+		minDamage = 80,
+		maxDamage = 95,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -108,8 +142,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

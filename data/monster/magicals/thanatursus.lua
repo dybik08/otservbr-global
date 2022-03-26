@@ -28,7 +28,7 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 0,
-	Locations = "Haunted Temple, Court of Winter, Dream Labyrinth."
+	Locations = "Haunted Temple, Court of Summer, Court of Winter, Dream Labyrinth."
 }
 
 monster.health = 7200
@@ -113,7 +113,7 @@ monster.attacks = {
 	{name = "melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -450},
 	-- Energy Strike (200-350 energy, on target)
 	{
-		name = "energyStrike",
+		name = "EnergyStrikeEnergyTarget",
 		interval = 2000,
 		chance = 20,
 		minDamage = -200,
@@ -122,7 +122,7 @@ monster.attacks = {
 	-- Holy Box (200-300 holy, on self)
 
 	{
-		name = "holyBoxSelf",
+		name = "HolyBoxHolySelf",
 		interval = 2000,
 		chance = 20,
 		minDamage = -200,
@@ -131,7 +131,7 @@ monster.attacks = {
 	-- Sparky Box (200-300 holy, on target)
 
 	{
-		name = "sparkyBoxTarget",
+		name = "SparkyBoxHolyTarget",
 		interval = 2000,
 		chance = 15,
 		minDamage = -200,
@@ -139,7 +139,7 @@ monster.attacks = {
 	},
 	-- Great Sparky Ball (250-400 holy, on self)
 	{
-		name = "greatSparkyBallSelf",
+		name = "GreatSparkyBallHolySelf",
 		interval = 2000,
 		chance = 15,
 		minDamage = -250,

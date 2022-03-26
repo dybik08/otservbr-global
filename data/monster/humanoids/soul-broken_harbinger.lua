@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Court of Winter."
-	}
+}
 
 monster.health = 6300
 monster.maxHealth = 6300
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -72,11 +72,11 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{name = "Platinum Coin", chance = 100000, maxCount = 12},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 12},
 	{id = 30058, chance = 15750, maxCount = 3},
 	{name = "Dream Essence Egg", chance = 13700},
 	{name = "Elvish Talisman", chance = 4790},
@@ -87,20 +87,39 @@ monster.loot = {
 	{name = "Spellbook of Mind Control", chance = 2400},
 	{name = "Crown Shield", chance = 1710},
 	{name = "Wood Cape", chance = 1710},
-	{id = 23529, chance = 1370},
+	{id = 23529, name = "ring of blue plasma", chance = 1370},
 	{name = "Tower Shield", chance = 680},
-	{id = 23543, chance = 680} -- Collar of green plasma
+	{id = 23543, name = "collar of green plasma", chance = 680} -- Collar of green plasma
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -240},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -120, range = 7, shootEffect = CONST_ANI_ARROW, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -240},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = 0,
+		maxDamage = -120,
+		range = 7,
+		shootEffect = CONST_ANI_ARROW,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 40,
 	armor = 40,
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 200, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_HEALING,
+		minDamage = 200,
+		maxDamage = 250,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.reflects = {
@@ -116,8 +135,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 55},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 20}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 20}
 }
 
 monster.immunities = {

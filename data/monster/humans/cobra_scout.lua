@@ -3,8 +3,8 @@ local monster = {}
 
 monster.Credits = {
 	Developer = "Wojciech Dybikowski",
-	lastUpdate = "17/03/2022",
- }
+	lastUpdate = "17/03/2022"
+}
 
 monster.description = "a cobra scout"
 monster.experience = 7310
@@ -29,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Cobra Bastion."
-	}
+}
 
 monster.health = 8500
 monster.maxHealth = 8500
@@ -44,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -89,28 +89,26 @@ monster.loot = {
 	{name = "stone skin amulet", chance = 6140},
 	{name = "gold ingot", chance = 5890, maxCount = 1},
 	{name = "sacred tree amulet", chance = 4560},
-	{id = 3039, name = "red gem", chance = 4410},
+	{id = 3039, name = "red gem", name = "red gem", chance = 4410},
 	{name = "yellow gem", chance = 3020},
 	{name = "small emerald", chance = 2580, maxCount = 2},
 	{name = "green crystal shard", chance = 2030},
 	{name = "violet gem", chance = 1780},
 	{name = "green gem", chance = 1680},
-	{id = 23533, name="ring of red plasma", chance = 840},-- ring of red plasma
-	{id = 31297, name="empty ritual flask", chance = 100},
+	{id = 23533, name = "ring of red plasma", chance = 840},
+	-- ring of red plasma
+	{id = 31297, name = "empty ritual flask", chance = 100}
 }
 
 monster.attacks = {
 	-- Basic attack (0-450 physical)
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
-
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
 	-- Ranged attack (300-500 earth) (Poison Arrow)
-	{name ="posionArrow", interval = 2000, chance = 22, minDamage = -300, maxDamage = -500},
-
+	{name = "PosionArrowEarthTarget", interval = 2000, chance = 22, minDamage = -300, maxDamage = -500},
 	-- Poison Ball (200-350 earth, on target)
-	{name ="poisonBall", interval = 2000, chance = 16, minDamage = -200, maxDamage = -350},
-
+	{name = "PoisonBallEarthTarget", interval = 2000, chance = 16, minDamage = -200, maxDamage = -350},
 	-- Groundshaker Box (300-400 physical, on self)
-	{name ="groundshakerBox", interval = 2000, chance = 12, minDamage = -300, maxDamage = -400}
+	{name = "GroundshakerBoxPhysicalSelf", interval = 2000, chance = 12, minDamage = -300, maxDamage = -400}
 }
 
 monster.defenses = {
@@ -127,8 +125,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Kazordoon Dwarf Mines, Dwacatra, Ferngrims Gate, Cyclopolis, Mount Sternum Undead Cave, \z
 		Stonehome Rotworm cave (near Edron), Maze of Lost Souls, Tiquanda Dwarf Cave, Beregar, Cormaya Dwarf Cave."
-	}
+}
 
 monster.health = 245
 monster.maxHealth = 245
@@ -42,7 +42,7 @@ monster.changeTarget = {
 monster.strategiesTarget = {
 	nearest = 70,
 	damage = 20,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -79,7 +79,7 @@ monster.voices = {
 monster.loot = {
 	{name = "gold coin", chance = 40000, maxCount = 30},
 	{name = "small amethyst", chance = 140},
-	{id = 3092, chance = 190}, -- Axe ring
+	{id = 3092, name = "axe ring", chance = 190}, -- Axe ring
 	{name = "double axe", chance = 600},
 	{name = "battle hammer", chance = 4000},
 	{name = "steel helmet", chance = 1600},
@@ -93,7 +93,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -140}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -140}
 }
 
 monster.defenses = {
@@ -110,8 +110,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = -5}
 }
 
 monster.immunities = {

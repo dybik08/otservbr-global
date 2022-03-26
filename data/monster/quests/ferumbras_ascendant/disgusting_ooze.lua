@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -69,40 +69,98 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 272},
-	{id = 3035, chance = 95660, maxCount = 6},
-	{id = 6499, chance = 20340},
-	{id = 5944, chance = 20130},
+	{name = "gold coin", chance = 100000, maxCount = 272},
+	{id = 3035, name = "platinum coin", chance = 95660, maxCount = 6},
+	{name = "demonic essence", chance = 20340},
+	{name = "soul orb", chance = 20130},
 	{id = 9054, chance = 14190},
 	{id = 9055, chance = 11550},
 	{id = 3034, chance = 5930},
-	{id = 3032, chance = 5400, maxCount = 3},
-	{id = 3030, chance = 2750, maxCount = 2},
-	{id = 3028, chance = 2650, maxCount = 2},
-	{id = 6299, chance = 2440},
-	{id = 3039, chance = 1590},
-	{id = 3037, chance = 1380},
+	{name = "small emerald", chance = 5400, maxCount = 3},
+	{name = "small ruby", chance = 2750, maxCount = 2},
+	{name = "small diamond", chance = 2650, maxCount = 2},
+	{id = 6299, name = "death ring", chance = 2440},
+	{id = 3039, name = "red gem", chance = 1590},
+	{name = "yellow gem", chance = 1380},
 	{id = 3038, chance = 640},
-	{id = 3041, chance = 320}
+	{name = "blue gem", chance = 320}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 50, attack = 80, condition = {type = CONDITION_POISON, totalDamage = 300, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 13, type = COMBAT_LIFEDRAIN, minDamage = -160, maxDamage = -295, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_HITBYPOISON, target = true},
-	{name ="defiler paralyze 3", interval = 2000, chance = 9, target = false},
-	{name ="defiler paralyze 1", interval = 2000, chance = 6, target = false},
-	{name ="defiler paralyze 2", interval = 2000, chance = 8, target = false},
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		skill = 50,
+		attack = 80,
+		condition = {type = CONDITION_POISON, totalDamage = 300, interval = 4000}
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 13,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -160,
+		maxDamage = -295,
+		range = 7,
+		shootEffect = CONST_ANI_POISON,
+		effect = CONST_ME_HITBYPOISON,
+		target = true
+	},
+	{name = "defiler paralyze 3", interval = 2000, chance = 9, target = false},
+	{name = "defiler paralyze 1", interval = 2000, chance = 6, target = false},
+	{name = "defiler paralyze 2", interval = 2000, chance = 8, target = false},
 	-- poison
-	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 10, minDamage = -300, maxDamage = -500, radius = 8, effect = CONST_ME_HITBYPOISON, target = false},
+	{
+		name = "condition",
+		type = CONDITION_POISON,
+		interval = 2000,
+		chance = 10,
+		minDamage = -300,
+		maxDamage = -500,
+		radius = 8,
+		effect = CONST_ME_HITBYPOISON,
+		target = false
+	},
 	-- poison
-	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 10, minDamage = -400, maxDamage = -725, length = 8, spread = 3, effect = CONST_ME_SMALLPLANTS, target = false},
-	{name ="combat", interval = 2000, chance = 14, type = COMBAT_EARTHDAMAGE, minDamage = -120, maxDamage = -170, radius = 3, effect = CONST_ME_POISONAREA, target = false}
+	{
+		name = "condition",
+		type = CONDITION_POISON,
+		interval = 2000,
+		chance = 10,
+		minDamage = -400,
+		maxDamage = -725,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_SMALLPLANTS,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 14,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -120,
+		maxDamage = -170,
+		radius = 3,
+		effect = CONST_ME_POISONAREA,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 250, maxDamage = 450, effect = CONST_ME_MAGIC_GREEN, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 250,
+		maxDamage = 450,
+		effect = CONST_ME_MAGIC_GREEN,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -114,8 +172,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

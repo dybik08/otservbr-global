@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Demonwar Crypt (teleporter before vampire shield quest)."
-	}
+}
 
 monster.health = 1500
 monster.maxHealth = 1500
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -86,7 +86,7 @@ monster.loot = {
 	{name = "gold coin", chance = 50000, maxCount = 100},
 	{name = "gold coin", chance = 40000, maxCount = 35},
 	{name = "small emerald", chance = 6250, maxCount = 4},
-	{id = 3051, chance = 961}, -- Energy ring
+	{id = 3051, name = "energy ring", chance = 961}, -- Energy ring
 	{name = "brown mushroom", chance = 3846, maxCount = 5},
 	{name = "magic sulphur", chance = 102},
 	{name = "assassin star", chance = 4761, maxCount = 5},
@@ -98,11 +98,43 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -143},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -20, maxDamage = -60, range = 7, radius = 6, shootEffect = CONST_ANI_POISON, effect = CONST_ME_GREEN_RINGS, target = false},
-	{name ="askarak wave", interval = 2000, chance = 15, minDamage = -75, maxDamage = -140, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -130, maxDamage = -170, length = 4, spread = 0, effect = CONST_ME_GREEN_RINGS, target = false},
-	{name ="speed", interval = 2000, chance = 10, speedChange = -600, radius = 1, effect = CONST_ME_MAGIC_RED, target = true, duration = 15000}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -143},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -20,
+		maxDamage = -60,
+		range = 7,
+		radius = 6,
+		shootEffect = CONST_ANI_POISON,
+		effect = CONST_ME_GREEN_RINGS,
+		target = false
+	},
+	{name = "askarak wave", interval = 2000, chance = 15, minDamage = -75, maxDamage = -140, target = false},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -130,
+		maxDamage = -170,
+		length = 4,
+		spread = 0,
+		effect = CONST_ME_GREEN_RINGS,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 10,
+		speedChange = -600,
+		radius = 1,
+		effect = CONST_ME_MAGIC_RED,
+		target = true,
+		duration = 15000
+	}
 }
 
 monster.defenses = {

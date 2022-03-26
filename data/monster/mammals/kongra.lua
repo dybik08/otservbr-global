@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "In Banuta, northeast of Port Hope, Arena and Zoo Quarter."
-	}
+}
 
 monster.health = 340
 monster.maxHealth = 340
@@ -39,7 +39,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -77,7 +77,7 @@ monster.voices = {
 
 monster.loot = {
 	{name = "gold coin", chance = 69000, maxCount = 40},
-	{id = 3050, chance = 300}, -- Power ring
+	{id = 3050, name = "power ring", chance = 300}, -- Power ring
 	{name = "protection amulet", chance = 990},
 	{id = 3093, chance = 230}, -- Club ring
 	{name = "plate armor", chance = 950},
@@ -88,13 +88,21 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -60}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -60}
 }
 
 monster.defenses = {
 	defense = 20,
 	armor = 20,
-	{name ="speed", interval = 2000, chance = 15, speedChange = 260, effect = CONST_ME_MAGIC_RED, target = false, duration = 3000}
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = 260,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 3000
+	}
 }
 
 monster.elements = {
@@ -106,8 +114,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -15},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = -5}
 }
 
 monster.immunities = {

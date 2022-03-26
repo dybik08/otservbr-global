@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Otherworld."
-	}
+}
 
 monster.health = 3500
 monster.maxHealth = 3500
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -77,13 +77,13 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 100},
-	{id = 3035, chance = 100000, maxCount = 5},
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 5},
 	{id = 23535, chance = 15000},
 	{id = 23545, chance = 15000},
 	{id = 23518, chance = 15000},
-	{id = 239, chance = 12200},
-	{id = 238, chance = 12000},
+	{name = "great health potion", chance = 12200},
+	{name = "great mana potion", chance = 12000},
 	{id = 7642, chance = 11700},
 	{id = 23507, chance = 11500},
 	{id = 23511, chance = 10600},
@@ -93,15 +93,37 @@ monster.loot = {
 	{id = 16125, chance = 6500},
 	{id = 16119, chance = 4400},
 	{id = 16121, chance = 4100},
-	{id = 23544, chance = 470},
-	{id = 23542, chance = 470}-- collar of blue plasma
+	{id = 23544, name = "collar of red plasma", chance = 470},
+	{id = 23542, name = "collar of blue plasma", chance = 470}
+	-- collar of blue plasma
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -350},
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -400, range = 6, shootEffect = CONST_ANI_FLASHARROW, effect = CONST_ME_STUN, target = true},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -150, maxDamage = -350, radius = 5, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="breach brood reducer", interval = 2000, chance = 20, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -350},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 25,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -200,
+		maxDamage = -400,
+		range = 6,
+		shootEffect = CONST_ANI_FLASHARROW,
+		effect = CONST_ME_STUN,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -150,
+		maxDamage = -350,
+		radius = 5,
+		effect = CONST_ME_MAGIC_RED,
+		target = false
+	},
+	{name = "breach brood reducer", interval = 2000, chance = 20, target = false}
 }
 
 monster.defenses = {

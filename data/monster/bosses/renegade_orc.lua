@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -65,15 +65,15 @@ monster.voices = {
 
 monster.loot = {
 	{id = 3578, chance = 30000},
-	{id = 3031, chance = 28000, maxCount = 35},
+	{name = "gold coin", chance = 28000, maxCount = 35},
 	{id = 11479, chance = 19000},
 	{id = 3410, chance = 10000},
 	{id = 3298, chance = 9850, maxCount = 4},
 	{id = 3725, chance = 9650},
-	{id = 3091, chance = 3920}, -- Sword ring
+	{id = 3091, name = "sword ring", chance = 3920}, -- Sword ring
 	{id = 3285, chance = 2800},
 	{id = 7378, chance = 2600},
-	{id = 3307, chance = 2100},
+	{id = 3307, name = "scimitar", chance = 2100},
 	{id = 10196, chance = 890},
 	{id = 3301, chance = 830},
 	{id = 266, chance = 550},
@@ -82,8 +82,18 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -130},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -50, range = 7, shootEffect = CONST_ANI_THROWINGKNIFE, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -130},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = 0,
+		maxDamage = -50,
+		range = 7,
+		shootEffect = CONST_ANI_THROWINGKNIFE,
+		target = false
+	}
 }
 
 monster.defenses = {
@@ -100,8 +110,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = -2}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = -2}
 }
 
 monster.immunities = {

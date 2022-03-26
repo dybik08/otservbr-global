@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -76,10 +76,10 @@ monster.voices = {
 monster.loot = {
 	{id = 3025, chance = 3500}, -- Ancient amulet
 	{id = 3116, chance = 9000},
-	{id = 3027, chance = 15000, maxCount = 15},
-	{id = 3041, chance = 1500},
+	{name = "black pearl", chance = 15000, maxCount = 15},
+	{name = "blue gem", chance = 1500},
 	{id = 3079, chance = 4000},
-	{id = 3070, chance = 3500},
+	{name = "moonlight rod", chance = 3500},
 	{id = 3076, chance = 2500},
 	{id = 3008, chance = 1500},
 	{id = 3007, chance = 5500},
@@ -87,13 +87,13 @@ monster.loot = {
 	{id = 3356, chance = 11000},
 	{id = 3275, chance = 20000},
 	{id = 3322, chance = 4500},
-	{id = 3051, chance = 13500}, -- Energy ring
+	{id = 3051, name = "energy ring", chance = 13500}, -- Energy ring
 	{id = 3320, chance = 17000},
 	{id = 3281, chance = 12500},
-	{id = 3031, chance = 99900, maxCount = 100},
-	{id = 3031, chance = 88800, maxCount = 100},
-	{id = 3031, chance = 77700, maxCount = 100},
-	{id = 3031, chance = 66600, maxCount = 100},
+	{name = "gold coin", chance = 99900, maxCount = 100},
+	{name = "gold coin", chance = 88800, maxCount = 100},
+	{name = "gold coin", chance = 77700, maxCount = 100},
+	{name = "gold coin", chance = 66600, maxCount = 100},
 	{id = 3063, chance = 8000},
 	{id = 3364, chance = 5000},
 	{id = 2903, chance = 7500},
@@ -112,15 +112,15 @@ monster.loot = {
 	{id = 3055, chance = 4500},
 	{id = 3084, chance = 4500},
 	{id = 2848, chance = 2600},
-	{id = 3098, chance = 13000}, -- Ring of healing
+	{id = 3098, name = "Ring of healing", chance = 13000}, -- Ring of healing
 	{id = 3006, chance = 3500},
-	{id = 3054, chance = 13000},
+	{name = "silver amulet", chance = 13000},
 	{id = 3290, chance = 15500},
 	{id = 3324, chance = 5000},
-	{id = 3033, chance = 13500, maxCount = 20},
-	{id = 3028, chance = 9500, maxCount = 5},
-	{id = 3032, chance = 15500, maxCount = 10},
-	{id = 3029, chance = 13500, maxCount = 10},
+	{name = "small amethyst", chance = 13500, maxCount = 20},
+	{name = "small diamond", chance = 9500, maxCount = 5},
+	{name = "small emerald", chance = 15500, maxCount = 10},
+	{name = "small sapphire", chance = 13500, maxCount = 10},
 	{id = 3049, chance = 9500}, -- Stealth ring
 	{id = 3081, chance = 4000},
 	{id = 3058, chance = 2500},
@@ -129,34 +129,165 @@ monster.loot = {
 	{id = 3309, chance = 13500},
 	{id = 3265, chance = 20000},
 	{id = 3002, chance = 100},
-	{id = 3069, chance = 3500},
-	{id = 3026, chance = 12500, maxCount = 15}
+	{name = "necrotic rod", chance = 3500},
+	{name = "white pearl", chance = 12500, maxCount = 15}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 200, attack = 250},
-	{name ="combat", interval = 1000, chance = 7, type = COMBAT_MANADRAIN, minDamage = -100, maxDamage = -1000, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_POFF, target = false},
-	{name ="drunk", interval = 1000, chance = 7, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="strength", interval = 1000, chance = 9, range = 7, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="combat", interval = 1000, chance = 13, type = COMBAT_LIFEDRAIN, minDamage = -400, maxDamage = -700, radius = 8, effect = CONST_ME_LOSEENERGY, target = false},
-	{name ="combat", interval = 1000, chance = 10, type = COMBAT_MANADRAIN, minDamage = -400, maxDamage = -700, radius = 8, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="speed", interval = 1000, chance = 12, speedChange = -1900, radius = 6, effect = CONST_ME_POISONAREA, target = false, duration = 60000},
-	{name ="strength", interval = 1000, chance = 8, radius = 5, effect = CONST_ME_HITAREA, target = false},
-	{name ="outfit", interval = 1000, chance = 2, radius = 8, effect = CONST_ME_LOSEENERGY, target = false, duration = 5000, outfitMonster = "demon"},
-	{name ="outfit", interval = 1000, chance = 2, radius = 8, effect = CONST_ME_LOSEENERGY, target = false, duration = 5000, outfitItem = 3058},
-	{name ="combat", interval = 1000, chance = 34, type = COMBAT_FIREDAMAGE, minDamage = -100, maxDamage = -900, range = 7, radius = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
-	{name ="combat", interval = 1000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -500, maxDamage = -850, length = 8, spread = 3, effect = CONST_ME_MAGIC_RED, target = false}
+	{name = "melee", interval = 2000, chance = 100, skill = 200, attack = 250},
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 7,
+		type = COMBAT_MANADRAIN,
+		minDamage = -100,
+		maxDamage = -1000,
+		range = 7,
+		shootEffect = CONST_ANI_ENERGY,
+		effect = CONST_ME_POFF,
+		target = false
+	},
+	{
+		name = "drunk",
+		interval = 1000,
+		chance = 7,
+		range = 7,
+		shootEffect = CONST_ANI_ENERGY,
+		effect = CONST_ME_ENERGYAREA,
+		target = false
+	},
+	{
+		name = "strength",
+		interval = 1000,
+		chance = 9,
+		range = 7,
+		shootEffect = CONST_ANI_LARGEROCK,
+		effect = CONST_ME_ENERGYAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 13,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -400,
+		maxDamage = -700,
+		radius = 8,
+		effect = CONST_ME_LOSEENERGY,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 10,
+		type = COMBAT_MANADRAIN,
+		minDamage = -400,
+		maxDamage = -700,
+		radius = 8,
+		effect = CONST_ME_MAGIC_GREEN,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 1000,
+		chance = 12,
+		speedChange = -1900,
+		radius = 6,
+		effect = CONST_ME_POISONAREA,
+		target = false,
+		duration = 60000
+	},
+	{name = "strength", interval = 1000, chance = 8, radius = 5, effect = CONST_ME_HITAREA, target = false},
+	{
+		name = "outfit",
+		interval = 1000,
+		chance = 2,
+		radius = 8,
+		effect = CONST_ME_LOSEENERGY,
+		target = false,
+		duration = 5000,
+		outfitMonster = "demon"
+	},
+	{
+		name = "outfit",
+		interval = 1000,
+		chance = 2,
+		radius = 8,
+		effect = CONST_ME_LOSEENERGY,
+		target = false,
+		duration = 5000,
+		outfitItem = 3058
+	},
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 34,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -100,
+		maxDamage = -900,
+		range = 7,
+		radius = 7,
+		shootEffect = CONST_ANI_FIRE,
+		effect = CONST_ME_FIREAREA,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 15,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -500,
+		maxDamage = -850,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_MAGIC_RED,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 160,
 	armor = 160,
-	{name ="combat", interval = 1000, chance = 15, type = COMBAT_HEALING, minDamage = 5000, maxDamage = 10000, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="combat", interval = 1000, chance = 25, type = COMBAT_HEALING, minDamage = 2000, maxDamage = 3000, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 1000, chance = 8, speedChange = 1901, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000},
-	{name ="invisible", interval = 1000, chance = 4, effect = CONST_ME_MAGIC_BLUE},
-	{name ="invisible", interval = 1000, chance = 17, effect = CONST_ME_MAGIC_BLUE},
-	{name ="outfit", interval = 1000, chance = 2, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 7000, outfitItem = 2916}
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 5000,
+		maxDamage = 10000,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 25,
+		type = COMBAT_HEALING,
+		minDamage = 2000,
+		maxDamage = 3000,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 1000,
+		chance = 8,
+		speedChange = 1901,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 5000
+	},
+	{name = "invisible", interval = 1000, chance = 4, effect = CONST_ME_MAGIC_BLUE},
+	{name = "invisible", interval = 1000, chance = 17, effect = CONST_ME_MAGIC_BLUE},
+	{
+		name = "outfit",
+		interval = 1000,
+		chance = 2,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false,
+		duration = 7000,
+		outfitItem = 2916
+	}
 }
 
 monster.elements = {
@@ -168,8 +299,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

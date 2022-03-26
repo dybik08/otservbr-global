@@ -31,7 +31,7 @@ monster.Bestiary = {
 		Ankrahmun tombs, Isle of the Kings, Treasure Island, Nargor Undead Cave, Helheim, Lion's Rock, \z
 		The Witches' Cliff (only accessible during a quest) and a cave northeast of Ab'Dendriel. \z
 		Also found behind a wall in both Rookgaard and Paradox Tower, although they cannot be reached."
-	}
+}
 
 monster.health = 100
 monster.maxHealth = 100
@@ -46,7 +46,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -76,13 +76,13 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
 	{id = 2920, chance = 5000},
 	{name = "gold coin", chance = 68000, maxCount = 30},
-	{id = 3052, chance = 180}, -- Life ring
+	{id = 3052, name = "life ring", chance = 180}, -- Life ring
 	{id = 3114, chance = 240},
 	{name = "viking helmet", chance = 990},
 	{name = "scale armor", chance = 1000},
@@ -95,14 +95,34 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -70},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -15, maxDamage = -27, range = 1, radius = 1, effect = CONST_ME_SMALLCLOUDS, target = true}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -70},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -15,
+		maxDamage = -27,
+		range = 1,
+		radius = 1,
+		effect = CONST_ME_SMALLCLOUDS,
+		target = true
+	}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="combat", interval = 2000, chance = 5, type = COMBAT_HEALING, minDamage = 9, maxDamage = 15, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 5,
+		type = COMBAT_HEALING,
+		minDamage = 9,
+		maxDamage = 15,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -114,8 +134,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -25},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

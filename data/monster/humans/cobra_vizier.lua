@@ -3,8 +3,8 @@ local monster = {}
 
 monster.Credits = {
 	Developer = "Wojciech Dybikowski",
-	lastUpdate = "17/03/2022",
- }
+	lastUpdate = "17/03/2022"
+}
 
 monster.description = "a cobra vizier"
 monster.experience = 7650
@@ -33,7 +33,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Cobra Bastion."
-	}
+}
 
 monster.health = 8500
 monster.maxHealth = 8500
@@ -48,7 +48,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -94,7 +94,7 @@ monster.loot = {
 	{name = "snakebite rod", chance = 12800},
 	{name = "cyan crystal fragment", chance = 11340},
 	{id = 281, name = "giant shimmering pearl", chance = 6790}, -- giant shimmering pearl
-	{id= 3039, name = "red gem", chance = 6790},
+	{id = 3039, name = "red gem", name = "red gem", chance = 6790},
 	{name = "green crystal fragment", chance = 5240},
 	{name = "violet crystal shard", chance = 4810},
 	{name = "gemmed figurine", chance = 4640},
@@ -103,18 +103,18 @@ monster.loot = {
 	{name = "serpent sword", chance = 3090},
 	{name = "red crystal fragment", chance = 2660},
 	{name = "onyx chip", chance = 950, maxCount = 3},
-	{id=31297, name="empty ritual flask", chance = 100},
+	{id = 31297, name = "empty ritual flask", chance = 100}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
-	{name ="poisonHit", interval = 2000, chance = 95, minDamage = -200, maxDamage = -400},
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
+	{name = "PoisonHitEarthTarget", interval = 2000, chance = 95, minDamage = -200, maxDamage = -400}
 }
 
 monster.defenses = {
 	defense = 82,
 	armor = 82,
-	{name ="monsterHealing", interval = 2000, chance = 8, minDamage = 100, maxDamage = 200 }
+	{name = "monsterHealing", interval = 2000, chance = 8, minDamage = 100, maxDamage = 200}
 }
 
 monster.elements = {
@@ -126,8 +126,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

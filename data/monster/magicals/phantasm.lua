@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Pits of Inferno, The Inquisition Quest, Deeper Banuta."
-	}
+}
 
 monster.health = 3950
 monster.maxHealth = 3950
@@ -39,7 +39,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -91,12 +91,12 @@ monster.loot = {
 	{name = "gold coin", chance = 28000, maxCount = 33},
 	{name = "small emerald", chance = 10190, maxCount = 3},
 	{name = "small amethyst", chance = 14570, maxCount = 3},
-	{name = "platinum coin", chance = 87730, maxCount = 4},
+	{id = 3035, name = "platinum coin", chance = 87730, maxCount = 4},
 	{id = 3049, chance = 550}, -- Stealth ring
 	{name = "blank rune", chance = 22500, maxCount = 2},
 	{name = "crown armor", chance = 660},
 	{name = "shadow herb", chance = 26930, maxCount = 2},
-	{id = 6299, chance = 330},
+	{id = 6299, name = "death ring", chance = 330},
 	{name = "demonic essence", chance = 16320},
 	{name = "abyss hammer", chance = 110},
 	{name = "shadow sceptre", chance = 550},
@@ -106,19 +106,65 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -475},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -250, maxDamage = -610, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -5, maxDamage = -80, radius = 3, effect = CONST_ME_YELLOW_RINGS, target = false},
-	{name ="phantasm drown", interval = 2000, chance = 15, target = false},
-	{name ="drunk", interval = 2000, chance = 15, radius = 5, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -475},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -250,
+		maxDamage = -610,
+		range = 7,
+		shootEffect = CONST_ANI_SUDDENDEATH,
+		effect = CONST_ME_SMALLCLOUDS,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_MANADRAIN,
+		minDamage = -5,
+		maxDamage = -80,
+		radius = 3,
+		effect = CONST_ME_YELLOW_RINGS,
+		target = false
+	},
+	{name = "phantasm drown", interval = 2000, chance = 15, target = false},
+	{
+		name = "drunk",
+		interval = 2000,
+		chance = 15,
+		radius = 5,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 6000
+	}
 }
 
 monster.defenses = {
 	defense = 0,
 	armor = 0,
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_HEALING, minDamage = 228, maxDamage = 449, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 10, speedChange = 500, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000},
-	{name ="invisible", interval = 2000, chance = 25, effect = CONST_ME_MAGIC_BLUE}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 30,
+		type = COMBAT_HEALING,
+		minDamage = 228,
+		maxDamage = 449,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 10,
+		speedChange = 500,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 6000
+	},
+	{name = "invisible", interval = 2000, chance = 25, effect = CONST_ME_MAGIC_BLUE}
 }
 
 monster.elements = {
@@ -130,8 +176,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

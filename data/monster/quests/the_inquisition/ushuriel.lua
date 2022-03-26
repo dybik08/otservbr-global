@@ -68,14 +68,14 @@ monster.voices = {
 
 monster.loot = {
 	{name = "gold coin", chance = 50000, maxCount = 190},
-	{name = "platinum coin", chance = 20000, maxCount = 26},
+	{id = 3035, name = "platinum coin", chance = 20000, maxCount = 26},
 	{name = "orb", chance = 16666},
 	{name = "life crystal", chance = 16666},
 	{name = "mind stone", chance = 20000},
 	{name = "spike sword", chance = 9090},
 	{name = "fire sword", chance = 14285},
 	{name = "giant sword", chance = 7692},
-	{id = 3307, chance = 11111},
+	{id = 3307, name = "scimitar", chance = 11111},
 	{name = "warrior helmet", chance = 20000},
 	{name = "strange helmet", chance = 8333},
 	{name = "crown helmet", chance = 6250},

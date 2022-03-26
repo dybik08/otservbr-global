@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -74,7 +74,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "platinum coin", chance = 95000, maxCount = 74},
+	{id = 3035, name = "platinum coin", chance = 95000, maxCount = 74},
 	{name = "demonic essence", chance = 95000, maxCount = 5},
 	{name = "green gem", chance = 50000},
 	{name = "great mana potion", chance = 45000},
@@ -86,8 +86,8 @@ monster.loot = {
 	{name = "ultimate health potion", chance = 27000},
 	{name = "talon", chance = 22000, maxCount = 7},
 	{name = "demon horn", chance = 22000, maxCount = 2},
-	{id = 6299, chance = 22000},
-	{id = 3098, chance = 22000}, -- Ring of healing
+	{id = 6299, name = "death ring", chance = 22000},
+	{id = 3098, name = "Ring of healing", chance = 22000}, -- Ring of healing
 	{name = "chain bolter", chance = 22000},
 	{name = "dark lord's cape", chance = 22000},
 	{name = "ironworker", chance = 25000},
@@ -111,7 +111,7 @@ monster.loot = {
 	{name = "blue gem", chance = 9000},
 	{name = "gold ring", chance = 9000},
 	{name = "demon shield", chance = 9000},
-	{id = 3051, chance = 9000}, -- Energy ring
+	{id = 3051, name = "energy ring", chance = 9000}, -- Energy ring
 	{name = "giant sword", chance = 9000},
 	{name = "golden legs", chance = 9000},
 	{name = "life crystal", chance = 9000},
@@ -131,25 +131,147 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -2250},
-	{name ="combat", interval = 3000, chance = 35, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -1210, range = 7, radius = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
-	{name ="combat", interval = 1800, chance = 40, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -580, range = 7, radius = 5, effect = CONST_ME_HITAREA, target = false},
-	{name ="combat", interval = 3000, chance = 30, type = COMBAT_ENERGYDAMAGE, minDamage = -300, maxDamage = -1450, length = 8, spread = 3, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="combat", interval = 2500, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -480, range = 7, radius = 5, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -250, maxDamage = -500, range = 7, radius = 13, effect = CONST_ME_SOUND_RED, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -450, radius = 14, effect = CONST_ME_LOSEENERGY, target = false},
-	{name ="combat", interval = 3000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -200, range = 7, radius = 3, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = -400, range = 7, effect = CONST_ME_SOUND_RED, target = false, duration = 20000},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_MANADRAIN, minDamage = -70, maxDamage = -320, radius = 3, effect = CONST_ME_HITAREA, target = true},
-	{name ="dark torturer skill reducer", interval = 2000, chance = 5, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -2250},
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 35,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -500,
+		maxDamage = -1210,
+		range = 7,
+		radius = 7,
+		shootEffect = CONST_ANI_FIRE,
+		effect = CONST_ME_FIREAREA,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 1800,
+		chance = 40,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = 0,
+		maxDamage = -580,
+		range = 7,
+		radius = 5,
+		effect = CONST_ME_HITAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 30,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -300,
+		maxDamage = -1450,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_ENERGYHIT,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2500,
+		chance = 20,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = -200,
+		maxDamage = -480,
+		range = 7,
+		radius = 5,
+		effect = CONST_ME_MAGIC_GREEN,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = -250,
+		maxDamage = -500,
+		range = 7,
+		radius = 13,
+		effect = CONST_ME_SOUND_RED,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = -200,
+		maxDamage = -450,
+		radius = 14,
+		effect = CONST_ME_LOSEENERGY,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 15,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = -100,
+		maxDamage = -200,
+		range = 7,
+		radius = 3,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = -400,
+		range = 7,
+		effect = CONST_ME_SOUND_RED,
+		target = false,
+		duration = 20000
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_MANADRAIN,
+		minDamage = -70,
+		maxDamage = -320,
+		radius = 3,
+		effect = CONST_ME_HITAREA,
+		target = true
+	},
+	{name = "dark torturer skill reducer", interval = 2000, chance = 5, target = false}
 }
 
 monster.defenses = {
 	defense = 65,
 	armor = 55,
-	{name ="combat", interval = 3000, chance = 35, type = COMBAT_HEALING, minDamage = 800, maxDamage = 1100, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="combat", interval = 9000, chance = 15, type = COMBAT_HEALING, minDamage = 3800, maxDamage = 4000, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 4000, chance = 80, speedChange = 470, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000}
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 35,
+		type = COMBAT_HEALING,
+		minDamage = 800,
+		maxDamage = 1100,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 9000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 3800,
+		maxDamage = 4000,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 4000,
+		chance = 80,
+		speedChange = 470,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 6000
+	}
 }
 
 monster.elements = {
@@ -161,8 +283,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
-	{type = COMBAT_DEATHDAMAGE , percent = 80}
+	{type = COMBAT_HOLYDAMAGE, percent = -5},
+	{type = COMBAT_DEATHDAMAGE, percent = 80}
 }
 
 monster.immunities = {

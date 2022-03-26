@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "Calassa, Treasure Island , Seacrest Grounds. \z
 		In the Seacrest Grounds the spawns are Varying Monster Spawns in which the common creature is an Abyssal Calamary. \z
 		The chance to spawn a Crustacea Gigantica seems to be around 1%-2%."
-	}
+}
 
 monster.health = 1600
 monster.maxHealth = 1600
@@ -41,7 +41,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -84,12 +84,12 @@ monster.loot = {
 	{name = "strong mana potion", chance = 8885},
 	{name = "strong health potion", chance = 3880},
 	{name = "giant crab pincer", chance = 5000, maxCount = 2},
-	{id = 3098, chance = 3000}, -- Ring of healing
-	{name = "great mana potion", chance = 1220},
+	{id = 3098, name = "Ring of healing", chance = 3000}, -- Ring of healing
+	{name = "great mana potion", chance = 1220}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -600, effect = CONST_ME_DRAWBLOOD}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -600, effect = CONST_ME_DRAWBLOOD}
 }
 
 monster.defenses = {
@@ -106,8 +106,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 10}
 }
 
 monster.immunities = {

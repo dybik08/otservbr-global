@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Deathling Spellsinger")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "21/03/2022"
+}
+
 monster.description = "a deathling spellsinger"
 monster.experience = 6400
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Ancient Ancestorial Grounds and Sunken Temple."
-	}
+}
 
 monster.health = 7200
 monster.maxHealth = 7200
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -70,36 +75,59 @@ monster.light = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "BOQOL\"°", yell = false},
-	{text = "QOL\" VBOXCL°", yell = false}
+	{text = 'BOQOL"°', yell = false},
+	{text = 'QOL" VBOXCL°', yell = false}
 }
 
+-- ordered descending
 monster.loot = {
-	{name = "platinum coin", chance = 86000, maxCount = 14},
-	{name = "crystalline arrow", chance = 26000, maxCount = 25},
-	{name = "Small Emerald", chance = 14040, maxCount = 14},
-	{name = "Deepling Filet", chance = 12470},
-	{name = "Deeptags", chance = 12470},
-	{name = "Great Health Potion", chance = 9130},
-	{name = "Deepling Ridge", chance = 8840},
-	{name = "Deepling Warts", chance = 8540},
-	{name = "Great Mana Potion", chance = 8200},
-	{name = "Vortex Bolt", chance = 6380, maxCount = 25},
-	{name = "Eye of a Deepling", chance = 4760},
-	{name = "Heavy Trident", chance = 4120},
-	{name = "Warrior's Shield", chance = 3090},
-	{name = "Fish Fin", chance = 2990},
-	{name = "Warrior's Axe", chance = 2950},
-	{name = "Small Enchanted Sapphire", chance = 2220, maxCount = 4},
-	{id = 3052, chance = 2010}, -- Life ring
-	{name = "Necklace of the Deep", chance = 200}
+	{id = 3035, name = "platinum coin", chance = 84530, maxCount = 14},
+	{name = "crystalline arrow", chance = 25440, maxCount = 25},
+	{name = "Deepling Filet", chance = 13940},
+	{name = "Deeptags", chance = 13160},
+	{name = "Small Emerald", chance = 11770, maxCount = 14},
+	{name = "Deepling Ridge", chance = 10110},
+	{name = "Great Health Potion", chance = 8770},
+	{name = "Deepling Warts", chance = 8590},
+	{name = "Great Mana Potion", chance = 7200},
+	{name = "Vortex Bolt", chance = 5820, maxCount = 25},
+	{name = "Eye of a Deepling", chance = 4890},
+	{name = "Fish Fin", chance = 4340},
+	{name = "Warrior's Shield", chance = 3550},
+	{name = "Heavy Trident", chance = 2860},
+	{name = "Warrior's Axe", chance = 2450},
+	{id = 3052, name = "life ring", chance = 2310}, -- Life ring
+	{name = "Small Enchanted Sapphire", chance = 2080, maxCount = 4},
+	{name = "Necklace of the Deep", chance = 280}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 4000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -400, range = 5, shootEffect = CONST_ANI_HUNTINGSPEAR, target = false},
-	{name ="combat", interval = 4000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -150, maxDamage = -300, range = 5, shootEffect = CONST_ANI_LARGEROCK, target = false},
-	{name ="combat", interval = 2000, chance = 14, type = COMBAT_HOLYDAMAGE, minDamage = -400, maxDamage = -700, length = 8, spread = 3, effect = CONST_ME_BLOCKHIT, target = false}
+	-- Basic attack (0-300 physical)
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
+	-- Ranged attack (100-400 physical) (Spear)
+	{
+		name = "RangedAttackSpearPhysicalTarget",
+		interval = 4000,
+		chance = 15,
+		minDamage = -100,
+		maxDamage = -400
+	},
+	-- Long Holy Beam (400-700 holy)
+	{
+		name = "LongHolyBeamHoly",
+		interval = 2000,
+		chance = 14,
+		minDamage = -400,
+		maxDamage = -700
+	},
+	-- Explosion Strike (150-300 physical, on target) (Big Stone)
+	{
+		name = "ExplosionStrikePhysicalTargetLargeRock",
+		interval = 4000,
+		chance = 15,
+		minDamage = -150,
+		maxDamage = -300
+	}
 }
 
 monster.defenses = {
@@ -116,8 +144,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 10}
 }
 
 monster.immunities = {

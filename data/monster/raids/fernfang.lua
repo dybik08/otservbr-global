@@ -28,7 +28,7 @@ monster.changeTarget = {
 monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
-	damage = 50,
+	damage = 50
 }
 
 monster.flags = {
@@ -74,13 +74,13 @@ monster.voices = {
 
 monster.loot = {
 	{id = 9646, chance = 100000},
-	{id = 3031, chance = 100000, maxCount = 95},
-	{id = 3035, chance = 93000, maxCount = 3},
+	{name = "gold coin", chance = 100000, maxCount = 95},
+	{id = 3035, name = "platinum coin", chance = 93000, maxCount = 3},
 	{id = 3736, chance = 86000},
 	{id = 11492, chance = 53000},
-	{id = 3050, chance = 40000}, -- Power ring
+	{id = 3050, name = "power ring", chance = 40000}, -- Power ring
 	{id = 11493, chance = 40000},
-	{id = 3037, chance = 33000},
+	{name = "yellow gem", chance = 33000},
 	{id = 2885, chance = 20000},
 	{id = 237, chance = 20000},
 	{id = 2914, chance = 13000},
@@ -95,17 +95,63 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -50},
-	{name ="combat", interval = 1000, chance = 13, type = COMBAT_HOLYDAMAGE, minDamage = -65, maxDamage = -180, range = 7, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYDAMAGE, target = false},
-	{name ="combat", interval = 1000, chance = 25, type = COMBAT_MANADRAIN, minDamage = -20, maxDamage = -45, range = 7, effect = CONST_ME_MAGIC_RED, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -50},
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 13,
+		type = COMBAT_HOLYDAMAGE,
+		minDamage = -65,
+		maxDamage = -180,
+		range = 7,
+		shootEffect = CONST_ANI_SMALLHOLY,
+		effect = CONST_ME_HOLYDAMAGE,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 25,
+		type = COMBAT_MANADRAIN,
+		minDamage = -20,
+		maxDamage = -45,
+		range = 7,
+		effect = CONST_ME_MAGIC_RED,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 10,
 	armor = 15,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 10, maxDamage = 200, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 1000, chance = 7, speedChange = 280, effect = CONST_ME_MAGIC_RED, target = false, duration = 10000},
-	{name ="outfit", interval = 1000, chance = 5, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 14000, outfitMonster = "War Wolf"}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 10,
+		maxDamage = 200,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 1000,
+		chance = 7,
+		speedChange = 280,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 10000
+	},
+	{
+		name = "outfit",
+		interval = 1000,
+		chance = 5,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false,
+		duration = 14000,
+		outfitMonster = "War Wolf"
+	}
 }
 
 monster.elements = {
@@ -117,8 +163,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 70},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

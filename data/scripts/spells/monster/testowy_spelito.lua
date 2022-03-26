@@ -451,15 +451,6 @@ local eruptionBall = CREATE_SPELL({
 
 eruptionBall:register()
 
-local shorterPoisonTWave = CREATE_SPELL({
-    type = COMBAT_POISONDAMAGE,
-    effect = SPELL_ANIMATIONS.POISON,
-    area = SPELL_AREAS.SHORTER_T_WAVE,
-    name ='shorterPoisonTWave',
-    words ='###514',
-})
-
-shorterPoisonTWave:register()
 
 local sparkyBeam = CREATE_SPELL({
     type = COMBAT_PHYSICALDAMAGE,
@@ -471,31 +462,6 @@ local sparkyBeam = CREATE_SPELL({
 
 sparkyBeam:register()
 
-local poisonBallDefaultConfig = {
-    type = COMBAT_POISONDAMAGE,
-    effect = SPELL_ANIMATIONS.POISON,
-    distanceEfect = SHOOT_EFFECTS.POISON_ARROW,
-    area = SPELL_AREAS.BALL,
-    name = "poisonBall",
-    words = "###516",
-    needTarget = true
-}
-
-local poisonBall = CREATE_SPELL(poisonBallDefaultConfig)
-
-poisonBall:register()
-
-local posionArrow = CREATE_SPELL({
-    type = COMBAT_POISONDAMAGE,
-    effect = SPELL_ANIMATIONS.POISON,
-    distanceEfect = SHOOT_EFFECTS.POISON_ARROW,
-    area = SPELL_AREAS.STRIKE,
-    name ='posionArrow',
-    words ='###517',
-    needTarget = true,
-})
-
-posionArrow:register()
 
 local groundshakerBox = CREATE_SPELL({
     type = COMBAT_PHYSICALDAMAGE,
@@ -507,16 +473,6 @@ local groundshakerBox = CREATE_SPELL({
 
 groundshakerBox:register()
 
-local poisonHit = CREATE_SPELL({
-    type = COMBAT_POISONDAMAGE,
-    effect = SPELL_ANIMATIONS.POISON,
-    area = SPELL_AREAS.STRIKE,
-    name ='poisonHit',
-    words ='###519',
-    needTarget = true,
-})
-
-poisonHit:register()
 
 local iceBox =
     CREATE_SPELL(
@@ -571,19 +527,6 @@ local greaterBlueStarsBall =
 )
 
 greaterBlueStarsBall:register()
-
-local explosionBall =
-    CREATE_SPELL(
-    {
-        type = COMBAT_POISONDAMAGE,
-        effect = SPELL_ANIMATIONS.EXPLOSION,
-        area = SPELL_AREAS.BALL,
-        name = "explosionBall",
-        words = "###524"
-    }
-)
-
-explosionBall:register()
 
 local tinyGroundshakerTWave =
     CREATE_SPELL(
@@ -925,18 +868,6 @@ local longHolyBeam = CREATE_SPELL(longHolyBeamDefaultConfig)
 longHolyBeam:register()
 
 
-local greatTerraWaveDefaultConfig = {
-    type = COMBAT_POISONDAMAGE,
-    effect = SPELL_ANIMATIONS.TERRA,
-    area = SPELL_AREAS.GREAT_WAVE,
-    name = "greatTerraWave",
-    words = "###549",
-    needDirection = true
-}
-
-local greatTerraWave = CREATE_SPELL(greatTerraWaveDefaultConfig)
-
-greatTerraWave:register()
 
 local IcyFlakeStrikeDefaultConfig = {
     type = COMBAT_ICEDAMAGE,
@@ -965,18 +896,6 @@ local GreatWaterWave = CREATE_SPELL(GreatWaterWaveDefaultConfig)
 GreatWaterWave:register()
 
 
-local TerraStrikeDefaultConfig = {
-    type = COMBAT_POISONDAMAGE,
-    effect = SPELL_ANIMATIONS.TERRA,
-    area = SPELL_AREAS.STRIKE,
-    name = "TerraStrike",
-    words = "###552",
-    needTarget = true
-}
-
-local TerraStrike = CREATE_SPELL(TerraStrikeDefaultConfig)
-
-TerraStrike:register()
 
 local TerraStrikeLifeDrain =
     CREATE_SPELL(
@@ -992,18 +911,6 @@ local TerraStrikeLifeDrain =
 
 TerraStrikeLifeDrain:register()
 
-local PoisonWaveDefaultConfig = {
-    type = COMBAT_POISONDAMAGE,
-    effect = SPELL_ANIMATIONS.POISON,
-    area = SPELL_AREAS.GREAT_WAVE,
-    name = "PoisonWave",
-    words = "###554",
-    needDirection = true
-}
-
-local PoisonWave = CREATE_SPELL(PoisonWaveDefaultConfig)
-
-PoisonWave:register()
 
 local MusicalNotesBeamDefaultConfig = {
     type = COMBAT_LIFEDRAIN,
@@ -1017,3 +924,35 @@ local MusicalNotesBeamDefaultConfig = {
 local MusicalNotesBeam = CREATE_SPELL(MusicalNotesBeamDefaultConfig)
 
 MusicalNotesBeam:register()
+
+
+local EnvenomBallPhysical =
+    CREATE_SPELL(
+    assign(
+        EnvenomBallDefaultConfig,
+        {
+            name = "EnvenomBallPhysical",
+            words = "###EnvenomBallPhysical",
+            type = COMBAT_PHYSICALDAMAGE
+        }
+    )
+)
+
+EnvenomBallPhysical:register()
+
+
+
+local GreaterEnvenomBallLifeDrainSelf =
+    CREATE_SPELL(
+    assign(
+        GreaterEnvenomBallDefaultConfig,
+        {
+            type = COMBAT_LIFEDRAIN,
+            name = "GreaterEnvenomBallLifeDrainSelf",
+            words = "###GreaterEnvenomBallLifeDrainSelf",
+            needTarget = false
+        }
+    )
+)
+
+GreaterEnvenomBallLifeDrainSelf:register()

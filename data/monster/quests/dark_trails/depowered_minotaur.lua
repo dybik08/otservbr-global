@@ -61,12 +61,12 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 82},
+	{name = "gold coin", chance = 100000, maxCount = 82},
 	{id = 11472, chance = 100000},
-	{id = 3035, chance = 100000, maxCount = 4},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 4},
 	{id = 236, chance = 25000},
 	{id = 5878, chance = 25000},
-	{id = 3029, chance = 25000}
+	{name="small sapphire", chance = 25000}
 }
 
 monster.attacks = {

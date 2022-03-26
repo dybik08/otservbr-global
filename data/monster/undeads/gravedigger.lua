@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Around the higher level areas of Drefia, \z
 		including the Drefia Grim Reaper Dungeons and the Drefia Vampire Crypt."
-	}
+}
 
 monster.health = 1500
 monster.maxHealth = 1500
@@ -43,7 +43,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -81,13 +81,13 @@ monster.voices = {
 
 monster.loot = {
 	{name = "gold coin", chance = 100000, maxCount = 137},
-	{name = "platinum coin", chance = 24470},
+	{id = 3035, name = "platinum coin", chance = 24470},
 	{name = "yellow gem", chance = 800},
 	{name = "wand of inferno", chance = 5590},
 	{name = "sudden death rune", chance = 7300},
 	{name = "skull staff", chance = 130},
 	{name = "mysterious voodoo skull", chance = 100},
-	{id = 6299, chance = 800},
+	{id = 6299, name = "death ring", chance = 800},
 	{name = "strong health potion", chance = 2260, maxCount = 2},
 	{name = "strong mana potion", chance = 3600, maxCount = 2},
 	{name = "unholy bone", chance = 9570},
@@ -96,18 +96,70 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -320, condition = {type = CONDITION_POISON, totalDamage = 180, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = -40, maxDamage = -250, range = 1, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -175, maxDamage = -300, range = 1, shootEffect = CONST_ANI_DEATH, target = false},
-	{name ="drunk", interval = 2000, chance = 10, radius = 5, effect = CONST_ME_SMALLCLOUDS, target = false, duration = 4000}
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		minDamage = 0,
+		maxDamage = -320,
+		condition = {type = CONDITION_POISON, totalDamage = 180, interval = 4000}
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_MANADRAIN,
+		minDamage = -40,
+		maxDamage = -250,
+		range = 1,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -175,
+		maxDamage = -300,
+		range = 1,
+		shootEffect = CONST_ANI_DEATH,
+		target = false
+	},
+	{
+		name = "drunk",
+		interval = 2000,
+		chance = 10,
+		radius = 5,
+		effect = CONST_ME_SMALLCLOUDS,
+		target = false,
+		duration = 4000
+	}
 }
 
 monster.defenses = {
 	defense = 20,
 	armor = 20,
-	{name ="invisible", interval = 2000, chance = 15, effect = CONST_ME_MAGIC_RED},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 100, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = 420, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
+	{name = "invisible", interval = 2000, chance = 15, effect = CONST_ME_MAGIC_RED},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_HEALING,
+		minDamage = 100,
+		maxDamage = 250,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = 420,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 5000
+	}
 }
 
 monster.elements = {
@@ -119,8 +171,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -5},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

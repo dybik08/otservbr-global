@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Workshop Quarter, Glooth Factory, Underground Glooth Factory, Abandoned Sewers, \z
 		Oramond Dungeon (depending on Magistrate votes), Jaccus Maxxens Dungeon."
-	}
+}
 
 monster.health = 2100
 monster.maxHealth = 2100
@@ -43,7 +43,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -79,27 +79,50 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 200},
+	{name = "gold coin", chance = 100000, maxCount = 200},
 	{id = 21755, chance = 1490},
 	{id = 21193, chance = 17160},
-	{id = 3035, chance = 43280, maxCount = 2},
+	{id = 3035, name = "platinum coin", chance = 43280, maxCount = 2},
 	{id = 236, chance = 9700, maxCount = 2},
 	{id = 237, chance = 9700, maxCount = 2},
 	{id = 21171, chance = 1490},
-	{id = 8082, chance = 1490},
-	{id = 3051, chance = 2240}, -- Energy ring
-	{id = 3052, chance = 750}, -- Life ring
+	{name = "underworld rod", chance = 1490},
+	{id = 3051, name = "energy ring", chance = 2240}, -- Energy ring
+	{id = 3052, name = "life ring", chance = 750}, -- Life ring
 	{id = 10310, chance = 2240},
 	{id = 21169, chance = 1490},
 	{id = 21168, chance = 1490},
-	{id = 8896, chance = 2990}
+	{id = 8896, name = "slightly rusted armor", chance = 2990}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 84, attack = 50},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -125, maxDamage = -230, length = 8, spread = 3, effect = CONST_ME_YELLOWENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 9, type = COMBAT_LIFEDRAIN, minDamage = -85, maxDamage = -150, range = 7, radius = 3, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
-	{name ="metal gargoyle curse", interval = 2000, chance = 13, target = false}
+	{name = "melee", interval = 2000, chance = 100, skill = 84, attack = 50},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -125,
+		maxDamage = -230,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_YELLOWENERGY,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 9,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -85,
+		maxDamage = -150,
+		range = 7,
+		radius = 3,
+		shootEffect = CONST_ANI_SUDDENDEATH,
+		effect = CONST_ME_MORTAREA,
+		target = true
+	},
+	{name = "metal gargoyle curse", interval = 2000, chance = 13, target = false}
 }
 
 monster.defenses = {
@@ -116,8 +139,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 80}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 80}
 }
 
 monster.immunities = {

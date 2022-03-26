@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -77,7 +77,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "platinum coin", chance = 70000, maxCount = 25},
+	{id = 3035, name = "platinum coin", chance = 70000, maxCount = 25},
 	{name = "ultimate health potion", chance = 15360, maxCount = 4},
 	{name = "gold ingot", chance = 14130, maxCount = 2},
 	{name = "green crystal shard", chance = 6420, maxCount = 3},
@@ -100,7 +100,7 @@ monster.loot = {
 	{name = "beastslayer axe", chance = 1940},
 	{name = "green crystal fragment", chance = 1710},
 	{name = "blue gem", chance = 1530},
-	{id = 3039, chance = 1530}, -- red gem
+	{id = 3039, name = "red gem", chance = 1530}, -- red gem
 	{name = "blue robe", chance = 1060},
 	{name = "focus cape", chance = 1060},
 	{name = "fur armor", chance = 820},
@@ -108,16 +108,56 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -450},
-	{name ="combat", interval = 2000, chance = 40, type = COMBAT_DEATHDAMAGE, minDamage = -500, maxDamage = -650, radius = 4, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -450, range = 5, shootEffect = CONST_ANI_POISONARROW, target = true},
-	{name ="combat", interval = 2000, chance = 40, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -400, length = 3, spread = 2, effect = CONST_ME_GREEN_RINGS, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -450},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 40,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -500,
+		maxDamage = -650,
+		radius = 4,
+		effect = CONST_ME_MORTAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -200,
+		maxDamage = -450,
+		range = 5,
+		shootEffect = CONST_ANI_POISONARROW,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 40,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -200,
+		maxDamage = -400,
+		length = 3,
+		spread = 2,
+		effect = CONST_ME_GREEN_RINGS,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 76,
 	armor = 76,
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 150, maxDamage = 550, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_HEALING,
+		minDamage = 150,
+		maxDamage = 550,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -129,8 +169,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 15}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 15}
 }
 
 monster.immunities = {

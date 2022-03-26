@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -68,13 +68,13 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 10000, maxCount = 50},
-	{id = 3035, chance = 10000, maxCount = 50},
-	{id = 3033, chance = 10000, maxCount = 10},
-	{id = 3028, chance = 10000, maxCount = 10},
-	{id = 3030, chance = 10000, maxCount = 10},
-	{id = 9057, chance = 10000, maxCount = 10},
-	{id = 238, chance = 10000, maxCount = 100},
+	{name = "gold coin", chance = 10000, maxCount = 50},
+	{id = 3035, name = "platinum coin", chance = 10000, maxCount = 50},
+	{name = "small amethyst", chance = 10000, maxCount = 10},
+	{name = "small diamond", chance = 10000, maxCount = 10},
+	{name = "small ruby", chance = 10000, maxCount = 10},
+	{name = "small topaz", chance = 10000, maxCount = 10},
+	{name = "great mana potion", chance = 10000, maxCount = 100},
 	{id = 7642, chance = 10000, maxCount = 100},
 	{id = 20062, chance = 2000, maxCount = 2},
 	{id = 16119, chance = 2000, maxCount = 3},
@@ -85,13 +85,13 @@ monster.loot = {
 	{id = 3038, chance = 2000},
 	{id = 7440, chance = 2000},
 	{id = 22195, chance = 2000},
-	{id = 3039, chance = 1000},
+	{id = 3039, name = "red gem", chance = 1000},
 	{id = 3006, chance = 2000},
 	{id = 7451, chance = 2000},
 	{id = 8075, chance = 1000},
 	{id = 8073, chance = 1000},
 	{id = 3324, chance = 1000},
-	{id = 3037, chance = 1000},
+	{name = "yellow gem", chance = 1000},
 	{id = 16096, chance = 1000},
 	{id = 22721, chance = 100000},
 	{id = 22516, chance = 100000},
@@ -106,18 +106,57 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -800, maxDamage = -1300},
-	{name ="combat", interval = 6000, chance = 13, type = COMBAT_DEATHDAMAGE, minDamage = -1200, maxDamage = -1500, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 13, type = COMBAT_DEATHDAMAGE, minDamage = -400, maxDamage = -600, radius = 4, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_SMALLCLOUDS, target = true},
-	{name ="tenebris summon", interval = 2000, chance = 14, target = false},
-	{name ="tenebris ultimate", interval = 15000, chance = 30, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = -800, maxDamage = -1300},
+	{
+		name = "combat",
+		interval = 6000,
+		chance = 13,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -1200,
+		maxDamage = -1500,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_MORTAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 13,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -400,
+		maxDamage = -600,
+		radius = 4,
+		shootEffect = CONST_ANI_DEATH,
+		effect = CONST_ME_SMALLCLOUDS,
+		target = true
+	},
+	{name = "tenebris summon", interval = 2000, chance = 14, target = false},
+	{name = "tenebris ultimate", interval = 15000, chance = 30, target = false}
 }
 
 monster.defenses = {
 	defense = 65,
 	armor = 55,
-	{name ="combat", interval = 3000, chance = 25, type = COMBAT_HEALING, minDamage = 600, maxDamage = 2700, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = 320, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 25,
+		type = COMBAT_HEALING,
+		minDamage = 600,
+		maxDamage = 2700,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = 320,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 5000
+	}
 }
 
 monster.elements = {
@@ -129,8 +168,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 50},
-	{type = COMBAT_HOLYDAMAGE , percent = 80},
-	{type = COMBAT_DEATHDAMAGE , percent = 80}
+	{type = COMBAT_HOLYDAMAGE, percent = 80},
+	{type = COMBAT_DEATHDAMAGE, percent = 80}
 }
 
 monster.immunities = {

@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -65,22 +65,22 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 175},
-	{id = 3035, chance = 100000, maxCount = 4},
+	{name = "gold coin", chance = 100000, maxCount = 175},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 4},
 	{id = 11472, chance = 14285, maxCount = 2},
-	{id = 9057, chance = 10000},
+	{name = "small topaz", chance = 10000},
 	{id = 11482, chance = 9090},
-	{id = 3033, chance = 7692},
+	{name = "small amethyst", chance = 7692},
 	{id = 5878, chance = 5000},
-	{id = 3030, chance = 3703},
+	{name = "small ruby", chance = 3703},
 	{id = 3318, chance = 1250},
 	{id = 3415, chance = 1250},
-	{id = 3039, chance = 1250},
-	{id = 5911, chance = 1250}
+	{id = 3039, name = "red gem", chance = 1250},
+	{name = "red piece of cloth", chance = 1250}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 85, attack = 75}
+	{name = "melee", interval = 2000, chance = 100, skill = 85, attack = 75}
 }
 
 monster.defenses = {
@@ -97,8 +97,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

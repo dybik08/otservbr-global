@@ -73,28 +73,28 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 97000, maxCount = 169},
-	{id = 3035, chance = 77400, maxCount = 9},
-	{id = 5911, chance = 31100},
-	{id = 239, chance = 26830, maxCount = 5},
-	{id = 238, chance = 23170, maxCount = 5},
+	{name = "gold coin", chance = 97000, maxCount = 169},
+	{id = 3035, name = "platinum coin", chance = 77400, maxCount = 9},
+	{name="red piece of cloth", chance = 31100},
+	{name="great health potion", chance = 26830, maxCount = 5},
+	{name="great mana potion", chance = 23170, maxCount = 5},
 	{id = 3062, chance = 9760},
 	{id = 7443, chance = 6710, maxCount = 2},
-	{id = 8043, chance = 4880},
+	{name="focus cape", chance = 4880},
 	{id = 3049, chance = 4880}, -- Stealth ring
 	{id = 11454, chance = 4270},
 	{id = 3728, chance = 3600, maxCount = 4},
-	{id = 7368, chance = 1830, maxCount = 7},
+	{name="assassin star", chance = 1830, maxCount = 7},
 	{id = 3007, chance = 1830},
 	{id = 3006, chance = 1830},
-	{id = 3029, chance = 1830, maxCount = 5},
+	{name="small sapphire", chance = 1830, maxCount = 5},
 	{id = 12803, chance = 1220},
 	{id = 2995, chance = 1220},
 	{id = 9045, chance = 1220},
 	{id = 3079, chance = 610},
 	{id = 9067, chance = 610},
 	{id = 5741, chance = 610},
-	{id = 8074, chance = 610}
+	{name="spellbook of mind control", chance = 610}
 }
 
 monster.attacks = {

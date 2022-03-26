@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 2,
 	Locations = "Seacrest Grounds during a world change."
-	}
+}
 
 monster.health = 1500
 monster.maxHealth = 1500
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -72,14 +72,14 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{name = "platinum coin", chance = 79280, maxCount = 3},
+	{id = 3035, name = "platinum coin", chance = 79280, maxCount = 3},
 	{name = "quara tentacle", chance = 15240},
 	{name = "mind stone", chance = 6880},
-	{id = 3098, chance = 5580}, -- Ring of healing
+	{id = 3098, name = "Ring of healing", chance = 5580}, -- Ring of healing
 	{name = "great mana potion", chance = 5390, maxCount = 5},
 	{name = "shrimp", chance = 5300, maxCount = 4},
 	{name = "small amethyst", chance = 5200, maxCount = 2},
@@ -92,17 +92,25 @@ monster.loot = {
 	{name = "piggy bank", chance = 190}
 }
 
-
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 60, attack = 40, effect = CONST_ME_DRAWBLOOD},
-	{name ="quara constrictor freeze", interval = 2000, chance = 10, target = false},
-	{name ="quara constrictor electrify", interval = 2000, chance = 10, range = 1, target = false}
+	{name = "melee", interval = 2000, chance = 100, skill = 60, attack = 40, effect = CONST_ME_DRAWBLOOD},
+	{name = "quara constrictor freeze", interval = 2000, chance = 10, target = false},
+	{name = "quara constrictor electrify", interval = 2000, chance = 10, range = 1, target = false}
 }
 
 monster.defenses = {
 	defense = 20,
 	armor = 35,
-	{name ="combat", interval = 3000, chance = 35, type = COMBAT_HEALING, minDamage = 150, maxDamage = 300, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 35,
+		type = COMBAT_HEALING,
+		minDamage = 150,
+		maxDamage = 300,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -114,8 +122,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

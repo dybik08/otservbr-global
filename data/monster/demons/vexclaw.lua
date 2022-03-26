@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "The Dungeons of The Ruthless Seven."
-	}
+}
 
 monster.health = 8500
 monster.maxHealth = 8500
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -79,7 +79,7 @@ monster.voices = {
 
 monster.loot = {
 	{name = "gold coin", chance = 100000, maxCount = 200},
-	{name = "platinum coin", chance = 100000, maxCount = 6},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 6},
 	{name = "great spirit potion", chance = 26010, maxCount = 5},
 	{name = "great mana potion", chance = 25210, maxCount = 5},
 	{name = "vexclaw talon", chance = 21500},
@@ -95,15 +95,15 @@ monster.loot = {
 	{name = "talon", chance = 5400},
 	{name = "yellow gem", chance = 5090},
 	{name = "wand of voodoo", chance = 4940},
-	{id= 3039, chance = 4730},
+	{id = 3039, chance = 4730},
 	{name = "ice rapier", chance = 4730},
 	{name = "fire axe", chance = 3520},
 	{name = "might ring", chance = 2250},
 	{name = "giant sword", chance = 1880},
 	{id = 3049, chance = 1790}, -- Stealth ring
-	{id = 3051, chance = 1790}, -- Energy ring
+	{id = 3051, name = "energy ring", chance = 1790}, -- Energy ring
 	{name = "rift lance", chance = 1360},
-	{id = 3098, chance = 1320}, -- Ring of healing
+	{id = 3098, name = "Ring of healing", chance = 1320}, -- Ring of healing
 	{name = "platinum amulet", chance = 940},
 	{name = "devil helmet", chance = 520},
 	{name = "rift crossbow", chance = 370},
@@ -112,23 +112,103 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 75, attack = 150},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = 0, maxDamage = -120, range = 7, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -150, maxDamage = -250, range = 7, radius = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
-	{name ="choking fear drown", interval = 2000, chance = 20, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -150, maxDamage = -400, radius = 4, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -50, maxDamage = -200, length = 8, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false},
-	{name ="firefield", interval = 2000, chance = 10, range = 7, radius = 1, shootEffect = CONST_ANI_FIRE, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -300, maxDamage = -490, length = 8, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false},
-	{name ="energy strike", interval = 2000, chance = 10, minDamage = -210, maxDamage = -300, range = 1, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = -300, radius = 1, effect = CONST_ME_MAGIC_RED, target = true, duration = 30000}
+	{name = "melee", interval = 2000, chance = 100, skill = 75, attack = 150},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_MANADRAIN,
+		minDamage = 0,
+		maxDamage = -120,
+		range = 7,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -150,
+		maxDamage = -250,
+		range = 7,
+		radius = 7,
+		shootEffect = CONST_ANI_FIRE,
+		effect = CONST_ME_FIREAREA,
+		target = true
+	},
+	{name = "choking fear drown", interval = 2000, chance = 20, target = false},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -150,
+		maxDamage = -400,
+		radius = 4,
+		shootEffect = CONST_ANI_SUDDENDEATH,
+		effect = CONST_ME_MORTAREA,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -50,
+		maxDamage = -200,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_PURPLEENERGY,
+		target = false
+	},
+	{name = "firefield", interval = 2000, chance = 10, range = 7, radius = 1, shootEffect = CONST_ANI_FIRE, target = true},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -300,
+		maxDamage = -490,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_PURPLEENERGY,
+		target = false
+	},
+	{name = "energy strike", interval = 2000, chance = 10, minDamage = -210, maxDamage = -300, range = 1, target = false},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = -300,
+		radius = 1,
+		effect = CONST_ME_MAGIC_RED,
+		target = true,
+		duration = 30000
+	}
 }
 
 monster.defenses = {
 	defense = 55,
 	armor = 55,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 180, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = 320, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 180,
+		maxDamage = 250,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = 320,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 5000
+	}
 }
 
 monster.elements = {

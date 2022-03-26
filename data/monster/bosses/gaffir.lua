@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -66,11 +66,11 @@ monster.summon = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{name = "platinum coin", chance = 100000, maxCount = 17},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 17},
 	{name = "small amethyst", chance = 33500, maxCount = 2},
 	{name = "small ruby", chance = 33500, maxCount = 2},
 	{name = "small sapphire", chance = 33500},
@@ -86,7 +86,7 @@ monster.loot = {
 	{id = 281, chance = 14520}, -- giant shimmering pearl
 	{name = "gold ingot", chance = 14500},
 	{name = "spellbook of warding", chance = 6500},
-	{id = 3098, chance = 5400}, -- Ring of healing
+	{id = 3098, name = "Ring of healing", chance = 5400}, -- Ring of healing
 	{name = "terra hood", chance = 1600},
 	{name = "amulet of loss", chance = 3400},
 	{name = "wand of everblazing", chance = 2900},
@@ -94,12 +94,63 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550},
-	{name ="combat", interval = 2000, chance = 8, type = COMBAT_PHYSICALDAMAGE, minDamage = -450, maxDamage = -650, radius = 3, effect = CONST_ME_GROUNDSHAKER, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -400, maxDamage = -580, length = 5, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 3000, chance = 14, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -750, shootEffect = CONST_ANI_FIRE, target = true},
-	{name ="combat", interval = 2000, chance = 16, type = COMBAT_EARTHDAMAGE, minDamage = -500, maxDamage = -620, radius = 4, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_GREEN_RINGS, target = true},
-	{name ="combat", interval = 3000, chance = 12, type = COMBAT_EARTHDAMAGE, minDamage = -320, maxDamage = -500, radius = 2, effect = CONST_ME_GREEN_RINGS, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 8,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = -450,
+		maxDamage = -650,
+		radius = 3,
+		effect = CONST_ME_GROUNDSHAKER,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -400,
+		maxDamage = -580,
+		length = 5,
+		spread = 3,
+		effect = CONST_ME_EXPLOSIONHIT,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 14,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -500,
+		maxDamage = -750,
+		shootEffect = CONST_ANI_FIRE,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 16,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -500,
+		maxDamage = -620,
+		radius = 4,
+		shootEffect = CONST_ANI_EARTH,
+		effect = CONST_ME_GREEN_RINGS,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 12,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -320,
+		maxDamage = -500,
+		radius = 2,
+		effect = CONST_ME_GREEN_RINGS,
+		target = false
+	}
 }
 
 monster.defenses = {
@@ -116,8 +167,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

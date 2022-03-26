@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Pits of Inferno, Formorgar Mines, Alchemist Quarter, Oramond Dungeon."
-	}
+}
 
 monster.health = 3700
 monster.maxHealth = 3700
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -85,7 +85,7 @@ monster.loot = {
 	{name = "gold coin", chance = 40000, maxCount = 100},
 	{name = "gold coin", chance = 60000, maxCount = 41},
 	{name = "small amethyst", chance = 7692, maxCount = 2},
-	{name = "platinum coin", chance = 4166, maxCount = 3},
+	{id = 3035, name = "platinum coin", chance = 4166, maxCount = 3},
 	{name = "mind stone", chance = 564},
 	{name = "giant sword", chance = 1694},
 	{name = "crowbar", chance = 14285},
@@ -97,7 +97,7 @@ monster.loot = {
 	{name = "meat", chance = 50000, maxCount = 6},
 	{name = "skull helmet", chance = 108},
 	{name = "soul orb", chance = 6666},
-	{id = 6299, chance = 144},
+	{id = 6299, name = "death ring", chance = 144},
 	{name = "demonic essence", chance = 20000},
 	{name = "dreaded cleaver", chance = 833},
 	{name = "chaos mace", chance = 869},
@@ -106,14 +106,32 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -200, range = 7, shootEffect = CONST_ANI_LARGEROCK, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = 0,
+		maxDamage = -200,
+		range = 7,
+		shootEffect = CONST_ANI_LARGEROCK,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="speed", interval = 2000, chance = 15, speedChange = 420, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = 420,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 5000
+	}
 }
 
 monster.elements = {
@@ -125,8 +143,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -15},
-	{type = COMBAT_HOLYDAMAGE , percent = -3},
-	{type = COMBAT_DEATHDAMAGE , percent = 20}
+	{type = COMBAT_HOLYDAMAGE, percent = -3},
+	{type = COMBAT_DEATHDAMAGE, percent = 20}
 }
 
 monster.immunities = {

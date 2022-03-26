@@ -27,7 +27,7 @@ monster.Bestiary = {
 		and 4 bats on the church roof), Alchemist Quarter (4 found on top of roofs), \z
 		Arena and Zoo Quarter (2 under the arena with other mutated creatures), \z
 		Razzachai, Northern Zao Plantations, Souleater Mountains, Middle Spike, Vengoth and Vengoth Castle."
-	}
+}
 
 monster.health = 900
 monster.maxHealth = 900
@@ -42,7 +42,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -81,7 +81,7 @@ monster.loot = {
 	{name = "gold coin", chance = 53000, maxCount = 50},
 	{name = "gold coin", chance = 40000, maxCount = 70},
 	{name = "small amethyst", chance = 500, maxCount = 2},
-	{id = 3051, chance = 990}, -- Energy ring
+	{id = 3051, name = "energy ring", chance = 990}, -- Energy ring
 	{name = "battle shield", chance = 7760},
 	{name = "black shield", chance = 70},
 	{name = "star herb", chance = 7260},
@@ -95,18 +95,65 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -168, condition = {type = CONDITION_POISON, totalDamage = 120, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -70, maxDamage = -180, range = 7, shootEffect = CONST_ANI_POISON, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DROWNDAMAGE, minDamage = -30, maxDamage = -90, radius = 6, effect = CONST_ME_SOUND_WHITE, target = false},
-	{name ="mutated bat curse", interval = 2000, chance = 10, target = false},
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		minDamage = 0,
+		maxDamage = -168,
+		condition = {type = CONDITION_POISON, totalDamage = 120, interval = 4000}
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -70,
+		maxDamage = -180,
+		range = 7,
+		shootEffect = CONST_ANI_POISON,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_DROWNDAMAGE,
+		minDamage = -30,
+		maxDamage = -90,
+		radius = 6,
+		effect = CONST_ME_SOUND_WHITE,
+		target = false
+	},
+	{name = "mutated bat curse", interval = 2000, chance = 10, target = false},
 	-- poison
-	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 15, minDamage = -190, maxDamage = -240, length = 4, spread = 3, effect = CONST_ME_POISONAREA, target = false}
+	{
+		name = "condition",
+		type = CONDITION_POISON,
+		interval = 2000,
+		chance = 15,
+		minDamage = -190,
+		maxDamage = -240,
+		length = 4,
+		spread = 3,
+		effect = CONST_ME_POISONAREA,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 20,
 	armor = 20,
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 80, maxDamage = 95, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_HEALING,
+		minDamage = 80,
+		maxDamage = 95,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -118,8 +165,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

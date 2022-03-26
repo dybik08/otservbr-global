@@ -76,13 +76,13 @@ monster.voices = {
 
 monster.loot = {
 	{id = 5903, chance = 100000, unique = true},
-	{id = 3031, chance = 98000, maxCount = 184},
-	{id = 9058, chance = 75000, maxCount = 2},
+	{name = "gold coin", chance = 98000, maxCount = 184},
+	{name="gold ingot", chance = 75000, maxCount = 2},
 	{id = 3422, chance = 26000, unique = true},
 	{id = 8075, chance = 26000},
 	{id = 3360, chance = 24000},
 	{id = 3364, chance = 22000},
-	{id = 8074, chance = 22000},
+	{name="spellbook of mind control", chance = 22000},
 	{id = 8040, chance = 22000},
 	{id = 3420, chance = 20000},
 	{id = 8057, chance = 20000},
@@ -97,7 +97,7 @@ monster.loot = {
 	{id = 8102, chance = 16000},
 	{id = 7405, chance = 16000},
 	{id = 7451, chance = 16000},
-	{id = 3032, chance = 16000, maxCount = 100},
+	{name="small emerald", chance = 16000, maxCount = 100},
 	{id = 281, chance = 14000, maxCount = 5},
 	{id = 282, chance = 14000, maxCount = 5},
 	{id = 3366, chance = 14000},
@@ -107,18 +107,18 @@ monster.loot = {
 	{id = 7427, chance = 12000},
 	{id = 8098, chance = 12000},
 	{id = 8041, chance = 12000},
-	{id = 3029, chance = 12000, maxCount = 98},
-	{id = 3026, chance = 12000, maxCount = 88},
+	{name="small sapphire", chance = 12000, maxCount = 98},
+	{name="white pearl", chance = 12000, maxCount = 88},
 	{id = 7407, chance = 10000},
 	{id = 8096, chance = 10000},
 	{id = 7411, chance = 10000},
-	{id = 3033, chance = 10000, maxCount = 54},
-	{id = 9057, chance = 10000, maxCount = 87},
+	{name="small amethyst", chance = 10000, maxCount = 54},
+	{name="small topaz", chance = 10000, maxCount = 87},
 	{id = 7382, chance = 8000},
 	{id = 7422, chance = 8000},
-	{id = 3035, chance = 8000, maxCount = 58},
+	{id = 3035, name = "platinum coin", chance = 8000, maxCount = 58},
 	{id = 7423, chance = 8000},
-	{id = 5944, chance = 8000, maxCount = 9}
+	{name="soul orb", chance = 8000, maxCount = 9}
 }
 
 monster.attacks = {

@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -78,11 +78,11 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "platinum coin", chance = 70000, maxCount = 18},
+	{id = 3035, name = "platinum coin", chance = 70000, maxCount = 18},
 	{name = "terra rod", chance = 30090},
 	{name = "emerald bangle", chance = 18580, maxCount = 1},
 	{name = "brown crystal splinter", chance = 8850, maxCount = 3},
-	{id = 3039, chance = 10620, maxCount = 1}, -- red gem
+	{id = 3039, name = "red gem", chance = 10620, maxCount = 1}, -- red gem
 	{name = "green crystal splinter", chance = 6190, maxCount = 3},
 	{name = "small diamond", chance = 9730, maxCount = 6},
 	{name = "varnished diremaw legs", chance = 13270, maxCount = 4},
@@ -106,10 +106,41 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_ICEDAMAGE, minDamage = -700, maxDamage = -750, radius = 4, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = true}, -- avalanche
-	{name ="combat", interval = 2000, chance = 50, type = COMBAT_HOLYDAMAGE, minDamage = -730, maxDamage = -750, radius = 3, effect = CONST_ME_HOLYAREA, target = false},
-	{name ="combat", interval = 2000, chance = 40, type = COMBAT_ICEDAMAGE, minDamage = -800, maxDamage = -850, range = 4, shootEffect = CONST_ANI_ICE, target = true},
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 30,
+		type = COMBAT_ICEDAMAGE,
+		minDamage = -700,
+		maxDamage = -750,
+		radius = 4,
+		shootEffect = CONST_ANI_ICE,
+		effect = CONST_ME_ICEATTACK,
+		target = true
+	}, -- avalanche
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 50,
+		type = COMBAT_HOLYDAMAGE,
+		minDamage = -730,
+		maxDamage = -750,
+		radius = 3,
+		effect = CONST_ME_HOLYAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 40,
+		type = COMBAT_ICEDAMAGE,
+		minDamage = -800,
+		maxDamage = -850,
+		range = 4,
+		shootEffect = CONST_ANI_ICE,
+		target = true
+	}
 }
 
 monster.defenses = {
@@ -126,8 +157,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 5},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

@@ -125,7 +125,7 @@ monster.attacks = {
 	},
 	-- Great Terra Wave (70-270 earth)
 	{
-		name = "greatTerraWave",
+		name = "GreatTerraWaveEarth",
 		interval = 2000,
 		chance = 10,
 		minDamage = -70,
@@ -133,7 +133,7 @@ monster.attacks = {
 	},
 	-- Icy Flake Strike (70-180 ice, on target)
 	{
-		name = "IcyFlakeStrike",
+		name = "IcyFlakeStrikeIceTarget",
 		interval = 2000,
 		chance = 10,
 		minDamage = -70,
@@ -141,7 +141,7 @@ monster.attacks = {
 	},
 	-- Great Water Wave (135-200 ice, on target)
 	{
-		name = "GreatWaterWave",
+		name = "GreatWaterWaveIce",
 		interval = 2000,
 		chance = 10,
 		minDamage = -70,

@@ -86,12 +86,12 @@ monster.loot = {
 	{id = 3010, chance = 1800},
 	{id = 9013, chance = 500},
 	{id = 25691, chance = 15000, maxCount = 2},
-	{id = 3031, chance = 65000, maxCount = 110},
-	{id = 238, chance = 3000},
+	{name = "gold coin", chance = 65000, maxCount = 110},
+	{name="great mana potion", chance = 3000},
 	{id = 8045, chance = 650},
 	{id = 9302, chance = 1000},
 	{id = 678, chance = 2000, maxCount = 2},
-	{id = 9057, chance = 2500, maxCount = 2},
+	{name="small topaz", chance = 2500, maxCount = 2},
 	{id = 237, chance = 1000}
 }
 

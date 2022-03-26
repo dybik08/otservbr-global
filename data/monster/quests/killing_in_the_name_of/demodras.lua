@@ -79,7 +79,7 @@ monster.loot = {
 	{id = 3450, chance = 2222, maxCount = 10},
 	{id = 3732, chance = 6666},
 	{id = 3280, chance = 1428},
-	{id = 3029, chance = 2222, maxCount = 2},
+	{name="small sapphire", chance = 2222, maxCount = 2},
 	{id = 5948, chance = 5000},
 	{id = 5919, chance = 100000}
 }

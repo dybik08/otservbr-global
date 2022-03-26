@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Malada, Hrodmir Quara Scout Caves, Quara Grotto, Oramond."
-	}
+}
 
 monster.health = 1100
 monster.maxHealth = 1100
@@ -39,7 +39,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -81,7 +81,8 @@ monster.voices = {
 monster.loot = {
 	{name = "gold coin", chance = 40000, maxCount = 90},
 	{name = "gold coin", chance = 49000, maxCount = 50},
-	{id = 3578, chance = 18930, maxCount = 3},--fish
+	{id = 3578, chance = 18930, maxCount = 3},
+	 --fish
 	{name = "quara eye", chance = 12720},
 	{name = "shrimp", chance = 9980, maxCount = 4},
 	{name = "small emerald", chance = 6000, maxCount = 2},
@@ -89,24 +90,92 @@ monster.loot = {
 	{name = "black pearl", chance = 2650},
 	{name = "fish fin", chance = 2090},
 	{name = "obsidian lance", chance = 1530},
-	{id = 3098, chance = 940}, -- Ring of healing
+	{id = 3098, name = "Ring of healing", chance = 940}, -- Ring of healing
 	{name = "wand of cosmic energy", chance = 910},
 	{name = "knight armor", chance = 520}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -80, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 100, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -100, maxDamage = -180, length = 8, spread = 3, effect = CONST_ME_HITBYPOISON, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -90, maxDamage = -150, radius = 3, effect = CONST_ME_BUBBLES, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -170, maxDamage = -240, length = 8, spread = 3, effect = CONST_ME_BUBBLES, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = 0, maxDamage = -170, range = 7, effect = CONST_ME_MAGIC_RED, target = true},
-	{name ="speed", interval = 2000, chance = 15, speedChange = -600, range = 7, effect = CONST_ME_MAGIC_RED, target = false, duration = 15000}
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		minDamage = 0,
+		maxDamage = -80,
+		effect = CONST_ME_DRAWBLOOD,
+		condition = {type = CONDITION_POISON, totalDamage = 100, interval = 4000}
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_ICEDAMAGE,
+		minDamage = -100,
+		maxDamage = -180,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_HITBYPOISON,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_ICEDAMAGE,
+		minDamage = -90,
+		maxDamage = -150,
+		radius = 3,
+		effect = CONST_ME_BUBBLES,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -170,
+		maxDamage = -240,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_BUBBLES,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = 0,
+		maxDamage = -170,
+		range = 7,
+		effect = CONST_ME_MAGIC_RED,
+		target = true
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = -600,
+		range = 7,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 15000
+	}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 100, maxDamage = 120, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 100,
+		maxDamage = 120,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -118,8 +187,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Razzachai, Northern Zao Plantations, Souleater Mountains, Deeper Banuta."
-	}
+}
 
 monster.health = 1100
 monster.maxHealth = 1100
@@ -39,7 +39,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -80,11 +80,11 @@ monster.voices = {
 monster.loot = {
 	{name = "gold coin", chance = 33400, maxCount = 100},
 	{name = "gold coin", chance = 33400, maxCount = 100},
-	{name = "platinum coin", chance = 49610, maxCount = 6},
+	{id = 3035, name = "platinum coin", chance = 49610, maxCount = 6},
 	{name = "necrotic rod", chance = 980},
 	{name = "wand of cosmic energy", chance = 910},
 	{name = "spirit container", chance = 140},
-	{id = 6299, chance = 300},
+	{id = 6299, name = "death ring", chance = 300},
 	{name = "great mana potion", chance = 8000},
 	{name = "ultimate health potion", chance = 9400},
 	{name = "souleater trophy", chance = 20},
@@ -93,18 +93,47 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -210},
-	{name ="combat", interval = 2000, chance = 100, type = COMBAT_ICEDAMAGE, minDamage = -50, maxDamage = -100, range = 7, shootEffect = CONST_ANI_SMALLICE, target = true},
-	{name ="souleater drown", interval = 2000, chance = 10, target = false},
-	{name ="souleater wave", interval = 2000, chance = 10, minDamage = -100, maxDamage = -200, target = false},
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_LIFEDRAIN, minDamage = -30, maxDamage = -60, radius = 4, effect = CONST_ME_MAGIC_RED, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -210},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 100,
+		type = COMBAT_ICEDAMAGE,
+		minDamage = -50,
+		maxDamage = -100,
+		range = 7,
+		shootEffect = CONST_ANI_SMALLICE,
+		target = true
+	},
+	{name = "souleater drown", interval = 2000, chance = 10, target = false},
+	{name = "souleater wave", interval = 2000, chance = 10, minDamage = -100, maxDamage = -200, target = false},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 25,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -30,
+		maxDamage = -60,
+		radius = 4,
+		effect = CONST_ME_MAGIC_RED,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="invisible", interval = 2000, chance = 5, effect = CONST_ME_MAGIC_BLUE},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 120, maxDamage = 125, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name = "invisible", interval = 2000, chance = 5, effect = CONST_ME_MAGIC_BLUE},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 120,
+		maxDamage = 125,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -116,8 +145,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 50},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

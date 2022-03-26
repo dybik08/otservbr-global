@@ -82,7 +82,7 @@ monster.loot = {
 	{name = "necrotic rod", chance = 460},
 	{name = "blank rune", chance = 10950},
 	{name = "double axe", chance = 1500},
-	{id = 3307, chance = 3000},
+	{id = 3307, name = "scimitar", chance = 3000},
 	{name = "guardian shield", chance = 210},
 	{name = "cleaver", chance = 1100},
 	{name = "small pitchfork", chance = 19770}

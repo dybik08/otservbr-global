@@ -111,7 +111,7 @@ monster.attacks = {
 	},
 	-- Poison Ball (210-300 earth, on self)
 	{
-		name = "poisonBall",
+		name = "PoisonBallEarthSelf",
 		interval = 2000,
 		chance = 20,
 		minDamage = -210,
@@ -119,7 +119,7 @@ monster.attacks = {
 	},
 	-- Explosion Ball (150-300 earth, on self)
 	{
-		name = "explosionBall",
+		name = "EnvenomBallEarthTarget",
 		interval = 2000,
 		chance = 15,
 		minDamage = -150,
@@ -127,7 +127,7 @@ monster.attacks = {
 	},
 	-- Tiny Groundshaker T-Wave (80-200 life drain)
 	{
-		name = "tinyGroundshakerTWave",
+		name = "TinyGroundshakerTWaveLifeDrain",
 		interval = 2000,
 		chance = 20,
 		minDamage = -80,

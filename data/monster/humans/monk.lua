@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Edron Hero Cave, Triangle Tower near Thais, Maze of Lost Souls, Deeper Dark Cathedral, \z
 		Isle of the Kings, Trade Quarter."
-	}
+}
 
 monster.health = 240
 monster.maxHealth = 240
@@ -42,7 +42,7 @@ monster.changeTarget = {
 monster.strategiesTarget = {
 	nearest = 70,
 	health = 20,
-	damage = 10,
+	damage = 10
 }
 
 monster.flags = {
@@ -83,7 +83,7 @@ monster.loot = {
 	{name = "brown flask", chance = 820},
 	{id = 2914, chance = 880},
 	{name = "gold coin", chance = 15000, maxCount = 18},
-	{id = 3050, chance = 100}, -- Power ring
+	{id = 3050, name = "power ring", chance = 100}, -- Power ring
 	{name = "life crystal", chance = 1002},
 	{name = "ankh", chance = 2240},
 	{id = 3289, chance = 440},
@@ -95,14 +95,31 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -130}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -130}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 30, maxDamage = 50, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = 300, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 30,
+		maxDamage = 50,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = 300,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 5000
+	}
 }
 
 monster.elements = {
@@ -114,8 +131,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 50},
-	{type = COMBAT_DEATHDAMAGE , percent = 50}
+	{type = COMBAT_HOLYDAMAGE, percent = 50},
+	{type = COMBAT_DEATHDAMAGE, percent = 50}
 }
 
 monster.immunities = {

@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -59,25 +59,25 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000},
-	{id = 3031, chance = 100000, maxCount = 98},
+	{name = "gold coin", chance = 100000},
+	{name = "gold coin", chance = 100000, maxCount = 98},
 	{id = 3577, chance = 100000},
-	{id = 6499, chance = 64000},
-	{id = 7368, chance = 100000, maxCount = 10},
+	{name = "demonic essence", chance = 64000},
+	{name = "assassin star", chance = 100000, maxCount = 10},
 	{id = 3383, chance = 68000},
-	{id = 3033, chance = 28000, maxCount = 5},
-	{id = 3029, chance = 40000, maxCount = 5},
-	{id = 3028, chance = 32000, maxCount = 5},
+	{name = "small amethyst", chance = 28000, maxCount = 5},
+	{name = "small sapphire", chance = 40000, maxCount = 5},
+	{name = "small diamond", chance = 32000, maxCount = 5},
 	{id = 10298, chance = 100000},
 	{id = 7452, chance = 32000},
-	{id = 3035, chance = 100000, maxCount = 8},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 8},
 	{id = 3281, chance = 24000},
-	{id = 239, chance = 44000, maxCount = 3},
-	{id = 238, chance = 44000, maxCount = 3},
+	{name = "great health potion", chance = 44000, maxCount = 3},
+	{name = "great mana potion", chance = 44000, maxCount = 3},
 	{id = 7642, chance = 44000, maxCount = 3},
 	{id = 281, chance = 48000},
 	{id = 282, chance = 48000},
@@ -86,19 +86,37 @@ monster.loot = {
 	{id = 7419, chance = 12000},
 	{id = 3008, chance = 24000},
 	{id = 3421, chance = 16000},
-	{id = 6299, chance = 100000},
+	{id = 6299, name = "death ring", chance = 100000},
 	{id = 5741, chance = 4000}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -514},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -200, range = 7, shootEffect = CONST_ANI_LARGEROCK, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -514},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = 0,
+		maxDamage = -200,
+		range = 7,
+		shootEffect = CONST_ANI_LARGEROCK,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="speed", interval = 2000, chance = 15, speedChange = 420, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = 420,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 5000
+	}
 }
 
 monster.elements = {
@@ -110,8 +128,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -15},
-	{type = COMBAT_HOLYDAMAGE , percent = -3},
-	{type = COMBAT_DEATHDAMAGE , percent = 20}
+	{type = COMBAT_HOLYDAMAGE, percent = -3},
+	{type = COMBAT_DEATHDAMAGE, percent = 20}
 }
 
 monster.immunities = {

@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -59,36 +59,95 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 170},
+	{name = "gold coin", chance = 100000, maxCount = 170},
 	{id = 9668, chance = 100000},
-	{id = 3035, chance = 94830, maxCount = 10},
+	{id = 3035, name = "platinum coin", chance = 94830, maxCount = 10},
 	{id = 7643, chance = 94830, maxCount = 10},
-	{id = 238, chance = 94830, maxCount = 10},
-	{id = 239, chance = 94830, maxCount = 10},
-	{id = 3098, chance = 100000}, -- Ring of healing
+	{name = "great mana potion", chance = 94830, maxCount = 10},
+	{name = "great health potion", chance = 94830, maxCount = 10},
+	{id = 3098, name = "Ring of healing", chance = 100000}, -- Ring of healing
 	{id = 3326, chance = 25860},
 	{id = 811, chance = 86200}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 100, attack = 100, condition = {type = CONDITION_POISON, totalDamage = 100, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_EARTHDAMAGE, minDamage = -120, maxDamage = -310, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false},
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		skill = 100,
+		attack = 100,
+		condition = {type = CONDITION_POISON, totalDamage = 100, interval = 4000}
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 30,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -120,
+		maxDamage = -310,
+		range = 7,
+		shootEffect = CONST_ANI_POISON,
+		effect = CONST_ME_POISONAREA,
+		target = false
+	},
 	-- poison
-	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 22, minDamage = -1000, maxDamage = -1800, length = 8, spread = 3, effect = CONST_ME_POISONAREA, target = false},
+	{
+		name = "condition",
+		type = CONDITION_POISON,
+		interval = 2000,
+		chance = 22,
+		minDamage = -1000,
+		maxDamage = -1800,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_POISONAREA,
+		target = false
+	},
 	-- poison
-	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 15, minDamage = -80, maxDamage = -80, radius = 3, effect = CONST_ME_POISONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_LIFEDRAIN, minDamage = -300, maxDamage = -420, range = 7, radius = 7, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="mutated rat paralyze", interval = 2000, chance = 20, range = 7, target = false}
+	{
+		name = "condition",
+		type = CONDITION_POISON,
+		interval = 2000,
+		chance = 15,
+		minDamage = -80,
+		maxDamage = -80,
+		radius = 3,
+		effect = CONST_ME_POISONAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 25,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -300,
+		maxDamage = -420,
+		range = 7,
+		radius = 7,
+		effect = CONST_ME_MAGIC_RED,
+		target = false
+	},
+	{name = "mutated rat paralyze", interval = 2000, chance = 20, range = 7, target = false}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="combat", interval = 2000, chance = 9, type = COMBAT_HEALING, minDamage = 250, maxDamage = 550, effect = CONST_ME_HITBYPOISON, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 9,
+		type = COMBAT_HEALING,
+		minDamage = 250,
+		maxDamage = 550,
+		effect = CONST_ME_HITBYPOISON,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -100,8 +159,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

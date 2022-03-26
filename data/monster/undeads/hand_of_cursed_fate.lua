@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Pits of Inferno, The Battlefield, The Arcanum, The Blood Halls and The Crystal Caves."
-	}
+}
 
 monster.health = 7500
 monster.maxHealth = 7500
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -72,7 +72,7 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
@@ -81,10 +81,10 @@ monster.loot = {
 	{name = "gold coin", chance = 60000, maxCount = 100},
 	{name = "gold coin", chance = 60000, maxCount = 100},
 	{name = "gold coin", chance = 50000, maxCount = 67},
-	{name = "platinum coin", chance = 100000, maxCount = 7},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 7},
 	{name = "violet gem", chance = 700},
 	{name = "yellow gem", chance = 5940},
-	{id = 3051, chance = 3150}, -- Energy ring
+	{id = 3051, name = "energy ring", chance = 3150}, -- Energy ring
 	{name = "platinum amulet", chance = 1005},
 	{name = "mind stone", chance = 9090},
 	{name = "wand of inferno", chance = 5590},
@@ -96,7 +96,7 @@ monster.loot = {
 	{name = "crown armor", chance = 1400},
 	{name = "mysterious voodoo skull", chance = 247},
 	{name = "soul orb", chance = 31111},
-	{id = 6299, chance = 1750},
+	{id = 6299, name = "death ring", chance = 1750},
 	{name = "demonic essence", chance = 12000},
 	{name = "flask of demonic blood", chance = 30000, maxCount = 4},
 	{name = "assassin star", chance = 7692, maxCount = 5},
@@ -107,18 +107,69 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -520, condition = {type = CONDITION_POISON, totalDamage = 380, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_MANADRAIN, minDamage = 0, maxDamage = -920, range = 1, target = false},
-	{name ="drunk", interval = 2000, chance = 10, radius = 4, effect = CONST_ME_SMALLCLOUDS, target = false, duration = 3000},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -220, maxDamage = -880, range = 1, effect = CONST_ME_SMALLCLOUDS, target = false}
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		minDamage = 0,
+		maxDamage = -520,
+		condition = {type = CONDITION_POISON, totalDamage = 380, interval = 4000}
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_MANADRAIN,
+		minDamage = 0,
+		maxDamage = -920,
+		range = 1,
+		target = false
+	},
+	{
+		name = "drunk",
+		interval = 2000,
+		chance = 10,
+		radius = 4,
+		effect = CONST_ME_SMALLCLOUDS,
+		target = false,
+		duration = 3000
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -220,
+		maxDamage = -880,
+		range = 1,
+		effect = CONST_ME_SMALLCLOUDS,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 25,
 	armor = 25,
-	{name ="speed", interval = 2000, chance = 15, speedChange = 1000, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000},
-	{name ="invisible", interval = 2000, chance = 10, effect = CONST_ME_MAGIC_BLUE},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 100, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = 1000,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 5000
+	},
+	{name = "invisible", interval = 2000, chance = 10, effect = CONST_ME_MAGIC_BLUE},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_HEALING,
+		minDamage = 100,
+		maxDamage = 250,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -130,8 +181,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -25},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

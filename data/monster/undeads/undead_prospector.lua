@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 1,
 	Locations = "West of Edron, in a some Lost Mines."
-	}
+}
 
 monster.health = 100
 monster.maxHealth = 100
@@ -41,7 +41,7 @@ monster.changeTarget = {
 monster.strategiesTarget = {
 	nearest = 80,
 	health = 10,
-	damage = 10,
+	damage = 10
 }
 
 monster.flags = {
@@ -80,7 +80,7 @@ monster.voices = {
 monster.loot = {
 	{id = 2920, chance = 46150},
 	{name = "gold coin", chance = 53850, maxCount = 30},
-	{id = 3052, chance = 200}, -- Life ring
+	{id = 3052, name = "life ring", chance = 200}, -- Life ring
 	{id = 3114, chance = 240},
 	{name = "knife", chance = 15380},
 	{name = "brass helmet", chance = 23000},
@@ -91,13 +91,22 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -50}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -50}
 }
 
 monster.defenses = {
 	defense = 0,
 	armor = 0,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 5, maxDamage = 15, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 5,
+		maxDamage = 15,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -109,8 +118,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -25},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

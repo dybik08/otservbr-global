@@ -113,7 +113,7 @@ monster.attacks = {
 	},
 	-- Flame Strike (100-200 fire, on target)
 	{
-		name = "flameStrike",
+		name = "FlameStrikeFireTarget",
 		interval = 2000,
 		chance = 15,
 		minDamage = -100,
@@ -121,7 +121,7 @@ monster.attacks = {
 	},
 	-- Short Flame Beam (140-230 fire)
 	{
-		name = "shortFlameBeam",
+		name = "ShortFlameBeamFire",
 		interval = 2000,
 		chance = 10,
 		minDamage = -140,
@@ -129,7 +129,7 @@ monster.attacks = {
 	},
 	-- Detonation Box (250-400 fire, on self)
 	{
-		name = "detonationBoxSelf",
+		name = "DetonationBoxFireSelf",
 		interval = 2000,
 		chance = 15,
 		minDamage = -250,
@@ -137,7 +137,7 @@ monster.attacks = {
 	},
 	-- Eruption Box (100-300 fire, on target) (Burst Arrow)
 	{
-		name = "eruptionBoxTarget",
+		name = "EruptionBoxFireTarget",
 		interval = 2000,
 		chance = 15,
 		minDamage = -100,
@@ -145,7 +145,7 @@ monster.attacks = {
 	},
 	-- Eruption Ball (100-300 fire, on self)
 	{
-		name = "eruptionBall",
+		name = "EruptionBallFireSelf",
 		interval = 2000,
 		chance = 15,
 		minDamage = -100,

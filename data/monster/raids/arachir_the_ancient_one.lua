@@ -77,11 +77,11 @@ monster.loot = {
 	{id = 7416, chance = 1200},
 	{id = 236, chance = 10000},
 	{id = 3114, chance = 10000},
-	{id = 3031, chance = 100000, maxCount = 98},
+	{name = "gold coin", chance = 100000, maxCount = 98},
 	{id = 8192, chance = 100000},
-	{id = 3035, chance = 50000, maxCount = 5},
+	{id = 3035, name = "platinum coin", chance = 50000, maxCount = 5},
 	{id = 3434, chance = 6300},
-	{id = 3027, chance = 8980}
+	{name="black pearl", chance = 8980}
 }
 
 monster.attacks = {

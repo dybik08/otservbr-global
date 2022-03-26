@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Misguided Camp accessible via Outlaw Camp's portal."
-	}
+}
 
 monster.health = 1800
 monster.maxHealth = 1800
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -79,26 +79,45 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 80},
+	{name = "gold coin", chance = 100000, maxCount = 80},
 	{id = 237, chance = 9660},
-	{id = 3039, chance = 5680},
+	{id = 3039, name = "red gem", chance = 5680},
 	{id = 3582, chance = 58520},
 	{id = 236, chance = 5680},
 	{id = 3577, chance = 47160},
-	{id = 3037, chance = 6250},
+	{name = "yellow gem", chance = 6250},
 	{id = 25296, chance = 6250},
 	{id = 16124, chance = 570}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -225},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -100, maxDamage = -150, range = 7, shootEffect = CONST_ANI_FIRE, target = true}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -225},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -100,
+		maxDamage = -150,
+		range = 7,
+		shootEffect = CONST_ANI_FIRE,
+		target = true
+	}
 }
 
 monster.defenses = {
 	defense = 35,
 	armor = 35,
-	{name ="combat", interval = 1000, chance = 20, type = COMBAT_HEALING, minDamage = 200, maxDamage = 450, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 20,
+		type = COMBAT_HEALING,
+		minDamage = 200,
+		maxDamage = 450,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -110,8 +129,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -1},
-	{type = COMBAT_HOLYDAMAGE , percent = 1},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 1},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

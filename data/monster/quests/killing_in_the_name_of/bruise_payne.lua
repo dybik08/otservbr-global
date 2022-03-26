@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -59,35 +59,82 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
 	{id = 5894, chance = 100000, maxCount = 2},
-	{id = 3051, chance = 100000}, -- Energy ring
-	{id = 3031, chance = 100000, maxCount = 99},
+	{id = 3051, name = "energy ring", chance = 100000}, -- Energy ring
+	{name = "gold coin", chance = 100000, maxCount = 99},
 	{id = 9662, chance = 100000},
-	{id = 3033, chance = 100000, maxCount = 5},
+	{name = "small amethyst", chance = 100000, maxCount = 5},
 	{id = 3736, chance = 100000},
 	{id = 3429, chance = 92000},
-	{id = 3027, chance = 85000, maxCount = 5},
+	{name = "black pearl", chance = 85000, maxCount = 5},
 	{id = 7386, chance = 25000},
 	{id = 9103, chance = 16000}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -240, condition = {type = CONDITION_POISON, totalDamage = 6, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -70, maxDamage = -180, range = 7, shootEffect = CONST_ANI_POISON, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DROWNDAMAGE, minDamage = -130, maxDamage = -237, radius = 6, effect = CONST_ME_SOUND_WHITE, target = false},
-	{name ="mutated bat curse", interval = 2000, chance = 10, target = false},
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		minDamage = 0,
+		maxDamage = -240,
+		condition = {type = CONDITION_POISON, totalDamage = 6, interval = 4000}
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -70,
+		maxDamage = -180,
+		range = 7,
+		shootEffect = CONST_ANI_POISON,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_DROWNDAMAGE,
+		minDamage = -130,
+		maxDamage = -237,
+		radius = 6,
+		effect = CONST_ME_SOUND_WHITE,
+		target = false
+	},
+	{name = "mutated bat curse", interval = 2000, chance = 10, target = false},
 	-- poison
-	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 15, minDamage = -12, maxDamage = -12, length = 4, spread = 3, effect = CONST_ME_POISONAREA, target = false}
+	{
+		name = "condition",
+		type = CONDITION_POISON,
+		interval = 2000,
+		chance = 15,
+		minDamage = -12,
+		maxDamage = -12,
+		length = 4,
+		spread = 3,
+		effect = CONST_ME_POISONAREA,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 20,
 	armor = 20,
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 80, maxDamage = 95, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_HEALING,
+		minDamage = 80,
+		maxDamage = 95,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -99,8 +146,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

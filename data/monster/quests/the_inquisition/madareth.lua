@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -67,38 +67,38 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 150},
+	{name = "gold coin", chance = 100000, maxCount = 150},
 	{id = 8899, chance = 59000},
-	{id = 8896, chance = 40000},
+	{id = 8896, name = "slightly rusted armor", chance = 40000},
 	{id = 7443, chance = 33000},
-	{id = 239, chance = 30000},
+	{name = "great health potion", chance = 30000},
 	{id = 7642, chance = 30000},
 	{id = 7440, chance = 28000},
 	{id = 7439, chance = 23000},
-	{id = 238, chance = 21000},
-	{id = 6299, chance = 19000},
+	{name = "great mana potion", chance = 21000},
+	{id = 6299, name = "death ring", chance = 19000},
 	{id = 3067, chance = 19000},
 	{id = 3258, chance = 19000},
-	{id = 3035, chance = 19000, maxCount = 26},
+	{id = 3035, name = "platinum coin", chance = 19000, maxCount = 26},
 	{id = 3265, chance = 19000},
-	{id = 7404, chance = 16000},
-	{id = 3092, chance = 16000}, -- Axe ring
+	{name = "assassin dagger", chance = 16000},
+	{id = 3092, name = "axe ring", chance = 16000}, -- Axe ring
 	{id = 7643, chance = 16000},
-	{id = 8082, chance = 16000},
+	{name = "underworld rod", chance = 16000},
 	{id = 3093, chance = 14000}, -- Club ring
-	{id = 6499, chance = 14000},
+	{name = "demonic essence", chance = 14000},
 	{id = 7407, chance = 14000},
 	{id = 2949, chance = 14000},
 	{id = 7418, chance = 14000},
 	{id = 8084, chance = 14000},
 	{id = 2966, chance = 14000},
-	{id = 3071, chance = 11000},
+	{name = "wand of inferno", chance = 11000},
 	{id = 8094, chance = 11000},
 	{id = 7416, chance = 9500},
 	{id = 7449, chance = 9500},
-	{id = 3098, chance = 9500}, -- Ring of healing
+	{id = 3098, name = "Ring of healing", chance = 9500}, -- Ring of healing
 	{id = 5954, chance = 7000, maxCount = 2},
-	{id = 3052, chance = 7000}, -- Life ring
+	{id = 3052, name = "life ring", chance = 7000}, -- Life ring
 	{id = 7383, chance = 7000},
 	{id = 3053, chance = 7000},
 	{id = 8092, chance = 7000},
@@ -108,21 +108,71 @@ monster.loot = {
 	{id = 3097, chance = 4700}, -- Dwarven ring
 	{id = 3284, chance = 4700},
 	{id = 7386, chance = 4700},
-	{id = 3091, chance = 4700} -- Sword ring
+	{id = 3091, name = "sword ring", chance = 4700} -- Sword ring
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -2000},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -180, maxDamage = -660, radius = 4, effect = CONST_ME_PURPLEENERGY, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -600, maxDamage = -850, length = 5, spread = 2, effect = CONST_ME_BLACKSMOKE, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = 0, maxDamage = -200, radius = 4, effect = CONST_ME_MAGIC_RED, target = true},
-	{name ="combat", interval = 2000, chance = 5, type = COMBAT_MANADRAIN, minDamage = 0, maxDamage = -250, radius = 5, effect = CONST_ME_MAGIC_RED, target = true}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -2000},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -180,
+		maxDamage = -660,
+		radius = 4,
+		effect = CONST_ME_PURPLEENERGY,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -600,
+		maxDamage = -850,
+		length = 5,
+		spread = 2,
+		effect = CONST_ME_BLACKSMOKE,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_MANADRAIN,
+		minDamage = 0,
+		maxDamage = -200,
+		radius = 4,
+		effect = CONST_ME_MAGIC_RED,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 5,
+		type = COMBAT_MANADRAIN,
+		minDamage = 0,
+		maxDamage = -250,
+		radius = 5,
+		effect = CONST_ME_MAGIC_RED,
+		target = true
+	}
 }
 
 monster.defenses = {
 	defense = 46,
 	armor = 48,
-	{name ="combat", interval = 3000, chance = 14, type = COMBAT_HEALING, minDamage = 400, maxDamage = 900, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 14,
+		type = COMBAT_HEALING,
+		minDamage = 400,
+		maxDamage = 900,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -134,8 +184,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 5},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 95}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 95}
 }
 
 monster.immunities = {

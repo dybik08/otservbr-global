@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Pits of Inferno, Formorgar Mines, Helheim, \z
 		Roshamuul Prison and in The Arcanum (Part of the Inquisition quest)."
-	}
+}
 
 monster.health = 5800
 monster.maxHealth = 5800
@@ -40,7 +40,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -81,8 +81,8 @@ monster.loot = {
 	{name = "white pearl", chance = 10000, maxCount = 3},
 	{name = "black pearl", chance = 12000, maxCount = 3},
 	{name = "gold coin", chance = 100000, maxCount = 198},
-	{name = "platinum coin", chance = 100000, maxCount = 7},
-	{id= 3039, chance = 15000},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 7},
+	{id = 3039, chance = 15000},
 	{name = "stone skin amulet", chance = 2780},
 	{name = "blank rune", chance = 35250, maxCount = 3},
 	{name = "skull staff", chance = 850},
@@ -90,21 +90,41 @@ monster.loot = {
 	{name = "skull helmet", chance = 170},
 	{id = 5806, chance = 4950}, -- Silver goblet
 	{name = "soul orb", chance = 15000},
-	{id = 6299, chance = 2170},
+	{id = 6299, name = "death ring", chance = 2170},
 	{name = "demonic essence", chance = 7500},
 	{name = "skeleton decoration", chance = 1250},
 	{name = "haunted blade", chance = 740},
 	{name = "titan axe", chance = 1000},
 	{name = "great mana potion", chance = 14200, maxCount = 2},
 	{name = "great health potion", chance = 8800, maxCount = 2},
-	{id = 8896, chance = 3500},
+	{id = 8896, name = "slightly rusted armor", chance = 3500},
 	{name = "unholy bone", chance = 33010}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -420},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -40, maxDamage = -210, length = 3, spread = 0, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="speed", interval = 2000, chance = 20, speedChange = -800, radius = 6, effect = CONST_ME_SMALLCLOUDS, target = false, duration = 4000}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -420},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -40,
+		maxDamage = -210,
+		length = 3,
+		spread = 0,
+		effect = CONST_ME_MAGIC_RED,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 20,
+		speedChange = -800,
+		radius = 6,
+		effect = CONST_ME_SMALLCLOUDS,
+		target = false,
+		duration = 4000
+	}
 }
 
 monster.defenses = {

@@ -71,14 +71,14 @@ monster.voices = {
 
 monster.loot = {
 	{id = 16119, chance = 3000, maxCount = 3},
-	{id = 3031, chance = 50320, maxCount = 200},
-	{id = 3035, chance = 50320, maxCount = 35},
+	{name = "gold coin", chance = 50320, maxCount = 200},
+	{id = 3035, name = "platinum coin", chance = 50320, maxCount = 35},
 	{id = 22721, chance = 3000, maxCount = 3},
 	{id = 5909, chance = 3000, maxCount = 4},
 	{id = 16120, chance = 3000, maxCount = 3},
 	{id = 25090, chance = 500},
-	{id = 3037, chance = 1000},
-	{id = 3032, chance = 3000, maxCount = 20},
+	{name="yellow gem", chance = 1000},
+	{name="small emerald", chance = 3000, maxCount = 20},
 	{id = 7450, chance = 150, unique = true},
 	{id = 5880, chance = 3000, maxCount = 2},
 	{id = 9632, chance = 1000},
@@ -88,7 +88,7 @@ monster.loot = {
 	{id = 22193, chance = 3000},
 	{id = 9660, chance = 1000},
 	{id = 5887, chance = 1000},
-	{id = 23533, chance = 3000},
+	{id = 23533, name="ring of red plasma", chance = 3000},
 	{id = 7643, chance = 3000, maxCount = 5},
 	{id = 23375, chance = 3000, maxCount = 5}
 }

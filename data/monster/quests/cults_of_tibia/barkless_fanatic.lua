@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Barkless Fanatic")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "22/03/2022"
+}
+
 monster.description = "a barkless fanatic"
 monster.experience = 2500
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Barkless Cult Trial Zone (below Ab'Dendriel)."
-	}
+}
 
 monster.health = 3200
 monster.maxHealth = 3200
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -79,16 +84,38 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 199},
-	{id = 25743, chance = 2310},
-	{id = 25742, chance = 12690},
-	{id = 24961, chance = 6920}
+	{name = "gold coin", chance = 51530, maxCount = 199},
+	{id = 25742, name = "fig leaf", chance = 9930},
+	{id = 24961, name = "tiger eye", chance = 4340},
+	{id = 25743, name = "bed of nails", chance = 2190},
+	{id = 25744, name = "torn shirt", chance = 950}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -230},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -220, maxDamage = -450, range = 7, radius = 4, shootEffect = CONST_ANI_SPEAR, effect = CONST_ME_GREEN_RINGS, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = 0, maxDamage = -150, radius = 6, effect = CONST_ME_GREEN_RINGS, target = false}
+	-- Basic attack (0-250 physical)
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250},
+	-- Envenom Ball (240-450 physical, on target)
+	{
+		name = "EnvenomBallPhysicalTarget",
+		interval = 2000,
+		chance = 20,
+		minDamage = -240,
+		maxDamage = -450
+	},
+	-- Greater Envenom Ball (210-350 life drain, on self)
+	{
+		name = "GreaterEnvenomBallLifeDrainSelf",
+		interval = 2000,
+		chance = 10,
+		minDamage = -210,
+		maxDamage = -350
+	},
+	-- Green Stars Box (on self, effect: debuff distance skill)
+	{
+		name = "barkless devotee skill reducer",
+		interval = 2000,
+		chance = 10
+	}
 }
 
 monster.defenses = {
@@ -105,8 +132,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 1},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 1}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 1}
 }
 
 monster.immunities = {

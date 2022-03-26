@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -66,8 +66,8 @@ monster.voices = {
 monster.loot = {
 	{name = "small amethyst", chance = 21000, maxCount = 10},
 	{name = "small emerald", chance = 19000, maxCount = 10},
-	{id= 3039, chance = 12000},
-	{name = "platinum coin", chance = 68299, maxCount = 30},
+	{id = 3039, chance = 12000},
+	{id = 3035, name = "platinum coin", chance = 68299, maxCount = 30},
 	{name = "gold coin", chance = 100000, maxCount = 200},
 	{name = "small diamond", chance = 21000, maxCount = 10},
 	{name = "green gem", chance = 12000},
@@ -85,13 +85,13 @@ monster.loot = {
 	{id = 20062, chance = 2000, maxCount = 2},
 	{name = "Hailstorm Rod", chance = 3470},
 	{id = 3036, chance = 1000},
-	{id = 3098, chance = 20000}, -- Ring of healing
-	{id = 3030, chance = 7360, maxCount = 10},
+	{id = 3098, name = "Ring of healing", chance = 20000}, -- Ring of healing
+	{name = "small ruby", chance = 7360, maxCount = 10},
 	{id = 281, chance = 28540},
 	{name = "Skull Staff", chance = 13790},
 	{name = "Grasshopper Legs", chance = 13790},
 	{name = "Huge Chunk of Crude Iron", chance = 10000, maxCount = 2},
-	{id = 7404, chance = 430},
+	{name = "assassin dagger", chance = 430},
 	{name = "runed sword", chance = 6666},
 	{name = "djinn blade", chance = 200},
 	{id = 16121, chance = 10000, maxCount = 3},
@@ -104,9 +104,29 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = 0, maxDamage = -500, range = 4, radius = 4, effect = CONST_ME_STONES, target = true},
-	{name ="speed", interval = 2000, chance = 20, speedChange = -650, radius = 5, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = 0,
+		maxDamage = -500,
+		range = 4,
+		radius = 4,
+		effect = CONST_ME_STONES,
+		target = true
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 20,
+		speedChange = -650,
+		radius = 5,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 5000
+	}
 }
 
 monster.defenses = {
@@ -123,8 +143,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

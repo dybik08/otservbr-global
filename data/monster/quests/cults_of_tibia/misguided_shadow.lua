@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -65,18 +65,40 @@ monster.voices = {
 
 monster.loot = {
 	{id = 236, chance = 15000},
-	{id = 3039, chance = 6000}
+	{id = 3039, name = "red gem", chance = 6000}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -350},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -180, maxDamage = -220, range = 6, length = 6, spread = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYAREA, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -350},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -180,
+		maxDamage = -220,
+		range = 6,
+		length = 6,
+		spread = 7,
+		shootEffect = CONST_ANI_ENERGY,
+		effect = CONST_ME_ENERGYAREA,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 35,
 	armor = 35,
-	{name ="combat", interval = 1000, chance = 20, type = COMBAT_HEALING, minDamage = 200, maxDamage = 450, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 20,
+		type = COMBAT_HEALING,
+		minDamage = 200,
+		maxDamage = 450,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -88,8 +110,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

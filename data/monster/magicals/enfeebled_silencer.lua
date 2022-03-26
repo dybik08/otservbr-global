@@ -80,11 +80,11 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 100},
-	{id = 3035, chance = 100000, maxCount = 8},
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 8},
 	{id = 3049, chance = 1200}, -- Stealth ring
 	{id = 3079, chance = 360},
-	{id = 7368, chance = 7600, maxCount = 10},
+	{name="assassin star", chance = 7600, maxCount = 10},
 	{id = 7387, chance = 960},
 	{id = 7407, chance = 2000},
 	{id = 7451, chance = 640},

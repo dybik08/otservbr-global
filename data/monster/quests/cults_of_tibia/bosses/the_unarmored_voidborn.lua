@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -73,7 +73,7 @@ monster.loot = {
 	{name = "silver token", chance = 2732},
 	{name = "gold token", chance = 1532},
 	{name = "gold coin", chance = 100000, maxCount = 200},
-	{name = "platinum coin", chance = 29840, maxCount = 25},
+	{id = 3035, name = "platinum coin", chance = 29840, maxCount = 25},
 	{name = "yellow gem", chance = 29460},
 	{name = "blue gem", chance = 21892},
 	{name = "skull fetish", chance = 7270},
@@ -89,17 +89,38 @@ monster.loot = {
 	{name = "ultimate health potion", chance = 27652, maxCount = 10},
 	{name = "great mana potion", chance = 33721, maxCount = 10},
 	{name = "great spirit potion", chance = 25690, maxCount = 5},
-	{id = 23542, chance = 12798},-- collar of blue plasma
+	{id = 23542, name = "collar of blue plasma", chance = 12798},
+	 -- collar of blue plasma
 	{name = "piece of royal steel", chance = 15890},
 	{name = "shadow sceptre", chance = 7890},
-	{id = 23533, chance = 14542},
+	{id = 23533, name = "ring of red plasma", chance = 14542},
 	{name = "terra hood", chance = 16892}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = 0, maxDamage = -400, length = 7, spread = 5, effect = CONST_ME_SMALLCLOUDS, target = false},
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_ENERGYDAMAGE, minDamage = -250, maxDamage = -440, radius = 5, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = 0,
+		maxDamage = -400,
+		length = 7,
+		spread = 5,
+		effect = CONST_ME_SMALLCLOUDS,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 30,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -250,
+		maxDamage = -440,
+		radius = 5,
+		target = false
+	}
 }
 
 monster.defenses = {
@@ -116,8 +137,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -300},
-	{type = COMBAT_HOLYDAMAGE , percent = -300},
-	{type = COMBAT_DEATHDAMAGE , percent = -300}
+	{type = COMBAT_HOLYDAMAGE, percent = -300},
+	{type = COMBAT_DEATHDAMAGE, percent = -300}
 }
 
 monster.immunities = {

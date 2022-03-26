@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Workshop Quarter, Glooth Factory, Underground Glooth Factory, \z
 		Oramond Dungeon (depending on Magistrate votes), Jaccus Maxxens Dungeon."
-	}
+}
 
 monster.health = 2800
 monster.maxHealth = 2800
@@ -43,7 +43,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -83,33 +83,41 @@ monster.loot = {
 	{id = 953, chance = 1950},
 	{id = 9016, chance = 5860},
 	{id = 21196, chance = 14980},
-	{id = 3031, chance = 100000, maxCount = 290},
+	{name = "gold coin", chance = 100000, maxCount = 290},
 	{id = 5880, chance = 330},
 	{id = 21755, chance = 1950},
-	{id = 3035, chance = 58310, maxCount = 3},
-	{id = 3026, chance = 1300},
-	{id = 3027, chance = 1630},
+	{id = 3035, name = "platinum coin", chance = 58310, maxCount = 3},
+	{name = "white pearl", chance = 1300},
+	{name = "black pearl", chance = 1630},
 	{id = 236, chance = 10100, maxCount = 2},
 	{id = 237, chance = 7170, maxCount = 2},
 	{id = 3279, chance = 3580},
 	{id = 7452, chance = 330},
 	{id = 21171, chance = 330},
 	{id = 21170, chance = 2930},
-	{id = 8896, chance = 5860},
+	{id = 8896, name = "slightly rusted armor", chance = 5860},
 	{id = 8899, chance = 4230}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 118, attack = 50},
-	{name ="rustheap golem electrify", interval = 2000, chance = 11, range = 7, target = false},
-	{name ="frazzlemaw paralyze", interval = 2000, chance = 10, target = false},
-	{name ="rustheap golem wave", interval = 2000, chance = 9, minDamage = -100, maxDamage = -210, target = false}
+	{name = "melee", interval = 2000, chance = 100, skill = 118, attack = 50},
+	{name = "rustheap golem electrify", interval = 2000, chance = 11, range = 7, target = false},
+	{name = "frazzlemaw paralyze", interval = 2000, chance = 10, target = false},
+	{name = "rustheap golem wave", interval = 2000, chance = 9, minDamage = -100, maxDamage = -210, target = false}
 }
 
 monster.defenses = {
 	defense = 45,
 	armor = 40,
-	{name ="speed", interval = 2000, chance = 11, speedChange = 428, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000}
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 11,
+		speedChange = 428,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false,
+		duration = 6000
+	}
 }
 
 monster.elements = {
@@ -121,8 +129,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 10}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 10}
 }
 
 monster.immunities = {

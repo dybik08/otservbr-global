@@ -63,15 +63,15 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3035, chance = 100000},
-	{id = 3035, chance = 100000, maxCount = 13},
-	{id = 239, chance = 75810},
+	{id = 3035, name = "platinum coin", chance = 100000},
+	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 13},
+	{name="great health potion", chance = 75810},
 	{id = 10304, chance = 100000},
-	{id = 7368, chance = 19350, maxCount = 5},
+	{name="assassin star", chance = 19350, maxCount = 5},
 	{id = 7643, chance = 77420},
-	{id = 6499, chance = 35480},
+	{name="demonic essence", chance = 35480},
 	{id = 3724, chance = 67740, maxCount = 2},
-	{id = 9057, chance = 43550, maxCount = 4},
+	{name="small topaz", chance = 43550, maxCount = 4},
 	{id = 3371, chance = 67740},
 	{id = 3369, chance = 20970},
 	{id = 7452, chance = 6450},

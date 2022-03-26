@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Krimhorn, Bittermor, Ragnir, and Fenrock."
-	}
+}
 
 monster.health = 100
 monster.maxHealth = 100
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -82,7 +82,7 @@ monster.voices = {
 monster.loot = {
 	{id = 2920, chance = 60300},
 	{name = "gold coin", chance = 75600, maxCount = 30},
-	{id = 3052, chance = 230}, -- Life ring
+	{id = 3052, name = "life ring", chance = 230}, -- Life ring
 	{name = "knife", chance = 14890},
 	{name = "brass helmet", chance = 20140},
 	{name = "viking helmet", chance = 5020},
@@ -95,8 +95,19 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -50},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -60, range = 7, radius = 1, shootEffect = CONST_ANI_WHIRLWINDAXE, target = true}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -50},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = 0,
+		maxDamage = -60,
+		range = 7,
+		radius = 1,
+		shootEffect = CONST_ANI_WHIRLWINDAXE,
+		target = true
+	}
 }
 
 monster.defenses = {
@@ -113,8 +124,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 50},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = -10}
 }
 
 monster.immunities = {

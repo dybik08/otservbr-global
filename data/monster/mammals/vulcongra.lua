@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Hot Spot (in Gnomebase Alpha) and Lower Spike."
-	}
+}
 
 monster.health = 1600
 monster.maxHealth = 1600
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -81,9 +81,9 @@ monster.voices = {
 monster.loot = {
 	{name = "gold coin", chance = 50000, maxCount = 100},
 	{name = "gold coin", chance = 50000, maxCount = 7},
-	{name = "platinum coin", chance = 14780},
+	{id = 3035, name = "platinum coin", chance = 14780},
 	{name = "wand of inferno", chance = 1000},
-	{id = 3091, chance = 2920}, -- Sword ring
+	{id = 3091, name = "sword ring", chance = 2920}, -- Sword ring
 	{name = "fire sword", chance = 260},
 	{name = "banana", chance = 10420, maxCount = 10},
 	{name = "strong health potion", chance = 7100},
@@ -99,10 +99,31 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -235},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -195, maxDamage = -340, length = 8, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -100, maxDamage = -200, range = 7, shootEffect = CONST_ANI_FIRE, target = true},
-	{name ="vulcongra soulfire", interval = 3000, chance = 100, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -235},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -195,
+		maxDamage = -340,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_EXPLOSIONHIT,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -100,
+		maxDamage = -200,
+		range = 7,
+		shootEffect = CONST_ANI_FIRE,
+		target = true
+	},
+	{name = "vulcongra soulfire", interval = 3000, chance = 100, target = false}
 }
 
 monster.defenses = {
@@ -119,8 +140,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 5}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 5}
 }
 
 monster.immunities = {

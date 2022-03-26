@@ -78,9 +78,9 @@ monster.voices = {
 
 monster.loot = {
 	{id = 3446, chance = 90450, maxCount = 10},
-	{id = 3031, chance = 75410, maxCount = 30},
+	{name = "gold coin", chance = 75410, maxCount = 30},
 	{id = 3592, chance = 15400},
-	{id = 239, chance = 12340, maxCount = 2},
+	{name="great health potion", chance = 12340, maxCount = 2},
 	{id = 3577, chance = 5000},
 	{id = 3349, chance = 830},
 	{id = 3563, chance = 760},
@@ -88,7 +88,7 @@ monster.loot = {
 	{id = 3003, chance = 1000},
 	{id = 3572, chance = 1000},
 	{id = 2815, chance = 830},
-	{id = 3028, chance = 830},
+	{name="small diamond", chance = 830},
 	{id = 3279, chance = 130},
 	{id = 3269, chance = 830},
 	{id = 3415, chance = 330},

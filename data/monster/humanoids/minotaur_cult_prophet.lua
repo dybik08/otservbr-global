@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Minotaurs Cult Cave."
-	}
+}
 
 monster.health = 1700
 monster.maxHealth = 1700
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -88,13 +88,13 @@ monster.loot = {
 	{name = "small ruby", chance = 7160},
 	{name = "small topaz", chance = 7650},
 	{name = "yellow gem", chance = 490},
-	{name = "platinum coin", chance = 67040, maxCount = 3},
+	{id = 3035, name = "platinum coin", chance = 67040, maxCount = 3},
 	{name = "small emerald", chance = 11160},
 	{name = "small diamond", chance = 2900, maxCount = 2},
 	{name = "small amethyst", chance = 6680, maxCount = 2},
 	{name = "red piece of cloth", chance = 630},
-	{id = 3098, chance = 6730}, -- Ring of healing
-	{id= 3039, chance = 390},
+	{id = 3098, name = "Ring of healing", chance = 6730}, -- Ring of healing
+	{id = 3039, chance = 390},
 	{name = "meat", chance = 8040},
 	{name = "ham", chance = 60140},
 	{name = "minotaur leather", chance = 14230},
@@ -102,15 +102,38 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -240},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -350, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -350, range = 7, radius = 1, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -240},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -200,
+		maxDamage = -350,
+		range = 7,
+		shootEffect = CONST_ANI_ENERGY,
+		effect = CONST_ME_ENERGYHIT,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -200,
+		maxDamage = -350,
+		range = 7,
+		radius = 1,
+		shootEffect = CONST_ANI_FIRE,
+		effect = CONST_ME_FIREAREA,
+		target = true
+	}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="Minotaur Cult Prophet Mass Healing", interval = 2000, chance = 20, target = false}
+	{name = "Minotaur Cult Prophet Mass Healing", interval = 2000, chance = 20, target = false}
 }
 
 monster.elements = {
@@ -122,8 +145,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = -5}
 }
 
 monster.immunities = {

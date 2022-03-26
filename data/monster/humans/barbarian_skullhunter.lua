@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Ragnir, Krimhorn, Bittermor, and Fenrock."
-	}
+}
 
 monster.health = 135
 monster.maxHealth = 135
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -81,7 +81,7 @@ monster.voices = {
 monster.loot = {
 	{id = 2920, chance = 6680},
 	{name = "gold coin", chance = 8240, maxCount = 30},
-	{id = 3052, chance = 300}, -- Life ring
+	{id = 3052, name = "life ring", chance = 300}, -- Life ring
 	{id = 3114, chance = 3000},
 	{name = "knife", chance = 1067},
 	{name = "brass helmet", chance = 2200},
@@ -95,7 +95,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -60}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -60}
 }
 
 monster.defenses = {
@@ -112,8 +112,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 50},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = -5}
 }
 
 monster.immunities = {

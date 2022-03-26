@@ -64,17 +64,17 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 100},
-	{id = 3031, chance = 100000, maxCount = 20},
-	{id = 5944, chance = 5555},
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{name = "gold coin", chance = 100000, maxCount = 20},
+	{name="soul orb", chance = 5555},
 	{id = 6570, chance = 5538, maxCount = 4},
 	{id = 6571, chance = 1538},
 	{id = 3582, chance = 50000, maxCount = 8},
 	{id = 3115, chance = 25000},
-	{id = 6499, chance = 7200},
+	{name="demonic essence", chance = 7200},
 	{id = 3318, chance = 2857},
 	{id = 3271, chance = 2500},
-	{id = 6558, chance = 8888}
+	{name = "flask of demonic blood", chance = 8888}
 }
 
 monster.attacks = {

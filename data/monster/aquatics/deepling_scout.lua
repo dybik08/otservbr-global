@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Fiehonja, Sunken Mines near Dwarf Mines."
-	}
+}
 
 monster.health = 240
 monster.maxHealth = 240
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -82,7 +82,7 @@ monster.voices = {
 monster.loot = {
 	{name = "gold coin", chance = 75000, maxCount = 50},
 	{name = "hunting spear", chance = 15185, maxCount = 3},
-	{id = 3052, chance = 2127}, -- Life ring
+	{id = 3052, name = "life ring", chance = 2127}, -- Life ring
 	{name = "rusted armor", chance = 925},
 	{name = "heavy trident", chance = 505},
 	{name = "eye of a deepling", chance = 310},
@@ -92,8 +92,19 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DROWNDAMAGE, minDamage = -40, maxDamage = -100, range = 7, shootEffect = CONST_ANI_SPEAR, effect = CONST_ME_LOSEENERGY, target = true}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, effect = CONST_ME_DRAWBLOOD},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_DROWNDAMAGE,
+		minDamage = -40,
+		maxDamage = -100,
+		range = 7,
+		shootEffect = CONST_ANI_SPEAR,
+		effect = CONST_ME_LOSEENERGY,
+		target = true
+	}
 }
 
 monster.defenses = {
@@ -110,8 +121,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

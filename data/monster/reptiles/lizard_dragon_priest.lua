@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Zzaion, Zao Palace and its antechambers, Muggy Plains, Corruption Hole, Razachai, \z
 		Temple of Equilibrium, Northern Zao Plantations."
-	}
+}
 
 monster.health = 1450
 monster.maxHealth = 1450
@@ -40,7 +40,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -85,9 +85,9 @@ monster.loot = {
 	{name = "gold coin", chance = 5000, maxCount = 100},
 	{name = "gold coin", chance = 4400, maxCount = 88},
 	{name = "small amethyst", chance = 4900, maxCount = 3},
-	{name = "platinum coin", chance = 4090, maxCount = 2},
+	{id = 3035, name = "platinum coin", chance = 4090, maxCount = 2},
 	{name = "yellow gem", chance = 1000},
-	{id = 3052, chance = 770}, -- Life ring
+	{id = 3052, name = "life ring", chance = 770}, -- Life ring
 	{name = "terra rod", chance = 1001},
 	{name = "wand of inferno", chance = 1480},
 	{name = "lizard leather", chance = 980},
@@ -102,17 +102,49 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -50},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -125, maxDamage = -190, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = true},
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -50},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -125,
+		maxDamage = -190,
+		range = 7,
+		shootEffect = CONST_ANI_FIRE,
+		effect = CONST_ME_FIREATTACK,
+		target = true
+	},
 	-- poison
-	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 15, minDamage = -320, maxDamage = -400, range = 7, radius = 1, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true}
+	{
+		name = "condition",
+		type = CONDITION_POISON,
+		interval = 2000,
+		chance = 15,
+		minDamage = -320,
+		maxDamage = -400,
+		range = 7,
+		radius = 1,
+		shootEffect = CONST_ANI_POISON,
+		effect = CONST_ME_POISONAREA,
+		target = true
+	}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_HEALING, minDamage = 200, maxDamage = 300, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="invisible", interval = 2000, chance = 15, effect = CONST_ME_MAGIC_BLUE}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 30,
+		type = COMBAT_HEALING,
+		minDamage = 200,
+		maxDamage = 300,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{name = "invisible", interval = 2000, chance = 15, effect = CONST_ME_MAGIC_BLUE}
 }
 
 monster.elements = {
@@ -124,8 +156,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

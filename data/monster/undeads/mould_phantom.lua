@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 5,
 	Occurrence = 0,
 	Locations = "Rotten Wasteland."
-	}
+}
 
 monster.health = 28000
 monster.maxHealth = 28000
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -88,17 +88,50 @@ monster.loot = {
 	{name = "wand of voodoo", chance = 21920},
 	{name = "ornate crossbow", chance = 41920},
 	{name = "wand of defiance", chance = 21920, maxCount = 3},
-	{id = 23529, chance = 28920},
-	{id = 23542, chance = 28920},
+	{id = 23529, name = "ring of blue plasma", chance = 28920},
+	{id = 23542, name = "collar of blue plasma", chance = 28920},
 	{id = 34141, chance = 12920},
 	{name = "crystal crossbow", chance = 1920},
 	{id = 34109, chance = 50}
 }
 
 monster.attacks = {
-	{name ="combat", interval = 3000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -650, maxDamage = -1000, radius = 4, effect = CONST_ME_GREEN_RINGS, target = false},
-	{name ="combat", interval = 3000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -650, maxDamage = -1000, range = 7, radius = 4, shootEffect = CONST_ANI_POISON, effect = CONST_ME_SMALLPLANTS, target = true},
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HOLYDAMAGE, minDamage = -800, maxDamage = -1100, range = 7, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYDAMAGE, target = true}
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 20,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -650,
+		maxDamage = -1000,
+		radius = 4,
+		effect = CONST_ME_GREEN_RINGS,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 3000,
+		chance = 20,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -650,
+		maxDamage = -1000,
+		range = 7,
+		radius = 4,
+		shootEffect = CONST_ANI_POISON,
+		effect = CONST_ME_SMALLPLANTS,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 25,
+		type = COMBAT_HOLYDAMAGE,
+		minDamage = -800,
+		maxDamage = -1100,
+		range = 7,
+		shootEffect = CONST_ANI_SMALLHOLY,
+		effect = CONST_ME_HOLYDAMAGE,
+		target = true
+	}
 	-- Chain: const_me-> CONST_ME_GREEN_ENERGY_SPARK, combat_t->COMBAT_EARTHDAMAGE
 }
 
@@ -116,8 +149,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Darashia, Krailos Steppe, Liberty Bay, Pirat Mines, Port Hope, Thais, The Wreckoning."
-	}
+}
 
 monster.health = 2300
 monster.maxHealth = 2300
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -71,27 +71,54 @@ monster.light = {
 }
 
 monster.loot = {
-	{name = "Great Mana Potion", chance = 30000, maxCount =2},
-	{name = "Pirate Coin", chance = 7000, maxCount =10},
+	{name = "Great Mana Potion", chance = 30000, maxCount = 2},
+	{name = "Pirate Coin", chance = 7000, maxCount = 10},
 	{name = "Terra Boots", chance = 6000},
 	{name = "Pirat's Tail", chance = 4000},
 	{name = "Magma Boots", chance = 3000},
 	{name = "Mouldy Powder", chance = 4000},
-	{id = 23529, chance = 2000},
+	{id = 23529, name = "ring of blue plasma", chance = 2000},
 	{name = "Lightning Boots", chance = 1000},
 	{name = "Wood Cape", chance = 1000}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -350},
-	{name ="energy beam", interval = 2000, chance = 10, minDamage = -80, maxDamage = -160, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="energy wave", interval = 2000, chance = 10, minDamage = -35, maxDamage = -75, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYAREA, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -350},
+	{
+		name = "energy beam",
+		interval = 2000,
+		chance = 10,
+		minDamage = -80,
+		maxDamage = -160,
+		shootEffect = CONST_ANI_ENERGY,
+		effect = CONST_ME_ENERGYAREA,
+		target = false
+	},
+	{
+		name = "energy wave",
+		interval = 2000,
+		chance = 10,
+		minDamage = -35,
+		maxDamage = -75,
+		shootEffect = CONST_ANI_ENERGY,
+		effect = CONST_ME_ENERGYAREA,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 20,
 	armor = 65,
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 30, maxDamage = 60, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_HEALING,
+		minDamage = 30,
+		maxDamage = 60,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -103,8 +130,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

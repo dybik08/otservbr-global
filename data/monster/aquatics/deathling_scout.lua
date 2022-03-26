@@ -105,7 +105,7 @@ monster.attacks = {
 	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
 	-- Ranged attack (150-350 physical) (Spear)
 	{
-		name = "rangedAttackSpear",
+		name = "RangedAttackSpearPhysicalTarget",
 		interval = 4000,
 		chance = 15,
 		minDamage = -150,
@@ -113,7 +113,7 @@ monster.attacks = {
 	},
 	-- Explosion Strike (150-300 physical, on target) (Big Stone)
 	{
-		name = "explosionStrikeLargeRock",
+		name = "ExplosionStrikePhysicalTargetLargeRock",
 		interval = 4000,
 		chance = 15,
 		minDamage = -150,
@@ -121,7 +121,7 @@ monster.attacks = {
 	},
 	-- Groundshaker Ball (350-550 earth, on self)
 	{
-		name = "groundshakerBallEarth",
+		name = "GroundshakerBallEarthSelf",
 		interval = 4000,
 		chance = 10,
 		minDamage = -350,

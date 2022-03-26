@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Dark Cathedral, Vandura (Cult Cave), Foreigner Quarter."
-	}
+}
 
 monster.health = 190
 monster.maxHealth = 190
@@ -41,7 +41,7 @@ monster.changeTarget = {
 monster.strategiesTarget = {
 	nearest = 70,
 	health = 20,
-	damage = 10,
+	damage = 10
 }
 
 monster.flags = {
@@ -82,7 +82,7 @@ monster.loot = {
 	{name = "brown flask", chance = 380},
 	{id = 2914, chance = 550},
 	{name = "gold coin", chance = 14600, maxCount = 18},
-	{id = 3050, chance = 120}, -- Power ring
+	{id = 3050, name = "power ring", chance = 120}, -- Power ring
 	{name = "life crystal", chance = 990},
 	{name = "ankh", chance = 900},
 	{name = "sandals", chance = 890},
@@ -95,15 +95,42 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -20, maxDamage = -50, range = 1, effect = CONST_ME_MAGIC_RED, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -20,
+		maxDamage = -50,
+		range = 1,
+		effect = CONST_ME_MAGIC_RED,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 25,
 	armor = 25,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 25, maxDamage = 49, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = 300, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 25,
+		maxDamage = 49,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = 300,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 6000
+	}
 }
 
 monster.elements = {
@@ -115,8 +142,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 40}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 40}
 }
 
 monster.immunities = {

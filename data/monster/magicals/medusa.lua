@@ -114,7 +114,7 @@ monster.attacks = {
 	},
 	-- Terra Strike (100-250 life drain, on target)
 	{
-		name = "TerraStrikeLifeDrain",
+		name = "TerraStrikeLifeDrainTarget",
 		interval = 2000,
 		chance = 20,
 		minDamage = -100,
@@ -122,7 +122,7 @@ monster.attacks = {
 	},
 	-- Great Terra Wave (250-450 earth)
 	{
-		name = "GreatWaterWave",
+		name = "GreatTerraWaveEarth",
 		interval = 2000,
 		chance = 15,
 		minDamage = -250,

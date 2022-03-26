@@ -40,7 +40,7 @@ monster.changeTarget = {
 
 monster.strategiesTarget = {
 	nearest = 70,
-	damage = 30,
+	damage = 30
 }
 
 monster.flags = {
@@ -71,11 +71,11 @@ monster.light = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Hsssssss!", yell = false},
+	{text = "Hsssssss!", yell = false}
 }
 
 monster.loot = {
-	{name = "platinum coin", chance = 69350, maxCount = 24},
+	{id = 3035, name = "platinum coin", chance = 69350, maxCount = 24},
 	{name = "guardian halberd", chance = 9160},
 	{name = "bashmu feather", chance = 5320},
 	{name = "bashmu tongue", chance = 4950},
@@ -90,24 +90,73 @@ monster.loot = {
 	{name = "terra amulet", chance = 1770},
 	{name = "glacier amulet", chance = 960},
 	{name = "glorious axe", chance = 810},
-	{id = 23544, chance = 660}, -- collar of red plasma
+	{id = 23544, name = "collar of red plasma", chance = 660}, -- collar of red plasma
 	{name = "haunted blade", chance = 590},
 	{name = "magma amulet", chance = 520},
-	{id = 23542, chance = 440} -- collar of blue plasma
+	{id = 23542, name = "collar of blue plasma", chance = 440} -- collar of blue plasma
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -600},
-	{name ="combat", interval = 2000, chance = 50, type = COMBAT_ENERGYDAMAGE, minDamage = -400, maxDamage = -800, length = 4, spread = 0, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="combat", interval = 2000, chance = 40, type = COMBAT_ENERGYDAMAGE, minDamage = -400, maxDamage = -500, range = 3, radius = 3, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -400, maxDamage = -800, range = 7, shootEffect = CONST_ANI_EARTHARROW, target = true},
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -600},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 50,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -400,
+		maxDamage = -800,
+		length = 4,
+		spread = 0,
+		effect = CONST_ME_ENERGYAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 40,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -400,
+		maxDamage = -500,
+		range = 3,
+		radius = 3,
+		effect = CONST_ME_ENERGYHIT,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -400,
+		maxDamage = -800,
+		range = 7,
+		shootEffect = CONST_ANI_EARTHARROW,
+		target = true
+	}
 }
 
 monster.defenses = {
 	defense = 72,
 	armor = 72,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 250, maxDamage = 500, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = 340, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 250,
+		maxDamage = 500,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = 340,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 5000
+	}
 }
 
 monster.elements = {
@@ -119,8 +168,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = -10}
 }
 
 monster.immunities = {

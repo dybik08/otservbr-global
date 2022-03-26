@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -59,38 +59,80 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
 	{id = 24942, chance = 100000},
-	{id = 3031, chance = 100000, maxCount = 24},
-	{id = 239, chance = 20000, maxCount = 3},
+	{name = "gold coin", chance = 100000, maxCount = 24},
+	{name = "great health potion", chance = 20000, maxCount = 3},
 	{id = 7642, chance = 20000, maxCount = 3},
 	{id = 12304, chance = 500},
-	{id = 3035, chance = 40000, maxCount = 4},
-	{id = 5944, chance = 100000},
+	{id = 3035, name = "platinum coin", chance = 40000, maxCount = 4},
+	{name = "soul orb", chance = 100000},
 	{id = 5741, chance = 25000},
-	{id = 9058, chance = 25000},
+	{name = "gold ingot", chance = 25000},
 	{id = 3057, chance = 25000},
 	{id = 7430, chance = 25000},
-	{id = 8896, chance = 26670},
-	{id = 6299, chance = 13330},
+	{id = 8896, name = "slightly rusted armor", chance = 26670},
+	{id = 6299, name = "death ring", chance = 13330},
 	{id = 10316, chance = 50000, maxCount = 2}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 112, attack = 85},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -120, maxDamage = -650, range = 7, radius = 5, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_BLACKSMOKE, target = true},
-	{name ="combat", interval = 2000, chance = 11, type = COMBAT_FIREDAMAGE, minDamage = -330, maxDamage = -805, range = 7, shootEffect = CONST_ANI_FIRE, target = false},
-	{name ="undead dragon curse", interval = 2000, chance = 10, target = false},
-	{name ="combat", interval = 2000, chance = 9, type = COMBAT_DEATHDAMAGE, minDamage = -300, maxDamage = -780, length = 8, spread = 3, effect = CONST_ME_SMALLCLOUDS, target = false}
+	{name = "melee", interval = 2000, chance = 100, skill = 112, attack = 85},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -120,
+		maxDamage = -650,
+		range = 7,
+		radius = 5,
+		shootEffect = CONST_ANI_DEATH,
+		effect = CONST_ME_BLACKSMOKE,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 11,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -330,
+		maxDamage = -805,
+		range = 7,
+		shootEffect = CONST_ANI_FIRE,
+		target = false
+	},
+	{name = "undead dragon curse", interval = 2000, chance = 10, target = false},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 9,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -300,
+		maxDamage = -780,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_SMALLCLOUDS,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 64,
 	armor = 52,
-	{name ="combat", interval = 2000, chance = 55, type = COMBAT_HEALING, minDamage = 450, maxDamage = 550, effect = CONST_ME_MAGIC_RED, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 55,
+		type = COMBAT_HEALING,
+		minDamage = 450,
+		maxDamage = 550,
+		effect = CONST_ME_MAGIC_RED,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -102,8 +144,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -10},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

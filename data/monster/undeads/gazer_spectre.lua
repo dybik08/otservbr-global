@@ -117,7 +117,7 @@ monster.attacks = {
 	},
 	-- Flame Box (200-350 fire, on target)
 	{
-		name = "flameBox",
+		name = "FlameBoxFireTarget",
 		interval = 2000,
 		chance = 15,
 		minDamage = -200,
@@ -125,7 +125,7 @@ monster.attacks = {
 	},
 	-- Red Stars Strike (300-400 life drain, on target)
 	{
-		name = "redStarsStrike",
+		name = "RedStarsStrikeLifeDrainTarget",
 		interval = 2000,
 		chance = 15,
 		minDamage = -300,

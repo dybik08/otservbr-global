@@ -110,7 +110,7 @@ monster.attacks = {
 	{name = "melee", interval = 2000, chance = 100, minDamage = -0, maxDamage = -400},
 	-- Ice Box (250-350 ice, on target)
 	{
-		name = "iceBox",
+		name = "IceBoxIceTarget",
 		interval = 2000,
 		chance = 25,
 		minDamage = -260,
@@ -118,7 +118,7 @@ monster.attacks = {
 	},
 	-- Icy Flake Cone-Wave (200-380 ice)
 	{
-		name = "icyFlakeConeWave",
+		name = "IcyFlakeConeWaveIce",
 		interval = 2000,
 		chance = 25,
 		minDamage = -200,
@@ -126,7 +126,7 @@ monster.attacks = {
 	},
 	-- Blue Stars Box (200-300 physical, on self)
 	{
-		name = "blueStarsBox",
+		name = "BlueStarsBoxPhysicalSelf",
 		interval = 2000,
 		chance = 25,
 		minDamage = -200,
@@ -134,7 +134,7 @@ monster.attacks = {
 	},
 	-- Greater Blue Stars Ball (300-400 life drain, on self)
 	{
-		name = "greaterBlueStarsBall",
+		name = "GreaterBlueStarsBallLifeDrainSelf",
 		interval = 2000,
 		chance = 25,
 		minDamage = -300,

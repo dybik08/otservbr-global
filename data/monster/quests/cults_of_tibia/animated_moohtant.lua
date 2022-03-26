@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -66,38 +66,90 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3031, chance = 100000, maxCount = 195},
-	{id = 3035, chance = 58160, maxCount = 2},
+	{name = "gold coin", chance = 100000, maxCount = 195},
+	{id = 3035, name = "platinum coin", chance = 58160, maxCount = 2},
 	{id = 21200, chance = 2740, maxCount = 2},
 	{id = 21199, chance = 1770},
-	{id = 239, chance = 7380, maxCount = 3},
-	{id = 238, chance = 7230, maxCount = 3},
+	{name = "great health potion", chance = 7380, maxCount = 3},
+	{name = "great mana potion", chance = 7230, maxCount = 3},
 	{id = 3577, chance = 6520},
-	{id = 3030, chance = 4680, maxCount = 2},
+	{name = "small ruby", chance = 4680, maxCount = 2},
 	{id = 5878, chance = 4110},
-	{id = 3028, chance = 4400, maxCount = 2},
-	{id = 3098, chance = 2410}, -- Ring of healing
-	{id = 5911, chance = 900},
+	{name = "small diamond", chance = 4400, maxCount = 2},
+	{id = 3098, name = "Ring of healing", chance = 2410}, -- Ring of healing
+	{name = "red piece of cloth", chance = 900},
 	{id = 21173, chance = 860},
-	{id = 3037, chance = 710},
+	{name = "yellow gem", chance = 710},
 	{id = 7452, chance = 430},
 	{id = 7427, chance = 280},
-	{id = 9058, chance = 280},
+	{name = "gold ingot", chance = 280},
 	{id = 7401, chance = 280}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 110, attack = 50},
-	{name ="combat", interval = 2000, chance = 13, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -230, length = 3, spread = 0, effect = CONST_ME_GROUNDSHAKER, target = false},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -200, radius = 3, effect = CONST_ME_GROUNDSHAKER, target = false},
-	{name ="combat", interval = 2000, chance = 19, type = COMBAT_LIFEDRAIN, minDamage = -50, maxDamage = -225, radius = 5, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -150, maxDamage = -235, range = 7, radius = 4, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_EXPLOSIONAREA, target = true}
+	{name = "melee", interval = 2000, chance = 100, skill = 110, attack = 50},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 13,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = -100,
+		maxDamage = -230,
+		length = 3,
+		spread = 0,
+		effect = CONST_ME_GROUNDSHAKER,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 12,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = -100,
+		maxDamage = -200,
+		radius = 3,
+		effect = CONST_ME_GROUNDSHAKER,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 19,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -50,
+		maxDamage = -225,
+		radius = 5,
+		effect = CONST_ME_MAGIC_RED,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -150,
+		maxDamage = -235,
+		range = 7,
+		radius = 4,
+		shootEffect = CONST_ANI_LARGEROCK,
+		effect = CONST_ME_EXPLOSIONAREA,
+		target = true
+	}
 }
 
 monster.defenses = {
 	defense = 45,
 	armor = 40,
-	{name ="combat", interval = 2000, chance = 9, type = COMBAT_HEALING, minDamage = 50, maxDamage = 150, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 9,
+		type = COMBAT_HEALING,
+		minDamage = 50,
+		maxDamage = 150,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -109,8 +161,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 15},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 1}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 1}
 }
 
 monster.immunities = {

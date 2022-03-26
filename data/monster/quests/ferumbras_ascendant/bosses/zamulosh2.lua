@@ -30,7 +30,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -66,24 +66,24 @@ monster.voices = {
 
 monster.loot = {
 	{id = 22516, chance = 1000000},
-	{id = 3031, chance = 98000, maxCount = 200},
+	{name = "gold coin", chance = 98000, maxCount = 200},
 	{id = 281, chance = 14000, maxCount = 5},
 	{id = 282, chance = 14000, maxCount = 5},
-	{id = 3029, chance = 12000, maxCount = 9},
-	{id = 3026, chance = 12000, maxCount = 8},
-	{id = 3033, chance = 10000, maxCount = 5},
-	{id = 9057, chance = 10000, maxCount = 8},
-	{id = 3035, chance = 8000, maxCount = 58},
-	{id = 6499, chance = 11000},
+	{name = "small sapphire", chance = 12000, maxCount = 9},
+	{name = "white pearl", chance = 12000, maxCount = 8},
+	{name = "small amethyst", chance = 10000, maxCount = 5},
+	{name = "small topaz", chance = 10000, maxCount = 8},
+	{id = 3035, name = "platinum coin", chance = 8000, maxCount = 58},
+	{name = "demonic essence", chance = 11000},
 	{id = 16122, chance = 10000, maxCount = 6},
 	{id = 16123, chance = 10000, maxCount = 6},
 	{id = 16124, chance = 10000, maxCount = 6},
-	{id = 3039, chance = 1000},
-	{id = 3037, chance = 1000},
+	{id = 3039, name = "red gem", chance = 1000},
+	{name = "yellow gem", chance = 1000},
 	{id = 3038, chance = 1000},
-	{id = 3041, chance = 1000},
+	{name = "blue gem", chance = 1000},
 	{id = 3053, chance = 6000},
-	{id = 3098, chance = 6000}, -- Ring of healing
+	{id = 3098, name = "Ring of healing", chance = 6000}, -- Ring of healing
 	{id = 22867, chance = 770},
 	{id = 8050, chance = 770},
 	{id = 22726, chance = 670},
@@ -92,17 +92,68 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 3000, chance = 100, minDamage = -1500, maxDamage = -2300},
-	{name ="combat", interval = 1000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -700, maxDamage = -800, length = 12, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -2600, maxDamage = -3300, length = 12, spread = 3, effect = CONST_ME_TELEPORT, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -900, maxDamage = -1500, length = 6, spread = 2, effect = CONST_ME_FIREAREA, target = false},
-	{name ="speed", interval = 2000, chance = 35, speedChange = -600, radius = 8, effect = CONST_ME_MAGIC_RED, target = false, duration = 15000}
+	{name = "melee", interval = 3000, chance = 100, minDamage = -1500, maxDamage = -2300},
+	{
+		name = "combat",
+		interval = 1000,
+		chance = 10,
+		type = COMBAT_DEATHDAMAGE,
+		minDamage = -700,
+		maxDamage = -800,
+		length = 12,
+		spread = 3,
+		effect = CONST_ME_MORTAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_MANADRAIN,
+		minDamage = -2600,
+		maxDamage = -3300,
+		length = 12,
+		spread = 3,
+		effect = CONST_ME_TELEPORT,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_FIREDAMAGE,
+		minDamage = -900,
+		maxDamage = -1500,
+		length = 6,
+		spread = 2,
+		effect = CONST_ME_FIREAREA,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 35,
+		speedChange = -600,
+		radius = 8,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 15000
+	}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HEALING, minDamage = 220, maxDamage = 535, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 25,
+		type = COMBAT_HEALING,
+		minDamage = 220,
+		maxDamage = 535,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -114,8 +165,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 15},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 15}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 15}
 }
 
 monster.immunities = {
