@@ -567,7 +567,7 @@ local items = {
 		-- jungle wand
 		itemid = 35522,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- jungle rod
@@ -584,7 +584,7 @@ local items = {
 		-- jungle rod
 		itemid = 35521,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- make-do boots
@@ -601,7 +601,7 @@ local items = {
 		-- make-do boots
 		itemid = 35520,
 		type = "deequip",
-		slot = "feet",
+		slot = "feet"
 	},
 	{
 		-- makeshift boots
@@ -618,7 +618,7 @@ local items = {
 		-- makeshift boots
 		itemid = 35519,
 		type = "deequip",
-		slot = "feet",
+		slot = "feet"
 	},
 	{
 		-- jungle bow
@@ -635,7 +635,7 @@ local items = {
 		-- jungle bow
 		itemid = 35518,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- bast legs
@@ -652,7 +652,7 @@ local items = {
 		-- bast legs
 		itemid = 35517,
 		type = "deequip",
-		slot = "legs",
+		slot = "legs"
 	},
 	{
 		-- exotic legs
@@ -669,7 +669,7 @@ local items = {
 		-- exotic legs
 		itemid = 35516,
 		type = "deequip",
-		slot = "legs",
+		slot = "legs"
 	},
 	{
 		-- throwing axe
@@ -686,7 +686,7 @@ local items = {
 		-- throwing axe
 		itemid = 35515,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- jungle flail
@@ -703,7 +703,7 @@ local items = {
 		-- jungle flail
 		itemid = 35514,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- lion hammer
@@ -1035,7 +1035,7 @@ local items = {
 		-- soulhexer
 		itemid = 34091,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- soulhexer
@@ -1052,7 +1052,7 @@ local items = {
 		-- soultainter
 		itemid = 34090,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- soultainter
@@ -1069,7 +1069,7 @@ local items = {
 		-- soulpiercer
 		itemid = 34089,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- soulpiercer
@@ -1086,7 +1086,7 @@ local items = {
 		-- soulbleeder
 		itemid = 34088,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- soulbleeder
@@ -1103,7 +1103,7 @@ local items = {
 		-- soulmaimer
 		itemid = 34087,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- soulmaimer
@@ -1120,7 +1120,7 @@ local items = {
 		-- soulcrusher
 		itemid = 34086,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- soulcrusher
@@ -1137,7 +1137,7 @@ local items = {
 		-- souleater
 		itemid = 34085,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- souleater
@@ -1154,7 +1154,7 @@ local items = {
 		-- soulbiter
 		itemid = 34084,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- soulbiter
@@ -1171,7 +1171,7 @@ local items = {
 		-- soulshredder
 		itemid = 34083,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- soulshredder
@@ -1188,7 +1188,7 @@ local items = {
 		-- soulcutter
 		itemid = 34082,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- soulcutter
@@ -1415,65 +1415,65 @@ local items = {
 		-- meat hammer
 		itemid = 32093,
 		type = "equip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- meat hammer
 		itemid = 32093,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- note about two souls
 		itemid = 31676,
 		type = "equip",
-		slot = "necklace",
+		slot = "necklace"
 	},
 	{
 		-- note about two souls
 		itemid = 31676,
 		type = "deequip",
-		slot = "necklace",
+		slot = "necklace"
 	},
 	{
 		-- the cobra amulet
 		itemid = 31631,
 		type = "equip",
 		slot = "necklace",
-		level = 250,
+		level = 250
 	},
 	{
 		-- the cobra amulet
 		itemid = 31631,
 		type = "deequip",
 		slot = "necklace",
-		level = 250,
+		level = 250
 	},
 	{
 		-- winged backpack
 		itemid = 31625,
 		type = "equip",
-		slot = "backpack",
+		slot = "backpack"
 	},
 	{
 		-- winged backpack
 		itemid = 31625,
 		type = "deequip",
-		slot = "backpack",
+		slot = "backpack"
 	},
 	{
 		-- blister ring
 		itemid = 31621,
 		type = "equip",
 		slot = "ring",
-		level = 220,
+		level = 220
 	},
 	{
 		-- blister ring
 		itemid = 31621,
 		type = "deequip",
 		slot = "ring",
-		level = 220,
+		level = 220
 	},
 	{
 		-- winged boots
@@ -1484,40 +1484,40 @@ local items = {
 		vocation = {
 			{"Paladin", true},
 			{"Royal Paladin"}
-		},
+		}
 	},
 	{
 		-- winged boots
 		itemid = 31617,
 		type = "deequip",
 		slot = "feet",
-		level = 220,
+		level = 220
 	},
 	{
 		-- blister ring
 		itemid = 31616,
 		type = "equip",
 		slot = "ring",
-		level = 220,
+		level = 220
 	},
 	{
 		-- blister ring
 		itemid = 31616,
 		type = "deequip",
 		slot = "ring",
-		level = 220,
+		level = 220
 	},
 	{
 		-- tagralt blade
 		itemid = 31614,
 		type = "equip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- tagralt blade
 		itemid = 31614,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- toga mortis
@@ -1528,14 +1528,14 @@ local items = {
 		vocation = {
 			{"Sorcerer", true},
 			{"Master Sorcerer"}
-		},
+		}
 	},
 	{
 		-- toga mortis
 		itemid = 31583,
 		type = "deequip",
 		slot = "armor",
-		level = 220,
+		level = 220
 	},
 	{
 		-- galea mortis
@@ -1546,7 +1546,7 @@ local items = {
 		vocation = {
 			{"Sorcerer", true},
 			{"Master Sorcerer"}
-		},
+		}
 	},
 	{
 		-- galea mortis
@@ -1559,25 +1559,25 @@ local items = {
 		-- bow of cataclysm
 		itemid = 31581,
 		type = "equip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- bow of cataclysm
 		itemid = 31581,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- mortal mace
 		itemid = 31580,
 		type = "equip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- mortal mace
 		itemid = 31580,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- embrace of nature
@@ -1588,14 +1588,14 @@ local items = {
 		vocation = {
 			{"Paladin", true},
 			{"Royal Paladin"}
-		},
+		}
 	},
 	{
 		-- embrace of nature
 		itemid = 31579,
 		type = "deequip",
 		slot = "armor",
-		level = 220,
+		level = 220
 	},
 	{
 		-- bear skin
@@ -1606,14 +1606,14 @@ local items = {
 		vocation = {
 			{"Druid", true},
 			{"Elder Druid"}
-		},
+		}
 	},
 	{
 		-- bear skin
 		itemid = 31578,
 		type = "deequip",
 		slot = "armor",
-		level = 230,
+		level = 230
 	},
 	{
 		-- terra helmet
@@ -1624,126 +1624,126 @@ local items = {
 		vocation = {
 			{"Knight", true},
 			{"Elite Knight"}
-		},
+		}
 	},
 	{
 		-- terra helmet
 		itemid = 31577,
 		type = "deequip",
 		slot = "head",
-		level = 230,
+		level = 230
 	},
 	{
 		-- blister ring
 		itemid = 31557,
 		type = "equip",
 		slot = "ring",
-		level = 220,
+		level = 220
 	},
 	{
 		-- blister ring
 		itemid = 31557,
 		type = "deequip",
 		slot = "ring",
-		level = 220,
+		level = 220
 	},
 	{
 		-- rainbow amulet
 		itemid = 31556,
 		type = "equip",
 		slot = "necklace",
-		level = 220,
+		level = 220
 	},
 	{
 		-- rainbow amulet
 		itemid = 31556,
 		type = "deequip",
 		slot = "necklace",
-		level = 220,
+		level = 220
 	},
 	{
 		-- sphinx tiara
 		itemid = 31438,
 		type = "equip",
-		slot = "head",
+		slot = "head"
 	},
 	{
 		-- sphinx tiara
 		itemid = 31438,
 		type = "deequip",
-		slot = "head",
+		slot = "head"
 	},
 	{
 		-- gryphon mask
 		itemid = 31433,
 		type = "equip",
-		slot = "head",
+		slot = "head"
 	},
 	{
 		-- gryphon mask
 		itemid = 31433,
 		type = "deequip",
-		slot = "head",
+		slot = "head"
 	},
 	{
 		-- symbol of sun and sea
 		itemid = 31431,
 		type = "equip",
-		slot = "ring",
+		slot = "ring"
 	},
 	{
 		-- symbol of sun and sea
 		itemid = 31431,
 		type = "deequip",
-		slot = "ring",
+		slot = "ring"
 	},
 	{
 		-- silver mask
 		itemid = 31370,
 		type = "equip",
-		slot = "head",
+		slot = "head"
 	},
 	{
 		-- silver mask
 		itemid = 31370,
 		type = "deequip",
-		slot = "head",
+		slot = "head"
 	},
 	{
 		-- ring of secret thoughts
 		itemid = 31306,
 		type = "equip",
-		slot = "ring",
+		slot = "ring"
 	},
 	{
 		-- ring of secret thoughts
 		itemid = 31306,
 		type = "deequip",
-		slot = "ring",
+		slot = "ring"
 	},
 	{
 		-- jade amulet
 		itemid = 31268,
 		type = "equip",
-		slot = "necklace",
+		slot = "necklace"
 	},
 	{
 		-- jade amulet
 		itemid = 31268,
 		type = "deequip",
-		slot = "necklace",
+		slot = "necklace"
 	},
 	{
 		-- ring of secret thoughts
 		itemid = 31263,
 		type = "equip",
-		slot = "ring",
+		slot = "ring"
 	},
 	{
 		-- ring of secret thoughts
 		itemid = 31263,
 		type = "deequip",
-		slot = "ring",
+		slot = "ring"
 	},
 	{
 		-- amulet of theurgy
@@ -1756,14 +1756,14 @@ local items = {
 			{"Druid", true, true},
 			{"Master Sorcerer"},
 			{"Elder Druid"}
-		},
+		}
 	},
 	{
 		-- amulet of theurgy
 		itemid = 30403,
 		type = "deequip",
 		slot = "necklace",
-		level = 220,
+		level = 220
 	},
 	{
 		-- enchanted theurgic amulet
@@ -1776,14 +1776,14 @@ local items = {
 			{"Druid", true, true},
 			{"Master Sorcerer"},
 			{"Elder Druid"}
-		},
+		}
 	},
 	{
 		-- enchanted theurgic amulet
 		itemid = 30402,
 		type = "deequip",
 		slot = "necklace",
-		level = 220,
+		level = 220
 	},
 	{
 		-- amulet of theurgy
@@ -1796,14 +1796,14 @@ local items = {
 			{"Druid", true, true},
 			{"Master Sorcerer"},
 			{"Elder Druid"}
-		},
+		}
 	},
 	{
 		-- amulet of theurgy
 		itemid = 30401,
 		type = "deequip",
 		slot = "necklace",
-		level = 220,
+		level = 220
 	},
 	{
 		-- cobra rod
@@ -1814,14 +1814,14 @@ local items = {
 		vocation = {
 			{"Druid", true},
 			{"Elder Druid"}
-		},
+		}
 	},
 	{
 		-- cobra rod
 		itemid = 30400,
 		type = "deequip",
 		slot = "hand",
-		level = 220,
+		level = 220
 	},
 	{
 		-- cobra wand
@@ -1832,26 +1832,26 @@ local items = {
 		vocation = {
 			{"Sorcerer", true},
 			{"Master Sorcerer"}
-		},
+		}
 	},
 	{
 		-- cobra wand
 		itemid = 30399,
 		type = "deequip",
 		slot = "hand",
-		level = 270,
+		level = 270
 	},
 	{
 		-- cobra sword
 		itemid = 30398,
 		type = "equip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- cobra sword
 		itemid = 30398,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- cobra hood
@@ -1862,38 +1862,38 @@ local items = {
 		vocation = {
 			{"Knight", true},
 			{"Elite Knight"}
-		},
+		}
 	},
 	{
 		-- cobra hood
 		itemid = 30397,
 		type = "deequip",
 		slot = "head",
-		level = 270,
+		level = 270
 	},
 	{
 		-- cobra axe
 		itemid = 30396,
 		type = "equip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- cobra axe
 		itemid = 30396,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- cobra club
 		itemid = 30395,
 		type = "equip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- cobra club
 		itemid = 30395,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- cobra boots
@@ -1904,26 +1904,26 @@ local items = {
 		vocation = {
 			{"Knight", true},
 			{"Elite Knight"}
-		},
+		}
 	},
 	{
 		-- cobra boots
 		itemid = 30394,
 		type = "deequip",
 		slot = "feet",
-		level = 220,
+		level = 220
 	},
 	{
 		-- cobra crossbow
 		itemid = 30393,
 		type = "equip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- cobra crossbow
 		itemid = 30393,
 		type = "deequip",
-		slot = "hand",
+		slot = "hand"
 	},
 	{
 		-- rainbow necklace
@@ -4698,6 +4698,7 @@ local items = {
 	{
 		-- collar of red plasma
 		itemid = 23544,
+		name = "collar of red plasma",
 		type = "equip",
 		slot = "necklace",
 		level = 150,
@@ -4709,6 +4710,7 @@ local items = {
 	{
 		-- collar of red plasma
 		itemid = 23544,
+		name = "collar of red plasma",
 		type = "deequip",
 		slot = "necklace",
 		level = 150
@@ -4716,6 +4718,7 @@ local items = {
 	{
 		-- collar of green plasma
 		itemid = 23543,
+		name = "collar of green plasma",
 		type = "equip",
 		slot = "necklace",
 		level = 150,
@@ -4729,6 +4732,7 @@ local items = {
 	{
 		-- collar of green plasma
 		itemid = 23543,
+		name = "collar of green plasma",
 		type = "deequip",
 		slot = "necklace",
 		level = 150
@@ -4736,6 +4740,7 @@ local items = {
 	{
 		-- collar of blue plasma
 		itemid = 23542,
+		name = "collar of blue plasma",
 		type = "equip",
 		slot = "necklace",
 		level = 150,
@@ -4747,6 +4752,7 @@ local items = {
 	{
 		-- collar of blue plasma
 		itemid = 23542,
+		name = "collar of blue plasma",
 		type = "deequip",
 		slot = "necklace",
 		level = 150
@@ -4772,6 +4778,7 @@ local items = {
 	{
 		-- ring of red plasma
 		itemid = 23533,
+		name = "ring of red plasma",
 		type = "equip",
 		slot = "ring",
 		level = 100,
@@ -4783,6 +4790,7 @@ local items = {
 	{
 		-- ring of red plasma
 		itemid = 23533,
+		name = "ring of red plasma",
 		type = "deequip",
 		slot = "ring",
 		level = 100
@@ -4848,6 +4856,7 @@ local items = {
 	{
 		-- ring of blue plasma
 		itemid = 23529,
+		name = "ring of blue plasma",
 		type = "equip",
 		slot = "ring",
 		level = 100,
@@ -4859,6 +4868,7 @@ local items = {
 	{
 		-- ring of blue plasma
 		itemid = 23529,
+		name = "ring of blue plasma",
 		type = "deequip",
 		slot = "ring",
 		level = 100
@@ -6363,7 +6373,7 @@ local items = {
 	},
 	{
 		-- oriental shoes
-		itemid = 21981,
+		itemname = "oriental shoes",
 		type = "equip",
 		slot = "feet",
 		level = 80,
@@ -6376,7 +6386,7 @@ local items = {
 	},
 	{
 		-- oriental shoes
-		itemid = 21981,
+		itemname = "oriental shoes",
 		type = "deequip",
 		slot = "feet",
 		level = 80
@@ -10274,7 +10284,7 @@ local items = {
 	},
 	{
 		-- underworld rod
-		itemid = 8082,
+		itemname = "underworld rod",
 		type = "equip",
 		slot = "hand",
 		level = 42,
@@ -10285,7 +10295,7 @@ local items = {
 	},
 	{
 		-- underworld rod
-		itemid = 8082,
+		itemname = "underworld rod",
 		type = "deequip",
 		slot = "hand",
 		level = 42
@@ -10422,7 +10432,7 @@ local items = {
 	},
 	{
 		-- spellbook of mind control
-		itemid = 8074,
+		itemname = "spellbook of mind control",
 		type = "equip",
 		slot = "shield",
 		level = 50,
@@ -10435,7 +10445,7 @@ local items = {
 	},
 	{
 		-- spellbook of mind control
-		itemid = 8074,
+		itemname = "spellbook of mind control",
 		type = "deequip",
 		slot = "shield",
 		level = 50
@@ -10534,7 +10544,7 @@ local items = {
 	},
 	{
 		-- skullcracker armor
-		itemid = 8061,
+		itemname = "skullcracker armor",
 		type = "equip",
 		slot = "armor",
 		level = 85,
@@ -10545,7 +10555,7 @@ local items = {
 	},
 	{
 		-- skullcracker armor
-		itemid = 8061,
+		itemname = "skullcracker armor",
 		type = "deequip",
 		slot = "armor",
 		level = 85
@@ -10840,7 +10850,7 @@ local items = {
 	},
 	{
 		-- focus cape
-		itemid = 8043,
+		itemname = "focus cape",
 		type = "equip",
 		slot = "armor",
 		vocation = {
@@ -10852,7 +10862,7 @@ local items = {
 	},
 	{
 		-- focus cape
-		itemid = 8043,
+		itemname = "focus cape",
 		type = "deequip",
 		slot = "armor"
 	},
@@ -11304,7 +11314,7 @@ local items = {
 	},
 	{
 		-- magma coat
-		itemid = 826,
+		itemname = "magma coat",
 		type = "equip",
 		slot = "armor",
 		level = 50,
@@ -11317,7 +11327,7 @@ local items = {
 	},
 	{
 		-- magma coat
-		itemid = 826,
+		itemname = "magma coat",
 		type = "deequip",
 		slot = "armor",
 		level = 50
@@ -13016,13 +13026,13 @@ local items = {
 	},
 	{
 		-- assassin dagger
-		itemid = 7404,
+		itemname = "assassin dagger",
 		type = "equip",
 		slot = "hand"
 	},
 	{
 		-- assassin dagger
-		itemid = 7404,
+		itemname = "assassin dagger",
 		type = "deequip",
 		slot = "hand"
 	},
@@ -13232,13 +13242,13 @@ local items = {
 	},
 	{
 		-- assassin star
-		itemid = 7368,
+		itemname = "assassin star",
 		type = "equip",
 		slot = "hand"
 	},
 	{
 		-- assassin star
-		itemid = 7368,
+		itemname = "assassin star",
 		type = "deequip",
 		slot = "hand"
 	},
@@ -13423,12 +13433,14 @@ local items = {
 	{
 		-- death ring
 		itemid = 6299,
+		name = "death ring",
 		type = "equip",
 		slot = "ring"
 	},
 	{
 		-- death ring
 		itemid = 6299,
+		name = "death ring",
 		type = "deequip",
 		slot = "ring"
 	},
@@ -13784,13 +13796,13 @@ local items = {
 	},
 	{
 		-- tribal mask
-		itemid = 3403,
+		itemname = "tribal mask",
 		type = "equip",
 		slot = "head"
 	},
 	{
 		-- tribal mask
-		itemid = 3403,
+		itemname = "tribal mask",
 		type = "deequip",
 		slot = "head"
 	},
@@ -13932,13 +13944,13 @@ local items = {
 	},
 	{
 		-- mystic turban
-		itemid = 3574,
+		itemname = "mystic turban",
 		type = "equip",
 		slot = "head"
 	},
 	{
 		-- mystic turban
-		itemid = 3574,
+		itemname = "mystic turban",
 		type = "deequip",
 		slot = "head"
 	},
@@ -14020,13 +14032,13 @@ local items = {
 	},
 	{
 		-- blue robe
-		itemid = 3567,
+		itemname = "blue robe",
 		type = "equip",
 		slot = "armor"
 	},
 	{
 		-- blue robe
-		itemid = 3567,
+		itemname = "blue robe",
 		type = "deequip",
 		slot = "armor"
 	},
@@ -15805,12 +15817,14 @@ local items = {
 	{
 		-- scimitar
 		itemid = 3307,
+		name = "scimitar",
 		type = "equip",
 		slot = "hand"
 	},
 	{
 		-- scimitar
 		itemid = 3307,
+		name = "scimitar",
 		type = "deequip",
 		slot = "hand"
 	},
@@ -16471,12 +16485,14 @@ local items = {
 	{
 		-- ring of healing
 		itemid = 3098,
+		name = "Ring of healing",
 		type = "equip",
 		slot = "ring"
 	},
 	{
 		-- ring of healing
 		itemid = 3098,
+		name = "Ring of healing",
 		type = "deequip",
 		slot = "ring"
 	},
@@ -16543,24 +16559,28 @@ local items = {
 	{
 		-- axe ring
 		itemid = 3092,
+		name = "axe ring",
 		type = "equip",
 		slot = "ring"
 	},
 	{
 		-- axe ring
 		itemid = 3092,
+		name = "axe ring",
 		type = "deequip",
 		slot = "ring"
 	},
 	{
 		-- sword ring
 		itemid = 3091,
+		name = "sword ring",
 		type = "equip",
 		slot = "ring"
 	},
 	{
 		-- sword ring
 		itemid = 3091,
+		name = "sword ring",
 		type = "deequip",
 		slot = "ring"
 	},
@@ -16782,7 +16802,7 @@ local items = {
 	},
 	{
 		-- wand of inferno
-		itemid = 3071,
+		itemname = "wand of inferno",
 		type = "equip",
 		slot = "hand",
 		level = 33,
@@ -16793,14 +16813,14 @@ local items = {
 	},
 	{
 		-- wand of inferno
-		itemid = 3071,
+		itemname = "wand of inferno",
 		type = "deequip",
 		slot = "hand",
 		level = 33
 	},
 	{
 		-- moonlight rod
-		itemid = 3070,
+		itemname = "moonlight rod",
 		type = "equip",
 		slot = "hand",
 		level = 13,
@@ -16811,14 +16831,14 @@ local items = {
 	},
 	{
 		-- moonlight rod
-		itemid = 3070,
+		itemname = "moonlight rod",
 		type = "deequip",
 		slot = "hand",
 		level = 13
 	},
 	{
 		-- necrotic rod
-		itemid = 3069,
+		itemname = "necrotic rod",
 		type = "equip",
 		slot = "hand",
 		level = 19,
@@ -16829,7 +16849,7 @@ local items = {
 	},
 	{
 		-- necrotic rod
-		itemid = 3069,
+		itemname = "necrotic rod",
 		type = "deequip",
 		slot = "hand",
 		level = 19
@@ -16956,13 +16976,13 @@ local items = {
 	},
 	{
 		-- silver amulet
-		itemid = 3054,
+		itemname = "silver amulet",
 		type = "equip",
 		slot = "necklace"
 	},
 	{
 		-- silver amulet
-		itemid = 3054,
+		itemname = "silver amulet",
 		type = "deequip",
 		slot = "necklace"
 	},
@@ -16981,36 +17001,42 @@ local items = {
 	{
 		-- life ring
 		itemid = 3052,
+		name = "life ring",
 		type = "equip",
 		slot = "ring"
 	},
 	{
 		-- life ring
 		itemid = 3052,
+		name = "life ring",
 		type = "deequip",
 		slot = "ring"
 	},
 	{
 		-- energy ring
 		itemid = 3051,
+		name = "energy ring",
 		type = "equip",
 		slot = "ring"
 	},
 	{
 		-- energy ring
 		itemid = 3051,
+		name = "energy ring",
 		type = "deequip",
 		slot = "ring"
 	},
 	{
 		-- power ring
 		itemid = 3050,
+		name = "power ring",
 		type = "equip",
 		slot = "ring"
 	},
 	{
 		-- power ring
 		itemid = 3050,
+		name = "power ring",
 		type = "deequip",
 		slot = "ring"
 	},
@@ -17112,13 +17138,13 @@ local items = {
 	},
 	{
 		-- ruby necklace
-		itemid = 3016,
+		itemname = "ruby necklace",
 		type = "equip",
 		slot = "necklace"
 	},
 	{
 		-- ruby necklace
-		itemid = 3016,
+		itemname = "ruby necklace",
 		type = "deequip",
 		slot = "necklace"
 	},
@@ -17704,16 +17730,16 @@ for _, i in ipairs(items) do
 	local movement = MoveEvent()
 	movement:id(i.itemid or i.itemId)
 
-	if(i.type) then
+	if (i.type) then
 		movement:type(i.type)
 	end
-	if(i.slot) then
+	if (i.slot) then
 		movement:slot(i.slot)
 	end
-	if(i.level) then
+	if (i.level) then
 		movement:level(i.level)
 	end
-	if(i.vocation) then
+	if (i.vocation) then
 		for _, v in ipairs(i.vocation) do
 			movement:vocation(v[1], v[2] or false, v[3] or false)
 		end

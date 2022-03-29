@@ -120,3 +120,14 @@ local EnvenomBallPhysicalTarget =
     )
 )
 EnvenomBallPhysicalTarget:register()
+
+local RangedAttackViperStarPhysicalTarget =
+    CREATE_SPELL(
+    RangedAttackViperStarDefaultConfig,
+    {
+        type = COMBAT_PHYSICALDAMAGE,
+        name = "RangedAttackViperStarPhysicalTarget"
+    }
+)
+
+RangedAttackViperStarPhysicalTarget:register()

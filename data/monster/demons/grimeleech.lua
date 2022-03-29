@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Grimeleech")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "26/03/2022"
+}
+
 monster.description = "a grimeleech"
 monster.experience = 7216
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "The Dungeons of The Ruthless Seven."
-	}
+}
 
 monster.health = 9500
 monster.maxHealth = 9500
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -93,7 +98,7 @@ monster.loot = {
 	{name = "small amethyst", chance = 9640, maxCount = 5},
 	{name = "underworld rod", chance = 6890},
 	{name = "wand of voodoo", chance = 4810},
-	{id= 3039, chance = 3930},
+	{id = 3039, chance = 3930},
 	{name = "yellow gem", chance = 2900},
 	{name = "devil helmet", chance = 1360},
 	{name = "magma legs", chance = 1150},
@@ -110,22 +115,83 @@ monster.loot = {
 	{name = "magic plate armor", chance = 60}
 }
 
+-- TODO: CHECK EM OUT
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 70, attack = 80},
-	{name ="melee", interval = 2000, chance = 2, skill = 153, attack = 100},
-	{name ="combat", interval = 2000, chance = 14, type = COMBAT_PHYSICALDAMAGE, minDamage = 100, maxDamage = -565, range = 7, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_MORTAREA, target = true},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_DEATHDAMAGE, minDamage = -150, maxDamage = -220, length = 8, spread = 3, target = false},
-	{name ="combat", interval = 2000, chance = 13, type = COMBAT_DEATHDAMAGE, minDamage = -225, maxDamage = -375, radius = 4, target = false},
-	{name ="combat", interval = 2000, chance = 9, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -300, length = 8, spread = 3, effect = CONST_ME_EXPLOSIONAREA, target = false}
+	-- Basic attack (0-400 physical)
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 1,
+		minDamage = 0,
+		maxDamage = -400
+	},
+	-- Ranged attack (0-200 physical) (Viper Star)
+	{
+		name = "RangedAttackViperStarPhysicalTarget",
+		interval = 2000,
+		chance = 2,
+		minDamage = 0,
+		maxDamage = -200
+	},
+	-- Red Stars Strike (180-240 life drain, on target)
+	{
+		name = "RedStarsStrikeLifeDrainTarget",
+		chance = 14,
+		minDamage = -180,
+		maxDamage = -240
+	},
+	-- Red Stars Wave (200-270 mana drain)
+	{
+		name = "RedStarsWaveManaDrain",
+		chance = 12,
+		minDamage = -200,
+		maxDamage = -270
+	},
+	-- Dizzy Box (on target, effect: drunk) (Glooth Spear)
+	{
+		name = "drunk",
+		interval = 2000,
+		chance = 11,
+		radius = 3,
+		effect = CONST_ME_STUN,
+		shootEffect = CONST_ANI_GLOOTHSPEAR,
+		target = true,
+		duration = 10000
+	},
+	-- Smoke Box (320-400 death, on target)
+	{
+		name = "SmokeBoxDeathTarget",
+		chance = 9,
+		minDamage = -320,
+		maxDamage = -400
+	}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="combat", interval = 2000, chance = 16, type = COMBAT_HEALING, minDamage = 130, maxDamage = 205, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="effect", interval = 2000, chance = 9, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="effect", interval = 2000, chance = 10, target = false},
-	{name ="speed", interval = 2000, chance = 12, speedChange = 532, effect = CONST_ME_MAGIC_RED, target = false, duration = 4000}
+	-- Intense Healing (200-360 heal)
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 16,
+		type = COMBAT_HEALING,
+		minDamage = 200,
+		maxDamage = 360,
+		effect = CONST_ME_MAGIC_RED,
+		target = false
+	},
+	{name = "effect", interval = 2000, chance = 9, effect = CONST_ME_MAGIC_GREEN, target = false},
+	{name = "effect", interval = 2000, chance = 10, target = false},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 12,
+		speedChange = 532,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 4000
+	}
 }
 
 monster.elements = {

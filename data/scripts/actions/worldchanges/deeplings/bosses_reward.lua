@@ -4,7 +4,7 @@ local rewards = {
 		bossName = 'Jaul',
 		items = {
 			{rand = true, itemId = {13990, 14021}},
-			{itemId = 3035, count = 50},
+			{itemId = 3035, name = "platinum coin", count = 50},
 			{itemId = 14224},
 			{itemId = 14042}
 		}
@@ -15,7 +15,7 @@ local rewards = {
 		items = {
 			{rand = true, itemId = {14022, 3027}},
 			{itemId = 14223},
-			{itemId = 3035, count = 20},
+			{itemid = 3035, name = "platinum coin", count = 20},
 			{itemId = 13990},
 			{itemId = 14042}
 		}
@@ -27,7 +27,7 @@ local rewards = {
 			{rand = true, itemId = {14023, 281}},
 			{itemId = 14222},
 			{itemId = 14043},
-			{itemId = 3035, count = 30},
+			{itemid = 3035, name = "platinum coin", count = 30},
 			{itemId = 13987}
 		}
 	}

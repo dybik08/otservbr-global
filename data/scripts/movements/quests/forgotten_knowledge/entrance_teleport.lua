@@ -5,7 +5,7 @@ local destination = {
 		effect = CONST_ME_MORTAREA
 	},
 	[27716] = {
-		newPos = Position(32325, 32089,7),
+		newPos = Position(32325, 32089, 7),
 		storage = Storage.ForgottenKnowledge.AccessDeath,
 		effect = CONST_ME_MORTAREA
 	},
@@ -15,16 +15,16 @@ local destination = {
 		effect = CONST_ME_PURPLEENERGY
 	},
 	[27720] = {
-		newPos = Position(32328, 32089,7),
+		newPos = Position(32328, 32089, 7),
 		storage = Storage.ForgottenKnowledge.AccessViolet,
 		effect = CONST_ME_PURPLEENERGY
 	},
-	[27717] = {
+	[25049] = {
 		newPos = Position(32637, 32256, 7),
 		storage = Storage.ForgottenKnowledge.AccessEarth,
 		effect = CONST_ME_SMALLPLANTS
 	},
-	[27718] = {
+	[25050] = {
 		newPos = Position(32331, 32089, 7),
 		storage = Storage.ForgottenKnowledge.AccessEarth,
 		effect = CONST_ME_SMALLPLANTS
@@ -35,7 +35,7 @@ local destination = {
 		effect = CONST_ME_FIREAREA
 	},
 	[27722] = {
-		newPos = Position(32334, 32089,7),
+		newPos = Position(32334, 32089, 7),
 		storage = Storage.ForgottenKnowledge.AccessFire,
 		effect = CONST_ME_FIREAREA
 	},
@@ -45,7 +45,7 @@ local destination = {
 		effect = CONST_ME_ICEATTACK
 	},
 	[27726] = {
-		newPos = Position(32337, 32089,7),
+		newPos = Position(32337, 32089, 7),
 		storage = Storage.ForgottenKnowledge.AccessIce,
 		effect = CONST_ME_ICEATTACK
 	},
@@ -67,7 +67,8 @@ local destination = {
 	[11798] = {
 		newPos = Position(32332, 32092, 7),
 		storage = Storage.ForgottenKnowledge.AccessLast,
-	effect = CONST_ME_ENERGYHIT}
+		effect = CONST_ME_ENERGYHIT
+	}
 }
 
 local entranceTeleport = MoveEvent()
@@ -79,45 +80,113 @@ function entranceTeleport.onStepIn(creature, item, position, fromPosition)
 	end
 
 	local teleport = destination[item.itemid]
+	print("item: ", item.itemid)
+	print("teleport: ", teleport)
 	if not teleport then
 		return
 	end
-	if item.itemid == 11796 then
-		if player:getStorageValue(Storage.ForgottenKnowledge.AccessLast) < 1 then
-			if player:getStorageValue(Storage.ForgottenKnowledge.LadyTenebrisKilled) >= 1
-			and player:getStorageValue(Storage.ForgottenKnowledge.LloydKilled) >= 1
-			and player:getStorageValue(Storage.ForgottenKnowledge.ThornKnightKilled) >= 1
-			and player:getStorageValue(Storage.ForgottenKnowledge.DragonkingKilled) >= 1
-			and player:getStorageValue(Storage.ForgottenKnowledge.HorrorKilled) >= 1
-			and player:getStorageValue(Storage.ForgottenKnowledge.TimeGuardianKilled) >= 1 then
-				player:setStorageValue(Storage.ForgottenKnowledge.AccessLast, 1)
-			end
-		end
-	end
-	if player:getStorageValue(teleport.storage) >= 1 then
-		position:sendMagicEffect(teleport.effect)
-		player:teleportTo(teleport.newPos)
-		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		return true
-	else
-		if item.itemid == 11796 then
-			player:teleportTo(fromPosition)
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You don\'t have the permission to use this portal.")
-			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-			return true
-		end
-		local pos = position
-		pos.y = pos.y + 2
-		player:teleportTo(pos)
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You don\'t have the permission to use this portal.")
-		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		pos.y = pos.y - 2
-		pos:sendMagicEffect(CONST_ME_TELEPORT)
-	end
+	-- if item.itemid == 11796 then
+	-- 	if player:getStorageValue(Storage.ForgottenKnowledge.AccessLast) < 1 then
+	-- 		if player:getStorageValue(Storage.ForgottenKnowledge.LadyTenebrisKilled) >= 1
+	-- 		and player:getStorageValue(Storage.ForgottenKnowledge.LloydKilled) >= 1
+	-- 		and player:getStorageValue(Storage.ForgottenKnowledge.ThornKnightKilled) >= 1
+	-- 		and player:getStorageValue(Storage.ForgottenKnowledge.DragonkingKilled) >= 1
+	-- 		and player:getStorageValue(Storage.ForgottenKnowledge.HorrorKilled) >= 1
+	-- 		and player:getStorageValue(Storage.ForgottenKnowledge.TimeGuardianKilled) >= 1 then
+	-- 			player:setStorageValue(Storage.ForgottenKnowledge.AccessLast, 1)
+	-- 		end
+	-- 	end
+	-- end
+	-- if player:getStorageValue(teleport.storage) >= 1 then
+	position:sendMagicEffect(teleport.effect)
+	player:teleportTo(teleport.newPos)
+	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+	-- return true
+	-- else
+	-- 	if item.itemid == 11796 then
+	-- 		player:teleportTo(fromPosition)
+	-- 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You don\'t have the permission to use this portal.")
+	-- 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+	-- 		return true
+	-- 	end
+	-- 	local pos = position
+	-- 	pos.y = pos.y + 2
+	-- 	player:teleportTo(pos)
+	-- 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You don\'t have the permission to use this portal.")
+	-- 	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+	-- 	pos.y = pos.y - 2
+	-- 	pos:sendMagicEffect(CONST_ME_TELEPORT)
+	-- end
 	return true
 end
-
 
 entranceTeleport:type("stepin")
 entranceTeleport:aid(24873)
 entranceTeleport:register()
+
+-- local destination2 = {
+-- 	[22761] = {
+-- 		newPos = Position(33618, 32544, 13),
+-- 		effect = CONST_ME_TELEPORT
+-- 	}
+-- }
+
+-- local entranceTeleport2 = MoveEvent()
+
+-- function entranceTeleport2.onStepIn(creature, item, position, fromPosition)
+-- 	local player = creature:getPlayer()
+-- 	if not player then
+-- 		return
+-- 	end
+
+-- 	local teleport = destination2[item.itemid]
+-- 	print("item: ", item.itemid)
+-- 	print("teleport: ", teleport)
+-- 	if not teleport then
+-- 		return
+-- 	end
+
+-- 	position:sendMagicEffect(teleport.effect)
+-- 	player:teleportTo(teleport.newPos)
+-- 	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+-- end
+
+-- entranceTeleport2:type("stepin")
+-- entranceTeleport2:aid(3250)
+-- entranceTeleport2:register()
+
+local destination3 = {
+	[13] = {
+		newPos = Position(32720, 32271, 8),
+		effect = CONST_ME_TELEPORT
+	},
+	[8] = {
+		newPos = Position(33618, 32544, 13),
+		effect = CONST_ME_TELEPORT
+	}
+}
+
+local entranceTeleport3 = MoveEvent()
+
+function entranceTeleport3.onStepIn(creature, item, position, fromPosition)
+	local player = creature:getPlayer()
+	if not player then
+		return
+	end
+	local playerPosition = player:getPosition()
+	local teleport = destination3[playerPosition.z]
+	print("item: ", item.itemid)
+	-- 33618, 32546, 13
+	print("playerPosition: ", playerPosition.z)
+	if not teleport then
+		return
+	end
+
+	position:sendMagicEffect(teleport.effect)
+	player:teleportTo(teleport.newPos)
+	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+end
+
+entranceTeleport3:type("stepin")
+entranceTeleport3:id(22761)
+entranceTeleport3:register()

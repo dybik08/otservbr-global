@@ -1,22 +1,28 @@
 local items = {
-    { description = 'a platinum coins', items = {{ id = ITEM_PLATINUM_COIN, count = 5 }}},
-    { description = 'some gems', items = {
-        { id = 3029, count = 1 },
-        { id = 3032, count = 1 },
-        { id = 3030, count = 1 }
-    }},
-    { description = 'a life ring', items = {{ id = 3089, count = 1 }} },
-    { description = 'a red gem', items = {{ id = 3039, count = 1 }} },
-    { description = 'a mana potion', items = {{ id = 237, count = 10 }} },
-    { description = 'a health potion', items = {{ id = 236, count = 8 }} }
+    {description = "a platinum coins", items = {{id = ITEM_PLATINUM_COIN, count = 5}}},
+    {
+        description = "some gems",
+        items = {
+            {name = "small sapphire", count = 1},
+            {name = "small emerald", count = 1},
+            {name = "small ruby", count = 1}
+        }
+    },
+    {description = "a life ring", items = {{id = 3089, count = 1}}},
+    {description = "a red gem", items = {{id = 3039, name = "red gem", count = 1}}},
+    {description = "a mana potion", items = {{id = 237, count = 10}}},
+    {description = "a health potion", items = {{id = 236, count = 8}}}
 }
 
 local adventurersTreasure = Action()
 function adventurersTreasure.onUse(player, item, fromPosition, target, toPosition, isHotkey)
     if player:getStorageValue(Storage.AdventurersGuild.GreatDragonHunt.DragonCounter) >= 50 then
         local treasure = items[math.random(#items)]
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "It is impossible to take along all of the treasures here. Buy you pick out " .. treasure.description)
-        for _, item in ipairs(treasure.items) do 
+        player:sendTextMessage(
+            MESSAGE_EVENT_ADVANCE,
+            "It is impossible to take along all of the treasures here. Buy you pick out " .. treasure.description
+        )
+        for _, item in ipairs(treasure.items) do
             player:addItem(item.id, item.count)
         end
 
@@ -24,7 +30,7 @@ function adventurersTreasure.onUse(player, item, fromPosition, target, toPositio
         player:setStorageValue(Storage.AdventurersGuild.GreatDragonHunt.DragonCounter, 0)
 
         -- hoard of the dragon achievement
-        local achievement = getAchievementInfoByName('Hoard of the Dragon')
+        local achievement = getAchievementInfoByName("Hoard of the Dragon")
         if not achievement or player:hasAchievement(achievement.id) then
             return true
         end
@@ -37,12 +43,14 @@ function adventurersTreasure.onUse(player, item, fromPosition, target, toPositio
         if times + 1 == 10 then
             player:addAchievement(achievement.id)
         end
-
     else
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You try to pick a treasure, but you hear further dragons approaching. You should kill some more before picking out something.")
+        player:sendTextMessage(
+            MESSAGE_EVENT_ADVANCE,
+            "You try to pick a treasure, but you hear further dragons approaching. You should kill some more before picking out something."
+        )
     end
 
-	return true
+    return true
 end
 
 adventurersTreasure:aid(50808)

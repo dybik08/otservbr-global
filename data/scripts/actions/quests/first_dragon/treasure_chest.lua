@@ -21,7 +21,9 @@ local UniqueTable = {
 	},
 	[14006] = {
 		-- red gem
-		itemId = 3039,
+		itemid = 3039,
+		name = "red gem",
+		name = "red gem",
 		count = 1
 	},
 	[14007] = {
@@ -29,6 +31,7 @@ local UniqueTable = {
 		count = 3
 	},
 	[14008] = {
+		id = 3035,
 		name = "platinum coin",
 		count = 3
 	},
@@ -90,12 +93,12 @@ function treasureChest.onUse(player, item, fromPosition, target, toPosition, isH
 	end
 
 	if player:getStorageValue(item.uid) >= 1 then
-		player:sendTextMessage(string.format(MESSAGE_EVENT_ADVANCE, 'The %s is empty.', item:getName()))
+		player:sendTextMessage(string.format(MESSAGE_EVENT_ADVANCE, "The %s is empty.", item:getName()))
 		return true
 	end
 
 	if player:getStorageValue(Storage.FirstDragon.ChestCounter) >= 19 then
-		player:addAchievement('Treasure Hunter')
+		player:addAchievement("Treasure Hunter")
 		player:addItem(setting.name or setting.itemId, setting.count, true)
 		player:setStorageValue(item.uid, 1)
 		player:setStorageValue(Storage.FirstDragon.ChestCounter, player:getStorageValue(Storage.FirstDragon.ChestCounter) + 1)
@@ -104,11 +107,14 @@ function treasureChest.onUse(player, item, fromPosition, target, toPosition, isH
 	player:setStorageValue(item.uid, 1)
 	player:setStorageValue(Storage.FirstDragon.ChestCounter, player:getStorageValue(Storage.FirstDragon.ChestCounter) + 1)
 	if setting.name then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found ' ..setting.count.. ' ' ..setting.name..'.')
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You found " .. setting.count .. " " .. setting.name .. ".")
 		player:addItem(setting.name, setting.count, true)
 	elseif setting.itemId then
 		player:addItem(setting.itemId, setting.count, true)
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found ' ..setting.count.. ' ' .. getItemName(setting.itemId) .. '.')
+		player:sendTextMessage(
+			MESSAGE_EVENT_ADVANCE,
+			"You found " .. setting.count .. " " .. getItemName(setting.itemId) .. "."
+		)
 	end
 	return true
 end

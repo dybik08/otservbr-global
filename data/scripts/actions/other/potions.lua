@@ -27,10 +27,13 @@ exhaust:setParameter(CONDITION_PARAM_TICKS, (configManager.getNumber(configKeys.
 -- 1000 - 100 due to exact condition timing. -100 doesn't hurt us, and players don't have reminding ~50ms exhaustion.
 
 local function magicshield(player)
-local condition = Condition(CONDITION_MANASHIELD)
-condition:setParameter(CONDITION_PARAM_TICKS, 60000)
-condition:setParameter(CONDITION_PARAM_MANASHIELD, math.min(player:getMaxMana(), 300 + 7.6 * player:getLevel() + 7 * player:getMagicLevel()))
-player:addCondition(condition)
+	local condition = Condition(CONDITION_MANASHIELD)
+	condition:setParameter(CONDITION_PARAM_TICKS, 60000)
+	condition:setParameter(
+		CONDITION_PARAM_MANASHIELD,
+		math.min(player:getMaxMana(), 300 + 7.6 * player:getLevel() + 7 * player:getMagicLevel())
+	)
+	player:addCondition(condition)
 end
 
 local potions = {
@@ -76,7 +79,7 @@ local potions = {
 		level = 14,
 		func = magicshield,
 		effect = CONST_ME_ENERGYAREA,
-		description = "Only sorcerers and druids of level 14 or above may drink this potion.",
+		description = "Only sorcerers and druids of level 14 or above may drink this potion."
 	},
 	[236] = {
 		health = {
@@ -93,8 +96,8 @@ local potions = {
 	},
 	[237] = {
 		mana = {
-			115,
-			185
+			1150,
+			1850
 		},
 		level = 50,
 		flask = 283,
@@ -236,7 +239,11 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 	end
 
 	local potion = potions[item:getId()]
-	if potion.level and player:getLevel() < potion.level or potion.vocations and not table.contains(potion.vocations, player:getVocation():getBaseId()) and not (player:getGroup():getId() >= 2) then
+	if
+		potion.level and player:getLevel() < potion.level or
+			potion.vocations and not table.contains(potion.vocations, player:getVocation():getBaseId()) and
+				not (player:getGroup():getId() >= 2)
+	 then
 		player:say(potion.description, MESSAGE_POTION)
 		return true
 	end
@@ -263,7 +270,7 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 			target:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 		end
 
-		player:addAchievementProgress('Potion Addict', 100000)
+		player:addAchievementProgress("Potion Addict", 100000)
 		target:say("Aaaah...", MESSAGE_POTION)
 		if fromPosition.x == CONTAINER_POSITION and not container == store_inbox then
 			local container = Container(item:getParent().uid)
@@ -272,12 +279,12 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 			player:addItem(potion.flask, 1)
 		end
 		player:addCondition(exhaust)
-		player:setStorageValue(38412, player:getStorageValue(38412)+1)
+		player:setStorageValue(38412, player:getStorageValue(38412) + 1)
 	end
 
 	-- Delay potion
 	playerDelayPotion[player:getId()] = systemTime() + 500
-	
+
 	if potion.func then
 		potion.func(player)
 		player:say("Aaaah...", MESSAGE_POTION)

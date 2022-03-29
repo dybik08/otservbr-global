@@ -1,6 +1,331 @@
+--Pre-made areas by Wojtek
 
+SPELL_AREAS = {
+	STRIKE = {
+		{0, 0, 0},
+		{0, 3, 0},
+		{0, 0, 0}
+	},
+	CROSS = {
+		{0, 1, 0},
+		{1, 3, 1},
+		{0, 1, 0}
+	},
+	X_CROSS = {
+		{1, 0, 1},
+		{0, 3, 0},
+		{1, 0, 1}
+	},
+	BOX = {
+		{1, 1, 1},
+		{1, 3, 1},
+		{1, 1, 1}
+	},
+	BALL = {
+		-- RADIUS 2
+		{0, 1, 1, 1, 0},
+		{1, 1, 1, 1, 1},
+		{1, 1, 3, 1, 1},
+		{1, 1, 1, 1, 1},
+		{0, 1, 1, 1, 0}
+	},
+	GREAT_BALL = {
+		-- RADIUS 3
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 1, 1, 1, 1, 1, 0},
+		{1, 1, 1, 1, 1, 1, 1},
+		{1, 1, 1, 3, 1, 1, 1},
+		{1, 1, 1, 1, 1, 1, 1},
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 0, 1, 1, 1, 0, 0}
+	},
+	GREATER_BALL = {
+		-- RADIUS 4
+		{0, 0, 0, 1, 1, 1, 0, 0, 0},
+		{0, 0, 1, 1, 1, 1, 1, 0, 0},
+		{0, 1, 1, 1, 1, 1, 1, 1, 0},
+		{1, 1, 1, 1, 1, 1, 1, 1, 1},
+		{1, 1, 1, 1, 3, 1, 1, 1, 1},
+		{1, 1, 1, 1, 1, 1, 1, 1, 1},
+		{0, 1, 1, 1, 1, 1, 1, 1, 0},
+		{0, 0, 1, 1, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 1, 1, 0, 0, 0}
+	},
+	ULTIMATE_BALL = {
+		-- RADIUS 5
+		{0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0},
+		{0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0},
+		{0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0},
+		{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+		{1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1},
+		{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+		{0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0},
+		{0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0}
+	},
+	THE_GREATEST_BALL = {
+		-- RADIUS 6
+		{0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0},
+		{0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0},
+		{0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
+		{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+		{1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+		{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+		{0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0},
+		{0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0},
+		{0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0}
+	},
+	CIRCLE = {
+		{0, 1, 1, 1, 0},
+		{1, 0, 0, 0, 1},
+		{1, 0, 3, 0, 1},
+		{1, 0, 0, 0, 1},
+		{0, 1, 1, 1, 0}
+	},
+	GREAT_CIRCLE = {
+		{0, 1, 1, 1, 1, 1, 0},
+		{1, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 3, 0, 0, 1},
+		{1, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 0, 0, 0, 1},
+		{0, 1, 1, 1, 1, 1, 0}
+	},
+	GREATER_CIRCLE = {}, -- TODO
+	ULTIMATE_CIRCLE = {}, -- TODO
+	THE_GREATEST_CIRCLE = {}, -- TODO
+	TINY_BEAM = {
+		{1},
+		{3}
+	},
+	SHORTER_BEAM = {
+		{1},
+		{1},
+		{3}
+	},
+	SHORT_BEAM = {
+		{1},
+		{1},
+		{1},
+		{3}
+	},
+	BEAM = {
+		{1},
+		{1},
+		{1},
+		{1},
+		{3}
+	},
+	LONG_BEAM = {
+		{1},
+		{1},
+		{1},
+		{1},
+		{1},
+		{3}
+	},
+	LONGER_BEAM = {
+		{1},
+		{1},
+		{1},
+		{1},
+		{1},
+		{1},
+		{3}
+	},
+	GREAT_BEAM = {
+		{1},
+		{1},
+		{1},
+		{1},
+		{1},
+		{1},
+		{1},
+		{3}
+	},
+	GREATER_BEAM = {
+		{1},
+		{1},
+		{1},
+		{1},
+		{1},
+		{1},
+		{1},
+		{1},
+		{3}
+	},
+	SHORT_WAVE = {
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
+	WAVE = {
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
+	LONG_WAVE = {
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
+	LONGER_WAVE = {
+		{1, 1, 1, 1, 1, 1, 1},
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
+	GREAT_WAVE = {
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
+	TINY_CONE_WAVE = {
+		{1, 1, 1},
+		{0, 3, 0}
+	},
+	SHORT_CONE_WAVE = {
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
+	CONE_WAVE = {
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
+	LONG_CONE_WAVE = {
+		{1, 1, 1, 1, 1, 1, 1},
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
+	LONGER_CONE_WAVE = {
+		{1, 1, 1, 1, 1, 1, 1},
+		{1, 1, 1, 1, 1, 1, 1},
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
+	GREAT_CONE_WAVE = {
+		{1, 1, 1, 1, 1, 1, 1},
+		{1, 1, 1, 1, 1, 1, 1},
+		{1, 1, 1, 1, 1, 1, 1},
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
+	GREATER_CONE_WAVE = {
+		{1, 1, 1, 1, 1, 1, 1},
+		{1, 1, 1, 1, 1, 1, 1},
+		{1, 1, 1, 1, 1, 1, 1},
+		{1, 1, 1, 1, 1, 1, 1},
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 1, 1, 1, 1, 1, 0},
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
+	TINY_T_WAVE = {
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
+	SHORTER_T_WAVE = {
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
+	SHORT_T_WAVE = {
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
+	T_WAVE = {
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
+	LONG_T_WAVE = {
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
+	LONGER_T_WAVE = {
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
+	GREAT_T_WAVE = {
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
+	GREATER_T_WAVE = {
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	}
+}
 
---Pre-made areas
 --Waves
 AREA_SHORTWAVE3 = {
 	{1, 1, 1},
@@ -316,7 +641,7 @@ AREADIAGONAL_WALLFIELD = {
 	{0, 0, 0, 1, 1},
 	{0, 1, 3, 1, 0},
 	{1, 1, 0, 0, 0},
-	{1, 0, 0, 0, 0},
+	{1, 0, 0, 0, 0}
 }
 
 -- Walls Energy
@@ -331,7 +656,7 @@ AREADIAGONAL_WALLFIELD_ENERGY = {
 	{0, 0, 1, 3, 1, 0, 0},
 	{0, 1, 1, 0, 0, 0, 0},
 	{0, 1, 0, 0, 0, 0, 0},
-	{1, 0, 0, 0, 0, 0, 0},
+	{1, 0, 0, 0, 0, 0, 0}
 }
 
 -- Spells-only arrays
@@ -374,10 +699,25 @@ CORPSES = {
 -- The numbered-keys represents the damage values, and their table
 -- contains the minimum and maximum number of rounds of those damage values.
 RANGE = {
-	[1] = {19, 20}, [2] = {10, 10}, [3] = {6, 7}, [4] = {4, 5}, [5] = {3, 4},
-	[6] = {3, 4}, [7] = {2, 3}, [8] = {2, 3}, [9] = {2, 3}, [10] = {1, 2},
-	[11] = {1, 2}, [12] = {1, 2}, [13] = {1, 2}, [14] = {1, 2}, [15] = {1, 2},
-	[16] = {1, 2}, [17] = {1, 2}, [18] = {1, 2}, [19] = {1, 2}
+	[1] = {19, 20},
+	[2] = {10, 10},
+	[3] = {6, 7},
+	[4] = {4, 5},
+	[5] = {3, 4},
+	[6] = {3, 4},
+	[7] = {2, 3},
+	[8] = {2, 3},
+	[9] = {2, 3},
+	[10] = {1, 2},
+	[11] = {1, 2},
+	[12] = {1, 2},
+	[13] = {1, 2},
+	[14] = {1, 2},
+	[15] = {1, 2},
+	[16] = {1, 2},
+	[17] = {1, 2},
+	[18] = {1, 2},
+	[19] = {1, 2}
 }
 
 function Creature:addDamageCondition(target, conditionType, listType, damage, time, rounds)
@@ -506,62 +846,62 @@ end
 
 -- BASED ON https://tibiopedia.pl/articles/21,Spis-atakow-potworow AND https://tibia.fandom.com/wiki/Effects
 SPELL_ANIMATIONS = {
-    ENVENOM = CONST_ME_HITBYPOISON,
-    SMOKE = CONST_ME_POFF,
-    DEATH = CONST_ME_MORTAREA,
-    FIRE = CONST_ME_FIREAREA,
-    POISON = CONST_ME_GREEN_RINGS,
-    GREEN_STARS = CONST_ME_MAGIC_GREEN,
-    RED_STARS = CONST_ME_MAGIC_RED,
-    BLUE_STARS = CONST_ME_MAGIC_BLUE,
-    RED_NOTES = CONST_ME_SOUND_RED,
-    GREEN_NOTES = CONST_ME_SOUND_GREEN,
-    BLUE_NOTES = CONST_ME_SOUND_BLUE,
-    PURPLE_NOTES = CONST_ME_SOUND_PURPLE,
-    WHITE_NOTES = CONST_ME_SOUND_WHITE,
-    YELLOW_NOTES = CONST_ME_SOUND_YELLOW,
-    BLACK_STEAM = CONST_ME_BLACKSMOKE,
-    WHITE_STEAM = CONST_ME_SMOKE,
-    RED_STEAM = CONST_ME_REDSMOKE,
-    DETONATION = CONST_ME_FIREAREA,
-    ERUPTION = CONST_ME_EXPLOSIONHIT,
-    EXPLOSION = CONST_ME_EXPLOSIONAREA,
-    FLAME = CONST_ME_FIREATTACK,
-    TERRA = CONST_ME_CARNIPHILA,
-    CREEPERS = CONST_ME_SMALLPLANTS,
-    ENERGY = CONST_ME_ENERGYAREA,
-    YELLOW_ENERGY = CONST_ME_YELLOWENERGY,
-    PURPLE_ENERGY = CONST_ME_PURPLEENERGY,
-    ELECTRIC = CONST_ME_ENERGYHIT,
-    YELLOW_ELECTRIC = CONST_ME_YELLOWENERGY,
-    PURPLE_ELECTRIC = CONST_ME_PURPLEENERGY,
-    STORM = CONST_ME_BIGCLOUDS,
-    ICY_WIND = CONST_ME_ICETORNADO,
-    ICE = CONST_ME_ICEAREA,
-    ICE_FLAKE = CONST_ME_ICEATTACK,
-    ICY_CRYSTAL = CONST_ME_GIANTICE,
-    WATER = CONST_ME_LOSEENERGY,
-    WATER_SPLASH = CONST_ME_WATERSPLASH,
-    BLOOD = CONST_ME_DRAWBLOOD,
-    HOLY_CROSS = CONST_ME_HOLYAREA,
-    HOLY = CONST_ME_HOLYDAMAGE,
-    STONE_SHOWER = CONST_ME_STONES,
-    GROUND_SHAKER = CONST_ME_GROUNDSHAKER,
-    DIZZY = CONST_ME_STUN,
-    SPARKY = CONST_ME_BLOCKHIT,
-    BERSERK = CONST_ME_HITAREA,
-    CURSE = CONST_ME_SMALLCLOUDS,
-    FAIRY_PUFF = CONST_ME_PIXIE_EXPLOSION,
-    HEARTS = CONST_ME_HEARTS,
-    DICE = CONST_ME_CRAPS,
-    BATS = CONST_ME_BATS,
-    BUBBLES = CONST_ME_BUBBLES,
-    ROOTS = CONST_ME_ROOTS,
-    WHITE_SHADE = CONST_ME_YALAHARIGHOST,
-    ACID = CONST_ME_YELLOW_RINGS,
-    WHITE_SPARK = CONST_ME_WHITE_ENERGY_SPARK,
-    BLUE_SPARK = CONST_ME_BLUE_ENERGY_SPARK,
-    YELLOW_SPARK = CONST_ME_YELLOW_ENERGY_SPARK
+	ENVENOM = CONST_ME_HITBYPOISON,
+	SMOKE = CONST_ME_POFF,
+	DEATH = CONST_ME_MORTAREA,
+	FIRE = CONST_ME_FIREAREA,
+	POISON = CONST_ME_GREEN_RINGS,
+	GREEN_STARS = CONST_ME_MAGIC_GREEN,
+	RED_STARS = CONST_ME_MAGIC_RED,
+	BLUE_STARS = CONST_ME_MAGIC_BLUE,
+	RED_NOTES = CONST_ME_SOUND_RED,
+	GREEN_NOTES = CONST_ME_SOUND_GREEN,
+	BLUE_NOTES = CONST_ME_SOUND_BLUE,
+	PURPLE_NOTES = CONST_ME_SOUND_PURPLE,
+	WHITE_NOTES = CONST_ME_SOUND_WHITE,
+	YELLOW_NOTES = CONST_ME_SOUND_YELLOW,
+	BLACK_STEAM = CONST_ME_BLACKSMOKE,
+	WHITE_STEAM = CONST_ME_SMOKE,
+	RED_STEAM = CONST_ME_REDSMOKE,
+	DETONATION = CONST_ME_FIREAREA,
+	ERUPTION = CONST_ME_EXPLOSIONHIT,
+	EXPLOSION = CONST_ME_EXPLOSIONAREA,
+	FLAME = CONST_ME_FIREATTACK,
+	TERRA = CONST_ME_CARNIPHILA,
+	CREEPERS = CONST_ME_SMALLPLANTS,
+	ENERGY = CONST_ME_ENERGYAREA,
+	YELLOW_ENERGY = CONST_ME_YELLOWENERGY,
+	PURPLE_ENERGY = CONST_ME_PURPLEENERGY,
+	ELECTRIC = CONST_ME_ENERGYHIT,
+	YELLOW_ELECTRIC = CONST_ME_YELLOWENERGY,
+	PURPLE_ELECTRIC = CONST_ME_PURPLEENERGY,
+	STORM = CONST_ME_BIGCLOUDS,
+	ICY_WIND = CONST_ME_ICETORNADO,
+	ICE = CONST_ME_ICEAREA,
+	ICE_FLAKE = CONST_ME_ICEATTACK,
+	ICY_CRYSTAL = CONST_ME_GIANTICE,
+	WATER = CONST_ME_LOSEENERGY,
+	WATER_SPLASH = CONST_ME_WATERSPLASH,
+	BLOOD = CONST_ME_DRAWBLOOD,
+	HOLY_CROSS = CONST_ME_HOLYAREA,
+	HOLY = CONST_ME_HOLYDAMAGE,
+	STONE_SHOWER = CONST_ME_STONES,
+	GROUND_SHAKER = CONST_ME_GROUNDSHAKER,
+	DIZZY = CONST_ME_STUN,
+	SPARKY = CONST_ME_BLOCKHIT,
+	BERSERK = CONST_ME_HITAREA,
+	CURSE = CONST_ME_SMALLCLOUDS,
+	FAIRY_PUFF = CONST_ME_PIXIE_EXPLOSION,
+	HEARTS = CONST_ME_HEARTS,
+	DICE = CONST_ME_CRAPS,
+	BATS = CONST_ME_BATS,
+	BUBBLES = CONST_ME_BUBBLES,
+	ROOTS = CONST_ME_ROOTS,
+	WHITE_SHADE = CONST_ME_YALAHARIGHOST,
+	ACID = CONST_ME_YELLOW_RINGS,
+	WHITE_SPARK = CONST_ME_WHITE_ENERGY_SPARK,
+	BLUE_SPARK = CONST_ME_BLUE_ENERGY_SPARK,
+	YELLOW_SPARK = CONST_ME_YELLOW_ENERGY_SPARK
 }
 
 SHOOT_EFFECTS = {
@@ -571,145 +911,704 @@ SHOOT_EFFECTS = {
 	ENERGY_STRIKE = CONST_ANI_ENERGY,
 	DEATH_STRIKE = CONST_ANI_DEATH,
 	POISON_ARROW = CONST_ANI_POISONARROW,
+	HUNTING_SPEAR = CONST_ANI_HUNTINGSPEAR,
+	ROYAL_SPEAR = CONST_ANI_ROYALSPEAR,
+	GLOOTH_SPEAR = CONST_ANI_GLOOTHSPEAR,
+	BOLT = CONST_ANI_BOLT,
+	SPEAR = CONST_ANI_SPEAR,
+	LARGE_ROCK = CONST_ANI_LARGEROCK,
+	VIPER_STAR = CONST_ANI_GREENSTAR,
+	FLAMING_ARROW = CONST_ANI_FLAMMINGARROW
 }
 
-SPELL_AREAS = {
-    -- RADIUS BASED SPELLS
-    STRIKE = 1, -- radius 1
-    CROSS = 2, -- radius 2
-    BOX = 3, -- radius 3
-    BALL = 4, -- radius 4
-    GREATER_BALL = 5, -- radius 5
-    ULTIMATE_BALL = 6, -- radius 6
-    THE_GREATEST_BALL = 7, -- radius 7
-    CIRCLE = 1,
-    -- LENGTH BASED SPELLS
-    TINY_BEAM = 1, -- length
-    SHORTER_BEAM = 2, -- length
-    SHORT_BEAM = 3, -- length
-    BEAM = 4, -- length
-    LONG_BEAM = 5, -- length
-    LONGER_BEAM = 6, -- length
-    GREAT_BEAM = 7, -- length
-    GREATER_BEAM = 8, -- length,
-    -- LENGTH BASED SPELLS with spread = 3 - WAVES
-    SHORT_WAVE = 4,
-    WAVE = 5,
-    LONG_WAVE = 6,
-    LONGER_WAVE = 7,
-    GREAT_WAVE = 8,
-    -- LENGTH BASED SPELLS with spread = 2 - CONE WAVES
-    TINY_CONE_WAVE = 2,
-    SHORTER_CONE_WAVE = 3,
-    SHORT_CONE_WAVE = 4,
-    CONE_WAVE = 5,
-    LONG_CONE_WAVE = 6,
-    LONGER_CONE_WAVE = 7,
-    GREAT_CONE_WAVE = 8,
-}
 --
-function CREATE_SPELL(spellConfig)
-    local area = spellConfig.area
-    local type = spellConfig.type
-    local effect = spellConfig.effect
-    local shootEffect = spellConfig.shootEffect
-    local distanceEfect = spellConfig.distanceEfect
-    local name = spellConfig.name
-    local words = spellConfig.words
-    local range = spellConfig.range or 7
-    local needDirection = spellConfig.needDirection or false
-    local condition = spellConfig.condition
-    local needTarget = spellConfig.needTarget or false
+function CREATE_SPELL(config, overwrittenConfig)
+	local spellConfig = config
+	if (overwrittenConfig) then
+		spellConfig = concat(config, overwrittenConfig)
+	end
+	local area = spellConfig.area
+	local type = spellConfig.type
+	local effect = spellConfig.effect
+	local shootEffect = spellConfig.shootEffect
+	local distanceEfect = spellConfig.distanceEfect
+	local name = spellConfig.name
+	local words = "###" .. spellConfig.name
+	local range = spellConfig.range or 7
+	local interval = spellConfig.interval or 2000
+	local needDirection = spellConfig.needDirection or false
+	local condition = spellConfig.condition
+	local needTarget = spellConfig.needTarget or false
 
-    local combat = Combat()
+	local combat = Combat()
 
-	if(area) then
+	if (area) then
 		combat:setArea(createCombatArea(area))
 	end
 
-    combat:setParameter(COMBAT_PARAM_TYPE, type)
-    combat:setParameter(COMBAT_PARAM_EFFECT, effect)
+	combat:setParameter(COMBAT_PARAM_TYPE, type)
+	combat:setParameter(COMBAT_PARAM_EFFECT, effect)
 
-    local spell = Spell("instant")
+	local spell = Spell("instant")
 
-    spell:name(name)
-    spell:words(words)
-    spell:isAggressive(true)
-    spell:blockWalls(true)
-    spell:needLearn(true)
+	spell:name(name)
+	spell:words(words)
+	spell:isAggressive(true)
+	spell:blockWalls(true)
+	spell:needLearn(true)
 	spell:range(range)
 	spell:needTarget(needTarget)
 	spell:needDirection(needDirection)
 
-	if(string.find(name:lower(), 'strike')) then
+	if (string.find(name:lower(), "strike")) then
 		spell:needCasterTargetOrDirection(true)
+		spell:range(4)
 	end
 
-	if(string.find(name:lower(), 'heal')) then
+	if (string.find(name:lower(), "hit")) then
+		spell:needCasterTargetOrDirection(true)
+		spell:range(1)
+	end
+
+	if (string.find(name:lower(), "heal")) then
 		spell:isAggressive(false)
 		spell:isSelfTarget(true)
 		spell:group("healing")
 		combat:setParameter(COMBAT_PARAM_AGGRESSIVE, false)
 	end
 
-	if(string.find(name:lower(), 'beam')) then
+	if (string.find(name:lower(), "beam")) then
 		spell:needDirection(true)
 	end
 
-	if(string.find(name:lower(), 'wave')) then
+	if (string.find(name:lower(), "wave")) then
 		spell:needDirection(true)
 	end
 
-	if(shootEffect) then
+	if (shootEffect) then
 		combat:setParameter(COMBAT_PARAM_SHOOT_EFFECT, shootEffect)
 	end
 
-	if(distanceEfect) then
+	if (distanceEfect) then
 		combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, distanceEfect)
 	end
 
-    if(condition) then
-        local test = Condition(condition.type)
-        test:setParameter(CONDITION_PARAM_DELAYED, 1)
+	if (condition) then
+		local test = Condition(condition.type)
+		test:setParameter(CONDITION_PARAM_DELAYED, 1)
 
-        if(condition.type == CONDITION_FIRE) then
-            test:addDamage(condition.ticks or 10, condition.interval, -10)
-        elseif(condition.type == CONDITION_POISON ) then
-      	    test:addDamage(condition.ticks or 10, condition.interval, -condition.tickDamage or 5)
-        elseif(condition.type == CONDITION_ENERGY) then
-            test:addDamage(condition.ticks or 10, condition.interval, -25)
-		elseif(condition.type == CONDITION_FREEZING) then
-            test:addDamage(condition.ticks or 10, condition.interval, -condition.tickDamage or 10)
-        elseif(condition.type == CONDITION_DRUNK) then
-            test:setParameter(CONDITION_PARAM_TICKS, condition.interval)
-        end
-        combat:addCondition(test)
-    end
+		if (condition.type == CONDITION_FIRE) then
+			test:addDamage(condition.ticks or 10, condition.interval, -10)
+		elseif (condition.type == CONDITION_POISON) then
+			test:addDamage(condition.ticks or 10, condition.interval, -condition.tickDamage or 5)
+		elseif (condition.type == CONDITION_ENERGY) then
+			test:addDamage(condition.ticks or 10, condition.interval, -25)
+		elseif (condition.type == CONDITION_FREEZING) then
+			test:addDamage(condition.ticks or 10, condition.interval, -condition.tickDamage or 10)
+		elseif (condition.type == CONDITION_DRUNK) then
+			test:setParameter(CONDITION_PARAM_TICKS, condition.interval)
+		end
+		combat:addCondition(test)
+	end
 
-     function spell.onCastSpell(creature, var)
-        return combat:execute(creature, var)
-     end
+	function spell.onCastSpell(creature, var)
+		return combat:execute(creature, var)
+	end
 
-    return spell
+	return spell
 end
 
-poisonBallDefaultConfig = {
-    type = COMBAT_POISONDAMAGE,
-    effect = SPELL_ANIMATIONS.POISON,
-    distanceEfect = SHOOT_EFFECTS.POISON_ARROW,
-    area = SPELL_AREAS.BALL,
-    name = "poisonBall",
-    words = "###516",
-    needTarget = true
+-- REMEMBER TO NAME SPELL IN FOLLOWING FORMAT
+-- ANIMATION_AREA_DAMAGETYPE_TARGET/SELF_CONTIDION
+-- existing example: DizzyBallDeathSelfDrunk
+
+GreaterEnvenomBallDefaultConfig = {
+	effect = SPELL_ANIMATIONS.ENVENOM,
+	area = SPELL_AREAS.GREATER_BALL
 }
 
-
-greatTerraWaveDefaultConfig = {
-    type = COMBAT_POISONDAMAGE,
-    effect = SPELL_ANIMATIONS.TERRA,
-    area = SPELL_AREAS.GREAT_WAVE,
-    name = "greatTerraWave",
-    words = "###549",
-    needDirection = true
+DeathBallDefaultConfig = {
+	effect = SPELL_ANIMATIONS.DEATH,
+	area = SPELL_AREAS.BALL
 }
 
+DeathStrikeDefaultConfig = {
+	effect = SPELL_ANIMATIONS.DEATH,
+	distanceEfect = SHOOT_EFFECTS.SUDDEN_DEATH_RUNE
+}
+
+ShortVioletElectricBeamDefaultConfig = {
+	effect = SPELL_ANIMATIONS.PURPLE_ELECTRIC,
+	area = SPELL_AREAS.SHORT_BEAM
+}
+
+DizzyBallDefaultConfig = {
+	effect = SPELL_ANIMATIONS.DICE,
+	area = SPELL_AREAS.BALL
+}
+
+ConditionDrunkDefaultConfig = {
+	type = CONDITION_DRUNK,
+	interval = 20000
+}
+
+BlackSteamWaveDefaultConfig = {
+	effect = SPELL_ANIMATIONS.BLACK_STEAM,
+	shootEffect = SHOOT_EFFECTS.SUDDEN_DEATH_RUNE,
+	area = SPELL_AREAS.WAVE
+}
+
+IceStrikeDefaultConfig = {
+	effect = SPELL_ANIMATIONS.ICE_FLAKE,
+	distanceEfect = SHOOT_EFFECTS.ICE_STRIKE
+}
+
+GreatIcyWindBeamDefaultConfig = {
+	effect = SPELL_ANIMATIONS.ICY_WIND,
+	shootEffect = SHOOT_EFFECTS.ICE_STRIKE,
+	area = SPELL_AREAS.GREAT_BEAM
+}
+
+EruptionBallDefaultConfig = {
+	effect = SPELL_ANIMATIONS.ERUPTION,
+	area = SPELL_AREAS.BALL
+}
+
+ShorterPoisonTWaveDefaultConfig = {
+	effect = SPELL_ANIMATIONS.POISON,
+	area = SPELL_AREAS.SHORTER_T_WAVE
+}
+
+SparkyBeamDefaultConfig = {
+	effect = SPELL_ANIMATIONS.SPARKY,
+	area = SPELL_AREAS.BEAM
+}
+
+PoisonBallDefaultConfig = {
+	effect = SPELL_ANIMATIONS.POISON,
+	distanceEfect = SHOOT_EFFECTS.POISON_ARROW,
+	area = SPELL_AREAS.BALL
+}
+
+PosionArrowDefaultConfig = {
+	effect = SPELL_ANIMATIONS.POISON,
+	distanceEfect = SHOOT_EFFECTS.POISON_ARROW,
+	area = SPELL_AREAS.STRIKE
+}
+
+GroundshakerBoxDefaultConfig = {
+	effect = SPELL_ANIMATIONS.GROUND_SHAKER,
+	area = SPELL_AREAS.BOX
+}
+
+PoisonHitDefaultConfig = {
+	effect = SPELL_ANIMATIONS.POISON,
+	area = SPELL_AREAS.STRIKE
+}
+
+IceBoxDefaultConfig = {
+	effect = SPELL_ANIMATIONS.ICE_FLAKE,
+	area = SPELL_AREAS.BOX
+}
+
+IcyFlakeConeWaveDefaultConfig = {
+	effect = SPELL_ANIMATIONS.ICE_FLAKE,
+	area = SPELL_AREAS.CONE_WAVE
+}
+
+BlueStarsBoxDefaultConfig = {
+	effect = SPELL_ANIMATIONS.BLUE_STARS,
+	area = SPELL_AREAS.BOX
+}
+
+GreaterBlueStarsBallDefaultConfig = {
+	effect = SPELL_ANIMATIONS.BLUE_STARS,
+	area = SPELL_AREAS.GREATER_BALL
+}
+
+ExplosionBallDefaultConfig = {
+	effect = SPELL_ANIMATIONS.EXPLOSION,
+	area = SPELL_AREAS.BALL
+}
+
+TinyGroundshakerTWaveDefaultConfig = {
+	effect = SPELL_ANIMATIONS.GROUND_SHAKER,
+	area = SPELL_AREAS.TINY_T_WAVE
+}
+
+RedStarsStrikeDefaultConfig = {
+	effect = SPELL_ANIMATIONS.RED_STARS,
+	area = SPELL_AREAS.STRIKE
+}
+
+FlameBoxDefaultConfig = {
+	effect = SPELL_ANIMATIONS.FLAME,
+	area = SPELL_AREAS.BOX
+}
+
+ShorterEnergyTWaveDefaultConfig = {
+	effect = SPELL_ANIMATIONS.ENERGY,
+	area = SPELL_AREAS.TWAVE
+}
+
+DeathBoxDefaultConfig = {
+	effect = SPELL_ANIMATIONS.DEATH,
+	area = SPELL_AREAS.BOX
+}
+
+SparkyBallDefaultConfig = {
+	effect = SPELL_ANIMATIONS.SPARKY,
+	area = SPELL_AREAS.BALL
+}
+
+LongerDicerollBeamDefaultConfig = {
+	effect = SPELL_ANIMATIONS.DICE,
+	area = SPELL_AREAS.LONGER_BEAM
+}
+
+FlameStrikeDefaultConfig = {
+	effect = SPELL_ANIMATIONS.FLAME,
+	area = SPELL_AREAS.STRIKE
+}
+
+LongDetonationBeamDefaultConfig = {
+	effect = SPELL_ANIMATIONS.DETONATION,
+	area = SPELL_AREAS.LONGER_BEAM
+}
+
+EruptionBoxDefaultConfig = {
+	effect = SPELL_ANIMATIONS.ERUPTION,
+	area = SPELL_AREAS.BOX
+}
+
+ShortFlameBeamDefaultConfig = {
+	effect = SPELL_ANIMATIONS.FLAME,
+	area = SPELL_AREAS.SHORT_BEAM
+}
+
+DetonationBoxDefaultConfig = {
+	effect = SPELL_ANIMATIONS.DETONATION,
+	area = SPELL_AREAS.BOX
+}
+
+EnergyStrikeDefaultConfig = {
+	effect = SPELL_ANIMATIONS.ENERGY,
+	area = SPELL_AREAS.STRIKE
+}
+
+HolyBoxDefaultConfig = {
+	effect = SPELL_ANIMATIONS.HOLY,
+	area = SPELL_AREAS.BOX
+}
+
+SparkyBoxDefaultConfig = {
+	effect = SPELL_ANIMATIONS.SPARKY,
+	area = SPELL_AREAS.BOX
+}
+
+GreatSparkyBallDefaultConfig = {
+	effect = SPELL_ANIMATIONS.SPARKY,
+	area = SPELL_AREAS.GREAT_BALL
+}
+
+RangedAttackSpearDefaultConfig = {
+	effect = SPELL_ANIMATIONS.BLOOD,
+	distanceEfect = SHOOT_EFFECTS.SPEAR,
+	area = SPELL_AREAS.STRIKE
+}
+RangedAttackViperStarDefaultConfig = {
+	effect = SPELL_ANIMATIONS.BLOOD,
+	distanceEfect = SHOOT_EFFECTS.SPEAR,
+	area = SPELL_AREAS.STRIKE
+}
+
+ExplosionStrikeDefaultConfig = {
+	effect = SPELL_ANIMATIONS.EXPLOSION,
+	area = SPELL_AREAS.STRIKE
+}
+
+GroundshakerBallDefaultConfig = {
+	effect = SPELL_ANIMATIONS.GROUND_SHAKER,
+	area = SPELL_AREAS.BALL
+}
+
+LongHolyBeamDefaultConfig = {
+	effect = SPELL_ANIMATIONS.HOLY,
+	area = SPELL_AREAS.LONG_BEAM
+}
+
+GreatTerraWaveDefaultConfig = {
+	effect = SPELL_ANIMATIONS.TERRA,
+	area = SPELL_AREAS.GREAT_WAVE
+}
+
+IcyFlakeStrikeDefaultConfig = {
+	effect = SPELL_ANIMATIONS.ICE_FLAKE,
+	area = SPELL_AREAS.STRIKE
+}
+
+GreatWaterWaveDefaultConfig = {
+	effect = SPELL_ANIMATIONS.WATER,
+	area = SPELL_AREAS.GREAT_WAVE
+}
+
+TerraStrikeDefaultConfig = {
+	effect = SPELL_ANIMATIONS.TERRA,
+	area = SPELL_AREAS.STRIKE
+}
+
+PoisonWaveDefaultConfig = {
+	effect = SPELL_ANIMATIONS.POISON,
+	area = SPELL_AREAS.GREAT_WAVE
+}
+
+MusicalNotesBeamDefaultConfig = {
+	effect = SPELL_ANIMATIONS.RED_NOTES,
+	area = SPELL_AREAS.BEAM
+}
+
+EnvenomBallDefaultConfig = {
+	effect = SPELL_ANIMATIONS.ENVENOM,
+	area = SPELL_AREAS.BALL
+}
+
+ShortFlameBeamFireDefaultConfig = {
+	effect = SPELL_ANIMATIONS.FLAME,
+	area = SPELL_AREAS.SHORT_BEAM
+}
+
+TerraBoxDefaultConfig = {
+	effect = SPELL_ANIMATIONS.TERRA,
+	area = SPELL_AREAS.BOX
+}
+
+HolyBallDefaultConfig = {
+	effect = SPELL_ANIMATIONS.HOLY,
+	area = SPELL_AREAS.BALL
+}
+
+GreatFireWaveDefaultConfig = {
+	effect = SPELL_ANIMATIONS.FIRE,
+	area = SPELL_AREAS.GREAT_WAVE
+}
+
+EnergyBallDefaultConfig = {
+	effect = SPELL_ANIMATIONS.ENERGY,
+	area = SPELL_AREAS.BALL
+}
+
+HolyBeamDefaultConfig = {
+	effect = SPELL_ANIMATIONS.HOLY,
+	area = SPELL_AREAS.BEAM
+}
+
+FireStrikeDefaultConfig = {
+	area = SPELL_AREAS.STRIKE,
+	effect = SPELL_ANIMATIONS.FIRE
+}
+
+GroundshakerCrossDefaultConfig = {
+	area = SPELL_AREAS.CROSS,
+	effect = SPELL_ANIMATIONS.GROUND_SHAKER
+}
+
+GroundshakerXCrossDefaultConfig = {
+	area = SPELL_AREAS.X_CROSS,
+	effect = SPELL_ANIMATIONS.GROUND_SHAKER
+}
+
+GroundshakerCircleDefaultConfig = {
+	area = SPELL_AREAS.CIRCLE,
+	effect = SPELL_ANIMATIONS.GROUND_SHAKER
+}
+
+RedStarsWaveDefaultConfig = {
+	area = SPELL_AREAS.WAVE,
+	effect = SPELL_ANIMATIONS.RED_STARS
+}
+
+SmokeBoxDefaultConfig = {
+	area = SPELL_AREAS.BOX,
+	effect = SPELL_ANIMATIONS.SMOKE
+}
+
+CustomMonsterSpell = {
+	name = "combat",
+	interval = 2000,
+	target = false,
+	needDirection = true,
+	chance = 10
+}
+
+function CustomMonsterSpell:new(o)
+	o = o or {} -- create object if user does not provide one
+	setmetatable(o, self)
+	self.__index = self
+	return o
+end
+
+-- Base config
+function CustomMonsterSpell:setNeedDirection(needDirection)
+	self.needDirection = needDirection
+
+	return self
+end
+
+function CustomMonsterSpell:setChance(chance)
+	self.chance = chance
+
+	return self
+end
+
+function CustomMonsterSpell:setMinDamage(minDamage)
+	self.minDamage = -minDamage
+
+	return self
+end
+
+function CustomMonsterSpell:setMaxDamage(maxDamage)
+	self.maxDamage = -maxDamage
+
+	return self
+end
+
+function CustomMonsterSpell:setDamageRange(minDamage, maxDamage)
+	self.minDamage = -minDamage
+	self.maxDamage = -maxDamage
+
+	return self
+end
+
+function CustomMonsterSpell:withTarget()
+	self.target = true
+
+	return self
+end
+
+function CustomMonsterSpell:setAnimation(animation)
+	self.effect = animation
+
+	return self
+end
+
+function CustomMonsterSpell:setArea(area)
+	self.area = area
+
+	return self
+end
+
+-- Elements
+
+function CustomMonsterSpell:withDeathDamage()
+	self.type = COMBAT_DEATHDAMAGE
+
+	return self
+end
+
+function CustomMonsterSpell:withEnergyDamage()
+	self.type = COMBAT_ENERGYDAMAGE
+
+	return self
+end
+
+function CustomMonsterSpell:withFireDamage()
+	self.type = COMBAT_FIREDAMAGE
+
+	return self
+end
+
+function CustomMonsterSpell:withPhysicalDamage()
+	self.type = COMBAT_PHYSICALDAMAGE
+
+	return self
+end
+
+function CustomMonsterSpell:withIceDamage()
+	self.type = COMBAT_ICEDAMAGE
+
+	return self
+end
+
+function CustomMonsterSpell:withLifeDrainDamage()
+	self.type = COMBAT_LIFEDRAIN
+
+	return self
+end
+
+function CustomMonsterSpell:withManaDrainDamage()
+	self.type = COMBAT_MANADRAIN
+
+	return self
+end
+
+-- Areas
+function CustomMonsterSpell:withBall()
+	self.area = SPELL_AREAS.BALL
+
+	return self
+end
+
+function CustomMonsterSpell:withGreaterBall()
+	self.area = SPELL_AREAS.GREATER_BALL
+
+	return self
+end
+
+function CustomMonsterSpell:withBeam()
+	self.area = SPELL_AREAS.BEAM
+
+	return self
+end
+
+function CustomMonsterSpell:withTWave()
+	self.area = SPELL_AREAS.T_WAVE
+
+	return self
+end
+
+function CustomMonsterSpell:withLongTWave()
+	self.area = SPELL_AREAS.LONG_T_WAVE
+
+	return self
+end
+
+function CustomMonsterSpell:withGreatBeam()
+	self.area = SPELL_AREAS.GREAT_BEAM
+
+	return self
+end
+
+-- Ranged attack animations
+function CustomMonsterSpell:withFlamingArrow()
+	self.shootEffect = SHOOT_EFFECTS.FLAMING_ARROW
+
+	return self
+end
+
+-- Animations
+
+function CustomMonsterSpell:withDeath()
+	self.effect = SPELL_ANIMATIONS.DEATH
+
+	return self
+end
+
+function CustomMonsterSpell:withEruption()
+	self.effect = SPELL_ANIMATIONS.ERUPTION
+
+	return self
+end
+
+function CustomMonsterSpell:withDetonation()
+	self.effect = SPELL_ANIMATIONS.DETONATION
+
+	return self
+end
+
+function CustomMonsterSpell:withRedStars()
+	self.effect = SPELL_ANIMATIONS.RED_STARS
+
+	return self
+end
+
+function CustomMonsterSpell:withIcyFlake()
+	self.effect = SPELL_ANIMATIONS.ICE_FLAKE
+
+	return self
+end
+
+function CustomMonsterSpell:withBlueElectric()
+	self.effect = SPELL_ANIMATIONS.ELECTRIC
+
+	return self
+end
+
+function CustomMonsterSpell:withGroundShaker()
+	self.effect = SPELL_ANIMATIONS.GROUND_SHAKER
+
+	return self
+end
+
+-- Meele attack
+function CustomMonsterSpell:withBasicAttack()
+	self.name = "melee"
+	self.chance = 100
+
+	return self
+end
+
+-- Healing
+function CustomMonsterSpell:withHealing(minHealing, maxHealing)
+	self.minDamage = minHealing
+	self.maxDamage = maxHealing
+	self.effect = SPELL_ANIMATIONS.BLUE_STARS
+	self.type = COMBAT_HEALING
+	return self
+end
+
+MonsterLoot = {
+	maxCount = 1
+}
+
+function MonsterLoot:new(o)
+	o = o or {} -- create object if user does not provide one
+	setmetatable(o, self)
+	self.__index = self
+	return o
+end
+
+function MonsterLoot:setLoot(name, chance, maxCount)
+	self.name = name
+	self.chance = chance
+	self.maxCount = maxCount or 1
+
+	return self
+end
+
+function MonsterLoot:setLootItem(name)
+	self.name = name
+
+	return self
+end
+
+function MonsterLoot:setChance(chance) -- in %
+	self.chance = chance * 10000
+
+	return self
+end
+
+function MonsterLoot:setMaxCount(maxCount)
+	self.maxCount = maxCount
+
+	return self
+end
+
+function MonsterLoot:setItemId(id)
+	self.id = id
+
+	return self
+end
+
+function MonsterLoot:withGoldCoins(chance, maxCount)
+	self.name = "gold coin"
+	self.chance = chance
+	self.maxCount = maxCount or 1
+
+	return self
+end
+
+function MonsterLoot:withPlatinumCoins(chance, maxCount)
+	self.name = "platinum coin"
+	self.chance = chance
+	self.maxCount = maxCount or 1
+
+	return self
+end
+
+function MonsterLoot:withDemonicEssence(chance, maxCount)
+	self.name = "demonic essence"
+	self.chance = chance
+	self.maxCount = maxCount or 1
+
+	return self
+end

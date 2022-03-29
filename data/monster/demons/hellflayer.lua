@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Hellflayer")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "29/03/2022"
+}
+
 monster.description = "a hellflayer"
 monster.experience = 11000
 monster.outfit = {
@@ -78,123 +83,61 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 90000, maxCount = 130},
-	{id = 3035, name = "platinum coin", chance = 20000, maxCount = 9},
-	{name = "flask of demonic blood", chance = 4000, maxCount = 3},
-	{name = "gold ingot", chance = 1300, maxCount = 2},
-	{name = "great mana potion", chance = 9600, maxCount = 2},
-	{id = 7642, chance = 2300, maxCount = 2},
-	{name = "small amethyst", chance = 2000, maxCount = 5},
-	{name = "small diamond", chance = 900, maxCount = 5},
-	{name = "small emerald", chance = 900, maxCount = 5},
-	{name = "small ruby", chance = 2000, maxCount = 5},
-	{name = "small topaz", chance = 900, maxCount = 5},
-	{id = 7643, chance = 5300, maxCount = 2},
-	{id = 3019, chance = 1000},
-	{name = "demonic essence", chance = 1600},
-	{id = 281, chance = 800},
-	{id = 3038, chance = 800},
-	{id = 818, chance = 500},
-	{id = 821, chance = 1200},
-	{id = 3414, chance = 350},
-	{id = 22729, chance = 800},
-	{id = 3039, name = "red gem", chance = 500},
-	{id = 22866, chance = 280},
-	{id = 22867, chance = 180},
-	{id = 5741, chance = 450},
-	{id = 22727, chance = 200},
-	{id = 7413, chance = 900},
-	{id = 3360, chance = 750},
-	{name = "spellbook of mind control", chance = 900},
-	{id = 3340, chance = 400}
+	MonsterLoot:new():withGoldCoins(90.4, 198),
+	MonsterLoot:new():withPlatinumCoins(89.77, 12),
+	MonsterLoot:new():setLoot("flask of demonic blood", 20.73, 3),
+	MonsterLoot:new():withDemonicEssence(16.42),
+	MonsterLoot:new():setLoot("great mana potion", 14.96, 5),
+	MonsterLoot:new():setLoot("pair of hellflayer horns", 13.35),
+	MonsterLoot:new():setLoot("great spirit potion", 12.91, 5),
+	MonsterLoot:new():setLoot("ultimate healing potion", 12.57, 5),
+	MonsterLoot:new():setLootItem("small topaz"):setChance(7.89):setMaxCount(5),
+	MonsterLoot:new():setLootItem("small emerald"):setChance(7.41):setMaxCount(5),
+	MonsterLoot:new():setLootItem("small diamond"):setChance(7.41):setMaxCount(5),
+	MonsterLoot:new():setLootItem("small ruby"):setChance(6.53):setMaxCount(5),
+	MonsterLoot:new():setLoot("gold ingot", 6.19, 2),
+	MonsterLoot:new():setLootItem("small amethyst"):setChance(5.99):setMaxCount(5),
+	MonsterLoot:new():setLoot("giant shimmering pearl", 3.22),
+	MonsterLoot:new():setLoot("red gem", 2.19),
+	MonsterLoot:new():setLoot("violet gem", 1.17),
+	MonsterLoot:new():setLoot("magma legs", 1.07),
+	MonsterLoot:new():setLoot("magma boots", 0.97),
+	MonsterLoot:new():setLoot("rift lance", 0.78),
+	MonsterLoot:new():setLoot("titan axe", 0.63),
+	MonsterLoot:new():setLoot("green gem", 0.49),
+	MonsterLoot:new():setLoot("rift shield", 0.44),
+	MonsterLoot:new():setLoot("rift bow", 0.43),
+	MonsterLoot:new():setLoot("golden armor", 0.34),
+	MonsterLoot:new():setLoot("mastermind shield", 0.29),
+	MonsterLoot:new():setLoot("rift crossbow", 0.24),
+	MonsterLoot:new():setLoot("magic plate armor", 0.24),
+	MonsterLoot:new():setLoot("skull helmet", 0.24),
+	MonsterLoot:new():setLoot("demonbone amulet", 0.19)
 }
 
 monster.attacks = {
-	{
-		name = "melee",
-		interval = 2000,
-		chance = 100,
-		minDamage = 200,
-		maxDamage = -869,
-		condition = {type = CONDITION_FIRE, totalDamage = 6, interval = 9000}
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 15,
-		type = COMBAT_FIREDAMAGE,
-		minDamage = -170,
-		maxDamage = -300,
-		range = 7,
-		shootEffect = CONST_ANI_POISON,
-		target = false
-	},
-	{name = "renegade knight", interval = 2000, chance = 20, target = false},
-	{name = "choking fear drown", interval = 2000, chance = 20, target = false},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 20,
-		type = COMBAT_DEATHDAMAGE,
-		minDamage = -250,
-		maxDamage = -500,
-		radius = 4,
-		shootEffect = CONST_ANI_SUDDENDEATH,
-		effect = CONST_ME_MORTAREA,
-		target = true
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_LIFEDRAIN,
-		minDamage = -50,
-		maxDamage = -200,
-		length = 8,
-		spread = 3,
-		effect = CONST_ME_PURPLEENERGY,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_FIREDAMAGE,
-		minDamage = -300,
-		maxDamage = -550,
-		radius = 1,
-		shootEffect = CONST_ANI_FIRE,
-		effect = CONST_ME_FIREATTACK,
-		target = true
-	},
-	{name = "warlock skill reducer", interval = 2000, chance = 5, range = 5, target = false},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_PHYSICALDAMAGE,
-		minDamage = 300,
-		maxDamage = -500,
-		radius = 1,
-		shootEffect = CONST_ANI_EXPLOSION,
-		effect = CONST_ME_SLEEP,
-		target = true
-	}
+	-- 	Basic attack (0-800 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 800),
+	-- Ranged attack (460-630 fire) (Flaming Arrow)
+	CustomMonsterSpell:new():withFireDamage():withFlamingArrow():setChance(10):setDamageRange(460, 630),
+	-- Great Eruption Ball (380-520 fire, on target)
+	CustomMonsterSpell:new():setChance(10):withFireDamage():withEruption():withGreaterBall():withTarget():setDamageRange(
+		380,
+		520
+	),
+	-- Great Death Beam (800-1250 death)
+	CustomMonsterSpell:new():setChance(10):withDeathDamage():withDeath():withGreatBeam():setDamageRange(800, 1250),
+	-- Groundshaker Ball (260-450 physical, on self)
+	CustomMonsterSpell:new():setNeedDirection(false):setChance(100):withGroundShaker():withPhysicalDamage():withBall():setDamageRange(
+		260,
+		450
+	)
 }
 
 monster.defenses = {
 	defense = 20,
 	armor = 20,
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_HEALING,
-		minDamage = 80,
-		maxDamage = 95,
-		effect = CONST_ME_MAGIC_BLUE,
-		target = false
-	}
+	CustomMonsterSpell:withHealing(300, 580):setChance(15)
 }
 
 monster.elements = {

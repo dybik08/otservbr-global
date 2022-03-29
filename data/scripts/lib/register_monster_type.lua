@@ -1,13 +1,14 @@
 registerMonsterType = {}
-setmetatable(registerMonsterType,
-{
-	__call =
-	function(self, mtype, mask)
-		for _,parse in pairs(self) do
-			parse(mtype, mask)
+setmetatable(
+	registerMonsterType,
+	{
+		__call = function(self, mtype, mask)
+			for _, parse in pairs(self) do
+				parse(mtype, mask)
+			end
 		end
-	end
-})
+	}
+)
 
 MonsterType.register = function(self, mask)
 	return registerMonsterType(self, mask)
@@ -123,7 +124,7 @@ registerMonsterType.enemyFactions = function(mtype, mask)
 	if mask.enemyFactions then
 		for _, enemyFaction in pairs(mask.enemyFactions) do
 			if not enemyFaction then
-				print("[Error - Loading monsters] Monster: \"" .. mtype:name() .. "\". Unknown enemy faction.")
+				print('[Error - Loading monsters] Monster: "' .. mtype:name() .. '". Unknown enemy faction.')
 			else
 				mtype:enemyFactions(enemyFaction)
 			end
@@ -163,8 +164,12 @@ registerMonsterType.flags = function(mtype, mask)
 			mtype:familiar(mask.flags.familiar)
 		end
 		if mask.flags.respawntype or mask.flags.respawnType then
-			Spdlog.warn(string.format("[registerMonsterType.flags] - Monster: %s. Deprecated flag 'respawnType', use instead table 'respawnType = { period = RespawnPeriod_t, underground = boolean}'",
-				mtype:name()))
+			Spdlog.warn(
+				string.format(
+					"[registerMonsterType.flags] - Monster: %s. Deprecated flag 'respawnType', use instead table 'respawnType = { period = RespawnPeriod_t, underground = boolean}'",
+					mtype:name()
+				)
+			)
 		end
 		if mask.flags.canPushCreatures ~= nil then
 			mtype:canPushCreatures(mask.flags.canPushCreatures)
@@ -280,13 +285,16 @@ function sortLootByChance(loot)
 		return
 	end
 
-	table.sort(loot, function(loot1, loot2)
-		if not loot1.chance or not loot2.chance then
-			return 0
-		end
+	table.sort(
+		loot,
+		function(loot1, loot2)
+			if not loot1.chance or not loot2.chance then
+				return 0
+			end
 
-		return loot1.chance < loot2.chance
-	end)
+			return loot1.chance < loot2.chance
+		end
+	)
 end
 
 registerMonsterType.loot = function(mtype, mask)
@@ -307,9 +315,9 @@ registerMonsterType.loot = function(mtype, mask)
 			if loot.subType or loot.charges then
 				parent:setSubType(loot.subType or loot.charges)
 			else
-    			local lType = ItemType(loot.name and loot.name or loot.id)
+				local lType = ItemType(loot.name and loot.name or loot.id)
 				if lType and lType:getCharges() > 1 then
-        			parent:setSubType(lType:getCharges())
+					parent:setSubType(lType:getCharges())
 				end
 			end
 			if loot.chance then
@@ -370,9 +378,9 @@ registerMonsterType.loot = function(mtype, mask)
 					if children.subType or children.charges then
 						child:setSubType(children.subType or children.charges)
 					else
-    					local cType = ItemType(children.name and children.name or children.id)
+						local cType = ItemType(children.name and children.name or children.id)
 						if cType and cType:getCharges() > 1 then
-        					child:setSubType(cType:getCharges())
+							child:setSubType(cType:getCharges())
 						end
 					end
 					if children.chance then
@@ -420,7 +428,7 @@ registerMonsterType.loot = function(mtype, mask)
 			mtype:addLoot(parent)
 		end
 		if lootError then
-			Spdlog.warn("[registerMonsterType.loot] - Monster: ".. mtype:name() .. " loot could not correctly be load")
+			Spdlog.warn("[registerMonsterType.loot] - Monster: " .. mtype:name() .. " loot could not correctly be load")
 		end
 	end
 end
@@ -512,7 +520,11 @@ function readSpell(incomingLua)
 				elseif incomingLua.name == "condition" then
 					spell:setConditionType(incomingLua.type)
 				else
-					Spdlog.warn("[readSpell] - Monster ".. mtype:name() .. ": Loading spell ".. incomingLua.name .. ". Parameter type applies only for condition and combat.")
+					Spdlog.warn(
+						"[readSpell] - Monster " ..
+							mtype:name() ..
+								": Loading spell " .. incomingLua.name .. ". Parameter type applies only for condition and combat."
+					)
 				end
 			end
 			if incomingLua.interval then
@@ -564,6 +576,10 @@ function readSpell(incomingLua)
 			end
 			if incomingLua.shootEffect then
 				spell:setCombatShootEffect(incomingLua.shootEffect)
+			end
+
+			if incomingLua.area then
+				spell:setCombatArea(createCombatArea(incomingLua.area))
 			end
 		end
 

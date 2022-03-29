@@ -652,14 +652,14 @@ local chests = {
 	[40073] = {
 		id = CHEST_ID.LEFT,
 		item = {
-			id = 3030,
+			name="small ruby",
 			amount = 1
 		}
 	},
 	[40074] = {
 		id = CHEST_ID.RIGHT,
 		item = {
-			id = 3035,
+			id = 3035, name = "platinum coin",
 			amount = 2
 		}
 	}

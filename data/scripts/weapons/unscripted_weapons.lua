@@ -4054,7 +4054,7 @@ local weapons = {
 	},
 	{
 		-- assassin dagger
-		itemid = 7404,
+		name="assassin dagger",
 		type = WEAPON_SWORD,
 		level = 40,
 		unproperly = true
@@ -4205,7 +4205,7 @@ local weapons = {
 	},
 	{
 		-- assassin star
-		itemid = 7368,
+		itemname="assassin star",
 		type = WEAPON_DISTANCE,
 		level = 80,
 		unproperly = true,

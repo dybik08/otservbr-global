@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Vexclaw")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "29/03/2022"
+}
+
 monster.description = "a vexclaw"
 monster.experience = 6248
 monster.outfit = {
@@ -78,117 +83,62 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 100000, maxCount = 200},
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 6},
-	{name = "great spirit potion", chance = 26010, maxCount = 5},
-	{name = "great mana potion", chance = 25210, maxCount = 5},
-	{name = "vexclaw talon", chance = 21500},
-	{name = "demonic essence", chance = 20730},
-	{name = "ultimate health potion", chance = 19960, maxCount = 5},
-	{name = "fire mushroom", chance = 19940, maxCount = 6},
-	{name = "golden sickle", chance = 18940},
-	{name = "purple tome", chance = 18450},
-	{name = "small amethyst", chance = 10090, maxCount = 5},
-	{name = "small topaz", chance = 9790, maxCount = 5},
-	{name = "small emerald", chance = 9770, maxCount = 5},
-	{name = "small ruby", chance = 9590, maxCount = 5},
-	{name = "talon", chance = 5400},
-	{name = "yellow gem", chance = 5090},
-	{name = "wand of voodoo", chance = 4940},
-	{id = 3039, name = "red gem", chance = 4730},
-	{name = "ice rapier", chance = 4730},
-	{name = "fire axe", chance = 3520},
-	{name = "might ring", chance = 2250},
-	{name = "giant sword", chance = 1880},
-	{id = 3049, chance = 1790}, -- Stealth ring
-	{id = 3051, name = "energy ring", chance = 1790}, -- Energy ring
-	{name = "rift lance", chance = 1360},
-	{id = 3098, name = "Ring of healing", chance = 1320}, -- Ring of healing
-	{name = "platinum amulet", chance = 940},
-	{name = "devil helmet", chance = 520},
-	{name = "rift crossbow", chance = 370},
-	{name = "magic plate armor", chance = 70},
-	{name = "demonrage sword", chance = 30}
+	MonsterLoot:new():setLootItem("gold coin"):setChance(87.25):setMaxCount(199),
+	MonsterLoot:new():setLootItem("platinum coin"):setChance(87.01):setMaxCount(9),
+	MonsterLoot:new():setLootItem("great mana potion"):setChance(16.33):setMaxCount(5),
+	MonsterLoot:new():setLootItem("great spirit potion"):setChance(16.26):setMaxCount(5),
+	MonsterLoot:new():setLootItem("vexclaw talon"):setChance(13.94):setMaxCount(1),
+	MonsterLoot:new():setLootItem("ultimate health potion"):setChance(13.47):setMaxCount(5),
+	MonsterLoot:new():setLootItem("demonic essence"):setChance(12.88):setMaxCount(1),
+	MonsterLoot:new():setLootItem("fire mushroom"):setChance(12.43):setMaxCount(6),
+	MonsterLoot:new():setLootItem("small topaz"):setChance(6.52):setMaxCount(5),
+	MonsterLoot:new():setLootItem("small amethyst"):setChance(6.36):setMaxCount(5),
+	MonsterLoot:new():setLootItem("small emerald"):setChance(6.14):setMaxCount(5),
+	MonsterLoot:new():setLootItem("small ruby"):setChance(6.11):setMaxCount(5),
+	MonsterLoot:new():setLootItem("red gem"):setChance(3.83):setMaxCount(1):setItemId(3039),
+	MonsterLoot:new():setLootItem("yellow gem"):setChance(3.79):setMaxCount(1),
+	MonsterLoot:new():setLootItem("ice rapier"):setChance(3.14):setMaxCount(1),
+	MonsterLoot:new():setLootItem("fire axe"):setChance(2.82):setMaxCount(1),
+	MonsterLoot:new():setLootItem("energy ring"):setChance(1.71):setMaxCount(1):setItemId(3051),
+	MonsterLoot:new():setLootItem("might ring"):setChance(1.38):setMaxCount(1),
+	MonsterLoot:new():setLootItem("giant sword"):setChance(1.22):setMaxCount(1),
+	MonsterLoot:new():setLootItem("ring of healing"):setChance(1.17):setMaxCount(1):setItemId(1320),
+	MonsterLoot:new():setLootItem("devil helmet"):setChance(0.88):setMaxCount(1),
+	MonsterLoot:new():setLootItem("rift lance"):setChance(0.56):setMaxCount(1),
+	MonsterLoot:new():setLootItem("demon shield"):setChance(0.5):setMaxCount(1),
+	MonsterLoot:new():setLootItem("platinum amulet"):setChance(0.43):setMaxCount(1),
+	MonsterLoot:new():setLootItem("mastermind shield"):setChance(0.32):setMaxCount(1),
+	MonsterLoot:new():setLootItem("rift bow"):setChance(0.32):setMaxCount(1),
+	MonsterLoot:new():setLootItem("rift shield"):setChance(0.32):setMaxCount(1),
+	MonsterLoot:new():setLootItem("rift crossbow"):setChance(0.27):setMaxCount(1),
+	MonsterLoot:new():setLootItem("golden legs"):setChance(0.2):setMaxCount(1),
+	MonsterLoot:new():setLootItem("demonrage sword"):setChance(0.09):setMaxCount(1),
+	MonsterLoot:new():setLootItem("magic plate armor"):setChance(0.07):setMaxCount(1)
 }
 
 monster.attacks = {
-	{name = "melee", interval = 2000, chance = 100, skill = 75, attack = 150},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_MANADRAIN,
-		minDamage = 0,
-		maxDamage = -120,
-		range = 7,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 20,
-		type = COMBAT_FIREDAMAGE,
-		minDamage = -150,
-		maxDamage = -250,
-		range = 7,
-		radius = 7,
-		shootEffect = CONST_ANI_FIRE,
-		effect = CONST_ME_FIREAREA,
-		target = true
-	},
-	{name = "choking fear drown", interval = 2000, chance = 20, target = false},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 20,
-		type = COMBAT_DEATHDAMAGE,
-		minDamage = -150,
-		maxDamage = -400,
-		radius = 4,
-		shootEffect = CONST_ANI_SUDDENDEATH,
-		effect = CONST_ME_MORTAREA,
-		target = true
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_LIFEDRAIN,
-		minDamage = -50,
-		maxDamage = -200,
-		length = 8,
-		spread = 3,
-		effect = CONST_ME_PURPLEENERGY,
-		target = false
-	},
-	{name = "firefield", interval = 2000, chance = 10, range = 7, radius = 1, shootEffect = CONST_ANI_FIRE, target = true},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_LIFEDRAIN,
-		minDamage = -300,
-		maxDamage = -490,
-		length = 8,
-		spread = 3,
-		effect = CONST_ME_PURPLEENERGY,
-		target = false
-	},
-	{name = "energy strike", interval = 2000, chance = 10, minDamage = -210, maxDamage = -300, range = 1, target = false},
-	{
-		name = "speed",
-		interval = 2000,
-		chance = 15,
-		speedChange = -300,
-		radius = 1,
-		effect = CONST_ME_MAGIC_RED,
-		target = true,
-		duration = 30000
-	}
+	-- Basic attack (0-530 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 530),
+	-- Detonation Ball (350-480 fire, on target)
+	CustomMonsterSpell:new():setChance(14):setMinDamage(350):setMaxDamage(480):withTarget():withFireDamage():withDetonation(
+
+	):withBall(),
+	-- Greater Blue Electric Ball (400-500 energy, on self)
+	CustomMonsterSpell:new():setChance(12):setMinDamage(400):setMaxDamage(500):withTarget():withEnergyDamage():withGreaterBall(
+
+	):withBlueElectric(),
+	-- Great Icy Flake Beam (530-600 life drain)
+	CustomMonsterSpell:new():withBeam():withIcyFlake():setDamageRange(530, 600):withLifeDrainDamage(),
+	-- Long Red Stars T-Wave (100-170 mana drain)
+	CustomMonsterSpell:new():withLongTWave():withRedStars():setDamageRange(100, 170):withManaDrainDamage(),
+	-- Greater Groundshaker Ball (260-450 physical, on target)
+	CustomMonsterSpell:new():withBall():withGroundShaker():setDamageRange(100, 170):withManaDrainDamage():withTarget()
 }
 
 monster.defenses = {
 	defense = 55,
+	-- Haste (effect: haste)
+	-- Intense Healing (230-400 heal)
 	armor = 55,
 	{
 		name = "combat",

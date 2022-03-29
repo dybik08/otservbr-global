@@ -1,5 +1,5 @@
 local items = {
-	[0] = {id = 3035, count = 3, chance = 100},
+	[0] = {id = 3035, name = "platinum coin", count = 3, chance = 100},
 	[1] = {id = 2881, count = 1, chance = 80},
 	[2] = {id = 12550, count = 1, chance = 25},
 }

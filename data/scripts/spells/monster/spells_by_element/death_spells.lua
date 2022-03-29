@@ -1,3 +1,15 @@
+local function CREATE_DEATH_SPELL(defaultConfig, customConfig)
+    return CREATE_SPELL(
+        defaultConfig,
+        concat(
+            {
+                type = COMBAT_DEATHDAMAGE
+            },
+            customConfig
+        )
+    )
+end
+
 local DeathBallDeathTarget =
     CREATE_SPELL(
     concat(
@@ -85,3 +97,15 @@ local DeathBoxDeathSelf =
     )
 )
 DeathBoxDeathSelf:register()
+
+local SmokeBoxDeathTarget =
+    CREATE_DEATH_SPELL(
+    SmokeBoxDefaultConfig,
+    {
+        name = "SmokeBoxDeathTarget",
+        words = "###SmokeBoxDeathTarget",
+        needTarget = true
+    }
+)
+
+SmokeBoxDeathTarget:register()
