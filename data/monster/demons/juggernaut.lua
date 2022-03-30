@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Juggernaut")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "30/03/2022"
+}
+
 monster.description = "a juggernaut"
 monster.experience = 11200
 monster.outfit = {
@@ -23,9 +28,8 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 0,
-	Locations = "Deep in Pits of Inferno (Apocalypse's throne room), The Dark Path, \z
-		The Blood Halls, The Vats, The Hive, The Shadow Nexus, a room deep in Formorgar Mines, Roshamuul Prison, Oramond Dungeon, Grounds of Destruction."
-	}
+	Locations = "Deep in Pits of Inferno (Apocalypse's throne room), The Dark Path, The Blood Halls, The Vats, The Hive, The Shadow Nexus, a room deep in Formorgar Mines, Roshamuul Prison, Oramond Dungeon, Grounds of Destruction."
+}
 
 monster.health = 20000
 monster.maxHealth = 20000
@@ -43,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -80,49 +84,49 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3019, chance = 550},
-	{name = "small ruby", chance = 20000, maxCount = 4},
-	{name = "gold coin", chance = 100000, maxCount = 100},
-	{name = "gold coin", chance = 100000, maxCount = 100},
-	{name = "gold coin", chance = 100000, maxCount = 100},
-	{name = "gold coin", chance = 100000, maxCount = 100},
-	{name = "small emerald", chance = 20000, maxCount = 5},
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 15},
-	{name = "violet gem", chance = 830},
-	{name = "green gem", chance = 869},
-	{id= 3039, chance = 13850},
-	{name = "dragon hammer", chance = 9000},
-	{name = "heavy mace", chance = 400},
-	{name = "war axe", chance = 400},
-	{name = "golden armor", chance = 550},
-	{name = "golden legs", chance = 500},
-	{name = "knight armor", chance = 4990},
-	{name = "mastermind shield", chance = 800},
-	{id = 3481, chance = 280},
-	{name = "ham", chance = 60000, maxCount = 8},
-	{name = "soul orb", chance = 33333},
-	{name = "demonic essence", chance = 45333},
-	{name = "flask of demonic blood", chance = 25000, maxCount = 4},
-	{name = "onyx arrow", chance = 11111, maxCount = 15},
-	{name = "assassin star", chance = 25000, maxCount = 10},
-	{name = "titan axe", chance = 4430},
-	{name = "spiked squelcher", chance = 7761},
-	{name = "great mana potion", chance = 35000},
-	{name = "great health potion", chance = 32000},
-	{name = "skullcracker armor", chance = 400},
-	{name = "gold ingot", chance = 7692, maxCount = 2}
+	MonsterLoot:new():withGoldCoins(88.56, 195),
+	MonsterLoot:new():withPlatinumCoins(85.84, 15),
+	MonsterLoot:new():withHam(43.74),
+	MonsterLoot:new():withDemonicEssence(31.61),
+	MonsterLoot:new():withSoulOrb(23.32),
+	MonsterLoot:new():withGreatManaPotion(22.54, 3),
+	MonsterLoot:new():withFlaskOfDemonicBlood(22.14, 4),
+	MonsterLoot:new():withGreatHealthPotion(18.15, 3),
+	MonsterLoot:new():withAssassinStar(18.15, 3),
+	MonsterLoot:withSmallEmerald(13.93, 5),
+	MonsterLoot:withSmallRuby(13.85, 5),
+	MonsterLoot:withSmallAmethyst(13.77, 5),
+	MonsterLoot:withSmallTopaz(13.69, 5),
+	MonsterLoot:withSmallDiamond(12.75, 5),
+	MonsterLoot:new():setLoot("onyx arrow", 9.23, 15),
+	MonsterLoot:new():withRedGem(7.75, 1),
+	MonsterLoot:withGiantShimmeringPearl(5.63, 1),
+	MonsterLoot:withGoldIngot(4.77, 2),
+	MonsterLoot:new():setLoot("titan axe", 4.77),
+	MonsterLoot:new():setLoot("knight armor", 4.15),
+	MonsterLoot:new():setLoot("spiked squelcher", 3.99),
+	MonsterLoot:withGreenGem(2.43),
+	MonsterLoot:withWarAxe(1.49),
+	MonsterLoot:withVioletGem(1.25),
+	MonsterLoot:withGoldenArmor(0.55),
+	MonsterLoot:withTrap(0.39),
+	MonsterLoot:withDemonboneAmulet(0.16),
+	MonsterLoot:withMastermindShield(0.08)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1470},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -780, range = 7, shootEffect = CONST_ANI_LARGEROCK, target = false}
+	-- 	Basic attack (0-1400 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 1400),
+	CustomMonsterSpell:new():withPhysicalDamage():setDamageRange(0, 500):withLargeRock():setChance(15)
 }
 
 monster.defenses = {
 	defense = 60,
 	armor = 60,
-	{name ="speed", interval = 2000, chance = 15, speedChange = 520, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 400, maxDamage = 900, effect = CONST_ME_MAGIC_BLUE, target = false}
+	-- Ultimate Healing (400-900 heal)
+	CustomMonsterSpell:new():withHealing(400, 900):setChance(15),
+	-- Haste
+	CustomMonsterSpell:new():withHaste(520, 5000):setChance(15)
 }
 
 monster.elements = {
@@ -134,8 +138,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = -5},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

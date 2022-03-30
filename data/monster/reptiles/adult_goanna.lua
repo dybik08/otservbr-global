@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Adult Goanna")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "30/03/2022"
+}
+
 monster.description = "an adult goanna"
 monster.experience = 6650
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Kilmaresh Central Steppe, Kilmaresh Southern Steppe, Green Belt."
-	}
+}
 
 monster.health = 8300
 monster.maxHealth = 8300
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,39 +74,60 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 3},
-	{name = "Envenomed Arrow", chance = 55360, maxCount = 8},
-	{id = 774, name = "earth arrow", chance = 16800, maxCount = 29},
-	{name = "Terra Rod", chance = 11000},
-	{name = "Goanna Meat", chance = 12140},
-	{name = "Goanna Claw", chance = 4290},
-	{name = "Lizard Heart", chance = 1400},
-	{name = "Red Goanna Scale", chance = 10000},
-	{name = "Fur Armor", chance = 3200},
-	{name = "Serpent Sword", chance = 3600},
-	{name = "Terra Amulet", chance = 4650},
-	{name = "Terra Hood", chance = 7100},
-	{name = "Wood Cape", chance = 1800},
-	{name = "Scared Frog", chance = 2100},
-	{name = "Sacred Tree Amulet", chance = 2500},
-	{name = "Small Tortoise", chance = 1800}
+	MonsterLoot:withPlatinumCoins(100, 3),
+	MonsterLoot:withEnvenomedArrow(59.9, 8),
+	MonsterLoot:new():setLoot("earth arrow", 13.53, 30),
+	MonsterLoot:withEmeraldBangle(12.44),
+	MonsterLoot:withGoannaMeat(11.44),
+	MonsterLoot:withSmallEnchantedEmerald(10.15),
+	MonsterLoot:withGreenCrystalSplinter(9.05),
+	MonsterLoot:withTerraRod(8.36),
+	MonsterLoot:withRedGoannaScale(8.16),
+	MonsterLoot:withBlueCrystalShard(7.66),
+	MonsterLoot:withSmallSapphire(6.87, 2),
+	MonsterLoot:withTerraHood(6.57),
+	MonsterLoot:withGoannaClaw(6.37),
+	MonsterLoot:withTerraAmulet(5.77),
+	MonsterLoot:withYellowGem(4.48),
+	MonsterLoot:withSilverBrooch(4.18),
+	MonsterLoot:withGreenGem(3.08),
+	MonsterLoot:withOpal(2.79, 2),
+	MonsterLoot:withSerpentSword(2.79),
+	MonsterLoot:withOnyxChip(2.69),
+	MonsterLoot:withScaredFrog(2.49),
+	MonsterLoot:withGemmedFigurine(1.49),
+	MonsterLoot:withWoodCape(1.29),
+	MonsterLoot:withFurArmor(1.29),
+	MonsterLoot:withWhitePearl(1.29),
+	MonsterLoot:withSmallAmethyst(1.19),
+	MonsterLoot:new():setLoot("small tortoise", 1.09),
+	MonsterLoot:withSacredTreeAmulet(1),
+	MonsterLoot:new():setLoot("lizard heart", 0.9),
+	MonsterLoot:new():setLoot("coral brooch", 0.7)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -350, condition = {type = CONDITION_POISON, totalDamage = 19, interval = 4000}},
-	{name ="wave t", interval = 2000, chance = 10, minDamage = -250, maxDamage = -380, target = false},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_EARTHDAMAGE, minDamage = -450, maxDamage = -550, range = 3, radius = 1, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_EXPLOSIONHIT, target = true},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -210, maxDamage = -300, radius = 5, effect = CONST_ME_GROUNDSHAKER, target = false}
+	-- 	Basic attack (0-400 physical, effect: poison)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 400):setCondition(
+		{type = CONDITION_POISON, totalDamage = 400, interval = 4000}
+	),
+	-- Short Poison T-Wave (300-380 earth)
+	CustomMonsterSpell:new():setChance(15):setDamageRange(300, 380):withShortTWave():withPoison():withEarthDamage(),
+	-- Terra Strike (300-600 earth, on target)
+	CustomMonsterSpell:new():withStrike():setDamageRange(300, 600):withTerra():withEarthDamage():withTarget(),
+	-- Groundshaker Ball (200-380 earth, on self)
+	CustomMonsterSpell:new():setChance(12):setDamageRange(200, 380):withBall():withGroundShaker():withEarthDamage()
 }
 
 monster.defenses = {
 	defense = 84,
 	armor = 84,
-	{name ="speed", interval = 2000, chance = 5, speedChange = 500, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
+	-- Strong Haste (effect: haste)
+	CustomMonsterSpell:new():withStrongHaste(monster.speed, 5000):setChance(15)
 }
 
 monster.elements = {
@@ -113,8 +139,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

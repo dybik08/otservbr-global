@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Plaguesmith")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "29/03/2022"
+}
+
 monster.description = "a plaguesmith"
 monster.experience = 3555
 monster.outfit = {
@@ -23,8 +28,7 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 0,
-	Locations = "Pits of Inferno, Formorgar Mines, Edron Demon Forge (The Vats, The Foundry), \z
-		Magician Quarter, Alchemist Quarter, Roshamuul Prison."
+	Locations = "Pits of Inferno, Formorgar Mines, Edron Demon Forge (The Vats, The Foundry), Magician Quarter, Alchemist Quarter, Roshamuul Prison."
 }
 
 monster.health = 8250
@@ -81,91 +85,54 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "emerald bangle", chance = 341},
-	{name = "silver brooch", chance = 2000},
-	{name = "gold coin", chance = 50000, maxCount = 100},
-	{name = "gold coin", chance = 40000, maxCount = 100},
-	{name = "gold coin", chance = 50000, maxCount = 65},
-	{name = "small amethyst", chance = 5000, maxCount = 3},
-	{id = 3035, name = "platinum coin", chance = 7142, maxCount = 2},
-	{id = 3092, name = "axe ring", chance = 4347}, -- Axe ring
-	{id = 3093, chance = 4761}, -- Club ring
-	{name = "piece of iron", chance = 20000},
-	{name = "mouldy cheese", chance = 50000},
-	{id = 3122, chance = 60000},
-	{name = "two handed sword", chance = 20000},
-	{name = "war hammer", chance = 2127},
-	{name = "morning star", chance = 29000},
-	{name = "battle hammer", chance = 20000},
-	{name = "hammer of wrath", chance = 952},
-	{name = "knight legs", chance = 6250},
-	{name = "steel shield", chance = 20000},
-	{name = "steel boots", chance = 1123},
-	{name = "piece of royal steel", chance = 1234},
-	{name = "piece of hell steel", chance = 1010},
-	{name = "piece of draconian steel", chance = 1030},
-	{name = "soul orb", chance = 11111},
-	{name = "demonic essence", chance = 9033},
-	{name = "onyx arrow", chance = 7692, maxCount = 4},
-	{name = "great health potion", chance = 10000},
-	{id = 8896, name = "slightly rusted armor", chance = 540}
+	MonsterLoot:new():withGoldCoins(96.6, 258),
+	MonsterLoot:new():setLoot("dirty cape", 48.81):setItemId(3122),
+	MonsterLoot:new():setLoot("mouldy cheese", 38.22),
+	MonsterLoot:new():setLoot("morning star", 24.95),
+	MonsterLoot:new():setLoot("piece of iron", 16.74),
+	MonsterLoot:new():setLoot("steel shield", 16.22),
+	MonsterLoot:new():setLoot("two handed sword", 16.1),
+	MonsterLoot:new():setLoot("battle hammer", 14.8),
+	MonsterLoot:new():setLoot("soul orb", 9.81),
+	MonsterLoot:new():setLoot("great health potion", 8.23),
+	MonsterLoot:new():setLoot("onyx arrow", 6.93, 4),
+	MonsterLoot:new():withDemonicEssence(6.91),
+	MonsterLoot:new():withPlatinumCoins(6.59, 2),
+	MonsterLoot:new():setLoot("slightly rusted armor", 6.2):setItemId(8896),
+	MonsterLoot:new():setLoot("knight legs", 5.65),
+	MonsterLoot:new():setLoot("axe ring", 4.55):setItemId(3092),
+	MonsterLoot:new():setLoot("club ring", 4.14):setItemId(3093),
+	MonsterLoot:new():setLoot("small amethyst", 3.98, 3),
+	MonsterLoot:new():setLoot("war hammer", 1.56),
+	MonsterLoot:new():setLoot("silver brooch", 1.35),
+	MonsterLoot:new():setLoot("steel boots", 1.24),
+	MonsterLoot:new():setLoot("piece of draconian steel", 0.85),
+	MonsterLoot:new():setLoot("piece of royal steel", 0.82),
+	MonsterLoot:new():setLoot("piece of hell steel", 0.73),
+	MonsterLoot:new():setLoot("emerald bangle", 0.39),
+	MonsterLoot:new():setLoot("war horn", 0.07)
 }
 
 monster.attacks = {
-	{
-		name = "melee",
-		interval = 1500,
-		chance = 100,
-		minDamage = 0,
-		maxDamage = -539,
-		condition = {type = CONDITION_POISON, totalDamage = 200, interval = 4000}
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 15,
-		type = COMBAT_EARTHDAMAGE,
-		minDamage = -60,
-		maxDamage = -114,
-		radius = 4,
-		effect = CONST_ME_POISONAREA,
-		target = false
-	},
-	{name = "plaguesmith wave", interval = 2000, chance = 10, minDamage = -100, maxDamage = -350, target = false},
-	{
-		name = "speed",
-		interval = 2000,
-		chance = 15,
-		speedChange = -800,
-		radius = 4,
-		effect = CONST_ME_POISONAREA,
-		target = false,
-		duration = 30000
-	}
+	-- 	Basic attack (0-440 physical, effect: poison 10/tick)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 440):setCondition(
+		{type = CONDITION_POISON, totalDamage = 200, interval = 4000}
+	),
+	-- Acid Wave (100-140 life drain)
+	CustomMonsterSpell:new():withLifeDrainDamage():withWave():withAcid():setDamageRange(100, 140),
+	-- Poison Ball (80-200 earth, on self)
+	CustomMonsterSpell:new():withEarthDamage():withBall():withPoison():setDamageRange(80, 200):setNeedDirection(false),
+	-- Poison Ball (on self, effect: paralyze)
+	CustomMonsterSpell:new():withBall():withPoison():setChance(15):withParalyze(-350, 15000)
 }
 
 monster.defenses = {
 	defense = 40,
 	armor = 40,
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_HEALING,
-		minDamage = 200,
-		maxDamage = 280,
-		effect = CONST_ME_MAGIC_BLUE,
-		target = false
-	},
-	{
-		name = "speed",
-		interval = 2000,
-		chance = 15,
-		speedChange = 440,
-		effect = CONST_ME_MAGIC_RED,
-		target = false,
-		duration = 5000
-	}
+	-- Intense Healing (200-270 heal)
+	CustomMonsterSpell:new():withHealing(200, 270),
+	-- Strong Haste (effect: haste)
+	CustomMonsterSpell:new():withHaste(440, 5000):setChance(15)
 }
 
 monster.elements = {

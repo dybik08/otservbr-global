@@ -90,15 +90,15 @@ monster.loot = {
 	MonsterLoot:new():setLoot("great mana potion", 14.96, 5),
 	MonsterLoot:new():setLoot("pair of hellflayer horns", 13.35),
 	MonsterLoot:new():setLoot("great spirit potion", 12.91, 5),
-	MonsterLoot:new():setLoot("ultimate healing potion", 12.57, 5),
+	MonsterLoot:new():setLoot("ultimate health potion", 12.57, 5),
 	MonsterLoot:new():setLootItem("small topaz"):setChance(7.89):setMaxCount(5),
 	MonsterLoot:new():setLootItem("small emerald"):setChance(7.41):setMaxCount(5),
 	MonsterLoot:new():setLootItem("small diamond"):setChance(7.41):setMaxCount(5),
 	MonsterLoot:new():setLootItem("small ruby"):setChance(6.53):setMaxCount(5),
 	MonsterLoot:new():setLoot("gold ingot", 6.19, 2),
 	MonsterLoot:new():setLootItem("small amethyst"):setChance(5.99):setMaxCount(5),
-	MonsterLoot:new():setLoot("giant shimmering pearl", 3.22),
-	MonsterLoot:new():setLoot("red gem", 2.19),
+	MonsterLoot:new():setLoot("giant shimmering pearl", 3.22):setItemId(281),
+	MonsterLoot:new():setLoot("red gem", 2.19):setItemId(3039),
 	MonsterLoot:new():setLoot("violet gem", 1.17),
 	MonsterLoot:new():setLoot("magma legs", 1.07),
 	MonsterLoot:new():setLoot("magma boots", 0.97),
@@ -128,7 +128,7 @@ monster.attacks = {
 	-- Great Death Beam (800-1250 death)
 	CustomMonsterSpell:new():setChance(10):withDeathDamage():withDeath():withGreatBeam():setDamageRange(800, 1250),
 	-- Groundshaker Ball (260-450 physical, on self)
-	CustomMonsterSpell:new():setNeedDirection(false):setChance(100):withGroundShaker():withPhysicalDamage():withBall():setDamageRange(
+	CustomMonsterSpell:new():setNeedDirection(false):setChance(10):withGroundShaker():withPhysicalDamage():withBall():setDamageRange(
 		260,
 		450
 	)
@@ -137,7 +137,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 20,
 	armor = 20,
-	CustomMonsterSpell:withHealing(300, 580):setChance(15)
+	CustomMonsterSpell:new():withHealing(300, 580):setChance(15)
 }
 
 monster.elements = {

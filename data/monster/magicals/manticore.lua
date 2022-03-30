@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Manticore")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "30/03/2022"
+}
+
 monster.description = "a manticore"
 monster.experience = 5100
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Kilmaresh."
-	}
+}
 
 monster.health = 6700
 monster.maxHealth = 6700
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,29 +74,40 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 3},
-	{name = "flaming arrow", chance = 4090, maxCount = 11},
-	{name = "royal star", chance = 1120, maxCount = 4},
-	{name = "manticore tail", chance = 8550},
-	{name = "manticore ear", chance = 6690},
-	{name = "magma legs", chance = 740},
-	{name = "magma monocle", chance = 1860},
-	{name = "magma boots", chance = 370},
-	{name = "magma coat", chance = 2970},
-	{name = "wand of everblazing", chance = 1120},
-	{name = "wand of dragonbreath", chance = 740},
-	{name = "wand of draconia", chance = 370}
+	MonsterLoot:withPlatinumCoins(100, 3),
+	MonsterLoot:new():setLoot("manticore tail", 9.89),
+	MonsterLoot:new():setLoot("manticore ear", 7.41),
+	MonsterLoot:withGreenCrystalFragment(5.89),
+	MonsterLoot:withSmallEmerald(5.51),
+	MonsterLoot:new():setLoot("flaming arrow", 5.13, 9),
+	MonsterLoot:withRainbowQuartz(4.18, 3),
+	MonsterLoot:withPrismaticQuartz(4.18),
+	MonsterLoot:withMagmaCoat(3.42),
+	MonsterLoot:withVioletGem(3.23),
+	MonsterLoot:withMagmaBoots(3.04),
+	MonsterLoot:withMagmaMonocle(2.09),
+	MonsterLoot:withWandOfDragonbreath(1.71),
+	MonsterLoot:withWandOfDraconia(1.33),
+	MonsterLoot:withRoyalStar(1.14, 3),
+	MonsterLoot:withWandOfEverblazing(0.76),
+	MonsterLoot:withMagmaLegs(0.38)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
-	{name ="combat", interval = 2000, chance = 13, type = COMBAT_FIREDAMAGE, minDamage = -350, maxDamage = -450, length = 8, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="combat", interval = 4000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -300, maxDamage = -400, radius = 3, shootEffect = CONST_ANI_ENVENOMEDARROW, effect = CONST_ME_GREEN_RINGS, target = true},
-	{name ="combat", interval = 2000, chance = 22, type = COMBAT_FIREDAMAGE, minDamage = -300, maxDamage = -500, range = 4, shootEffect = CONST_ANI_BURSTARROW, target = true}
+	-- 	Basic attack (0-250 physical, effect: poison 20hp/tick)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 250):setCondition(
+		{type = CONDITION_POISON, totalDamage = 400, interval = 4000}
+	),
+	-- Longer Fire Beam (300-450 fire)
+	CustomMonsterSpell:new():setChance(100):setDamageRange(300, 450):withLongerBeam():withFire():withFireDamage(),
+	-- Eruption Box (450-550 fire, on target)
+	CustomMonsterSpell:new():setDamageRange(450, 550):withBox():withEruption():withFireDamage():withTarget(),
+	-- Poison Box (300-400 earth, on target)
+	CustomMonsterSpell:new():setDamageRange(300, 400):withBox():withPoison():withEarthDamage():withTarget()
 }
 
 monster.defenses = {
@@ -108,8 +124,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -20},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {
