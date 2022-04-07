@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Enfeebled Silencer")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "7/04/2022"
+}
+
 monster.description = "an enfeebled silencer"
 monster.experience = 1100
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Feyrist."
-	}
+}
 
 monster.health = 1100
 monster.maxHealth = 1100
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -80,32 +85,67 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 100000, maxCount = 100},
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 8},
-	{id = 3049, chance = 1200}, -- Stealth ring
-	{id = 3079, chance = 360},
-	{name="assassin star", chance = 7600, maxCount = 10},
-	{id = 7387, chance = 960},
-	{id = 7407, chance = 2000},
-	{id = 7451, chance = 640},
-	{id = 7454, chance = 2400},
-	{id = 812, chance = 960},
-	{id = 813, chance = 480},
-	{id = 20200, chance = 17000},
-	{name = "fairy wings", chance = 30100}
+	MonsterLoot:withGoldCoins(100, 100),
+	MonsterLoot:withPlatinumCoins(40.1, 1),
+	MonsterLoot:new():setLoot("fairy wings", 11.86),
+	MonsterLoot:withAssassinStar(7.62, 10),
+	MonsterLoot:new():setLoot("silencer claws", 4.05),
+	MonsterLoot:new():setLoot("haunted blade", 1.5),
+	MonsterLoot:new():setLoot("stealer's ring", 1.47):setItemId(3049),
+	MonsterLoot:new():setLoot("glorious axe", 1.01),
+	MonsterLoot:new():setLoot("terra boots", 0.92),
+	MonsterLoot:new():setLoot("terra legs", 0.88),
+	MonsterLoot:new():setLoot("diamond sceptre", 0.82),
+	MonsterLoot:new():setLoot("shadow sceptre", 0.72),
+	MonsterLoot:new():setLoot("boots of haste", 0.55)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 80, attack = 70, condition = {type = CONDITION_POISON, totalDamage = 200, interval = 4000}},
-	{name ="silencer skill reducer", interval = 2000, chance = 10, range = 3, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_MANADRAIN, minDamage = -40, maxDamage = -90, radius = 4, shootEffect = CONST_ANI_ONYXARROW, effect = CONST_ME_MAGIC_RED, target = true}
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		minDamage = -0,
+		maxDamage = -350,
+		condition = {type = CONDITION_POISON, totalDamage = 200, interval = 4000}
+	},
+	{name = "silencer skill reducer", interval = 2000, chance = 10, range = 3, target = false},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_MANADRAIN,
+		minDamage = -40,
+		maxDamage = -130,
+		radius = 4,
+		shootEffect = CONST_ANI_ONYXARROW,
+		effect = CONST_ME_MAGIC_RED,
+		target = true
+	}
 }
 
 monster.defenses = {
 	defense = 20,
 	armor = 20,
-	{name ="speed", interval = 2000, chance = 15, speedChange = 450, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 80, maxDamage = 225, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = 450,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 5000
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_HEALING,
+		minDamage = 80,
+		maxDamage = 225,
+		effect = CONST_ME_MAGIC_BLUE,
+		target = false
+	}
 }
 
 monster.elements = {

@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Wyrm")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "3/04/2022"
+}
+
 monster.description = "a wyrm"
 monster.experience = 1550
 monster.outfit = {
@@ -23,9 +28,8 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 0,
-	Locations = "Drefia Wyrm Lair (after the Medusa Shield Quest room), Darashia Wyrm Hills, Arena and Zoo Quarter, \z
-		beneath Fenrock, Deeper Razachai, Lower Spike, Vandura Wyrm Cave and Vandura Mountain in Liberty Bay."
-	}
+	Locations = "Drefia Wyrm Lair (after the Medusa Shield Quest room), Darashia Wyrm Hills, Arena and Zoo Quarter, beneath Fenrock, Deeper Razachai, Lower Spike, Vandura Wyrm Cave and Vandura Mountain in Liberty Bay."
+}
 
 monster.health = 1825
 monster.maxHealth = 1825
@@ -43,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -79,39 +83,43 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "small diamond", chance = 750, maxCount = 3},
-	{name = "gold coin", chance = 30000, maxCount = 100},
-	{name = "gold coin", chance = 30000, maxCount = 100},
-	{name = "gold coin", chance = 30000, maxCount = 30},
-	{name = "crossbow", chance = 5920},
-	{id = 3449, chance = 7650, maxCount = 10}, -- Burst arrow
-	{name = "dragon ham", chance = 34800, maxCount = 3},
-	{name = "dragonbone staff", chance = 110},
-	{name = "strong health potion", chance = 19970},
-	{name = "strong mana potion", chance = 15310},
-	{name = "lightning pendant", chance = 720},
-	{name = "composite hornbow", chance = 90},
-	{name = "focus cape", chance = 1250},
-	{name = "hibiscus dress", chance = 250},
-	{name = "wand of starstorm", chance = 420},
-	{name = "wand of draconia", chance = 990},
-	{name = "shockwave amulet", chance = 110},
-	{name = "wyrm scale", chance = 15360}
+	MonsterLoot:withGoldCoins(96.9, 232),
+	MonsterLoot:withDragonHam(34.88, 3),
+	MonsterLoot:withStrongHealthPotion(20.22),
+	MonsterLoot:withStrongManaPotion(15.21),
+	MonsterLoot:new():setLoot("wyrm scale", 14.97),
+	MonsterLoot:new():setLoot("burst arrow", 7.95, 10):setItemId(22119),
+	MonsterLoot:withCrossbow(6.05),
+	MonsterLoot:withFocusCape(1.23),
+	MonsterLoot:withWandOfDraconia(1.01),
+	MonsterLoot:withSmallDiamond(0.91, 3),
+	MonsterLoot:withLightningPendant(0.74),
+	MonsterLoot:withWandOfStarstorm(0.46),
+	MonsterLoot:new():setLoot("hibiscus dress", 0.31),
+	MonsterLoot:new():setLoot("composite hornbow", 0.11),
+	MonsterLoot:new():setLoot("dragonbone staff", 0.1),
+	MonsterLoot:new():setLoot("shockwave amulet", 0.08)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -235},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -100, maxDamage = -220, radius = 3, effect = CONST_ME_YELLOWENERGY, target = false},
-	{name ="wyrm wave", interval = 2000, chance = 40, minDamage = -130, maxDamage = -200, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -100, maxDamage = -125, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -98, maxDamage = -145, length = 4, spread = 3, effect = CONST_ME_POFF, target = false}
+	-- 	Basic attack (0-235 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 235),
+	-- Ranged attack (100-125 energy)
+	CustomMonsterSpell:new():withEnergyStrike():setDamageRange(100, 125):withEnergyDamage(),
+	-- Yellow Electric Box (100-220 energy, on self)
+	CustomMonsterSpell:new():setDamageRange(100, 220):withYellowElectric():withEnergyDamage():withBox(),
+	-- Violet Electric Long Wave (130-200 energy)
+	CustomMonsterSpell:new():setDamageRange(130, 200):withVioletElectric():withEnergyDamage():withLongWave(),
+	-- Short Smoke Beam (0-145 life drain)
+	CustomMonsterSpell:new():setDamageRange(0, 145):withSmoke():withLifeDrainDamage():withShortBeam()
 }
 
 monster.defenses = {
 	defense = 35,
 	armor = 35,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 100, maxDamage = 150, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="effect", interval = 2000, chance = 10, radius = 1, effect = CONST_ME_SOUND_YELLOW, target = false}
+	-- Healing (100-150 heal)
+	CustomMonsterSpell:new():withHealing(100, 150),
+	{name = "effect", interval = 2000, chance = 10, radius = 1, effect = CONST_ME_SOUND_YELLOW, target = false}
 }
 
 monster.elements = {
@@ -123,8 +131,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = -5}
 }
 
 monster.immunities = {

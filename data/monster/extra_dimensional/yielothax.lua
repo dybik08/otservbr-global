@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Yielothax")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "4/04/2022"
+}
+
 monster.description = "a yielothax"
 monster.experience = 1250
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "In another dimension, through a portal in the Raging Mage tower, southern Zao."
-	}
+}
 
 monster.health = 1500
 monster.maxHealth = 1500
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -78,38 +83,81 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "small diamond", chance = 4761, maxCount = 5},
-	{name = "gold coin", chance = 50000, maxCount = 100},
-	{name = "gold coin", chance = 50000, maxCount = 100},
-	{name = "gold coin", chance = 50000, maxCount = 27},
-	{name = "talon", chance = 917},
-	{name = "might ring", chance = 3846},
-	{name = "wand of cosmic energy", chance = 523},
-	{name = "epee", chance = 564},
-	{name = "brown mushroom", chance = 9090, maxCount = 3},
-	{name = "mastermind potion", chance = 490},
-	{name = "strong health potion", chance = 20000},
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{name = "gold coin", chance = 100000, maxCount = 31},
 	{name = "strong mana potion", chance = 20000},
+	{name = "strong health potion", chance = 20000},
+	{name = "brown mushroom", chance = 10010, maxCount = 3},
+	{name = "small diamond", chance = 4761, maxCount = 5},
+	{name = "might ring", chance = 3846},
+	{name = "talon", chance = 917},
 	{name = "lightning pendant", chance = 862},
-	{name = "lightning legs", chance = 480},
 	{name = "shockwave amulet", chance = 571},
-	{name = "broken ring of ending", chance = 261},
-	{name = "yielowax", chance = 300},
+	{name = "epee", chance = 564},
+	{name = "lightning legs", chance = 500},
+	{name = "mastermind potion", chance = 490},
+	{name = "wand of cosmic energy", chance = 470},
+	{name = "yielowax", chance = 320},
+	{name = "broken ring of ending", chance = 310},
 	{name = "yielocks", chance = 320}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 1000, chance = 100, minDamage = 0, maxDamage = -203},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -100, maxDamage = -130, length = 4, spread = 3, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -150, maxDamage = -250, radius = 3, effect = CONST_ME_HITBYPOISON, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -70, maxDamage = -120, radius = 3, effect = CONST_ME_HITBYPOISON, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = -50, maxDamage = -150, length = 4, spread = 3, effect = CONST_ME_MAGIC_RED, target = false}
+	{name = "melee", interval = 1000, chance = 100, minDamage = 0, maxDamage = -203},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -100,
+		maxDamage = -130,
+		length = 4,
+		spread = 3,
+		effect = CONST_ME_ENERGYAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -150,
+		maxDamage = -250,
+		radius = 3,
+		effect = CONST_ME_HITBYPOISON,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -70,
+		maxDamage = -120,
+		radius = 3,
+		effect = CONST_ME_HITBYPOISON,
+		target = true
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_MANADRAIN,
+		minDamage = -50,
+		maxDamage = -150,
+		length = 4,
+		spread = 3,
+		effect = CONST_ME_MAGIC_RED,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 100, maxDamage = 150, effect = CONST_ME_HITBYPOISON, target = false}
+	-- Healing (100-150 heal)
+	CustomMonsterSpell:new():withHealing(100, 150)
 }
 
 monster.elements = {
@@ -121,8 +169,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 50}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 50}
 }
 
 monster.immunities = {

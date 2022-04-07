@@ -27,7 +27,7 @@ monster.Bestiary = {
 		Mintwallin, Folda, Minotaur Pyramid, Outlaw Camp, Kazordoon minotaur cave, Plains of Havoc, Elven Bane, \z
 		Deeper Fibula Dungeon (level 50+ to open the door), Ancient Temple, Maze of Lost Souls, \z
 		Thais Minotaur Camp, Foreigner Quarter."
-	}
+}
 
 monster.health = 100
 monster.maxHealth = 100
@@ -42,7 +42,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -93,7 +93,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -45}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -20}
 }
 
 monster.defenses = {

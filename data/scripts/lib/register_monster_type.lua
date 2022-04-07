@@ -519,6 +519,9 @@ function readSpell(incomingLua)
 					spell:setCombatType(incomingLua.type)
 				elseif incomingLua.name == "condition" then
 					spell:setConditionType(incomingLua.type)
+				elseif incomingLua.name == "magiclevel" then
+					spell:setConditionType(incomingLua.type)
+					spell:setMagicLevelChange(math.random(20, 30))
 				else
 					Spdlog.warn(
 						"[readSpell] - Monster " ..
@@ -544,6 +547,9 @@ function readSpell(incomingLua)
 			end
 			if incomingLua.target then
 				spell:setNeedTarget(incomingLua.target)
+			end
+			if incomingLua.needDirection then
+				spell:setNeedDirection(incomingLua.needDirection)
 			end
 			if incomingLua.length then
 				spell:setCombatLength(incomingLua.length)

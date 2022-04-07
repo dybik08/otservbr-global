@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Falcon Paladin")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "7/04/2022"
+}
+
 monster.description = "a falcon paladin"
 monster.experience = 6544
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Falcon Bastion."
-	}
+}
 
 monster.health = 8500
 monster.maxHealth = 8500
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -74,31 +79,38 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 90000, maxCount = 5},
-	{name = "Small Diamond", chance = 41000, maxCount = 2},
-	{name = "Great Spirit Potion", chance = 41000, maxCount = 2},
-	{name = "Small Emerald", chance = 40000, maxCount = 2},
-	{name = "Small Amethyst", chance = 40000, maxCount = 3},
-	{name = "Assassin Star", chance = 25700, maxCount = 10},
-	{name = "Small Ruby", chance = 20700, maxCount = 2},
-	{name = "Small Topaz", chance = 20100, maxCount = 2},
-	{name = "Onyx Arrow", chance = 14000, maxCount = 15},
-	{id= 3039, chance = 7500, maxCount = 3},
-	{name = "Green Gem", chance = 4880},
-	{name = "Violet Gem", chance = 4180},
-	{id = 282, chance = 2260},
-	{name = "Damaged Armor Plates", chance = 1120},
-	{name = "Falcon Crest", chance = 730},
-	{name = "Golden Armor", chance = 310},
-	{name = "Mastermind Shield", chance = 310}
+	MonsterLoot:withPlatinumCoins(90, 6),
+	MonsterLoot:withGreatSpiritPotion(50.49, 2),
+	MonsterLoot:withSmallAmethyst(48.85, 2),
+	MonsterLoot:withSmallEmerald(48.42, 2),
+	MonsterLoot:withSmallDiamond(45.81, 2),
+	MonsterLoot:withAssassinStar(30.52, 10),
+	MonsterLoot:withSmallRuby(24.7, 2),
+	MonsterLoot:withSmallTopaz(22.15, 2),
+	MonsterLoot:withOnyxArrow(16.87, 15),
+	MonsterLoot:withRedGem(7.16),
+	MonsterLoot:withGreenGem(6.01),
+	MonsterLoot:withVioletGem(5.64),
+	MonsterLoot:withGiantShimmeringPearl(2.55),
+	MonsterLoot:new():setLoot("Damaged Armor Plates", 1.52),
+	MonsterLoot:new():setLoot("falcon crest", 1.46),
+	MonsterLoot:withMastermindShield(0.79),
+	MonsterLoot:withGoldenArmor(0.06)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250},
-	{name ="combat", interval = 2000, chance = 50, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -550, range = 5, shootEffect = CONST_ANI_ROYALSPEAR, target = true},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = 500, range = 5, shootEffect = CONST_ANI_BOLT, target = true},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -350, maxDamage = -450, range = 7, radius = 2, shootEffect = CONST_ANI_POWERBOLT, effect = CONST_ME_ENERGYHIT, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -250, maxDamage = -350, length = 5, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false}
+	-- Basic attack (0-400 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 400),
+	-- Ranged attack (0-500 physical) (Royal Spear)
+	CustomMonsterSpell:new():withRoyalSpear():setChance(50):setDamageRange(0, 500):withPhysicalDamage(),
+	-- Ranged attack (0-200 physical) (Bolt)
+	CustomMonsterSpell:new():withBolt():setChance(20):setDamageRange(0, 200):withPhysicalDamage(),
+	-- Energy Box (400-500 energy, on target) (Power Bolt)
+	CustomMonsterSpell:new():withPowerBolt():withBox():withEnergy():setDamageRange(400, 500):withTarget():withEnergyDamage(
+
+	),
+	-- Short Blue Electric Beam (250-350 energy)
+	CustomMonsterSpell:new():withShortBeam():withBlueElectric():setDamageRange(250, 350):withEnergyDamage()
 }
 
 monster.defenses = {

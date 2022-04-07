@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Weakened Frazzlemaw")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "7/04/2022"
+}
+
 monster.description = "a weakened frazzlemaw"
 monster.experience = 1000
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Feyrist."
-	}
+}
 
 monster.health = 1200
 monster.maxHealth = 1200
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -80,40 +85,84 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 100000, maxCount = 100},
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 7},
-	{id = 3110, chance = 10400},
-	{id = 3114, chance = 12680},
-	{id = 3115, chance = 10000},
-	{id = 3116, chance = 5500},
-	{id = 3578, chance = 6750, maxCount = 3},
-	{id = 3582, chance = 6000, maxCount = 2},
-	{id = 5880, chance = 700},
-	{id = 5895, chance = 900},
-	{id = 7418, chance = 700},
-	{name="great mana potion", chance = 15000, maxCount = 3},
-	{name="great health potion", chance = 15000, maxCount = 2},
-	{id = 10389, chance = 1460},
-	{id = 20062, chance = 450},
-	{id = 20198, chance = 18760},
-	{id = 20199, chance = 16000},
-	{name = "fairy wings", chance = 30100}
+	MonsterLoot:withGoldCoins(100, 100),
+	MonsterLoot:withPlatinumCoins(59.99, 1),
+	MonsterLoot:new():setLoot("fairy wings", 11.86),
+	MonsterLoot:new():setLoot("skull", 11.98):setItemId(30207),
+	MonsterLoot:new():setLoot("frazzle tongue", 11.78),
+	MonsterLoot:new():setLoot("remains of a fish", 10.18),
+	MonsterLoot:new():setLoot("bone", 10.06):setItemId(1047),
+	MonsterLoot:withGreatHealthPotion(9.96, 2),
+	MonsterLoot:withGreatManaPotion(9.96, 3),
+	MonsterLoot:new():setLoot("frazzle skin", 9.91),
+	MonsterLoot:new():setLoot("fish", 6.23, 3):setItemId(3125),
+	MonsterLoot:new():setLoot("ham", 6.12, 3),
+	MonsterLoot:new():setLoot("fish fin", 4.86),
+	MonsterLoot:new():setLoot("big bone", 4.84),
+	MonsterLoot:new():setLoot("piece of iron", 4, 79),
+	MonsterLoot:new():setLoot("iron ore", 3.21),
+	MonsterLoot:new():setLoot("sai", 0.27),
+	MonsterLoot:new():setLoot("nightmare blade", 0.26),
+	MonsterLoot:new():setLoot("cluster of solace", 0.21)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 90, attack = 80},
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		minDamage = -0,
+		maxDamage = -350
+	},
 	-- bleed
-	{name ="condition", type = CONDITION_BLEEDING, interval = 2000, chance = 10, minDamage = -80, maxDamage = -200, radius = 3, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -200, length = 5, spread = 3, effect = CONST_ME_EXPLOSIONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -100, radius = 2, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_STONES, target = true},
-	{name ="speed", interval = 2000, chance = 15, speedChange = -600, radius = 5, effect = CONST_ME_MAGIC_RED, target = false, duration = 15000},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = -80, maxDamage = -50, radius = 4, effect = CONST_ME_MAGIC_RED, target = false}
+	{
+		name = "condition",
+		type = CONDITION_BLEEDING,
+		interval = 2000,
+		chance = 10,
+		minDamage = -80,
+		maxDamage = -200,
+		shootEffect = CONST_ANI_LARGEROCK,
+		effect = CONST_ME_STONES,
+		radius = 3,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = 0,
+		maxDamage = -400,
+		length = 5,
+		effect = CONST_ME_EXPLOSIONAREA,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = -600,
+		radius = 5,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 15000
+	}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 80, maxDamage = 225, effect = CONST_ME_HITBYPOISON, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 15,
+		type = COMBAT_HEALING,
+		minDamage = 80,
+		maxDamage = 225,
+		effect = CONST_ME_HITBYPOISON,
+		target = false
+	}
 }
 
 monster.elements = {

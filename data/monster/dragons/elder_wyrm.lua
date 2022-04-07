@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Elder Wyrm")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "4/04/2022"
+}
+
 monster.description = "an elder wyrm"
 monster.experience = 2500
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Drefia Wyrm Lair, Vandura Wyrm Cave, Glooth Factory (west)."
-	}
+}
 
 monster.health = 2700
 monster.maxHealth = 2700
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -78,40 +83,48 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "small diamond", chance = 4000, maxCount = 5},
-	{name = "gold coin", chance = 100000, maxCount = 174},
-	{id = 3035, name = "platinum coin", chance = 25150, maxCount = 3},
-	{name = "crossbow", chance = 9690},
-	{name = "dragon ham", chance = 32420, maxCount = 2},
-	{name = "soul orb", chance = 5980},
-	{name = "dragonbone staff", chance = 100},
-	{name = "shadow sceptre", chance = 310},
-	{name = "strong health potion", chance = 17710},
-	{name = "strong mana potion", chance = 20930},
-	{name = "lightning pendant", chance = 520},
-	{name = "lightning boots", chance = 310},
-	{name = "lightning legs", chance = 930},
-	{name = "lightning robe", chance = 310},
-	{name = "composite hornbow", chance = 310},
-	{name = "focus cape", chance = 100},
-	{name = "wand of starstorm", chance = 410},
-	{name = "wand of draconia", chance = 2000},
-	{name = "shockwave amulet", chance = 100},
-	{name = "wyrm scale", chance = 15980}
+	MonsterLoot:new():withGoldCoins(100, 179),
+	MonsterLoot:new():withDragonHam(35.4, 4),
+	MonsterLoot:new():withPlatinumCoins(24.98, 3),
+	MonsterLoot:new():withStrongManaPotion(20.02),
+	MonsterLoot:new():withStrongHealthPotion(19.89),
+	MonsterLoot:new():setLoot("wyrm scale", 17.12),
+	MonsterLoot:new():withCrossbow(7.99),
+	MonsterLoot:new():withSoulOrb(4.97),
+	MonsterLoot:new():withSmallDiamond(4.27, 5),
+	MonsterLoot:new():withWandOfDraconia(1.51),
+	MonsterLoot:new():withPowerBolt(1.03, 10),
+	MonsterLoot:new():withWandOfStarstorm(0.83),
+	MonsterLoot:new():withLightningPendant(0.75),
+	MonsterLoot:new():withLightningLegs(0.6),
+	MonsterLoot:new():withLightningRobe(0.29),
+	MonsterLoot:new():setLoot("dragonbone staff", 0.24),
+	MonsterLoot:new():setLoot("composite hornbow", 0.22),
+	MonsterLoot:new():setLoot("shadow sceptre", 0.17),
+	MonsterLoot:new():withLightningBoots(0.14),
+	MonsterLoot:new():setLoot("shockwave amulet", 0.12)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -360},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -90, maxDamage = -150, radius = 4, effect = CONST_ME_TELEPORT, target = true},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -140, maxDamage = -250, radius = 5, effect = CONST_ME_PURPLEENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -180, length = 8, spread = 3, effect = CONST_ME_BLOCKHIT, target = false},
-	{name ="elder wyrm wave", interval = 2000, chance = 10, minDamage = -200, maxDamage = -300, target = false}
+	-- 	Basic attack (0-235 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 350),
+	-- 	Energy Ball (90-130 energy, on target)
+	CustomMonsterSpell:new():withEnergy():setDamageRange(90, 130):withBall():withEnergyDamage():withTarget(),
+	-- Great Violet Electric Ball (140-200 energy, on self)
+	CustomMonsterSpell:new():withVioletElectric():setDamageRange(140, 200):withGreatBeam():withEnergyDamage(),
+	-- Greater Sparky Beam (0-150 physical, effect: electrify 25hp/tick)
+	CustomMonsterSpell:new():withSparky():setDamageRange(0, 150):withGreatBeam():withPhysicalDamage():setCondition(
+		{type = CONDITION_ENERGY, totalDamage = 500, interval = 4000}
+	),
+	-- Long Black Steam Cone-Wave (200-250 life drain)
+	CustomMonsterSpell:new():withBlackSteam():setDamageRange(200, 250):withLongConeWave():withLifeDrainDamage()
 }
 
 monster.defenses = {
 	defense = 45,
 	armor = 45,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 100, maxDamage = 150, effect = CONST_ME_MAGIC_BLUE, target = false}
+	-- Healing (100-150 heal)
+	CustomMonsterSpell:new():withHealing(100, 150)
 }
 
 monster.elements = {
@@ -123,8 +136,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

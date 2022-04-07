@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Corym Mines."
-	}
+}
 
 monster.health = 800
 monster.maxHealth = 800
@@ -42,7 +42,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -78,19 +78,23 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 50930, maxCount = 4},
-	{name = "rare earth", chance = 39750, maxCount = 2},
-	{id = 12600, chance = 27980, maxCount = 5},
-	{name = "glob of acid slime", chance = 23680},
-	{name = "stonerefiner's skull", chance = 20110},
-	{name = "poisonous slime", chance = 20040, maxCount = 3},
-	{name = "half-digested stones", chance = 15210, maxCount = 5}
+	MonsterLoot:new():withPlatinumCoins(50.65, 4),
+	MonsterLoot:new():setLoot("rare earth", 40.32),
+	MonsterLoot:new():setLoot("coal", 30.22, 4):setItemId(12600),
+	MonsterLoot:new():setLoot("glob of acid slime", 25.31),
+	MonsterLoot:new():setLoot("poisonous slime", 20.6),
+	MonsterLoot:new():setLoot("stonerefiner's skull", 19.54),
+	MonsterLoot:new():setLoot("half-digested stones", 14.86),
+	MonsterLoot:new():setLoot("rat cheese", 9.79)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100},
-	{name ="berserk", interval = 2000, chance = 15, minDamage = 0, maxDamage = -70, target = false},
-	{name ="stone shower rune", interval = 2000, chance = 10, minDamage = -40, maxDamage = -80, range = 7, target = false}
+	-- 	Basic attack (0-130 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 130),
+	-- Stone Shower (60-100 physical, target)
+	CustomMonsterSpell:new():setDamageRange(60, 100):withPhysicalDamage():withStoneShower():withBall():withTarget(),
+	-- Poison Berserk (50-90 earth)
+	CustomMonsterSpell:new():setDamageRange(50, 90):withEarthDamage():withPoison():withBox()
 }
 
 monster.defenses = {

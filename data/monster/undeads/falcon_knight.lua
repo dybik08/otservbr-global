@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Falcon Knight")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "7/04/2022"
+}
+
 monster.description = "a falcon knight"
 monster.experience = 5985
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Falcon Bastion."
-	}
+}
 
 monster.health = 9000
 monster.maxHealth = 9000
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -74,38 +79,39 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3582, chance = 70080, maxCount = 8},
-	{name = "Soul Orb", chance = 35000},
-	{name = "Great Mana Potion", chance = 33000, maxCount = 3},
-	{name = "Great Health Potion", chance = 33000, maxCount = 3},
-	{name = "flask of demonic blood", chance = 30000, maxCount = 4},
-	{name = "Small Amethyst", chance = 24950, maxCount = 3},
-	{name = "Assassin Star", chance = 24670, maxCount = 10},
-	{name = "Small Diamond", chance = 15700, maxCount = 3},
-	{name = "Small Ruby", chance = 15333, maxCount = 3},
-	{name = "Small Emerald", chance = 15110, maxCount = 3},
-	{name = "Onyx Arrow", chance = 14480, maxCount = 15},
-	{name = "Small Topaz", chance = 4580, maxCount = 3},
-	{name = "Titan Axe", chance = 3000},
-	{id = 282, chance = 3000},
-	{name = "Spiked Squelcher", chance = 2200},
-	{name = "Knight Armor", chance = 1980},
-	{name = "Falcon Crest", chance = 1250},
-	{name = "War Axe", chance = 1230},
-	{name = "Violet Gem", chance = 1060},
-	{name = "Damaged Armor Plates", chance = 990},
-	{name = "Green Gem", chance = 880},
-	{name = "Golden Armor", chance = 840},
-	{name = "Mastermind Shield", chance = 620},
-	{name = "Heavy Mace", chance = 460},
-	{id = 3481, chance = 370},
-	{id = 3019, chance = 100}
+	MonsterLoot:withPlatinumCoins(100, 5),
+	MonsterLoot:withSoulOrb(41.9),
+	MonsterLoot:withGreatHealthPotion(38.86, 3),
+	MonsterLoot:withFlaskOfDemonicBlood(35.94, 4),
+	MonsterLoot:withAssassinStar(31.36, 10),
+	MonsterLoot:withGreatManaPotion(25.2, 3),
+	MonsterLoot:withSmallEmerald(19.33, 3),
+	MonsterLoot:withSmallDiamond(18.96, 3),
+	MonsterLoot:withSmallRuby(17.79, 3),
+	MonsterLoot:withOnyxArrow(17.67, 15),
+	MonsterLoot:withSmallTopaz(5.96, 3),
+	MonsterLoot:withTitanAxe(3, 97),
+	MonsterLoot:withGiantShimmeringPearl(3.73),
+	MonsterLoot:withKnightArmor(2.15),
+	MonsterLoot:withSpikedSquelche(1.99),
+	MonsterLoot:new():setLoot("falcon crest", 1.5),
+	MonsterLoot:withGreenGem(1.46),
+	MonsterLoot:withGoldenArmor(1.26),
+	MonsterLoot:new():setLoot("Damaged Armor Plates", 1.18),
+	MonsterLoot:withMastermindShield(0.81),
+	MonsterLoot:withVioletGem(0.57),
+	MonsterLoot:withDemonboneAmulet(0.53),
+	MonsterLoot:withHeavyMace(0.32),
+	MonsterLoot:withTrap(0.24)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
-	{name ="combat", interval = 2000, chance = 18, type = COMBAT_EARTHDAMAGE, minDamage = -400, maxDamage = -500, radius = 2, effect = CONST_ME_GROUNDSHAKER, target = false},
-	{name ="combat", interval = 2000, chance = 14, type = COMBAT_HOLYDAMAGE, minDamage = -290, maxDamage = -360, length = 5, spread = 3, effect = CONST_ME_BLOCKHIT, target = false}
+	-- Basic attack (0-400 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 400),
+	-- Short Holy Beam (250-380 holy)
+	CustomMonsterSpell:new():setDamageRange(250, 380):withHoly():withHolyDamage():withShortBeam(),
+	-- Groundshaker Box (350-500 earth, on self)
+	CustomMonsterSpell:new():setDamageRange(350, 500):setChance(18):withGroundShaker():withEarthDamage():withBox()
 }
 
 monster.defenses = {

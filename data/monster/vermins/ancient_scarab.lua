@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Ancient Scarab")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "2/04/2022"
+}
+
 monster.description = "an ancient scarab"
 monster.experience = 720
 monster.outfit = {
@@ -26,7 +31,7 @@ monster.Bestiary = {
 	Locations = "Ankrahmun Library Tomb, Stone Tomb, Peninsula Tomb, Mother of Scarabs Lair, \z
 		Kha'zeel Scarab Lair, deep in Larva Caves (found beneath steps underground), Lion's Rock, \z
 		Arena and Zoo Quarter and beneath Fenrock."
-	}
+}
 
 monster.health = 1000
 monster.maxHealth = 1000
@@ -43,7 +48,7 @@ monster.changeTarget = {
 monster.strategiesTarget = {
 	nearest = 70,
 	health = 20,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -80,38 +85,84 @@ monster.summon = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{name = "scarab amulet", chance = 3410},
-	{id = 3025, chance = 2570}, -- Ancient amulet
-	{name = "gold coin", chance = 50000, maxCount = 90},
-	{name = "gold coin", chance = 50000, maxCount = 97},
-	{name = "small emerald", chance = 4810, maxCount = 3},
-	{name = "small amethyst", chance = 5000, maxCount = 4},
-	{name = "scarab coin", chance = 7692, maxCount = 2},
-	{id = 3046, chance = 11480},
-	{name = "daramian waraxe", chance = 420},
-	{name = "plate armor", chance = 10300},
-	{name = "scarab shield", chance = 480},
-	{name = "strong health potion", chance = 660},
-	{name = "terra hood", chance = 490},
-	{name = "scarab pincers", chance = 3571}
+	MonsterLoot:withGoldCoins(100, 186),
+	MonsterLoot:new():setLoot("magic light wand", 10.18):setItemId(3047),
+	MonsterLoot:new():setLoot("scarab coin", 8.08, 2),
+	MonsterLoot:new():setLoot("scarab pincers", 7.45),
+	MonsterLoot:new():withSmallEmerald(6.02, 3),
+	MonsterLoot:new():withSmallAmethyst(5.9, 4),
+	MonsterLoot:new():setLoot("plate armor", 4.93),
+	MonsterLoot:new():setLoot("scarab amulet", 3.41),
+	MonsterLoot:new():setLoot("ancient amulet", 2.49):setItemId(7532),
+	MonsterLoot:new():setLoot("strong health potion", 1.51),
+	MonsterLoot:new():withSpringsproutRod(1.02),
+	MonsterLoot:new():setLoot("scarab shield", 0.52),
+	MonsterLoot:new():setLoot("terra hood", 0.43),
+	MonsterLoot:new():setLoot("daramian waraxe", 0.43)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -130, condition = {type = CONDITION_POISON, totalDamage = 56, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -15, maxDamage = -145, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = -700, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false, duration = 25000},
+	{
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		minDamage = 0,
+		maxDamage = -200,
+		condition = {type = CONDITION_POISON, totalDamage = 56, interval = 4000}
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -15,
+		maxDamage = -145,
+		range = 7,
+		shootEffect = CONST_ANI_POISON,
+		effect = CONST_ME_POISONAREA,
+		target = false
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = -700,
+		range = 7,
+		shootEffect = CONST_ANI_POISON,
+		effect = CONST_ME_POISONAREA,
+		target = false,
+		duration = 25000
+	},
 	-- poison
-	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 30, minDamage = -440, maxDamage = -520, radius = 5, effect = CONST_ME_POISONAREA, target = false}
+	{
+		name = "condition",
+		type = CONDITION_POISON,
+		interval = 2000,
+		chance = 30,
+		minDamage = -440,
+		maxDamage = -520,
+		radius = 5,
+		effect = CONST_ME_POISONAREA,
+		target = false
+	}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="speed", interval = 2000, chance = 15, speedChange = 380, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = 380,
+		effect = CONST_ME_MAGIC_RED,
+		target = false,
+		duration = 5000
+	}
 }
 
 monster.elements = {
@@ -123,8 +174,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {
