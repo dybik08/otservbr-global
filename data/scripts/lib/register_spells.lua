@@ -1605,6 +1605,13 @@ function CustomMonsterSpell:withShorterConeWave()
 	return self
 end
 
+function CustomMonsterSpell:withShortConeWave()
+	self.area = SPELL_AREAS.SHORT_CONE_WAVE
+	self.needDirection = true
+
+	return self
+end
+
 function CustomMonsterSpell:withStrike()
 	self.area = SPELL_AREAS.STRIKE
 	self.range = 4
@@ -2172,6 +2179,18 @@ end
 
 function MonsterLoot:withWarHammer(chance, maxCount)
 	return MonsterLoot:new():setLoot("war Hammer", chance, maxCount)
+end
+
+function MonsterLoot:withCrownHelmet(chance, maxCount)
+	return MonsterLoot:new():setLoot("Crown Helmet", chance, maxCount)
+end
+
+function MonsterLoot:withSteelHelmet(chance, maxCount)
+	return MonsterLoot:new():setLoot("Steel Helmet", chance, maxCount)
+end
+
+function MonsterLoot:withLightningHeadband(chance, maxCount)
+	return MonsterLoot:new():setLoot("Lightning Headband", chance, maxCount)
 end
 
 function MonsterLoot:withWarAxe(chance, maxCount)
