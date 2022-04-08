@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("True Dawnfire Asura")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "31/03/2022"
+}
+
 monster.description = "a true dawnfire asura"
 monster.experience = 7475
 monster.outfit = {
@@ -73,105 +78,60 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 97000, maxCount = 242},
-	{id = 3035, name = "platinum coin", chance = 18200, maxCount = 6},
-	{name = "flask of demonic blood", chance = 2000},
-	{name = "great mana potion", chance = 2000},
-	{name = "small amethyst", chance = 210, maxCount = 3},
-	{name = "small diamond", chance = 300, maxCount = 3},
-	{name = "small emerald", chance = 300, maxCount = 3},
-	{name = "small ruby", chance = 350, maxCount = 3},
-	{name = "small topaz", chance = 280, maxCount = 3},
-	{name = "blue gem", chance = 400},
-	{id = 6299, name = "death ring", chance = 460},
-	{name = "demonic essence", chance = 430},
-	{name = "focus cape", chance = 520},
-	{name = "golden lotus brooch", chance = 800},
-	{name = "magma coat", chance = 400},
-	{name = "mysterious fetish", chance = 400},
-	{name = "mystic turban", chance = 400},
-	{name = "oriental shoes", chance = 400},
-	{name = "peacock feather fan", chance = 600},
-	{name = "red piece of cloth", chance = 300},
-	{name = "ruby necklace", chance = 400},
-	{name = "soul orb", chance = 400},
-	{name = "spellbook of mind control", chance = 400},
-	{name = "wand of inferno", chance = 400}
+	MonsterLoot:new():withPlatinumCoins(100, 12),
+	MonsterLoot:new():withFlaskOfDemonicBlood(29.44),
+	MonsterLoot:new():withDemonicEssence(22.18),
+	MonsterLoot:new():setLoot("golden lotus brooch", 21.85),
+	MonsterLoot:new():setLoot("peacock feather fan", 21.38),
+	MonsterLoot:new():withSoulOrb(19.81),
+	MonsterLoot:new():withSmallEmerald(18.49, 5),
+	MonsterLoot:new():withGreatManaPotion(15.39, 2),
+	MonsterLoot:new():withSmallRuby(12.2, 3),
+	MonsterLoot:new():withSmallEnchantedRuby(10.03, 3),
+	MonsterLoot:new():withSmallDiamond(8.58, 2),
+	MonsterLoot:new():withSmallAmethyst(8.27, 2),
+	MonsterLoot:new():withSmallTopaz(7.87, 2),
+	MonsterLoot:new():withCrystalCoins(5.27),
+	MonsterLoot:new():withRedGem(4.23),
+	MonsterLoot:new():withRoyalStar(4.14, 3),
+	MonsterLoot:new():withRubyNecklace(4.13),
+	MonsterLoot:new():withRedPieceOfCloth(3.23),
+	MonsterLoot:new():withMysticTurban(3.19),
+	MonsterLoot:new():setLoot("mysterious fetish", 3.15),
+	MonsterLoot:new():withBlueGem(3.11),
+	MonsterLoot:new():withOrientalShoes(2.8),
+	MonsterLoot:new():withMagmaCoat(2.32),
+	MonsterLoot:new():withFocusCape(2.25),
+	MonsterLoot:new():withWandOfInferno(1.38),
+	MonsterLoot:new():withSpellbookOfMindControl(1.35),
+	MonsterLoot:new():withDeathRing(0.96)
 }
 
 monster.attacks = {
-	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -269},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_MANADRAIN,
-		minDamage = 0,
-		maxDamage = -100,
-		range = 7,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_LIFEDRAIN,
-		minDamage = -50,
-		maxDamage = -200,
-		length = 4,
-		spread = 2,
-		effect = CONST_ME_MAGIC_RED,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 1000,
-		chance = 15,
-		type = COMBAT_FIREDAMAGE,
-		minDamage = 120,
-		maxDamage = 450,
-		length = 1,
-		spread = 0,
-		effect = CONST_ME_HITBYFIRE,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 1000,
-		chance = 10,
-		type = COMBAT_DEATHDAMAGE,
-		minDamage = 150,
-		maxDamage = 350,
-		radius = 3,
-		effect = CONST_ME_MORTAREA,
-		target = true
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_DEATHDAMAGE,
-		minDamage = 100,
-		maxDamage = 300,
-		radius = 4,
-		effect = CONST_ME_BLACKSMOKE,
-		target = false
-	},
-	{
-		name = "speed",
-		interval = 2000,
-		chance = 15,
-		speedChange = -100,
-		radius = 1,
-		effect = CONST_ME_MAGIC_RED,
-		target = true,
-		duration = 30000
-	}
+	-- 	Basic attack (0-700 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 700),
+	-- Fire Box (on target, effect: burn 10hp/tick)
+	CustomMonsterSpell:new():setDamageRange(0, 0):setCondition({type = CONDITION_FIRE, totalDamage = 200, interval = 4000}):withFire(
+
+	):withBox():withFireDamage():withTarget(),
+	-- Flame Strike (350-750 fire, on target)
+	CustomMonsterSpell:new():setDamageRange(350, 750):withFireDamage():withFlame():withStrike():withTarget(),
+	-- Death Ball (550-750 death, on target)
+	CustomMonsterSpell:new():setDamageRange(550, 750):withDeath():withDeathDamage():withBall():withTarget(),
+	-- Red Stars Box (on target, effect: debuff -20% magic level)
+	CustomMonsterSpell:new():setDamageRange(0, 0):setChance(20):withMagicLevelDebuff(75, 85, 2000):withBox():withRedStars():withTarget(
+
+	),
+	-- Black Steam Box (on self, effect: paralyze)
+	CustomMonsterSpell:new():setDamageRange(0, 0):withParalyze(-300, 10000):withBlackSteam():withBox(),
+	-- Great Black Steam Beam (50-300 mana drain)
+	CustomMonsterSpell:new():setChance(15):setDamageRange(50, 300):withBlackSteam():withGreatBeam():withManaDrainDamage()
 }
 
 monster.defenses = {
 	defense = 55,
 	armor = 77,
+	-- Healing
 	{
 		name = "combat",
 		interval = 2000,

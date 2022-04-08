@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Roaring Lion")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "2/04/2022"
+}
+
 monster.description = "a roaring lion"
 monster.experience = 800
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Lion's Rock a few floors down."
-	}
+}
 
 monster.health = 1000
 monster.maxHealth = 1000
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -75,22 +80,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 100000, maxCount = 114},
-	{id = 3577, chance = 25000},
-	{id = 3582, chance = 25000},
-	{id = 9691, chance = 16666},
-	{id = 3035, name = "platinum coin", chance = 10000},
-	{name="small ruby", chance = 7692},
-	{name="small amethyst", chance = 7142},
-	{name="small topaz", chance = 6666},
-	{name="small sapphire", chance = 5555},
-	{id = 3077, chance = 1612},
-	{id = 3048, chance = 1204},
-	{id = 3385, chance = 1010}
+	MonsterLoot:new():withGoldCoins(100, 115),
+	MonsterLoot:new():setLoot("meat", 25.26, 4),
+	MonsterLoot:new():setLoot("ham", 25.26, 4),
+	MonsterLoot:new():setLoot("ham", 25.26, 4),
+	MonsterLoot:new():setLoot("lion's mane", 20.46),
+	MonsterLoot:new():withPlatinumCoins(9.57, 1),
+	MonsterLoot:new():withSmallAmethyst(7.38, 1),
+	MonsterLoot:new():withSmallSapphire(7.2, 1),
+	MonsterLoot:new():withSmallRuby(7.12, 1),
+	MonsterLoot:new():withSmallTopaz(6.34, 1),
+	MonsterLoot:new():setLoot("ankh", 3.31),
+	MonsterLoot:new():setLoot("crown helmet", 0.7),
+	MonsterLoot:new():setLoot("might ring", 0.6)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 60, attack = 40}
+	-- 	Basic attack (0-170 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 170)
 }
 
 monster.defenses = {

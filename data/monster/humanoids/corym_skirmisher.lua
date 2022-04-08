@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Venore Corym Cave, Tiquanda Corym Cave, Corym Black Market, \z
 		Carlin Corym Cave/Dwarf Mines Diggers Depths Mine, Upper Spike."
-	}
+}
 
 monster.health = 450
 monster.maxHealth = 450
@@ -43,7 +43,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -79,24 +79,35 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 50000, maxCount = 45},
-	{id = 3607, chance = 20000},
-	{name = "bola", chance = 7692},
-	{name = "spike shield", chance = 645},
-	{name = "ratana", chance = 2702},
-	{name = "life preserver", chance = 2941},
-	{name = "cheese cutter", chance = 8333},
-	{name = "cheesy figurine", chance = 854},
-	{name = "earflap", chance = 9090},
-	{name = "soft cheese", chance = 14285},
-	{name = "rat cheese", chance = 16666},
-	{name = "rat god doll", chance = 12},
-	{name = "leather harness", chance = 561}
+	MonsterLoot:withGoldCoins(79.14, 45),
+	MonsterLoot:new():setLoot("cheese", 20.21):setItemId(3607),
+	MonsterLoot:new():setLoot("soft cheese", 15.12),
+	MonsterLoot:new():setLoot("rat cheese", 13.14),
+	MonsterLoot:new():setLoot("earflap", 9.1),
+	MonsterLoot:new():setLoot("cheese cutter", 8.22),
+	MonsterLoot:new():setLoot("bola", 8.09),
+	MonsterLoot:new():setLoot("life preserver", 1.68),
+	MonsterLoot:new():setLoot("ratana", 1.61),
+	MonsterLoot:new():setLoot("cheesy figurine", 1.01),
+	MonsterLoot:new():setLoot("leather harness", 0.64),
+	MonsterLoot:new():setLoot("spike shield", 0.59),
+	MonsterLoot:new():setLoot("spiky club", 0.59),
+	MonsterLoot:new():setLoot("rat god doll", 0.02)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -110},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -90, range = 7, shootEffect = CONST_ANI_WHIRLWINDCLUB, target = false}
+	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -130},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = 0,
+		maxDamage = -90,
+		range = 7,
+		shootEffect = CONST_ANI_WHIRLWINDCLUB,
+		target = false
+	}
 }
 
 monster.defenses = {
@@ -120,7 +131,7 @@ monster.elements = {
 monster.immunities = {
 	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
+	{type = "invisible", condition = false},
 	{type = "bleed", condition = false}
 }
 

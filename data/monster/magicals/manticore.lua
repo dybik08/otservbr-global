@@ -103,7 +103,9 @@ monster.attacks = {
 		{type = CONDITION_POISON, totalDamage = 400, interval = 4000}
 	),
 	-- Longer Fire Beam (300-450 fire)
-	CustomMonsterSpell:new():setChance(100):setDamageRange(300, 450):withLongerBeam():withFire():withFireDamage(),
+	CustomMonsterSpell:new(monster.flags.targetDistance):setChance(100):setDamageRange(300, 450):withLongerBeam():withFire(
+
+	):withFireDamage(),
 	-- Eruption Box (450-550 fire, on target)
 	CustomMonsterSpell:new():setDamageRange(450, 550):withBox():withEruption():withFireDamage():withTarget(),
 	-- Poison Box (300-400 earth, on target)

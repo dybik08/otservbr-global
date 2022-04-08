@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("True Frost Flower Asura")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "31/03/2022"
+}
+
 monster.description = "a true frost flower asura"
 monster.experience = 7069
 monster.outfit = {
@@ -73,102 +78,62 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 97000, maxCount = 242},
-	{id = 3035, name = "platinum coin", chance = 18200, maxCount = 6},
-	{name = "flask of demonic blood", chance = 2000},
-	{name = "great mana potion", chance = 2000},
-	{name = "small amethyst", chance = 210, maxCount = 3},
-	{name = "small diamond", chance = 300, maxCount = 3},
-	{name = "small emerald", chance = 300, maxCount = 3},
-	{name = "small ruby", chance = 350, maxCount = 3},
-	{name = "small topaz", chance = 280, maxCount = 3},
-	{name = "blue gem", chance = 400},
-	{id = 6299, name = "death ring", chance = 460},
-	{name = "demonic essence", chance = 430},
-	{name = "focus cape", chance = 520},
-	{name = "golden lotus brooch", chance = 800},
-	{name = "magma coat", chance = 400},
-	{name = "mysterious fetish", chance = 400},
-	{name = "mystic turban", chance = 400},
-	{name = "oriental shoes", chance = 400},
-	{name = "peacock feather fan", chance = 600},
-	{name = "red piece of cloth", chance = 300},
-	{name = "ruby necklace", chance = 400},
-	{name = "silver brooch", chance = 900},
-	{name = "soul orb", chance = 400},
-	{name = "spellbook of mind control", chance = 400}
+	MonsterLoot:new():withPlatinumCoins(100, 8),
+	MonsterLoot:new():withGreatHealthPotion(22.15, 2),
+	MonsterLoot:new():withSoulOrb(22.07),
+	MonsterLoot:new():setLoot("golden lotus brooch", 21.52),
+	MonsterLoot:new():withFlaskOfDemonicBlood(21.13),
+	MonsterLoot:new():withSmallEmerald(18.85, 5),
+	MonsterLoot:new():setLoot("peacock feather fan", 18.77),
+	MonsterLoot:new():withDemonicEssence(17.36),
+	MonsterLoot:new():withSmallDiamond(13.28, 3),
+	MonsterLoot:new():withSmallSapphire(11.15, 3),
+	MonsterLoot:new():withAssassinStar(11, 5),
+	MonsterLoot:new():withSilverBrooch(10.21),
+	MonsterLoot:new():withSmallEnchantedSapphire(8.8, 3),
+	MonsterLoot:new():withSmallRuby(8.8, 2),
+	MonsterLoot:new():withBlackPearl(8.48, 2),
+	MonsterLoot:new():withSmallTopaz(8.41, 2),
+	MonsterLoot:new():withWhitePearl(7.31, 2),
+	MonsterLoot:new():withCrystalCoins(5.42, 1),
+	MonsterLoot:new():withRoyalStar(4.24, 3),
+	MonsterLoot:new():withYellowGem(4.08),
+	MonsterLoot:new():withNorthwindRod(3.85),
+	MonsterLoot:new():withTribalMask(3.3),
+	MonsterLoot:new():withBlueGem(2.67),
+	MonsterLoot:new():withGoldIngot(2.12),
+	MonsterLoot:new():withSilverAmulet(1.73),
+	MonsterLoot:new():withSkullcrackerArmor(1.73),
+	MonsterLoot:new():withBlueRobe(1.41),
+	MonsterLoot:new():withHailstormRod(1.41),
+	MonsterLoot:new():withAssassinDagger(1.18),
+	MonsterLoot:new():withSpellbookOfMindControl(1.18),
+	MonsterLoot:new():withOrientalShoes(0.94),
+	MonsterLoot:new():withCrystalRing(0.86)
 }
 
 monster.attacks = {
-	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -269},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_MANADRAIN,
-		minDamage = 0,
-		maxDamage = -70,
-		range = 7,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 1000,
-		chance = 10,
-		type = COMBAT_LIFEDRAIN,
-		minDamage = 100,
-		maxDamage = 400,
-		length = 8,
-		spread = 3,
-		effect = CONST_ME_ICETORNADO,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_LIFEDRAIN,
-		minDamage = 100,
-		maxDamage = 300,
-		length = 8,
-		spread = 3,
-		effect = CONST_ME_PURPLEENERGY,
-		target = false
-	},
-	{
-		name = "speed",
-		interval = 2000,
-		chance = 15,
-		speedChange = -100,
-		radius = 1,
-		effect = CONST_ME_MAGIC_RED,
-		target = true,
-		duration = 30000
-	}
+	-- 	Basic attack (0-500 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 500),
+	-- Shorter Violet Electric Beam (0-250 mana drain)
+	CustomMonsterSpell:new(monster.flags.targetDistance):setDamageRange(0, 250):withShorterBeam():withVioletElectric():withManaDrainDamage(
+
+	),
+	-- Ice Strike (550-780 ice, on target)
+	CustomMonsterSpell:new():setDamageRange(550, 780):withStrike():withIce():withIceDamage():withTarget(),
+	-- Longer Icy Wind Beam (effect: freeze 8hp/tick)
+	CustomMonsterSpell:new(monster.flags.targetDistance):setDamageRange(0, 0):setCondition(
+		{type = CONDITION_FREEZING, totalDamage = 160, interval = 4000}
+	):withLongerBeam():withIcyWind():withIceDamage()
 }
 
 monster.defenses = {
 	defense = 55,
 	armor = 55,
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 15,
-		type = COMBAT_HEALING,
-		minDamage = 50,
-		maxDamage = 100,
-		effect = CONST_ME_MAGIC_BLUE,
-		target = false
-	},
-	{
-		name = "speed",
-		interval = 2000,
-		chance = 15,
-		speedChange = 320,
-		effect = CONST_ME_MAGIC_RED,
-		target = false,
-		duration = 5000
-	}
+	-- Light healing
+	CustomMonsterSpell:new():withHealing(50, 100),
+	-- Haste (effect: haste)
+	CustomMonsterSpell:new():withHaste(320, 5000)
 }
 
 monster.elements = {

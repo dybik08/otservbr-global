@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Werelion")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "8/04/2022"
+}
+
 monster.description = "a werelion"
 monster.experience = 2400
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "This monster you can find in Hyaena Lairs."
-	}
+}
 
 monster.health = 2800
 monster.maxHealth = 2800
@@ -65,45 +70,57 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 5},
-	{name = "Great Spirit Potion", chance = 100000, maxCount = 2},
-	{name = "Small Enchanted Ruby", chance = 5000, maxCount = 2},
-	{name = "Meat", chance = 5000, maxCount = 2},
-	{name = "Crystal Sword", chance = 5000},
-	{name = "Lion's Mane", chance = 5000},
-	{name = "Silver Brooch", chance = 1500},
-	{name = "Small Diamond", chance = 1500, maxCount = 2},
-	{name = "War Hammer", chance = 1500},
-	{name = "Doublet", chance = 1500},
-	{name = "Dark Shield", chance = 1500},
-	{name = "Titan Axe", chance = 1500},
-	{name = "Spiked Squelcher", chance = 1500},
-	{name = "Glorious Axe", chance = 1500},
-	{name = "Spirit Cloak", chance = 1500},
-	{name = "Onyx Chip", chance = 1500},
-	{name = "Coral Brooch", chance = 1500},
-	{name = "Ivory Carving", chance = 1500},
-	{name = "Rainbow Quartz", chance = 1500},
-	{name = "Noble Axe", chance = 500},
-	{name = "White Silk Flower", chance = 500},
-	{name = "Lion Figurine", chance = 100}
+	MonsterLoot:withPlatinumCoins(100, 5),
+	MonsterLoot:withGreatSpiritPotion(63.74, 2),
+	MonsterLoot:new():setLoot("lion's mane", 15.84),
+	MonsterLoot:new():setLoot("meat", 11.19),
+	MonsterLoot:withCrystalSword(7.65),
+	MonsterLoot:withSmallEnchantedRuby(6.1, 5),
+	MonsterLoot:withSilverBrooch(5.01),
+	MonsterLoot:withSmallDiamond(4.84),
+	MonsterLoot:new():setLoot("ivory carving", 4.12),
+	MonsterLoot:withWarHammer(4.04),
+	MonsterLoot:withDarkShield(3.36),
+	MonsterLoot:withGloriousAxe(2.64),
+	MonsterLoot:withRainbowQuartz(2.5,3),
+	MonsterLoot:new():setLoot("doublet", 2.5),
+	MonsterLoot:new():setLoot("spirit cloak", 2.23),
+	MonsterLoot:withOpal(2.14),
+	MonsterLoot:withMoonlightCrystal(1.95),
+	MonsterLoot:new():setLoot("coral brooch", 1.93),
+	MonsterLoot:withTitanAxe(1.7),
+	MonsterLoot:withSpikedSquelcher(1.57),
+	MonsterLoot:withNobleAxe(1.21),
+	MonsterLoot:new():setLoot("White Silk Flower", 0.55),
+	MonsterLoot:new():setLoot("Lion Figurine", 0.5),
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300},
-	{name ="werelion wave", interval = 2000, chance = 20, minDamage = -150, maxDamage = -250, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HOLYDAMAGE, minDamage = -300, maxDamage = -410, range = 3, effect = CONST_ME_HOLYAREA, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HOLYDAMAGE, minDamage = -170, maxDamage = -350, range = 3, shootEffect = CONST_ANI_HOLY, target = true}
+	-- 	Basic attack (0-350 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 350),
+	-- Great Fire Ball (250-370 fire, on self)
+	CustomMonsterSpell:new():withFire():withGreatBeam():setDamageRange(250, 370):withFireDamage(),
+	-- Holy Strike (350-450 holy, on target)
+	CustomMonsterSpell:new():withHoly():withStrike():setDamageRange(350, 450):withTarget():withHolyDamage(),
+	-- Shorter Berserk Cone-Wave (230-300 holy)
+	CustomMonsterSpell:new():withShorterConeWave():withBerserk():withHolyDamage():setDamageRange(230, 300) {
+		name = "melee",
+		interval = 2000,
+		chance = 100,
+		minDamage = 0,
+		maxDamage = -300
+	}
 }
 
 monster.defenses = {
 	defense = 40,
 	armor = 40,
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 100, maxDamage = 150, effect = CONST_ME_MAGIC_BLUE, target = false}
+	-- Healing (100-150 heal)
+	CustomMonsterSpell:new():withHealing(100, 150)
 }
 
 monster.elements = {
@@ -115,8 +132,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -25},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 45}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 45}
 }
 
 monster.immunities = {

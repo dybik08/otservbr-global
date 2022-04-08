@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("True Midnight Asura")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "31/03/2022"
+}
+
 monster.description = "a true midnight asura"
 monster.experience = 7313
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Asura Palace."
-	}
+}
 
 monster.health = 9000
 monster.maxHealth = 9000
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,70 +74,77 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 97000, maxCount = 242},
-	{id = 3035, name = "platinum coin", chance = 18200, maxCount = 6},
-	{name="assassin star", chance = 2000, maxCount = 2},
-	{name="black pearl", chance = 2000},
-	{name = "flask of demonic blood", chance = 2000},
-	{name="demonic essence", chance = 2210},
-	{name="small diamond", chance = 800, maxCount = 3},
-	{name="small emerald", chance = 900, maxCount = 3},
-	{name="small ruby", chance = 650, maxCount = 3},
-	{name="small sapphire", chance = 580, maxCount = 3},
-	{name="small topaz", chance = 580, maxCount = 3},
-	{name="great health potion", chance = 700},
-	{name="white pearl", chance = 660},
-	{name="assassin dagger", chance = 430},
-	{name="blue gem", chance = 3420},
-	{name="blue robe", chance = 3400},
-	{name="gold ingot", chance = 400},
-	{name="golden lotus brooch", chance = 600},
-	{name="moonlight rod", chance = 630},
-	{name="necrotic rod", chance = 690},
-	{name="oriental shoes", chance = 480},
-	{name="peacock feather fan", chance = 500},
-	{name="skullcracker armor", chance = 400},
-	{name="silver brooch", chance = 600},
-	{name="silver amulet", chance = 600},
-	{name="soul orb", chance = 600},
-	{name="spellbook of mind control", chance = 400},
-	{name="tribal mask", chance = 400},
-	{name="underworld rod", chance = 400},
-	{name="yellow gem", chance = 400}
+	MonsterLoot:new():withPlatinumCoins(100, 8),
+	MonsterLoot:new():setLoot("golden lotus brooch", 21.96),
+	MonsterLoot:new():setLoot("peacock feather fan", 21.73),
+	MonsterLoot:new():withSoulOrb(20.6),
+	MonsterLoot:new():withGreatHealthPotion(20.06, 2),
+	MonsterLoot:new():withFlaskOfDemonicBlood(20.05),
+	MonsterLoot:new():withDemonicEssence(15.78),
+	MonsterLoot:new():withSmallDiamond(15.62, 3),
+	MonsterLoot:new():withSmallEnchantedAmethyst(14.79, 3),
+	MonsterLoot:new():withSmallSapphire(12.28, 3),
+	MonsterLoot:new():withBlackPearl(9.71, 2),
+	MonsterLoot:new():withSilverBrooch(9.63),
+	MonsterLoot:new():withAssassinStar(9.39, 5),
+	MonsterLoot:new():withWhitePearl(8.32, 2),
+	MonsterLoot:new():withSmallRuby(8.11, 2),
+	MonsterLoot:new():withSmallEmerald(8.04, 2),
+	MonsterLoot:new():withSmallTopaz(8, 2),
+	MonsterLoot:new():withCrystalCoins(5.54),
+	MonsterLoot:new():withRoyalStar(4.07, 3),
+	MonsterLoot:new():withNecroticRod(3.47),
+	MonsterLoot:new():withTribalMask(2.73),
+	MonsterLoot:new():withSilverAmulet(2.38),
+	MonsterLoot:new():withOrientalShoes(2.24),
+	MonsterLoot:new():withGoldIngot(2.13),
+	MonsterLoot:new():withBlueGem(2.08),
+	MonsterLoot:new():withVioletGem(1.87),
+	MonsterLoot:new():withAssassinDagger(1.86),
+	MonsterLoot:new():withSpellbookOfMindControl(1.15),
+	MonsterLoot:new():withYellowGem(1.14),
+	MonsterLoot:new():withSkullcrackerArmor(1.11),
+	MonsterLoot:new():withUnderworldRod(1.05),
+	MonsterLoot:new():withCrystalRing(0.99),
+	MonsterLoot:new():withBlueRobe(0.7)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -269},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = 0, maxDamage = -70, range = 7, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = 100, maxDamage = 400, length = 8, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = 100, maxDamage = 400, length = 8, spread = 3, effect = CONST_ME_BLACKSMOKE, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = -100, radius = 1, effect = CONST_ME_MAGIC_RED, target = true, duration = 30000},
-	{name ="drunk", interval = 2000, chance = 10, range = 3, radius = 4, effect = CONST_ME_STUN, target = true, duration = 4000}
+	-- 	Basic attack (0-450 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 450),
+	-- Short Violet Electric Beam (50-280 mana drain)
+	CustomMonsterSpell:new():setDamageRange(50, 280):withShortBeam():withVioletElectric():withManaDrainDamage(),
+	-- Death Strike (500-650 death, on target)
+	CustomMonsterSpell:new():setDamageRange(500, 650):withStrike():withDeath():withDeathDamage():withTarget(),
+	-- Dizzy Ball (on target, effect: drunk)
+	CustomMonsterSpell:new():setChance(20):setDamageRange(0, 0):withDrunk(10000):withDizzy():withTarget():withBall(),
+	-- Long Black Steam Beam (500-700 life drain)
+	CustomMonsterSpell:new():setChance(15):setDamageRange(500, 700):withBlackSteam():withLongBeam():withLifeDrainDamage()
 }
 
 monster.defenses = {
 	defense = 55,
 	armor = 75,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 50, maxDamage = 100, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = 320, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000},
-	{name ="invisible", interval = 2000, chance = 20, effect = CONST_ME_MAGIC_BLUE}
+	CustomMonsterSpell:new():withHealing(50, 100),
+	CustomMonsterSpell:new():withHaste(320, 5000),
+	CustomMonsterSpell:new():withInvisible(5000):setChance(20)
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = -10},
-	{type = COMBAT_EARTHDAMAGE, percent = -10},
+	{type = COMBAT_EARTHDAMAGE, percent = -20},
 	{type = COMBAT_FIREDAMAGE, percent = 10},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 30},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 30},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {
