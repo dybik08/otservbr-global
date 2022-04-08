@@ -23,27 +23,31 @@ local function chain(player)
 			end
 		end
 	end
- 
+
 	local counter = 1
 	local tempSize = #monsters
-	if tempSize < 5 and #meleeMonsters > 0 then
-		for i = tempSize, 5 do
+	if tempSize < 8 and #meleeMonsters > 0 then
+		for i = tempSize, 8 do
 			if meleeMonsters[counter] ~= nil then
 				table.insert(monsters, meleeMonsters[counter])
 				counter = counter + 1
 			end
 		end
 	end
- 
+
 	local lastChain = player
 	local lastChainPosition = player:getPosition()
 	local closestMonster, closestMonsterIndex, closestMonsterPosition
 	local path, tempPosition, updateLastChain
-	while (totalChain < 5 and #monsters > 0) do
+	while (totalChain < 8 and #monsters > 0) do
 		closestMonster = nil
 		for index, monster in pairs(monsters) do
 			tempPosition = monster:getPosition()
-			if not closestMonster or getDiagonalDistance(lastChain:getPosition(), tempPosition) < getDiagonalDistance(lastChain:getPosition(), closestMonsterPosition) then
+			if
+				not closestMonster or
+					getDiagonalDistance(lastChain:getPosition(), tempPosition) <
+						getDiagonalDistance(lastChain:getPosition(), closestMonsterPosition)
+			 then
 				closestMonster = monster
 				closestMonsterIndex = index
 				closestMonsterPosition = tempPosition
@@ -56,7 +60,7 @@ local function chain(player)
 		else
 			path = lastChainPosition:getPathTo(closestMonsterPosition, 0, 1, true, true, 9)
 			if path and #path > 0 then
-				for i=1, #path do
+				for i = 1, #path do
 					lastChainPosition:getNextPosition(path[i], 1)
 					lastChainPosition:sendMagicEffect(CONST_ME_CHIVALRIOUS_CHALLENGE)
 				end
@@ -74,9 +78,9 @@ local function chain(player)
 	end
 	return totalChain
 end
- 
+
 local spell = Spell("instant")
- 
+
 function spell.onCastSpell(creature, variant)
 	local total = chain(creature)
 	if total > 0 then
@@ -91,7 +95,7 @@ function spell.onCastSpell(creature, variant)
 		return false
 	end
 end
- 
+
 spell:group("support")
 spell:id(237)
 spell:name("Chivalrous Challenge")

@@ -206,6 +206,11 @@ SPELL_AREAS = {
 		{1, 1, 1},
 		{0, 3, 0}
 	},
+	SHORTER_CONE_WAVE = {
+		{0, 0, 1, 1, 1, 0, 0},
+		{0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 0, 3, 0, 0, 0}
+	},
 	SHORT_CONE_WAVE = {
 		{0, 1, 1, 1, 1, 1, 0},
 		{0, 0, 1, 1, 1, 0, 0},
@@ -1593,6 +1598,13 @@ function CustomMonsterSpell:withLongConeWave()
 	return self
 end
 
+function CustomMonsterSpell:withShorterConeWave()
+	self.area = SPELL_AREAS.SHORTER_CONE_WAVE
+	self.needDirection = true
+
+	return self
+end
+
 function CustomMonsterSpell:withStrike()
 	self.area = SPELL_AREAS.STRIKE
 	self.range = 4
@@ -1658,6 +1670,12 @@ end
 
 function CustomMonsterSpell:withSmoke()
 	self.effect = SPELL_ANIMATIONS.SMOKE
+
+	return self
+end
+
+function CustomMonsterSpell:withBerserk()
+	self.effect = SPELL_ANIMATIONS.BERSERK
 
 	return self
 end
@@ -1926,6 +1944,10 @@ function MonsterLoot:withDemonicEssence(chance, maxCount)
 	return MonsterLoot:new():setLootItem("demonic essence"):setChance(chance):setMaxCount(maxCount or 1)
 end
 
+function MonsterLoot:withMoonlightCrystal(chance, maxCount)
+	return MonsterLoot:new():setLootItem("moonlight crystal"):setChance(chance):setMaxCount(maxCount or 1)
+end
+
 function MonsterLoot:withAxeRing(chance)
 	return MonsterLoot:new():setLootItem("axe ring"):setItemId(3092):setChance(chance):setMaxCount(maxCount or 1)
 end
@@ -1986,6 +2008,10 @@ end
 
 function MonsterLoot:withRedGem(chance, maxCount)
 	return MonsterLoot:new():setLootItem("red gem"):setItemId(3039):setChance(chance):setMaxCount(maxCount or 1)
+end
+
+function MonsterLoot:withMeat(chance, maxCount)
+	return MonsterLoot:new():setLootItem("Meat"):setChance(chance):setMaxCount(maxCount or 1)
 end
 
 function MonsterLoot:withHam(chance, maxCount)
@@ -2136,16 +2162,52 @@ function MonsterLoot:withSerpentSword(chance, maxCount)
 	return MonsterLoot:new():setLoot("Serpent Sword", chance, maxCount)
 end
 
+function MonsterLoot:withFireSword(chance, maxCount)
+	return MonsterLoot:new():setLoot("Fire Sword", chance, maxCount)
+end
+
+function MonsterLoot:withCrystalSword(chance, maxCount)
+	return MonsterLoot:new():setLoot("Crystal Sword", chance, maxCount)
+end
+
+function MonsterLoot:withWarHammer(chance, maxCount)
+	return MonsterLoot:new():setLoot("war Hammer", chance, maxCount)
+end
+
 function MonsterLoot:withWarAxe(chance, maxCount)
 	return MonsterLoot:new():setLoot("war axe", chance, maxCount)
+end
+
+function MonsterLoot:withGloriousAxe(chance, maxCount)
+	return MonsterLoot:new():setLoot("Glorious axe", chance, maxCount)
 end
 
 function MonsterLoot:withTitanAxe(chance, maxCount)
 	return MonsterLoot:new():setLoot("titan axe", chance, maxCount)
 end
 
+function MonsterLoot:withFireAxe(chance, maxCount)
+	return MonsterLoot:new():setLoot("Fire axe", chance, maxCount)
+end
+
+function MonsterLoot:withNobleAxe(chance, maxCount)
+	return MonsterLoot:new():setLoot("Noble axe", chance, maxCount)
+end
+
 function MonsterLoot:withGoldenArmor(chance, maxCount)
 	return MonsterLoot:new():setLoot("golden armor", chance, maxCount)
+end
+
+function MonsterLoot:withDarkArmor(chance, maxCount)
+	return MonsterLoot:new():setLoot("Dark armor", chance, maxCount)
+end
+
+function MonsterLoot:withPlateArmor(chance, maxCount)
+	return MonsterLoot:new():setLoot("Plate armor", chance, maxCount)
+end
+
+function MonsterLoot:withCrownArmor(chance, maxCount)
+	return MonsterLoot:new():setLoot("Crown armor", chance, maxCount)
 end
 
 function MonsterLoot:withSkullcrackerArmor(chance, maxCount)
@@ -2166,6 +2228,18 @@ end
 
 function MonsterLoot:withMastermindShield(chance, maxCount)
 	return MonsterLoot:new():setLoot("mastermind shield", chance, maxCount)
+end
+
+function MonsterLoot:withDarkShield(chance, maxCount)
+	return MonsterLoot:new():setLoot("Dark shield", chance, maxCount)
+end
+
+function MonsterLoot:withVampireShield(chance, maxCount)
+	return MonsterLoot:new():setLoot("Vampire shield", chance, maxCount)
+end
+
+function MonsterLoot:withCrownShield(chance, maxCount)
+	return MonsterLoot:new():setLoot("Crown shield", chance, maxCount)
 end
 
 function MonsterLoot:withDemonboneAmulet(chance, maxCount)
