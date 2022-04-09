@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Squid Warden")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "9/04/2022"
+}
+
 monster.description = "a squid warden"
 monster.experience = 15300
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Secret Library."
-	}
+}
 
 monster.health = 16500
 monster.maxHealth = 16500
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,33 +74,48 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 11000, maxCount = 57},
-	{name = "Glowing Rune", chance = 800, maxCount = 4},
-	{name = "Small Sapphire", chance = 900, maxCount = 4},
-	{name = "Frosty Heart", chance = 11000, maxCount = 4},
-	{id = 7441, chance = 20000},
-	{id = 28568, chance = 20000},
-	{name = "Ultimate Health Potion", chance = 10003, maxCount = 4},
-	{name = "Ultimate Mana Potion", chance = 10003, maxCount = 4},
-	{name = "Ice Rapier", chance = 500},
-	{name = "Glacier Mask", chance = 400},
-	{name = "Piece of Dead Brain", chance = 10001, maxCount = 4},
-	{name = "Crystal Sword", chance = 300},
-	{name = "Glacier Robe", chance = 150},
-	{name = "Glacier Kilt", chance = 150},
-	{name = "Slime Heart", chance = 10002, maxCount = 4}
+	MonsterLoot:withSmallSapphire(67.03, 3),
+	MonsterLoot:withPlatinumCoins(48.56, 50),
+	MonsterLoot:withGlowingRune(36.68, 6),
+	MonsterLoot:withFrostyHeart(19.96),
+	MonsterLoot:withUltimateManaPotion(16.81),
+	MonsterLoot:withInkwell(16.07),
+	MonsterLoot:withUltimateHealthPotion(15.94),
+	MonsterLoot:withIceCube(12.58),
+	MonsterLoot:withGlacierMask(7.51),
+	MonsterLoot:withCrystalSword(5.68),
+	MonsterLoot:withIceRapier(5.41),
+	MonsterLoot:withCrystalMace(4.63),
+	MonsterLoot:withDiamondSceptre(4.19),
+	MonsterLoot:withSlimeHeart(4.1),
+	MonsterLoot:withPieceOfDeadBrain(3.93),
+	MonsterLoot:withGlacierKilt(2.62),
+	MonsterLoot:withGlacierRobe(2.1),
+	MonsterLoot:withGlacialRod(0.96),
+	MonsterLoot:withSapphireHammer(0.74),
+	MonsterLoot:withCrystallineArmor(0.66),
+	MonsterLoot:withLeviathansAmulet(0.09)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -300},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -100, maxDamage = -200, range = 7, shootEffect = CONST_ANI_ICE, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -200, maxDamage = -680, range = 7, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICEATTACK, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -200, maxDamage = -375, length = 3, spread = 2, effect = CONST_ME_ICEATTACK, target = false},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_ICEDAMAGE, minDamage = -230, maxDamage = -480, range = 7, radius = 3, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICETORNADO, target = false}
+	-- Basic attack (0-800 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 800),
+	-- GroundShaker Box (600-800 ice, on target)(Snowball)
+	CustomMonsterSpell:new():setDamageRange(600, 800):withSnowball():withTarget():withIceDamage():withBox():withGroundShaker(
+
+	),
+	-- Ice Box (600-850 ice, on self)
+	CustomMonsterSpell:new():setDamageRange(600, 850):withIceDamage():withBox():withIce(),
+	-- Icy Wind Cross (800-1100 ice, on self)
+	CustomMonsterSpell:new():setDamageRange(800, 1100):withIceDamage():withIcyWind():withCross(),
+	-- Blue Notes Strike (700-900 ice, on target)
+	CustomMonsterSpell:new():setDamageRange(700, 900):withIceDamage():withStrike():withBlueNotes():withTarget(),
+	-- Blue Notes Beam (500-600 ice)
+	CustomMonsterSpell:new():setDamageRange(500, 600):withIceDamage():withBeam():withBlueNotes():withIcicleRune()
 }
 
 monster.defenses = {
@@ -112,8 +132,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {
