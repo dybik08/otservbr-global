@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Lumbering Carnivor")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "9/04/2022"
+}
+
 monster.description = "a Lumbering Carnivor"
 monster.experience = 1452
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Carnivora's Rocks."
-	}
+}
 
 monster.health = 2600
 monster.maxHealth = 2600
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -72,36 +77,44 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 5},
-	{name = "Blue Glass Plate", chance = 100000, maxCount = 3},
-	{id = 3264, chance = 15000},
-	{name = "Axe", chance = 14000},
-	{name = "Ice Rapier", chance = 12000},
-	{name = "Glorious Axe", chance = 6100},
-	{name = "Blue Robe", chance = 4600},
-	{name = "Two Handed Sword", chance = 13000},
-	{name = "Fur Armor", chance = 5400},
-	{id = 281, chance = 3200},
-	{name = "Green Crystal Shard", chance = 3100},
-	{name = "Violet Gem", chance = 4000},
-	{name = "Green Gem", chance = 4800},
-	{name = "Blue Gem", chance = 4000},
-	{name = "Focus Cape", chance = 3000}
+	MonsterLoot:withPlatinumCoins(64.31, 3),
+	MonsterLoot:new():setLoot("blue glass plate", 22.97, 3),
+	MonsterLoot:withAxe(14.26),
+	MonsterLoot:withIceRapier(7.23),
+	MonsterLoot:withSword(5.3),
+	MonsterLoot:withGiantShimmeringPearl(1.98),
+	MonsterLoot:withGreenGem(1.83),
+	MonsterLoot:withGloriousAxe(1.53),
+	MonsterLoot:withGreenCrystalShard(1.39),
+	MonsterLoot:withTwoHandedSword(1.24),
+	MonsterLoot:withFurArmor(1.14),
+	MonsterLoot:withVioletGem(1.14),
+	MonsterLoot:withBlueGem(0.99),
+	MonsterLoot:withBlueRobe(0.89),
+	MonsterLoot:withFocusCape(0.1)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -500},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -150, radius = 4, effect = CONST_ME_GROUNDSHAKER, target = false}
+	-- 	Basic attack (0-300 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 300),
+	-- Ranged attack (0-200 physical) (Crystalline Arrow)
+	CustomMonsterSpell:new():withCrystallineArrow():withBlood():setDamageRange(0, 200):withPhysicalDamage(),
+	-- Explosion Box (190-240 earth, on target)
+	CustomMonsterSpell:new():setDamageRange(190, 240):withBox():withExplosion():withEarthDamage():withTarget(),
+	-- Tiny White Steam Beam (180-210 physical)
+	CustomMonsterSpell:new():withTinyBeam():setDamageRange(180, 210):withWhiteSteam():withPhysicalDamage(),
+	-- Short White Steam Beam (160-190 physical)
+	CustomMonsterSpell:new():withShortTWave():setDamageRange(160, 190):withWhiteSteam():withPhysicalDamage()
 }
 
 monster.defenses = {
 	defense = 20,
 	armor = 71,
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 150, maxDamage = 200, effect = CONST_ME_MAGIC_BLUE, target = false}
+	CustomMonsterSpell:withHealing(150, 200)
 }
 
 monster.elements = {
@@ -113,8 +126,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

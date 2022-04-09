@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Spiky Carnivor")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "9/04/2022"
+}
+
 monster.description = "a Spiky Carnivor"
 monster.experience = 1650
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Carnivora's Rocks."
-	}
+}
 
 monster.health = 2800
 monster.maxHealth = 2800
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -72,43 +77,53 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 6},
-	{name = "Green Glass Plate", chance = 12000, maxCount = 17},
-	{name = "Blue Crystal Splinter", chance = 11500},
-	{name = "Brown Crystal Splinter", chance = 11000},
-	{name = "Dark Armor", chance = 10000},
-	{name = "Guardian Shield", chance = 9000},
-	{name = "Rainbow Quartz", chance = 8500},
-	{name = "Blue Robe", chance = 8000},
-	{name = "Glacier Amulet", chance = 7500},
-	{name = "Lightning Pendant", chance = 2200},
-	{name = "Prismatic Quartz", chance = 6500},
-	{name = "Talon", chance = 6000},
-	{name = "Terra Amulet", chance = 5500},
-	{name = "Warrior Helmet", chance = 4000},
-	{name = "Shockwave Amulet", chance = 2550},
-	{name = "Terra Mantle", chance = 4050},
-	{name = "Buckle", chance = 250},
-	{name = "Doublet", chance = 250}
+	MonsterLoot:withPlatinumCoins(67.02, 6),
+	MonsterLoot:withDarkArmor(12.46),
+	MonsterLoot:new():setLoot("green glass plate", 10.81, 2),
+	MonsterLoot:withBlueCrystalSplinter(7.08),
+	MonsterLoot:withBrownCrystalSplinter(5.82),
+	MonsterLoot:withGuardianShield(5.63),
+	MonsterLoot:withWarriorHelmet(3.73),
+	MonsterLoot:withRainbowQuartz(3.01,2),
+	MonsterLoot:withTerraAmulet(2.42),
+	MonsterLoot:new():setLoot("talon", 2.23),
+	MonsterLoot:withBlueRobe(1.55),
+	MonsterLoot:withGlacierAmulet(1.45),
+	MonsterLoot:withLightningPendant(0.87),
+	MonsterLoot:withPrismaticQuartz(0.78),
+	MonsterLoot:new():setLoot("doublet", 0.48),
+	MonsterLoot:withTerraMantle(0.34),
+	MonsterLoot:withShockwaveAmulet(0.29),
+	MonsterLoot:withBuckle(0.1),
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -400},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -230, maxDamage = -380, radius = 4, effect = CONST_ME_GROUNDSHAKER, target = false}
+	-- Basic attack (0-310 physical, effect: poison 10/tick)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 310):setCondition(
+		{type = CONDITION_POISON, totalDamage = 200, interval = 4000}
+	),
+	-- Long Envenom Beam (110-170 earth)
+	CustomMonsterSpell:new():withLongBeam():setDamageRange(110, 170):withEnvenom():withEarthDamage(),
+	-- Groundshaker Ball (180-230 physical, on self)
+	CustomMonsterSpell:new():withBall():setDamageRange(180, 230):withGroundShaker():withPhysicalDamage(),
+	-- Tiny White Steam Beam (110-170 physical)
+	CustomMonsterSpell:new():withTinyBeam():setDamageRange(110, 170):withWhiteSteam():withPhysicalDamage(),
+	-- Short White Steam T-Wave (190-230 physical)
+	CustomMonsterSpell:new():withShortTWave():setDamageRange(190, 230):withWhiteSteam():withPhysicalDamage()
 }
 
 monster.defenses = {
 	defense = 20,
 	armor = 71,
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 150, maxDamage = 200, effect = CONST_ME_MAGIC_BLUE, target = false}
+	CustomMonsterSpell:withHealing(150,200)
 }
 
 monster.reflects = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 50}
+	{type = COMBAT_PHYSICALDAMAGE, percent = 40}
 }
 
 monster.elements = {
@@ -120,8 +135,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {
