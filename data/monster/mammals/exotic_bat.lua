@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Exotic Bat")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "9/04/2022"
+}
+
 monster.description = "a exotic bat"
 monster.experience = 1200
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Exotic cave Spider cave."
-	}
+}
 
 monster.health = 1500
 monster.maxHealth = 1500
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -73,19 +78,26 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 90540, maxCount = 4},
-	{name = "great mana potion", chance = 22220, maxCount = 2},
-	{name = "terra amulet", chance = 14920},
-	{name = "dark mushroom", chance = 13660, maxCount = 6},
-	{name = "green mushroom", chance = 14560, maxCount = 5},
-	{name = "garlic necklace", chance = 1680},
-	{name = "bat wing", chance = 1550, maxCount = 2}
+	MonsterLoot():withPlatinumCoins(100, 4),
+	MonsterLoot():withGreatManaPotions(31.03),
+	MonsterLoot():withDarkMushroom(15.18, 6),
+	MonsterLoot():withGreenMushroom(10.64, 5),
+	MonsterLoot():withTerraAmulet(6.01),
+	MonsterLoot():withGarlicNecklace(4.6),
+	MonsterLoot():new():setLoot("bat wing", 4.38, 2)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -80, maxDamage = -150, length = 5, spread = 2, effect = CONST_ME_GREEN_RINGS, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -60, maxDamage = -150, range = 7, radius = 3, effect = CONST_ME_YELLOW_RINGS, target = true}
+	-- Basic attack (0-310 physical, effect: poison 10/tick)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 310):setCondition(
+		{type = CONDITION_POISON, totalDamage = 200, interval = 4000}
+	),
+	-- Groundshaker Box (0-100 physical) (Small Stone)
+	CustomMonsterSpell:new():withBox():setDamageRange(0, 100):withSmallStone():withGroundShaker():withPhysicalDamage():withTarget(
+
+	),
+	-- Great Poison Wave (50-110 earth)
+	CustomMonsterSpell:new():withGreatWave():setDamageRange(50, 110):withPoison():withEarthDamage()
 }
 
 monster.defenses = {
@@ -102,8 +114,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 5},
-	{type = COMBAT_HOLYDAMAGE , percent = 5},
-	{type = COMBAT_DEATHDAMAGE , percent = 5}
+	{type = COMBAT_HOLYDAMAGE, percent = 5},
+	{type = COMBAT_DEATHDAMAGE, percent = 5}
 }
 
 monster.immunities = {
