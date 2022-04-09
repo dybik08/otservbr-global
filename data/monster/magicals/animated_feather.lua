@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Animated Feather")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "9/04/2022"
+}
+
 monster.description = "an animated feather"
 monster.experience = 9860
 monster.outfit = {
@@ -73,73 +78,38 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "Small Sapphire", chance = 8700, maxCount = 5},
-	{id = 3035, name = "platinum coin", chance = 87000, maxCount = 50},
-	{id = 28570, chance = 500, maxCount = 10},
-	{id = 3051, name = "energy ring", chance = 8700}, -- Energy ring
-	{id = 7441, chance = 4000},
-	{name = "Shard", chance = 250, maxCount = 3},
-	{name = "Glacier Mask", chance = 250},
-	{name = "Hailstorm Rod", chance = 250},
-	{name = "Life Crystal", chance = 8700},
-	{name = "Great Mana Potion", chance = 900, maxCount = 6},
-	{name = "Golden Mug", chance = 500},
-	{name = "Glowing Rune", chance = 500, maxCount = 10},
-	{id = 3051, name = "energy ring", chance = 8700}, -- Energy ring
-	{name = "Quill", chance = 250},
-	{name = "Small Diamond", chance = 500, maxCount = 5}
+	MonsterLoot:withGlowingRune(79.06, 5),
+	MonsterLoot:withPlatinumCoins(76.6, 21),
+	MonsterLoot:withSmallSapphire(41.88, 12),
+	MonsterLoot:withUltimateManaPotion(18.11, 2),
+	MonsterLoot:withQuill(14.32),
+	MonsterLoot:withIceCube(13.84),
+	MonsterLoot:withEnergyRing(13.3),
+	MonsterLoot:withGlacierMask(7.21),
+	MonsterLoot:withDiamondSceptre(5.34),
+	MonsterLoot:withSmallDiamond(4.81, 12),
+	MonsterLoot:withLifeCrystal(3.42),
+	MonsterLoot:withGlacierAmulet(3.42),
+	MonsterLoot:withGoldenMug(2.72),
+	MonsterLoot:withHailstormRod(2.35),
+	MonsterLoot:withCrystalMace(2.14),
+	MonsterLoot:withGlacialRod(1.07),
+	MonsterLoot:withSapphireHammer(0.75),
+	MonsterLoot:withLeviathansAmulet(0.48),
+	MonsterLoot:withCrystallineArmor(0.16)
 }
 
 monster.attacks = {
-	{name = "melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -200},
-	{
-		name = "combat",
-		interval = 1000,
-		chance = 15,
-		type = COMBAT_ICEDAMAGE,
-		minDamage = -100,
-		maxDamage = -200,
-		range = 7,
-		shootEffect = CONST_ANI_ICE,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 1000,
-		chance = 10,
-		type = COMBAT_ICEDAMAGE,
-		minDamage = -200,
-		maxDamage = -780,
-		range = 7,
-		shootEffect = CONST_ANI_SMALLICE,
-		effect = CONST_ME_ICEATTACK,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 1000,
-		chance = 10,
-		type = COMBAT_ICEDAMAGE,
-		minDamage = -200,
-		maxDamage = -275,
-		length = 3,
-		spread = 2,
-		effect = CONST_ME_ICEATTACK,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 1000,
-		chance = 12,
-		type = COMBAT_ICEDAMAGE,
-		minDamage = -230,
-		maxDamage = -680,
-		range = 7,
-		radius = 3,
-		shootEffect = CONST_ANI_SMALLICE,
-		effect = CONST_ME_ICETORNADO,
-		target = false
-	}
+	-- 	Basic attack (0-600 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 600),
+	-- Ice Strike (600-800 ice, on target)
+	CustomMonsterSpell:new():setDamageRange(600, 800):withIceDamage():withStrike():withIce():withTarget(),
+	-- Ice Box (500-850 ice, on target)(Snowball)
+	CustomMonsterSpell:new():setDamageRange(500, 850):withIceDamage():withBox():withIce():withTarget():withSnowball(),
+	-- Short Ice Wave (800-1150 ice)
+	CustomMonsterSpell:new():withIceDamage():setDamageRange(800, 1150),
+	-- Icy Wind X-Cross (600-900 ice, on self)
+	CustomMonsterSpell:new():withIceDamage():setDamageRange(600, 900):withIcyWind():withXCross()
 }
 
 monster.defenses = {
