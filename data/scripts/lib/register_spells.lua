@@ -911,6 +911,7 @@ SPELL_ANIMATIONS = {
 
 SHOOT_EFFECTS = {
 	SUDDEN_DEATH_RUNE = CONST_ANI_SUDDENDEATH,
+	STALAGMITE_RUNE = CONST_ANI_EARTH,
 	FIRE_STRIKE = CONST_ANI_FIRE,
 	ICE_STRIKE = CONST_ANI_ICE,
 	ENERGY_STRIKE = CONST_ANI_ENERGY,
@@ -924,7 +925,11 @@ SHOOT_EFFECTS = {
 	SPEAR = CONST_ANI_SPEAR,
 	LARGE_ROCK = CONST_ANI_LARGEROCK,
 	VIPER_STAR = CONST_ANI_GREENSTAR,
-	FLAMING_ARROW = CONST_ANI_FLAMMINGARROW
+	FLAMING_ARROW = CONST_ANI_FLAMMINGARROW,
+	CRYSTALLINE_ARROW = CONST_ANI_CRYSTALLINEARROW,
+	WHIRLWING_SWORD = CONST_ANI_WHIRLWINDSWORD,
+	WHIRLWING_AXE = CONST_ANI_WHIRLWINDAXE,
+	WHIRLWING_CLUB = CONST_ANI_WHIRLWINDCLUB
 }
 
 --
@@ -1481,6 +1486,13 @@ function CustomMonsterSpell:withLongWave()
 	return self
 end
 
+function CustomMonsterSpell:withShortWave()
+	self.area = SPELL_AREAS.SHORT_WAVE
+	self.needDirection = true
+
+	return self
+end
+
 function CustomMonsterSpell:withTinyBeam()
 	if (self.ranged) then
 		self.length = 2
@@ -1626,6 +1638,12 @@ function CustomMonsterSpell:withLargeRock()
 	return self
 end
 
+function CustomMonsterSpell:withCrystallineArrow()
+	self.shootEffect = SHOOT_EFFECTS.CRYSTALLINE_ARROW
+
+	return self
+end
+
 function CustomMonsterSpell:withFlamingArrow()
 	self.shootEffect = SHOOT_EFFECTS.FLAMING_ARROW
 
@@ -1634,6 +1652,36 @@ end
 
 function CustomMonsterSpell:withRoyalSpear()
 	self.shootEffect = SHOOT_EFFECTS.ROYAL_SPEAR
+
+	return self
+end
+
+function CustomMonsterSpell:withSuddenDeathRune()
+	self.shootEffect = SHOOT_EFFECTS.SUDDEN_DEATH_RUNE
+
+	return self
+end
+
+function CustomMonsterSpell:withStalagmiteRune()
+	self.shootEffect = SHOOT_EFFECTS.STALAGMITE_RUNE
+
+	return self
+end
+
+function CustomMonsterSpell:withWhirlwindSword()
+	self.shootEffect = SHOOT_EFFECTS.WHIRLWING_SWORD
+
+	return self
+end
+
+function CustomMonsterSpell:withWhirlwindClub()
+	self.shootEffect = SHOOT_EFFECTS.WHIRLWING_CLUB
+
+	return self
+end
+
+function CustomMonsterSpell:withWhirlwindAxe()
+	self.shootEffect = SHOOT_EFFECTS.WHIRLWING_AXE
 
 	return self
 end
@@ -1665,6 +1713,12 @@ end
 -- Animations
 function CustomMonsterSpell:withBlackSteam()
 	self.effect = SPELL_ANIMATIONS.BLACK_STEAM
+
+	return self
+end
+
+function CustomMonsterSpell:withWhiteSteam()
+	self.effect = SPELL_ANIMATIONS.WHITE_STEAM
 
 	return self
 end
@@ -1724,6 +1778,18 @@ end
 
 function CustomMonsterSpell:withFire()
 	self.effect = SPELL_ANIMATIONS.FIRE
+
+	return self
+end
+
+function CustomMonsterSpell:withExplosion()
+	self.effect = SPELL_ANIMATIONS.EXPLOSION
+
+	return self
+end
+
+function CustomMonsterSpell:withBlood()
+	self.effect = SPELL_ANIMATIONS.BLOOD
 
 	return self
 end
@@ -1883,611 +1949,11 @@ end
 
 -- Invisible
 function CustomMonsterSpell:withInvisible(duration)
-	self.name = "invisible", interval
+	self.name = "invisible"
 	self.effect = SPELL_ANIMATIONS.BLUE_STARS
-	self.duration = duration
+	self.duration = duration or 5000
 
 	return self
-end
-
-MonsterLoot = {}
-
-function MonsterLoot:new(o)
-	o =
-		o or
-		{
-			maxCount = 1
-		} -- create object if user does not provide one
-	setmetatable(o, self)
-	self.__index = self
-	return o
-end
-
-function MonsterLoot:setLoot(name, chance, maxCount)
-	self.name = name
-	self.chance = chance * 1000
-	self.maxCount = maxCount or 1
-
-	return self
-end
-
-function MonsterLoot:setLootItem(name)
-	self.name = name
-
-	return self
-end
-
-function MonsterLoot:setChance(chance) -- in %
-	self.chance = chance * 1000
-
-	return self
-end
-
-function MonsterLoot:setMaxCount(maxCount)
-	self.maxCount = maxCount
-
-	return self
-end
-
-function MonsterLoot:setItemId(id)
-	self.id = id
-
-	return self
-end
-
-function MonsterLoot:withGoldCoins(chance, maxCount)
-	return MonsterLoot:new():setLootItem("gold coin"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withCrystalCoins(chance, maxCount)
-	return MonsterLoot:new():setLootItem("Crystal coin"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withPlatinumCoins(chance, maxCount)
-	return MonsterLoot:new():setLootItem("platinum coin"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withDemonicEssence(chance, maxCount)
-	return MonsterLoot:new():setLootItem("demonic essence"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withMoonlightCrystal(chance, maxCount)
-	return MonsterLoot:new():setLootItem("moonlight crystal"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withAxeRing(chance)
-	return MonsterLoot:new():setLootItem("axe ring"):setItemId(3092):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withDeathRing(chance)
-	return MonsterLoot:new():setLootItem("Death ring"):setItemId(6300):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withClubRing(chance)
-	return MonsterLoot:new():setLootItem("club ring"):setItemId(3093):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withMightRing(chance)
-	return MonsterLoot:new():setLootItem("Might ring"):setItemId(3048):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withCrystalRing(chance)
-	return MonsterLoot:new():setLootItem("crystal ring"):setItemId(3007):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withRingofHealing(chance)
-	return MonsterLoot:new():setLootItem("ring of healing"):setItemId(1320):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withSlightlyRustedArmor(chance)
-	return MonsterLoot:new():setLootItem("slightly rusted armor"):setItemId(8896):setChance(chance):setMaxCount(
-		maxCount or 1
-	)
-end
-
-function MonsterLoot:withSoulOrb(chance, maxCount)
-	return MonsterLoot:new():setLootItem("soul orb"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withFlaskOfDemonicBlood(chance, maxCount)
-	return MonsterLoot:new():setLootItem("flask of demonic blood"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withGreatManaPotion(chance, maxCount)
-	return MonsterLoot:new():setLootItem("great mana potion"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withGreatSpiritPotion(chance, maxCount)
-	return MonsterLoot:new():setLootItem("great Spirit potion"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withStrongManaPotion(chance, maxCount)
-	return MonsterLoot:new():setLootItem("Strong mana potion"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withGreatHealthPotion(chance, maxCount)
-	return MonsterLoot:new():setLootItem("great health potion"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withStrongHealthPotion(chance, maxCount)
-	return MonsterLoot:new():setLootItem("Strong health potion"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withRedGem(chance, maxCount)
-	return MonsterLoot:new():setLootItem("red gem"):setItemId(3039):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withMeat(chance, maxCount)
-	return MonsterLoot:new():setLootItem("Meat"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withHam(chance, maxCount)
-	return MonsterLoot:new():setLootItem("ham"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withDragonHam(chance, maxCount)
-	return MonsterLoot:new():setLootItem("Dragon ham"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withAssassinStar(chance, maxCount)
-	return MonsterLoot:new():setLootItem("assassin star"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withLeafStar(chance, maxCount)
-	return MonsterLoot:new():setLootItem("leaf star"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withRoyalStar(chance, maxCount)
-	return MonsterLoot:new():setLootItem("Royal star"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withRubyNecklace(chance, maxCount)
-	return MonsterLoot:new():setLootItem("ruby necklace"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withOnyxChip(chance, maxCount)
-	return MonsterLoot:new():setLootItem("onyx chip"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withSmallEmerald(chance, maxCount)
-	return MonsterLoot:new():setLootItem("small emerald"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withSmallEnchantedEmerald(chance, maxCount)
-	return MonsterLoot:new():setLootItem("small Enchanted emerald"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withSmallEnchantedRuby(chance, maxCount)
-	return MonsterLoot:new():setLootItem("small Enchanted Ruby"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withSmallEnchantedSapphire(chance, maxCount)
-	return MonsterLoot:new():setLootItem("small Enchanted Sapphire"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withSmallEnchantedAmethyst(chance, maxCount)
-	return MonsterLoot:new():setLootItem("small Enchanted Amethyst"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withSmallRuby(chance, maxCount)
-	return MonsterLoot:new():setLootItem("small ruby"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withSmallAmethyst(chance, maxCount)
-	return MonsterLoot:new():setLootItem("small amethyst"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withSmallTopaz(chance, maxCount)
-	return MonsterLoot:new():setLootItem("small topaz"):setChance(chance):setMaxCount(maxCount or 1)
-end
-
-function MonsterLoot:withSmallDiamond(chance, maxCount)
-	return MonsterLoot:new():setLoot("small diamond", chance, maxCount)
-end
-
-function MonsterLoot:withSmallSapphire(chance, maxCount)
-	return MonsterLoot:new():setLoot("small sapphire", chance, maxCount)
-end
-
-function MonsterLoot:withGoldIngot(chance, maxCount)
-	return MonsterLoot:new():setLoot("gold ingot", chance, maxCount)
-end
-
-function MonsterLoot:withGreenGem(chance, maxCount)
-	return MonsterLoot:new():setLoot("green gem", chance, maxCount)
-end
-
-function MonsterLoot:withYellowGem(chance, maxCount)
-	return MonsterLoot:new():setLoot("yellow gem", chance, maxCount)
-end
-
-function MonsterLoot:withBlueGem(chance, maxCount)
-	return MonsterLoot:new():setLoot("Blue gem", chance, maxCount)
-end
-
-function MonsterLoot:withVioletGem(chance, maxCount)
-	return MonsterLoot:new():setLoot("violet gem", chance, maxCount)
-end
-
-function MonsterLoot:withRainbowQuartz(chance, maxCount)
-	return MonsterLoot:new():setLoot("rainbow quartz", chance, maxCount)
-end
-
-function MonsterLoot:withBlueCrystalShard(chance, maxCount)
-	return MonsterLoot:new():setLoot("blue crystal shard", chance, maxCount)
-end
-
-function MonsterLoot:withGreenCrystalShard(chance, maxCount)
-	return MonsterLoot:new():setLoot("Green crystal shard", chance, maxCount)
-end
-
-function MonsterLoot:withVioletCrystalShard(chance, maxCount)
-	return MonsterLoot:new():setLoot("Violet crystal shard", chance, maxCount)
-end
-
-function MonsterLoot:withGreenCrystalFragment(chance, maxCount)
-	return MonsterLoot:new():setLoot("green crystal fragment", chance, maxCount)
-end
-
-function MonsterLoot:withPrismaticQuartz(chance, maxCount)
-	return MonsterLoot:new():setLoot("prismatic quartz", chance, maxCount)
-end
-
-function MonsterLoot:withTerraRod(chance, maxCount)
-	return MonsterLoot:new():setLoot("Terra Rod", chance, maxCount)
-end
-
-function MonsterLoot:withNecroticRod(chance, maxCount)
-	return MonsterLoot:new():setLoot("Necrotic Rod", chance, maxCount)
-end
-
-function MonsterLoot:withMoonlightRod(chance, maxCount)
-	return MonsterLoot:new():setLoot("Moonlight Rod", chance, maxCount)
-end
-
-function MonsterLoot:withNorthwindRod(chance, maxCount)
-	return MonsterLoot:new():setLoot("Northwind Rod", chance, maxCount)
-end
-
-function MonsterLoot:withUnderworldRod(chance, maxCount)
-	return MonsterLoot:new():setLoot("Underworld Rod", chance, maxCount)
-end
-
-function MonsterLoot:withSpringsproutRod(chance, maxCount)
-	return MonsterLoot:new():setLoot("Springsprout Rod", chance, maxCount)
-end
-
-function MonsterLoot:withSnakebiteRod(chance, maxCount)
-	return MonsterLoot:new():setLoot("Snakebite Rod", chance, maxCount)
-end
-
-function MonsterLoot:withHailstormRod(chance, maxCount)
-	return MonsterLoot:new():setLoot("Hailstorm Rod", chance, maxCount)
-end
-
-function MonsterLoot:withSerpentSword(chance, maxCount)
-	return MonsterLoot:new():setLoot("Serpent Sword", chance, maxCount)
-end
-
-function MonsterLoot:withFireSword(chance, maxCount)
-	return MonsterLoot:new():setLoot("Fire Sword", chance, maxCount)
-end
-
-function MonsterLoot:withCrystalSword(chance, maxCount)
-	return MonsterLoot:new():setLoot("Crystal Sword", chance, maxCount)
-end
-
-function MonsterLoot:withWarHammer(chance, maxCount)
-	return MonsterLoot:new():setLoot("war Hammer", chance, maxCount)
-end
-
-function MonsterLoot:withCrownHelmet(chance, maxCount)
-	return MonsterLoot:new():setLoot("Crown Helmet", chance, maxCount)
-end
-
-function MonsterLoot:withSteelHelmet(chance, maxCount)
-	return MonsterLoot:new():setLoot("Steel Helmet", chance, maxCount)
-end
-
-function MonsterLoot:withLightningHeadband(chance, maxCount)
-	return MonsterLoot:new():setLoot("Lightning Headband", chance, maxCount)
-end
-
-function MonsterLoot:withWarAxe(chance, maxCount)
-	return MonsterLoot:new():setLoot("war axe", chance, maxCount)
-end
-
-function MonsterLoot:withGloriousAxe(chance, maxCount)
-	return MonsterLoot:new():setLoot("Glorious axe", chance, maxCount)
-end
-
-function MonsterLoot:withTitanAxe(chance, maxCount)
-	return MonsterLoot:new():setLoot("titan axe", chance, maxCount)
-end
-
-function MonsterLoot:withFireAxe(chance, maxCount)
-	return MonsterLoot:new():setLoot("Fire axe", chance, maxCount)
-end
-
-function MonsterLoot:withNobleAxe(chance, maxCount)
-	return MonsterLoot:new():setLoot("Noble axe", chance, maxCount)
-end
-
-function MonsterLoot:withGoldenArmor(chance, maxCount)
-	return MonsterLoot:new():setLoot("golden armor", chance, maxCount)
-end
-
-function MonsterLoot:withDarkArmor(chance, maxCount)
-	return MonsterLoot:new():setLoot("Dark armor", chance, maxCount)
-end
-
-function MonsterLoot:withPlateArmor(chance, maxCount)
-	return MonsterLoot:new():setLoot("Plate armor", chance, maxCount)
-end
-
-function MonsterLoot:withCrownArmor(chance, maxCount)
-	return MonsterLoot:new():setLoot("Crown armor", chance, maxCount)
-end
-
-function MonsterLoot:withSkullcrackerArmor(chance, maxCount)
-	return MonsterLoot:new():setLoot("Skullcracker armor", chance, maxCount)
-end
-
-function MonsterLoot:withFurArmor(chance, maxCount)
-	return MonsterLoot:new():setLoot("fur armor", chance, maxCount)
-end
-
-function MonsterLoot:withBlueRobe(chance, maxCount)
-	return MonsterLoot:new():setLoot("Blue robe", chance, maxCount)
-end
-
-function MonsterLoot:withAssassinDagger(chance, maxCount)
-	return MonsterLoot:new():setLoot("assassin dagger", chance, maxCount)
-end
-
-function MonsterLoot:withMastermindShield(chance, maxCount)
-	return MonsterLoot:new():setLoot("mastermind shield", chance, maxCount)
-end
-
-function MonsterLoot:withDarkShield(chance, maxCount)
-	return MonsterLoot:new():setLoot("Dark shield", chance, maxCount)
-end
-
-function MonsterLoot:withVampireShield(chance, maxCount)
-	return MonsterLoot:new():setLoot("Vampire shield", chance, maxCount)
-end
-
-function MonsterLoot:withCrownShield(chance, maxCount)
-	return MonsterLoot:new():setLoot("Crown shield", chance, maxCount)
-end
-
-function MonsterLoot:withDemonboneAmulet(chance, maxCount)
-	return MonsterLoot:new():setLoot("demonbone amulet", chance, maxCount)
-end
-
-function MonsterLoot:withSilverAmulet(chance, maxCount)
-	return MonsterLoot:new():setLoot("silver amulet", chance, maxCount)
-end
-
-function MonsterLoot:withTerraAmulet(chance, maxCount)
-	return MonsterLoot:new():setLoot("terra amulet", chance, maxCount)
-end
-
-function MonsterLoot:withSacredTreeAmulet(chance, maxCount)
-	return MonsterLoot:new():setLoot("sacred tree amulet", chance, maxCount)
-end
-
-function MonsterLoot:withEnvenomedArrow(chance, maxCount)
-	return MonsterLoot:new():setLoot("Envenomed Arrow", chance, maxCount)
-end
-
-function MonsterLoot:withOnyxArrow(chance, maxCount)
-	return MonsterLoot:new():setLoot("Onyx Arrow", chance, maxCount)
-end
-
-function MonsterLoot:withTrap(chance, maxCount)
-	return MonsterLoot:new():setLoot("closed trap", chance, maxCount):setItemId(31925)
-end
-
-function MonsterLoot:withSilverBrooch(chance, maxCount)
-	return MonsterLoot:new():setLoot("silver brooch", chance, maxCount)
-end
-
-function MonsterLoot:withTribalMask(chance, maxCount)
-	return MonsterLoot:new():setLoot("tribal mask", chance, maxCount)
-end
-
-function MonsterLoot:withGoannaMeat(chance, maxCount)
-	return MonsterLoot:new():setLoot("goanna meat", chance, maxCount)
-end
-
-function MonsterLoot:withGoannaClaw(chance, maxCount)
-	return MonsterLoot:new():setLoot("goanna claw", chance, maxCount)
-end
-
-function MonsterLoot:withBlueGoannaScale(chance, maxCount)
-	return MonsterLoot:new():setLoot("Blue Goanna Scale", chance, maxCount)
-end
-
-function MonsterLoot:withRedGoannaScale(chance, maxCount)
-	return MonsterLoot:new():setLoot("Red Goanna Scale", chance, maxCount)
-end
-
-function MonsterLoot:withScaredFrog(chance, maxCount)
-	return MonsterLoot:new():setLoot("Scared frog", chance, maxCount)
-end
-
-function MonsterLoot:withKnightArmor(chance, maxCount)
-	return MonsterLoot:new():setLoot("Knight Armor", chance, maxCount)
-end
-
-function MonsterLoot:withKnightLegs(chance, maxCount)
-	return MonsterLoot:new():setLoot("Knight Legs", chance, maxCount)
-end
-
-function MonsterLoot:withKnightAxe(chance, maxCount)
-	return MonsterLoot:new():setLoot("Knight Axe", chance, maxCount)
-end
-
-function MonsterLoot:withSpikedSquelcher(chance, maxCount)
-	return MonsterLoot:new():setLoot("Spiked Squelcher", chance, maxCount)
-end
-
-function MonsterLoot:withTerraHood(chance, maxCount)
-	return MonsterLoot:new():setLoot("terra hood", chance, maxCount)
-end
-
-function MonsterLoot:withBlueCrystalSplinter(chance, maxCount)
-	return MonsterLoot:new():setLoot("Blue Crystal Splinter", chance, maxCount)
-end
-
-function MonsterLoot:withGreenCrystalSplinter(chance, maxCount)
-	return MonsterLoot:new():setLoot("green Crystal Splinter", chance, maxCount)
-end
-
-function MonsterLoot:withWoodenSpellbook(chance, maxCount)
-	return MonsterLoot:new():setLoot("wooden spellbook", chance, maxCount)
-end
-
-function MonsterLoot:withSpellbookOfMindControl(chance, maxCount)
-	return MonsterLoot:new():setLoot("spellbook of mind control", chance, maxCount)
-end
-
-function MonsterLoot:withEmeraldBangle(chance, maxCount)
-	return MonsterLoot:new():setLoot("Emerald Bangle", chance, maxCount)
-end
-
-function MonsterLoot:withOrientalShoes(chance, maxCount)
-	return MonsterLoot:new():setLoot("oriental shoes", chance, maxCount)
-end
-
-function MonsterLoot:withOpal(chance, maxCount)
-	return MonsterLoot:new():setLoot("opal", chance, maxCount)
-end
-
-function MonsterLoot:withWhitePearl(chance, maxCount)
-	return MonsterLoot:new():setLoot("white pearl", chance, maxCount)
-end
-
-function MonsterLoot:withBlackPearl(chance, maxCount)
-	return MonsterLoot:new():setLoot("Black pearl", chance, maxCount)
-end
-
-function MonsterLoot:withGemmedFigurine(chance, maxCount)
-	return MonsterLoot:new():setLoot("gemmed figurine", chance, maxCount)
-end
-
-function MonsterLoot:withWoodCape(chance, maxCount)
-	return MonsterLoot:new():setLoot("wood cape", chance, maxCount)
-end
-
-function MonsterLoot:withHeavyMace(chance, maxCount)
-	return MonsterLoot:new():setLoot("Heavy Mace", chance, maxCount)
-end
-
-function MonsterLoot:withMagmaCoat(chance, maxCount)
-	return MonsterLoot:new():setLoot("magma coat", chance, maxCount)
-end
-
-function MonsterLoot:withMagmaBoots(chance, maxCount)
-	return MonsterLoot:new():setLoot("magma Boots", chance, maxCount)
-end
-
-function MonsterLoot:withMagmaLegs(chance, maxCount)
-	return MonsterLoot:new():setLoot("magma Legs", chance, maxCount)
-end
-
-function MonsterLoot:withMagmaMonocle(chance, maxCount)
-	return MonsterLoot:new():setLoot("magma Monocle", chance, maxCount)
-end
-
-function MonsterLoot:withWandOfDraconia(chance, maxCount)
-	return MonsterLoot:new():setLoot("wand of draconia", chance, maxCount)
-end
-
-function MonsterLoot:withWandOfInferno(chance, maxCount)
-	return MonsterLoot:new():setLoot("wand of Inferno", chance, maxCount)
-end
-
-function MonsterLoot:withWandOfEverblazing(chance, maxCount)
-	return MonsterLoot:new():setLoot("wand of Everblazing", chance, maxCount)
-end
-
-function MonsterLoot:withWandOfStarstorm(chance, maxCount)
-	return MonsterLoot:new():setLoot("wand of Starstorm", chance, maxCount)
-end
-
-function MonsterLoot:withWandOfDragonbreath(chance, maxCount)
-	return MonsterLoot:new():setLoot("wand of Dragonbreath", chance, maxCount)
-end
-
-function MonsterLoot:withRedPieceOfCloth(chance, maxCount)
-	return MonsterLoot:new():setLoot("red piece of cloth", chance, maxCount)
-end
-
-function MonsterLoot:withGreenPieceOfCloth(chance, maxCount)
-	return MonsterLoot:new():setLoot("Green piece of cloth", chance, maxCount)
-end
-
-function MonsterLoot:withBluePieceOfCloth(chance, maxCount)
-	return MonsterLoot:new():setLoot("Blue piece of cloth", chance, maxCount)
-end
-
-function MonsterLoot:withYellowPieceOfCloth(chance, maxCount)
-	return MonsterLoot:new():setLoot("Yellow piece of cloth", chance, maxCount)
-end
-
-function MonsterLoot:withWhitePieceOfCloth(chance, maxCount)
-	return MonsterLoot:new():setLoot("White piece of cloth", chance, maxCount)
-end
-
-function MonsterLoot:withBrownPieceOfCloth(chance, maxCount)
-	return MonsterLoot:new():setLoot("Brown piece of cloth", chance, maxCount)
-end
-
-function MonsterLoot:withMysticTurban(chance, maxCount)
-	return MonsterLoot:new():setLoot("mystic turban", chance, maxCount)
-end
-
-function MonsterLoot:withFocusCape(chance, maxCount)
-	return MonsterLoot:new():setLoot("focus cape", chance, maxCount)
-end
-
-function MonsterLoot:withCrossbow(chance, maxCount)
-	return MonsterLoot:new():setLoot("crossbow", chance, maxCount)
-end
-
-function MonsterLoot:withPowerBolt(chance, maxCount)
-	return MonsterLoot:new():setLoot("Power Bolt", chance, maxCount)
-end
-
-function MonsterLoot:withBow(chance, maxCount)
-	return MonsterLoot:new():setLoot("Bow", chance, maxCount)
-end
-
-function MonsterLoot:withLightningPendant(chance, maxCount)
-	return MonsterLoot:new():setLoot("Lightning Pendant", chance, maxCount)
-end
-
-function MonsterLoot:withLightningLegs(chance, maxCount)
-	return MonsterLoot:new():setLoot("Lightning Legs", chance, maxCount)
-end
-
-function MonsterLoot:withLightningBoots(chance, maxCount)
-	return MonsterLoot:new():setLoot("Lightning Boots", chance, maxCount)
-end
-
-function MonsterLoot:withLightningRobe(chance, maxCount)
-	return MonsterLoot:new():setLoot("Lightning Robe", chance, maxCount)
-end
-
-function MonsterLoot:withGiantShimmeringPearl(chance, maxCount)
-	local pearlId = 281
-	local chance = math.random(2)
-	if chance == 2 then
-		pearlId = 282
-	end
-	return MonsterLoot:new():setLoot("giant shimmering pearl", chance, maxCount):setItemId(pearlId)
 end
 
 suprCube = Action()
