@@ -1,12 +1,10 @@
 local mType = Game.createMonsterType("Retching Horror")
 local monster = {}
 
-
 monster.Credits = {
 	Developer = "Wojciech Dybikowski",
 	lastUpdate = "9/04/2022"
 }
-
 
 monster.description = "a retching horror"
 monster.experience = 4100
@@ -116,7 +114,7 @@ monster.attacks = {
 	-- Short Green Stars Wave (200-400 fire)
 	CustomMonsterSpell:new():withShortWave():setDamageRange(200, 400):withFireDamage():withGreenStars(),
 	-- Dizzy Ball (100-300 life drain, on target)
-	CustomMonsterSpell:new():withBall():setDamageRange(100, 300):withLifeDrain():withDizzy():withTarget(),
+	CustomMonsterSpell:new():withBall():setDamageRange(100, 300):withLifeDrainDamage():withDizzy():withTarget(),
 	-- Berserk Ball (on self, effect: paralyze)
 	CustomMonsterSpell:new():withParalyze():withBall():withBerserk()
 }

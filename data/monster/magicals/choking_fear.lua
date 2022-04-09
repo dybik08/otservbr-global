@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Choking Fear")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "9/04/2022"
+}
+
 monster.description = "a choking fear"
 monster.experience = 4700
 monster.outfit = {
@@ -61,8 +66,8 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = true
 }
 
 monster.light = {
@@ -80,114 +85,59 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 100000, maxCount = 100},
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 8},
-	{id = 3051, name = "energy ring", chance = 3000}, -- Energy ring
-	{id = 3052, name = "life ring", chance = 4200}, -- Life ring
-	{id = 3098, name = "Ring of healing", chance = 3000}, -- Ring of healing
-	{name = "guardian shield", chance = 1540},
-	{name = "beastslayer axe", chance = 3290},
-	{name = "brown piece of cloth", chance = 6000},
-	{name = "yellow piece of cloth", chance = 3500},
-	{name = "great mana potion", chance = 20000, maxCount = 3},
-	{name = "terra boots", chance = 720},
-	{name = "great spirit potion", chance = 20000, maxCount = 3},
-	{name = "ultimate health potion", chance = 19000, maxCount = 3},
-	{name = "spellbook of mind control", chance = 720},
-	{name = "underworld rod", chance = 720},
-	{name = "springsprout rod", chance = 510},
-	{name = "green crystal shard", chance = 1540},
-	{name = "brown crystal splinter", chance = 52500, maxCount = 2},
-	{name = "blue crystal splinter", chance = 10000, maxCount = 3},
-	{name = "cluster of solace", chance = 620},
-	{name = "dead weight", chance = 14180},
-	{name = "hemp rope", chance = 14180}
+	MonsterLoot:withPlatinumCoins(91.82, 8),
+	MonsterLoot:withGoldCoins(82.91, 100),
+	MonsterLoot:withBrownCrystalSplinter(41.49, 2),
+	MonsterLoot:withGreatManaPotion(17.49, 3),
+	MonsterLoot:withUltimateHealthPotion(16.82, 3),
+	MonsterLoot:withGreatSpiritPotion(15.62, 3),
+	MonsterLoot:new():setLoot("dead weight", 12.33),
+	MonsterLoot:new():setLoot("hemp rope", 12.06),
+	MonsterLoot:withBlueCrystalSplinter(8.24, 3),
+	MonsterLoot:withLifeRing(4.36),
+	MonsterLoot:withBrownPieceOfCloth(3.55),
+	MonsterLoot:withBeastslayerAxe(3.15),
+	MonsterLoot:withRingofHealing(2.82),
+	MonsterLoot:withEnergyRing(2.68),
+	MonsterLoot:withYellowPieceOfCloth(2.08),
+	MonsterLoot:withGuardianShield(1.34),
+	MonsterLoot:withGreenCrystalShard(1.14),
+	MonsterLoot:withShadowSceptre(1.01),
+	MonsterLoot:withSai(0.94),
+	MonsterLoot:withSpellbookOfMindControl(0.87),
+	MonsterLoot:withTerraMantle(0.74),
+	MonsterLoot:withTerraBoots(0.67),
+	MonsterLoot:withRedPieceOfCloth(0.6),
+	MonsterLoot:withClusterOfSolace(0.27),
+	MonsterLoot:withSpringsproutRod(0.27),
+	MonsterLoot:withUnderworldRod(0.27)
 }
 
 monster.attacks = {
-	{
-		name = "melee",
-		interval = 2000,
-		chance = 100,
-		minDamage = 0,
-		maxDamage = -499,
-		condition = {type = CONDITION_POISON, totalDamage = 600, interval = 4000}
-	},
-	-- poison
-	{
-		name = "condition",
-		type = CONDITION_POISON,
-		interval = 2000,
-		chance = 10,
-		minDamage = -700,
-		maxDamage = -900,
-		length = 5,
-		spread = 3,
-		effect = CONST_ME_HITBYPOISON,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_PHYSICALDAMAGE,
-		minDamage = 0,
-		maxDamage = -300,
-		radius = 1,
-		shootEffect = CONST_ANI_EXPLOSION,
-		effect = CONST_ME_SLEEP,
-		target = true
-	},
-	{
-		name = "speed",
-		interval = 2000,
-		chance = 20,
-		speedChange = -800,
-		radius = 1,
-		shootEffect = CONST_ANI_EXPLOSION,
-		effect = CONST_ME_SLEEP,
-		target = true,
-		duration = 15000
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_MANADRAIN,
-		minDamage = -130,
-		maxDamage = -300,
-		radius = 4,
-		effect = CONST_ME_SOUND_RED,
-		target = false
-	},
-	{name = "choking fear drown", interval = 2000, chance = 20, target = false},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 20,
-		type = COMBAT_DEATHDAMAGE,
-		minDamage = -250,
-		maxDamage = -500,
-		radius = 4,
-		shootEffect = CONST_ANI_SUDDENDEATH,
-		effect = CONST_ME_MORTAREA,
-		target = true
-	}
+	-- 	Basic attack (0-450 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 450),
+	-- Long Envenom Wave (effect: poison 45hp/tick)
+	CustomMonsterSpell:new():setCondition({type = CONDITION_POISON, totalDamage = 900, interval = 4000}):withLongWave():setDamageRange(
+		0,
+		0
+	):withEnvenom(),
+	-- Death Ball (250-500 death, on target)
+	CustomMonsterSpell:new():withDeath():setDamageRange(250, 500):withBall():withDeathDamage():withTarget(),
+	-- Sleeping Strike (400-500 life drain, on target)
+	CustomMonsterSpell:new():setDamageRange(400, 500):withLifeDrainDamage():withTarget():withSleeping(),
+	-- Sleeping Ball (25-100 mana drain, on self)
+	CustomMonsterSpell:new():setDamageRange(25, 100):setChance(20):withManaDrainDamage():withBall():withSleeping(),
+	-- The Greatest Bubble Ball (on target, effect: drown 20hp/tick)
+	CustomMonsterSpell:new():withTheGreatestBall():withTarget():setCondition(
+		{type = CONDITION_DROWN, totalDamage = 400, interval = 4000}
+	):withBubbles():setChance(20):setDamageRange(0, 0)
 }
 
 monster.defenses = {
 	defense = 35,
 	armor = 35,
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_HEALING,
-		minDamage = 80,
-		maxDamage = 150,
-		effect = CONST_ME_MAGIC_BLUE,
-		target = false
-	}
+	-- Healing (80-150 heal)
+	CustomMonsterSpell:new():withHealing(80, 150)
 }
 
 monster.elements = {
