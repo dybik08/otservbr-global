@@ -2676,9 +2676,6 @@
 	<npc centerx="32784" centery="32528" centerz="13" radius="1">
 		<npc name="Ghost Of A Priest" x="0" y="0" z="13" spawntime="60" />
 	</npc>
-	<npc centerx="33586" centery="32546" centerz="13" radius="1">
-		<npc name="Emberwing" x="0" y="0" z="13" spawntime="60" />
-	</npc>
 	<npc centerx="32132" centery="32562" centerz="13" radius="1">
 		<npc name="A Vulcongra" x="0" y="0" z="13" spawntime="60" />
 	</npc>
