@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Werehyaena Shaman")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "9/04/2022"
+}
+
 monster.description = "a werehyaena shaman"
 monster.experience = 2200
 monster.outfit = {
@@ -73,73 +78,36 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 100000},
-	{name = "great mana potion", chance = 20070},
-	{name = "werehyaena nose", chance = 15550},
-	{name = "small amethyst", chance = 10840},
-	{name = "green crystal splinter", chance = 9120},
-	{name = "hailstorm rod", chance = 6430},
-	{name = "doublet", chance = 5390},
-	{name = "brown crystal splinter", chance = 5030},
-	{name = "wand of starstorm", chance = 4920},
-	{name = "small enchanted emerald", chance = 4630},
-	{id = 3091, name = "sword ring", chance = 4490}, -- Sword ring
-	{name = "wand of voodoo", chance = 3990},
-	{name = "protection amulet", chance = 2660},
-	{name = "werehyaena talisman", chance = 650},
-	{name = "moonlight crystals", chance = 610},
-	{name = "werehyaena trophy", chance = 140}
+	MonsterLoot:withPlatinumCoins(100, 3),
+	MonsterLoot:withGreatManaPotion(19.75),
+	MonsterLoot:new():setLoot("werehyena nose", 15.34),
+	MonsterLoot:withGreenCrystalSplinter(9.93),
+	MonsterLoot:withSmallAmethyst(9.37, 2),
+	MonsterLoot:withHailstormRod(7.95),
+	MonsterLoot:withWandOfStarstorm(5.62),
+	MonsterLoot:new():setLoot("doublet", 5.22),
+	MonsterLoot:withBrownCrystalSplinter(4.84),
+	MonsterLoot:withSwordRing(4.42),
+	MonsterLoot:withSmallEnchantedEmerald(4.34),
+	MonsterLoot:withWandOfVoodoo(3.21),
+	MonsterLoot:withProtectionAmulet(2.92),
+	MonsterLoot:withBlackShield(2.7),
+	MonsterLoot:withMoonlightCrystal(1.45),
+	MonsterLoot:new():setLoot("werehyena talisman", 0.59),
+	MonsterLoot:new():setLoot("werehyena trophy", 0.24)
 }
 
 monster.attacks = {
-	{name = "melee", type = COMBAT_PHYSICALDAMAGE, interval = 2 * 1000, minDamage = 0, maxDamage = -260},
-	{
-		name = "combat",
-		type = COMBAT_DEATHDAMAGE,
-		interval = 2 * 1000,
-		chance = 10,
-		minDamage = -280,
-		maxDamage = -325,
-		radius = 3,
-		effect = CONST_ME_HITBYPOISON
-	},
-	{
-		name = "combat",
-		type = COMBAT_EARTHDAMAGE,
-		interval = 2 * 1000,
-		chance = 17,
-		minDamage = -280,
-		maxDamage = -315,
-		range = 5,
-		radius = 4,
-		target = true,
-		shootEffect = CONST_ANI_EARTH,
-		effect = CONST_ME_GREEN_RINGS
-	},
-	{
-		name = "combat",
-		type = COMBAT_DEATHDAMAGE,
-		interval = 2 * 1000,
-		chance = 15,
-		minDamage = -370,
-		maxDamage = -430,
-		range = 5,
-		radius = 1,
-		target = true,
-		shootEffect = CONST_ANI_DEATH,
-		effect = CONST_ME_MORTAREA
-	},
-	{
-		name = "combat",
-		type = COMBAT_DEATHDAMAGE,
-		interval = 2 * 1000,
-		chance = 13,
-		minDamage = -280,
-		maxDamage = -325,
-		length = 3,
-		spread = 0,
-		effect = CONST_ME_MORTAREA
-	}
+	-- 	Basic attack (0-250 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 250),
+	-- 	Poison Box (200-350 death, on self)
+	CustomMonsterSpell:new():withBox():withPoison():setDamageRange(200, 350):withDeathDamage(),
+	-- Poison Ball (250-350 earth, on target)
+	CustomMonsterSpell:new():withBall():withPoison():setDamageRange(200, 350):withEarthDamage():withTarget(),
+	-- Death Strike (300-450 death, on target)
+	CustomMonsterSpell:new():withStrike():withDeath():setDamageRange(300, 450):withSuddenDeathRune():withDeathDamage(),
+	-- Shorter Death Beam (200-300 death)
+	CustomMonsterSpell:new():withShorterBeam():withDeath():setDamageRange(200, 300):withDeathDamage()
 }
 
 monster.defenses = {

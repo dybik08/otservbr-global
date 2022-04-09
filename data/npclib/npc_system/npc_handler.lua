@@ -26,7 +26,7 @@ if NpcHandler == nil then
 	MESSAGE_NEEDMORESPACE = 14 -- When the player has some space to buy an item, but not enough space
 	-- EMPTY = 15
 	MESSAGE_WALKAWAY = 16 -- When the player walks out of the talkRadius of the npc.
-	MESSAGE_DECLINE	 = 17 -- When the player says no to something.
+	MESSAGE_DECLINE = 17 -- When the player says no to something.
 	MESSAGE_SENDTRADE = 18 -- When the npc sends the trade window to the player
 	MESSAGE_NOSHOP = 19 -- When the npc's shop is requested but he doesn't have any
 	MESSAGE_ONCLOSESHOP = 20 -- When the player closes the npc's shop window
@@ -322,7 +322,7 @@ if NpcHandler == nil then
 	-- Translates all message tags found in msg using parseInfo
 	function NpcHandler:parseMessage(msg, parseInfo)
 		local ret = msg
-		if type(ret) == 'string' then
+		if type(ret) == "string" then
 			for search, replace in pairs(parseInfo) do
 				ret = string.gsub(ret, search, replace)
 			end
@@ -347,7 +347,7 @@ if NpcHandler == nil then
 			if self:processModuleCallback(CALLBACK_FAREWELL) then
 				local msg = self:getMessage(MESSAGE_FAREWELL)
 				local playerName = player:getName() or -1
-				local parseInfo = { [TAG_PLAYERNAME] = playerName }
+				local parseInfo = {[TAG_PLAYERNAME] = playerName}
 				self:resetNpc(player)
 				msg = self:parseMessage(msg, parseInfo)
 				self:say(msg, npc, player)
@@ -367,7 +367,7 @@ if NpcHandler == nil then
 			if self:processModuleCallback(CALLBACK_GREET, npc, player) then
 				local msg = self:getMessage(MESSAGE_GREET)
 				local playerName = player:getName() or -1
-				local parseInfo = { [TAG_PLAYERNAME] = playerName }
+				local parseInfo = {[TAG_PLAYERNAME] = playerName}
 				msg = self:parseMessage(msg, parseInfo)
 				self:say(msg, npc, player)
 			end
@@ -406,9 +406,7 @@ if NpcHandler == nil then
 				end
 
 				if self.keywordHandler ~= nil then
-					if self:checkInteraction(npc, player)
-					and msgtype == TALKTYPE_PRIVATE_PN
-					or not self:checkInteraction(npc, player) then
+					if self:checkInteraction(npc, player) and msgtype == TALKTYPE_PRIVATE_PN or not self:checkInteraction(npc, player) then
 						local ret = self.keywordHandler:processMessage(npc, player, msg)
 						if not ret then
 							callback = self:getCallback(CALLBACK_MESSAGE_DEFAULT)
@@ -439,7 +437,7 @@ if NpcHandler == nil then
 		local callback = self:getCallback(CALLBACK_ON_TRADE_REQUEST)
 		if callback == nil or callback(npc, player, message) then
 			if self:processModuleCallback(CALLBACK_ON_TRADE_REQUEST, npc, player) then
-				local parseInfo = { [TAG_PLAYERNAME] = Player(player):getName() }
+				local parseInfo = {[TAG_PLAYERNAME] = Player(player):getName()}
 				local msg = self:parseMessage(self:getMessage(MESSAGE_SENDTRADE), parseInfo)
 
 				-- If is npc shop, send shop window and parse default message (if not have callback on the npc)
@@ -517,7 +515,7 @@ if NpcHandler == nil then
 				local playerName = player and player:getName() or -1
 				local playerSex = player and player:getSex() or 0
 
-				local parseInfo = { [TAG_PLAYERNAME] = playerName }
+				local parseInfo = {[TAG_PLAYERNAME] = playerName}
 				local message = self:parseMessage(msg, parseInfo)
 
 				local msg_male = self:getMessage(MESSAGE_WALKAWAY_MALE)
@@ -587,7 +585,7 @@ if NpcHandler == nil then
                              self.eventDelayedSay[playerId][messagesTable], playerUniqueId)
 			ret[#ret + 1] = self.eventDelayedSay[playerId][messagesTable]
 		end
-		return(ret)
+		return (ret)
 	end
 
 	-- Makes the npc represented by this instance of NpcHandler say something.

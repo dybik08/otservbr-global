@@ -16,9 +16,8 @@ function MsgContains(message, keyword)
 		return true
 	end
 
-	return string.find(lowerMessage, lowerKeyword)
-		and string.find(lowerMessage, lowerKeyword.. '(%w+)')
-		and string.find(lowerMessage, '(%w+)' .. lowerKeyword)
+	return string.find(lowerMessage, lowerKeyword) and string.find(lowerMessage, lowerKeyword .. "(%w+)") and
+		string.find(lowerMessage, "(%w+)" .. lowerKeyword)
 end
 
 -- Npc talk

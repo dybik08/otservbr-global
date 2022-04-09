@@ -14,9 +14,9 @@ function getFormattedWorldTime()
 
 	local minutes = worldTime % 60
 	if minutes < 10 then
-		minutes = '0' .. minutes
+		minutes = "0" .. minutes
 	end
-	return hours .. ':' .. minutes
+	return hours .. ":" .. minutes
 end
 
 function getLootRandom()
@@ -25,18 +25,26 @@ end
 
 local start = os.time()
 local linecount = 0
-debug.sethook(function(event, line)
-	linecount = linecount + 1
-	if systemTime() - start >= 1 then
-		if linecount >= 30000 then
-			Spdlog.warn(string.format("[debug.sethook] - Possible infinite loop in file [%s] near line [%d]",
-				debug.getinfo(2).source, line))
-			debug.sethook()
+debug.sethook(
+	function(event, line)
+		linecount = linecount + 1
+		if systemTime() - start >= 1 then
+			if linecount >= 30000 then
+				Spdlog.warn(
+					string.format(
+						"[debug.sethook] - Possible infinite loop in file [%s] near line [%d]",
+						debug.getinfo(2).source,
+						line
+					)
+				)
+				debug.sethook()
+			end
+			linecount = 0
+			start = os.time()
 		end
-		linecount = 0
-		start = os.time()
-	end
-end, "l")
+	end,
+	"l"
+)
 
 -- OTServBr-Global functions
 function getJackLastMissionState(player)
@@ -74,8 +82,7 @@ function getAccountNumberByPlayerName(name)
 end
 
 function getMoneyCount(string)
-	local b,
-	e = string:find("%d+")
+	local b, e = string:find("%d+")
 	local money = b and e and tonumber(string:sub(b, e)) or -1
 	if isValidMoney(money) then
 		return money
@@ -87,7 +94,10 @@ function getBankMoney(cid, amount)
 	local player = Player(cid)
 	if player:getBankBalance() >= amount then
 		player:setBankBalance(player:getBankBalance() - amount)
-		player:sendTextMessage(MESSAGE_TRADE, "Paid " .. amount .. " gold from bank account. Your account balance is now " .. player:getBankBalance() .. " gold.")
+		player:sendTextMessage(
+			MESSAGE_TRADE,
+			"Paid " .. amount .. " gold from bank account. Your account balance is now " .. player:getBankBalance() .. " gold."
+		)
 		return true
 	end
 	return false
@@ -100,7 +110,7 @@ function getMoneyWeight(money)
 	local platinum = math.floor(gold / 100)
 	gold = gold - platinum * 100
 	return (ItemType(3043):getWeight() * crystal) + (ItemType(3035):getWeight() * platinum) +
-	(ItemType(3031):getWeight() * gold)
+		(ItemType(3031):getWeight() * gold)
 end
 
 function getRealDate()
@@ -169,8 +179,7 @@ function setPlayerMarriageStatus(id, val)
 end
 
 function clearBossRoom(playerId, bossId, centerPosition, rangeX, rangeY, exitPosition)
-	local spectators,
-	spectator = Game.getSpectators(centerPosition, false, false, rangeX, rangeX, rangeY, rangeY)
+	local spectators, spectator = Game.getSpectators(centerPosition, false, false, rangeX, rangeX, rangeY, rangeY)
 	for i = 1, #spectators do
 		spectator = spectators[i]
 		if spectator:isPlayer() and spectator.uid == playerId then
@@ -185,8 +194,7 @@ function clearBossRoom(playerId, bossId, centerPosition, rangeX, rangeY, exitPos
 end
 
 function clearRoom(centerPosition, rangeX, rangeY, resetGlobalStorage)
-	local spectators,
-	spectator = Game.getSpectators(centerPosition, false, false, rangeX, rangeX, rangeY, rangeY)
+	local spectators, spectator = Game.getSpectators(centerPosition, false, false, rangeX, rangeX, rangeY, rangeY)
 	for i = 1, #spectators do
 		spectator = spectators[i]
 		if spectator:isMonster() then
@@ -271,7 +279,10 @@ function functionRevert()
 		if spec:isPlayer() then
 			spec:teleportTo(Position(33630, 32648, 12))
 			spec:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-			spec:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You were teleported because the habitats are returning to their original form.')
+			spec:sendTextMessage(
+				MESSAGE_EVENT_ADVANCE,
+				"You were teleported because the habitats are returning to their original form."
+			)
 		elseif spec:isMonster() then
 			spec:remove()
 		end
@@ -320,7 +331,7 @@ function functionRevert()
 		end
 	end
 
-	Game.loadMap('data/world/worldchanges/habitats.otbm')
+	Game.loadMap("data/world/worldchanges/habitats.otbm")
 	return true
 end
 
@@ -345,15 +356,15 @@ function checkWallArito(item, toPosition)
 		end
 
 		addEvent(
-		function()
-			if (Tile(Position(33206, 32536, 6)):getItemCountById(7476) > 0) then
-				Tile(Position(33206, 32536, 6)):getItemById(7476):transform(1085)
-			end
-			if (Tile(Position(33205, 32537, 6)):getItemCountById(5858) > 0) then
-				Tile(Position(33205, 32537, 6)):getItemById(5858):remove()
-			end
-		end,
-		5 * 60 * 1000
+			function()
+				if (Tile(Position(33206, 32536, 6)):getItemCountById(7476) > 0) then
+					Tile(Position(33206, 32536, 6)):getItemById(7476):transform(1085)
+				end
+				if (Tile(Position(33205, 32537, 6)):getItemCountById(5858) > 0) then
+					Tile(Position(33205, 32537, 6)):getItemById(5858):remove()
+				end
+			end,
+			5 * 60 * 1000
 		)
 	else
 		if (it and it[4] and it[1] == toPosition) then
@@ -362,22 +373,34 @@ function checkWallArito(item, toPosition)
 	end
 end
 
-function placeSpawnRandom(fromPositon, toPosition, monsterName, ammount, hasCall, storage, value, removestorage,
-			sharedHP, event, message)
+function placeSpawnRandom(
+	fromPositon,
+	toPosition,
+	monsterName,
+	ammount,
+	hasCall,
+	storage,
+	value,
+	removestorage,
+	sharedHP,
+	event,
+	message)
 	for _x = fromPositon.x, toPosition.x do
 		for _y = fromPositon.y, toPosition.y do
 			for _z = fromPositon.z, toPosition.z do
 				local tile = Tile(Position(_x, _y, _z))
 				if not removestorage then
-					if tile and tile:getTopCreature() and tile:getTopCreature():isMonster() and
-					tile:getTopCreature():getName() == monsterName
-					then
+					if
+						tile and tile:getTopCreature() and tile:getTopCreature():isMonster() and
+							tile:getTopCreature():getName() == monsterName
+					 then
 						tile:getTopCreature():remove()
 					end
 				else
-					if tile and tile:getTopCreature() and tile:getTopCreature():isMonster() and
-					tile:getTopCreature():getStorageValue(storage) == value
-					then
+					if
+						tile and tile:getTopCreature() and tile:getTopCreature():isMonster() and
+							tile:getTopCreature():getStorageValue(storage) == value
+					 then
 						tile:getTopCreature():remove()
 					end
 				end
@@ -441,8 +464,10 @@ function getMonstersInArea(fromPos, toPos, monsterName, ignoreMonsterId)
 								monsters[#monsters + 1] = mt
 							end
 						else
-							if (mt and mt:isMonster() and mt:getName():lower() == monsterName:lower()
-							and not mt:getMaster() and ignoreMonsterId ~= mt:getId()) then
+							if
+								(mt and mt:isMonster() and mt:getName():lower() == monsterName:lower() and not mt:getMaster() and
+									ignoreMonsterId ~= mt:getId())
+							 then
 								monsters[#monsters + 1] = mt
 							end
 						end
@@ -516,8 +541,17 @@ function cleanAreaQuest(frompos, topos, itemtable, blockmonsters)
 	return true
 end
 
-function kickerPlayerRoomAfferMin(playername, fromPosition, toPosition, teleportPos, message, monsterName, minutes,
-			firstCall, itemtable, blockmonsters)
+function kickerPlayerRoomAfferMin(
+	playername,
+	fromPosition,
+	toPosition,
+	teleportPos,
+	message,
+	monsterName,
+	minutes,
+	firstCall,
+	itemtable,
+	blockmonsters)
 	local players = false
 	if type(playername) == table then
 		players = true
@@ -587,8 +621,20 @@ function kickerPlayerRoomAfferMin(playername, fromPosition, toPosition, teleport
 	end
 	local min = 60 -- Use the 60 for 1 minute
 	if (firstCall) then
-		addEvent( kickerPlayerRoomAfferMin, 1000, playername, fromPosition, toPosition, teleportPos, message,
-				monsterName, minutes, false, itemtable, blockmonsters)
+		addEvent(
+			kickerPlayerRoomAfferMin,
+			1000,
+			playername,
+			fromPosition,
+			toPosition,
+			teleportPos,
+			message,
+			monsterName,
+			minutes,
+			false,
+			itemtable,
+			blockmonsters
+		)
 	else
 		local subt = minutes - 1
 		if (monsterName ~= "") then
@@ -596,8 +642,20 @@ function kickerPlayerRoomAfferMin(playername, fromPosition, toPosition, teleport
 				subt = 2
 			end
 		end
-		addEvent(kickerPlayerRoomAfferMin, min * 1000, playername, fromPosition, toPosition, teleportPos, message,
-				monsterName, subt, false, itemtable, blockmonsters)
+		addEvent(
+			kickerPlayerRoomAfferMin,
+			min * 1000,
+			playername,
+			fromPosition,
+			toPosition,
+			teleportPos,
+			message,
+			monsterName,
+			subt,
+			false,
+			itemtable,
+			blockmonsters
+		)
 	end
 end
 
@@ -608,8 +666,10 @@ function checkWeightAndBackpackRoom(player, itemWeight, message)
 		return false
 	end
 	if (player:getFreeCapacity() / 100) < itemWeight then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
-		message .. ". Weighing " .. itemWeight .. " oz, it is too heavy for you to carry.")
+		player:sendTextMessage(
+			MESSAGE_EVENT_ADVANCE,
+			message .. ". Weighing " .. itemWeight .. " oz, it is too heavy for you to carry."
+		)
 		return false
 	end
 	return true
@@ -630,33 +690,42 @@ end
 --Boss entry
 if not bosssPlayers then
 	bosssPlayers = {
-		addPlayers = function (self, cid)
+		addPlayers = function(self, cid)
 			local player = Player(cid)
-			if not player then return false end
+			if not player then
+				return false
+			end
 			if not self.players then
 				self.players = {}
 			end
 			self.players[player:getId()] = 1
 		end,
-		removePlayer = function (self, cid)
+		removePlayer = function(self, cid)
 			local player = Player(cid)
-			if not player then return false end
-			if not self.players then return false end
+			if not player then
+				return false
+			end
+			if not self.players then
+				return false
+			end
 			self.players[player:getId()] = nil
 		end,
-		getPlayersCount = function (self)
-			if not self.players then return 0 end
+		getPlayersCount = function(self)
+			if not self.players then
+				return 0
+			end
 			local c = 0
-			for _ in pairs(self.players) do c = c + 1 end
+			for _ in pairs(self.players) do
+				c = c + 1
+			end
 			return c
 		end
 	}
 end
 
 function isInRange(pos, fromPos, toPos)
-	return pos.x >= fromPos.x and pos.y >= fromPos.y
-			and pos.z >= fromPos.z and pos.x <= toPos.x
-			and pos.y <= toPos.y and pos.z <= toPos.z
+	return pos.x >= fromPos.x and pos.y >= fromPos.y and pos.z >= fromPos.z and pos.x <= toPos.x and pos.y <= toPos.y and
+		pos.z <= toPos.z
 end
 
 function isNumber(str)
@@ -850,7 +919,7 @@ function Player:loadSpecialStorage()
 	PLAYER_STORAGE[self:getGuid()] = {}
 	local resultId = db.storeQuery("SELECT * FROM `player_misc` WHERE `player_id` = " .. self:getGuid())
 	if resultId then
-		local info = result.getStream(resultId , "info") or "{}"
+		local info = result.getStream(resultId, "info") or "{}"
 		unserializeTable(info, PLAYER_STORAGE[self:getGuid()])
 	end
 end
@@ -859,7 +928,13 @@ function Player:saveSpecialStorage()
 	if PLAYER_STORAGE and PLAYER_STORAGE[self:getGuid()] then
 		local tmp = serializeTable(PLAYER_STORAGE[self:getGuid()])
 		db.query("DELETE FROM `player_misc` WHERE `player_id` = " .. self:getGuid())
-		db.query(string.format("INSERT INTO `player_misc` (`player_id`, `info`) VALUES (%d, %s)", self:getGuid(), db.escapeBlob(tmp, #tmp)))
+		db.query(
+			string.format(
+				"INSERT INTO `player_misc` (`player_id`, `info`) VALUES (%d, %s)",
+				self:getGuid(),
+				db.escapeBlob(tmp, #tmp)
+			)
+		)
 	end
 end
 
@@ -869,7 +944,7 @@ function kickPlayersAfterTime(players, fromPos, toPos, exit)
 		local player = Player(pid)
 		if player and player:getPosition():isInRange(fromPos, toPos) then
 			player:teleportTo(exit)
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You were kicked by exceding time inside the boss room.')
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You were kicked by exceding time inside the boss room.")
 		end
 	end
 end
@@ -882,7 +957,7 @@ function Player:doCheckBossRoom(bossName, fromPos, toPos)
 					local sqm = Tile(Position(x, y, z))
 					if sqm then
 						if sqm:getTopCreature() and sqm:getTopCreature():isPlayer() then
-							self:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You must wait. Someone is challenging '..bossName..' now.')
+							self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You must wait. Someone is challenging " .. bossName .. " now.")
 							return false
 						end
 					end
@@ -906,7 +981,6 @@ function Player:doCheckBossRoom(bossName, fromPos, toPos)
 	end
 	return true
 end
-
 
 function deepcopy(orig)
 	local orig_type = type(orig)
@@ -932,3 +1006,18 @@ function concat(object1, object2)
 
 	return newObject
 end
+
+-- function string:split(inSplitPattern, outResults)
+-- 	if not outResults then
+-- 		outResults = {}
+-- 	end
+-- 	local theStart = 1
+-- 	local theSplitStart, theSplitEnd = string.find(self, inSplitPattern, theStart)
+-- 	while theSplitStart do
+-- 		table.insert(outResults, string.sub(self, theStart, theSplitStart - 1))
+-- 		theStart = theSplitEnd + 1
+-- 		theSplitStart, theSplitEnd = string.find(self, inSplitPattern, theStart)
+-- 	end
+-- 	table.insert(outResults, string.sub(self, theStart))
+-- 	return outResults
+-- end

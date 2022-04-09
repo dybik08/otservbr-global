@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Werehyaena")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "9/04/2022"
+}
+
 monster.description = "a werehyaena"
 monster.experience = 2200
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "This monster you can find in Hyaena Lairs."
-	}
+}
 
 monster.health = 2700
 monster.maxHealth = monster.health
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -73,34 +78,39 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 3},
-    {name = "great health potion", chance = 49970, maxCount = 3},
-    {name = "meat", chance = 19070},
-    {name = "axe", chance = 16810},
-    {name = "knife", chance = 16620},
-    {name = "werehyaena nose", chance = 12670},
-    {name = "halberd", chance = 11480},
-    {name = "red crystal fragment", chance = 9540},
-    {name = "small enchanted amethyst", chance = 5760, maxCount = 5},
-    {name = "life preserver", chance = 5670},
-    {id= 3039, chance = 5590},
-    {name = "yellow gem", chance = 5420},
-    {name = "combat knife", chance = 4700},
-    {name = "green crystal fragment", chance = 4580},
-    {name = "ratana", chance = 4280},
-    {name = "werehyaena talisman", chance = 750},
-    {name = "werehyaena trophy", chance = 190}
+	MonsterLoot:withPlatinumCoins(100, 3),
+	MonsterLoot:withGreatHealthPotion(50.63, 3),
+	MonsterLoot:withMeat(17.86, 3),
+	MonsterLoot:withKnife(17.11),
+	MonsterLoot:withAxe(16),
+	MonsterLoot:new():setLoot("werehyena nose", 12.15),
+	MonsterLoot:withHalberd(11.25),
+	MonsterLoot:withRedCrystalFragment(9.52),
+	MonsterLoot:withYellowGem(5.74),
+	MonsterLoot:withRedGem(5.65),
+	MonsterLoot:new():setLoot("life preserver", 5.53),
+	MonsterLoot:withSmallEnchantedAmethyst(5.44),
+	MonsterLoot:withCombatKnife(5.22),
+	MonsterLoot:withGreenCrystalFragment(9.52),
+	MonsterLoot:withRatana(3.84),
+	MonsterLoot:withMoonlightCrystal(1.23),
+	MonsterLoot:new():setLoot("werehyena talisman", 0.5),
+	MonsterLoot:new():setLoot("werehyena trophy", 0.17)
 }
 
 monster.attacks = {
-	{name = "melee", type = COMBAT_PHYSICALDAMAGE, interval = 2*1000, minDamage = 0, maxDamage = -300},
-    {name = "combat", type = COMBAT_EARTHDAMAGE, interval = 2*1000, chance = 17, minDamage = -175, maxDamage = -255, radius = 3, effect = CONST_ME_HITBYPOISON},
-    {name = "combat", type = COMBAT_DEATHDAMAGE, interval = 2*1000, chance = 15, minDamage = -330, maxDamage = -370, target = true, range = 5, radius = 1, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_MORTAREA},
-    {name = "combat", type = COMBAT_DEATHDAMAGE, interval = 2*1000, chance = 13, minDamage = -225, maxDamage = -275, length = 3, spread = 0, effect = CONST_ME_MORTAREA}
+	-- 	Basic attack (0-300 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 300),
+	-- Poison Box (170-270 earth, on self)
+	CustomMonsterSpell:new():withBox():withPoison():setDamageRange(170, 270):withEarthDamage(),
+	-- Death Strike (250-400 death, on target)
+	CustomMonsterSpell:new():withStrike():withDeath():setDamageRange(250, 400):withSuddenDeathRune():withDeathDamage(),
+	-- Shorter Death Beam (200-300 death)
+	CustomMonsterSpell:new():withShorterBeam():withDeath():setDamageRange(200, 300):withDeathDamage()
 }
 
 monster.defenses = {
-	{name = "speed", chance = 15, interval = 2*1000, speed = 200, duration = 5*1000, effect = CONST_ME_MAGIC_BLUE},
+	{name = "speed", chance = 15, interval = 2000, speed = 200, duration = 5000, effect = CONST_ME_MAGIC_BLUE},
 	defense = 0,
 	armor = 38
 }

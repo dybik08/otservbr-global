@@ -46,15 +46,15 @@ if Modules == nil then
 			return false
 		end
 
-		local cost, costMessage = parameters.cost, '%d gold'
+		local cost, costMessage = parameters.cost, "%d gold"
 		if cost and cost > 0 then
 			if parameters.discount then
 				cost = cost - StdModule.travelDiscount(npc, player, parameters.discount)
 			end
 
-			costMessage = cost > 0 and string.format(costMessage, cost) or 'free'
+			costMessage = cost > 0 and string.format(costMessage, cost) or "free"
 		else
-			costMessage = 'free'
+			costMessage = "free"
 		end
 
 		local parseInfo = {
@@ -99,8 +99,11 @@ if Modules == nil then
 			if player:getStorageValue(STORAGEVALUE_PROMOTION) == 1 then
 				npcHandler:say("You are already promoted!", npc, player)
 			elseif player:getLevel() < parameters.level then
-				npcHandler:say(string.format("I am sorry, but I can only promote you once you have reached level %d.",
-                               parameters.level), npc, player)
+				npcHandler:say(
+					string.format("I am sorry, but I can only promote you once you have reached level %d.", parameters.level),
+					npc,
+					player
+				)
 			elseif not player:removeMoneyBank(parameters.cost) then
 				npcHandler:say("You do not have enough money!", npc, player)
 			else
@@ -131,15 +134,17 @@ if Modules == nil then
 			elseif not player:canLearnSpell(parameters.spellName) then
 				npcHandler:say("You cannot learn this spell.", npc, player)
 			elseif not player:removeMoneyBank(parameters.price) then
-				npcHandler:say(string.format("You do not have enough money, this spell costs %s gold.",
-                               parameters.price), npc, player)
+				npcHandler:say(
+					string.format("You do not have enough money, this spell costs %s gold.", parameters.price),
+					npc,
+					player
+				)
 			else
 				npcHandler:say(string.format("You have learned '%s'.", parameters.spellName), npc, player)
 				player:learnSpell(parameters.spellName)
 			end
 		else
-			npcHandler:say(string.format("You need a premium account in order to buy '%s'.",
-                           parameters.spellName), npc, player)
+			npcHandler:say(string.format("You need a premium account in order to buy '%s'.", parameters.spellName), npc, player)
 		end
 
 		npcHandler:resetNpc(player)
@@ -165,11 +170,18 @@ if Modules == nil then
 		elseif parameters.bless == 3 and player:getStorageValue(Storage.KawillBlessing) ~= 1 then
 			npcHandler:say("You need the blessing of the great geomancer first.", npc, player)
 		elseif parameters.bless == 1 and #player:getBlessings() == 0 and not player:getItemById(3057, true) then
-			npcHandler:say("You don't have any of the other blessings nor an amulet of loss, \z
+			npcHandler:say(
+				"You don't have any of the other blessings nor an amulet of loss, \z
                            so it wouldn't make sense to bestow this protection on you now. \z
-                           Remember that it can only protect you from the loss of those!", npc, player)
-		elseif not player:removeMoneyBank(type(parameters.cost) == "string"
-		and npcHandler:parseMessage(parameters.cost, parseInfo) or parameters.cost) then
+                           Remember that it can only protect you from the loss of those!",
+				npc,
+				player
+			)
+		elseif
+			not player:removeMoneyBank(
+				type(parameters.cost) == "string" and npcHandler:parseMessage(parameters.cost, parseInfo) or parameters.cost
+			)
+		 then
 			npcHandler:say("Oh. You do not have enough money.", npc, player)
 		else
 			npcHandler:say(parameters.text or "You have been blessed by one of the seven gods!", npc, player)
@@ -226,7 +238,7 @@ if Modules == nil then
 			playerPosition:sendMagicEffect(CONST_ME_TELEPORT)
 
 			local destination = parameters.destination
-			if type(destination) == 'function' then
+			if type(destination) == "function" then
 				destination = destination(player)
 			end
 
@@ -300,8 +312,7 @@ if Modules == nil then
 			self.greetWords = {}
 		end
 
-
-		if type(message) == 'string' then
+		if type(message) == "string" then
 			table.insert(self.greetWords, message)
 		else
 			for i = 1, #message do
@@ -316,7 +327,7 @@ if Modules == nil then
 			self.farewellWords = {}
 		end
 
-		if type(message) == 'string' then
+		if type(message) == "string" then
 			table.insert(self.farewellWords, message)
 		else
 			for i = 1, #message do
@@ -362,9 +373,10 @@ if Modules == nil then
 	function FocusModule.messageMatcher(keywords, message)
 		for i, word in pairs(keywords) do
 			if type(word) == "string" then
-				if string.find(message, word)
-				and not string.find(message, "[%w+]" .. word)
-				and not string.find(message, word .. "[%w+]") then
+				if
+					string.find(message, word) and not string.find(message, "[%w+]" .. word) and
+						not string.find(message, word .. "[%w+]")
+				 then
 					return true
 				end
 			end
@@ -402,7 +414,8 @@ if Modules == nil then
 
 	function KeywordModule:addKeyword(keywords, reply)
 		self.npcHandler.keywordHandler:addKeyword(
-			keywords, StdModule.say,
+			keywords,
+			StdModule.say,
 			{
 				npcHandler = self.npcHandler,
 				onlyFocus = true,
@@ -416,7 +429,7 @@ if Modules == nil then
 		npcHandler = nil,
 		destinations = nil,
 		yesNode = nil,
-		noNode = nil,
+		noNode = nil
 	}
 
 	function TravelModule:new()
@@ -459,18 +472,32 @@ if Modules == nil then
 				elseif i == 6 then
 					premium = temp == "true"
 				else
-					Spdlog.warn(string.format("[TravelModule:parseDestinations] - Npc: %s] \z
+					Spdlog.warn(
+						string.format(
+							"[TravelModule:parseDestinations] - Npc: %s] \z
                                 Unknown parameter found in travel destination parameter. temp[%d], destination[%s]",
-                                npc:getName(), temp, destination))
+							npc:getName(),
+							temp,
+							destination
+						)
+					)
 				end
 				i = i + 1
 			end
 
 			if name and x and y and z and cost then
-				self:addDestination(name, {x=x, y=y, z=z}, cost, premium)
+				self:addDestination(name, {x = x, y = y, z = z}, cost, premium)
 			else
-				Spdlog.warn("[TravelModule:parseDestinations] - Npc: %S] Parameter(s) missing for travel destination:",
-                            npc:getName(), name, x, y, z, cost, premium)
+				Spdlog.warn(
+					"[TravelModule:parseDestinations] - Npc: %S] Parameter(s) missing for travel destination:",
+					npc:getName(),
+					name,
+					x,
+					y,
+					z,
+					cost,
+					premium
+				)
 			end
 		end
 	end
@@ -494,8 +521,8 @@ if Modules == nil then
 		node:addChildKeywordNode(self.yesNode)
 		node:addChildKeywordNode(self.noNode)
 
-		self.npcHandler.keywordHandler:addKeyword({'yes'}, TravelModule.onConfirm, {module = self})
-		self.npcHandler.keywordHandler:addKeyword({'no'}, TravelModule.onDecline, {module = self})
+		self.npcHandler.keywordHandler:addKeyword({"yes"}, TravelModule.onConfirm, {module = self})
+		self.npcHandler.keywordHandler:addKeyword({"no"}, TravelModule.onDecline, {module = self})
 	end
 
 	-- TODO(Eduardo): Need fix this function, is not ok
@@ -507,8 +534,11 @@ if Modules == nil then
 
 		local cost = parameters.cost
 
-		module.npcHandler:say(string.format("Do you want to travel to '%s' for '%d' gold coins?",
-                              keywords[1], cost), npc, player)
+		module.npcHandler:say(
+			string.format("Do you want to travel to '%s' for '%d' gold coins?", keywords[1], cost),
+			npc,
+			player
+		)
 		return true
 	end
 
