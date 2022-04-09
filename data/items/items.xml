@@ -7110,7 +7110,7 @@
 	</item>
 	<item id="3396" article="a" name="dwarven helmet">
 		<attribute key="slotType" value="head"/>
-		<attribute key="absorbpercentphysical" value="2"/>
+		<attribute key="absorbpercentphysical" value="3"/>
 		<attribute key="armor" value="6"/>
 		<attribute key="weight" value="4200"/>
 		<attribute key="upgradeclassification" value="3"/>
@@ -7125,7 +7125,7 @@
 	</item>
 	<item id="3397" article="a" name="dwarven armor">
 		<attribute key="slotType" value="body"/>
-		<attribute key="absorbpercentphysical" value="5"/>
+		<attribute key="absorbpercentphysical" value="8"/>
 		<attribute key="armor" value="10"/>
 		<attribute key="weight" value="13000"/>
 		<attribute key="upgradeclassification" value="3"/>
@@ -7141,7 +7141,7 @@
 	</item>
 	<item id="3398" name="dwarven legs">
 		<attribute key="slotType" value="legs"/>
-		<attribute key="absorbpercentphysical" value="3"/>
+		<attribute key="absorbpercentphysical" value="5"/>
 		<attribute key="armor" value="7"/>
 		<attribute key="weight" value="4900"/>
 	</item>
@@ -21279,7 +21279,7 @@
 	</item>
 	<item id="10323" name="guardian boots">
 		<attribute key="slotType" value="feet"/>
-		<attribute key="absorbpercentphysical" value="2"/>
+		<attribute key="absorbpercentphysical" value="3"/>
 		<attribute key="absorbpercentholy" value="-2"/>
 		<attribute key="armor" value="3"/>
 		<attribute key="weight" value="2250"/>
@@ -21553,7 +21553,7 @@
 	</item>
 	<item id="10385" article="a" name="Zaoan helmet">
 		<attribute key="slotType" value="head"/>
-		<attribute key="absorbpercentphysical" value="5"/>
+		<attribute key="absorbpercentphysical" value="8"/>
 		<attribute key="armor" value="9"/>
 		<attribute key="weight" value="6600"/>
 		<attribute key="upgradeclassification" value="2"/>
@@ -21577,7 +21577,7 @@
 	</item>
 	<item id="10387" article="a" name="Zaoan legs">
 		<attribute key="slotType" value="legs"/>
-		<attribute key="absorbpercentphysical" value="2"/>
+		<attribute key="absorbpercentphysical" value="3"/>
 		<attribute key="armor" value="8"/>
 		<attribute key="weight" value="6600"/>
 	</item>
@@ -23085,7 +23085,7 @@
 	</item>
 	<item id="11686" article="a" name="royal draken mail">
 		<attribute key="slotType" value="body"/>
-		<attribute key="absorbpercentphysical" value="5"/>
+		<attribute key="absorbpercentphysical" value="8"/>
 		<attribute key="skillshield" value="3"/>
 		<attribute key="armor" value="16"/>
 		<attribute key="weight" value="13000"/>
@@ -25616,7 +25616,7 @@
 	<item id="13993" article="an" name="ornate chestplate">
 		<attribute key="slotType" value="body"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="8"/>
+		<attribute key="absorbpercentphysical" value="12"/>
 		<attribute key="skillshield" value="3"/>
 		<attribute key="armor" value="16"/>
 		<attribute key="weight" value="15600"/>
@@ -25665,7 +25665,7 @@
 	<item id="13997" article="a" name="depth calcei">
 		<attribute key="slotType" value="feet"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="5"/>
+		<attribute key="absorbpercentphysical" value="8"/>
 		<attribute key="speed" value="-10"/>
 		<attribute key="armor" value="3"/>
 		<attribute key="weight" value="3700"/>
@@ -25692,14 +25692,14 @@
 	<item id="13999" article="an" name="ornate legs">
 		<attribute key="slotType" value="legs"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="5"/>
+		<attribute key="absorbpercentphysical" value="8"/>
 		<attribute key="armor" value="8"/>
 		<attribute key="weight" value="7700"/>
 	</item>
 	<item id="14000" article="an" name="ornate shield">
 		<attribute key="weaponType" value="shield"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="5"/>
+		<attribute key="absorbpercentphysical" value="8"/>
 		<attribute key="defense" value="36"/>
 		<attribute key="weight" value="7100"/>
 		<attribute key="imbuementslot" value="1">
@@ -27346,14 +27346,14 @@
 		<attribute key="slotType" value="necklace"/>
 		<attribute key="showCharges" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="15"/>
+		<attribute key="absorbpercentphysical" value="20"/>
 		<attribute key="absorbpercentpoison" value="10"/>
 		<attribute key="charges" value="750"/>
 		<attribute key="weight" value="409"/>
 	</item>
 	<item id="16109" article="a" name="prismatic helmet">
 		<attribute key="slotType" value="head"/>
-		<attribute key="absorbpercentphysical" value="5"/>
+		<attribute key="absorbpercentphysical" value="8"/>
 		<attribute key="skillshield" value="1"/>
 		<attribute key="armor" value="9"/>
 		<attribute key="weight" value="5600"/>
@@ -27361,7 +27361,7 @@
 	</item>
 	<item id="16110" article="a" name="prismatic armor">
 		<attribute key="slotType" value="body"/>
-		<attribute key="absorbpercentphysical" value="5"/>
+		<attribute key="absorbpercentphysical" value="8"/>
 		<attribute key="speed" value="30"/>
 		<attribute key="armor" value="15"/>
 		<attribute key="weight" value="7900"/>
@@ -27378,7 +27378,7 @@
 	</item>
 	<item id="16111" name="prismatic legs">
 		<attribute key="slotType" value="legs"/>
-		<attribute key="absorbpercentphysical" value="3"/>
+		<attribute key="absorbpercentphysical" value="5"/>
 		<attribute key="skilldist" value="2"/>
 		<attribute key="armor" value="8"/>
 		<attribute key="weight" value="7100"/>
@@ -27398,7 +27398,7 @@
 		<attribute key="slotType" value="necklace"/>
 		<attribute key="showCharges" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="10"/>
+		<attribute key="absorbpercentphysical" value="15"/>
 		<attribute key="absorbpercentenergy" value="15"/>
 		<attribute key="charges" value="750"/>
 		<attribute key="weight" value="650"/>
@@ -27408,7 +27408,7 @@
 		<attribute key="stopduration" value="1"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="10"/>
+		<attribute key="absorbpercentphysical" value="15"/>
 		<attribute key="absorbpercentenergy" value="8"/>
 		<attribute key="transformequipto" value="16264"/>
 		<attribute key="weight" value="105"/>
@@ -27425,7 +27425,7 @@
 	<item id="16116" article="a" name="prismatic shield">
 		<attribute key="weaponType" value="shield"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="4"/>
+		<attribute key="absorbpercentphysical" value="6"/>
 		<attribute key="skillshield" value="2"/>
 		<attribute key="defense" value="37"/>
 		<attribute key="weight" value="7200"/>
@@ -27924,7 +27924,7 @@
 		<attribute key="slotType" value="ring"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="10"/>
+		<attribute key="absorbpercentphysical" value="15"/>
 		<attribute key="absorbpercentpoison" value="8"/>
 		<attribute key="duration" value="3600"/>
 		<attribute key="transformdeequipto" value="16114"/>
@@ -34299,7 +34299,7 @@
 	</item>
 	<item id="21169" name="metal spats">
 		<attribute key="slotType" value="feet"/>
-		<attribute key="absorbpercentphysical" value="1"/>
+		<attribute key="absorbpercentphysical" value="2"/>
 		<attribute key="armor" value="1"/>
 		<attribute key="weight" value="1800"/>
 		<attribute key="imbuementslot" value="1">
@@ -34403,7 +34403,7 @@
 		<attribute key="slotType" value="necklace"/>
 		<attribute key="showCharges" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="10"/>
+		<attribute key="absorbpercentphysical" value="15"/>
 		<attribute key="absorbpercentmagic" value="10"/>
 		<attribute key="charges" value="20"/>
 		<attribute key="weight" value="220"/>
@@ -35997,6 +35997,7 @@
 		<attribute key="stopduration" value="1"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
+		<attribute key="absorbpercentphysical" value="5"/>
 		<attribute key="transformequipto" value="22134"/>
 		<attribute key="weight" value="550"/>
 	</item>
@@ -36272,7 +36273,7 @@
 		<attribute key="slotType" value="necklace"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="4"/>
+		<attribute key="absorbpercentphysical" value="6"/>
 		<attribute key="skillaxe" value="1"/>
 		<attribute key="duration" value="3600"/>
 		<attribute key="decayTo" value="22062"/>
@@ -36284,7 +36285,7 @@
 		<attribute key="slotType" value="necklace"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="4"/>
+		<attribute key="absorbpercentphysical" value="6"/>
 		<attribute key="skillclub" value="1"/>
 		<attribute key="duration" value="3600"/>
 		<attribute key="decayTo" value="22062"/>
@@ -36296,7 +36297,7 @@
 		<attribute key="slotType" value="necklace"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="4"/>
+		<attribute key="absorbpercentphysical" value="6"/>
 		<attribute key="skilldist" value="1"/>
 		<attribute key="duration" value="3600"/>
 		<attribute key="decayTo" value="22062"/>
@@ -36307,7 +36308,7 @@
 	<item id="22130" article="an" name="enchanted werewolf helmet">
 		<attribute key="slotType" value="necklace"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="4"/>
+		<attribute key="absorbpercentphysical" value="6"/>
 		<attribute key="magicpoints" value="1"/>
 		<attribute key="duration" value="3600"/>
 		<attribute key="decayTo" value="22062"/>
@@ -36325,7 +36326,7 @@
 		<attribute key="slotType" value="necklace"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="4"/>
+		<attribute key="absorbpercentphysical" value="6"/>
 		<attribute key="skillsword" value="1"/>
 		<attribute key="duration" value="3600"/>
 		<attribute key="decayTo" value="22062"/>
@@ -38013,7 +38014,7 @@
 		<attribute key="healthgain" value="3"/>
 		<attribute key="speed" value="60"/>
 		<attribute key="duration" value="3600"/>
-		<attribute key="transformdeequipto" value="23477"/> 
+		<attribute key="transformdeequipto" value="23477"/>
 		<attribute key="decayTo" value="0"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="weight" value="1500"/>
@@ -38209,7 +38210,7 @@
 		<attribute key="slotType" value="necklace"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="5"/>
+		<attribute key="absorbpercentphysical" value="8"/>
 		<attribute key="skillclub" value="4"/>
 		<attribute key="skillaxe" value="4"/>
 		<attribute key="skillsword" value="4"/>
@@ -38268,7 +38269,7 @@
 		<attribute key="slotType" value="ring"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="3"/>
+		<attribute key="absorbpercentphysical" value="5"/>
 		<attribute key="skillclub" value="3"/>
 		<attribute key="skillaxe" value="3"/>
 		<attribute key="skillsword" value="3"/>
@@ -42695,7 +42696,7 @@
 	<item id="27564" name="RESERVED SPRITE"/>
 	<item id="27565" article="a" name="foxtail amulet">
 		<attribute key="slotType" value="necklace"/>
-		<attribute key="absorbpercentphysical" value="5"/>
+		<attribute key="absorbpercentphysical" value="8"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="weight" value="500"/>
 	</item>
@@ -42952,7 +42953,7 @@
 	</item>
 	<item id="27647" article="a" name="gnome helmet">
 		<attribute key="slotType" value="head"/>
-		<attribute key="absorbpercentphysical" value="3"/>
+		<attribute key="absorbpercentphysical" value="5"/>
 		<attribute key="absorbpercentice" value="-2"/>
 		<attribute key="absorbpercentenergy" value="8"/>
 		<attribute key="magicpoints" value="2"/>
@@ -42966,7 +42967,7 @@
 	</item>
 	<item id="27648" article="a" name="gnome armor">
 		<attribute key="slotType" value="body"/>
-		<attribute key="absorbpercentphysical" value="4"/>
+		<attribute key="absorbpercentphysical" value="6"/>
 		<attribute key="absorbpercentice" value="-2"/>
 		<attribute key="absorbpercentenergy" value="8"/>
 		<attribute key="skilldist" value="3"/>
@@ -42991,7 +42992,7 @@
 	</item>
 	<item id="27650" article="a" name="gnome shield">
 		<attribute key="weaponType" value="shield"/>
-		<attribute key="absorbpercentphysical" value="6"/>
+		<attribute key="absorbpercentphysical" value="9"/>
 		<attribute key="absorbpercentice" value="-2"/>
 		<attribute key="absorbpercentenergy" value="8"/>
 		<attribute key="skillshield" value="2"/>
@@ -44417,7 +44418,7 @@
 	</item>
 	<item id="28715" article="a" name="falcon coif">
 		<attribute key="slotType" value="head"/>
-		<attribute key="absorbpercentphysical" value="3"/>
+		<attribute key="absorbpercentphysical" value="5"/>
 		<attribute key="absorbpercentfire" value="10"/>
 		<attribute key="skillshield" value="2"/>
 		<attribute key="skilldist" value="2"/>
@@ -44485,7 +44486,7 @@
 	</item>
 	<item id="28719" article="a" name="falcon plate">
 		<attribute key="slotType" value="body"/>
-		<attribute key="absorbpercentphysical" value="12"/>
+		<attribute key="absorbpercentphysical" value="18"/>
 		<attribute key="skillshield" value="4"/>
 		<attribute key="armor" value="18"/>
 		<attribute key="weight" value="18800"/>
@@ -44502,7 +44503,7 @@
 	</item>
 	<item id="28720" name="falcon greaves">
 		<attribute key="slotType" value="legs"/>
-		<attribute key="absorbpercentphysical" value="7"/>
+		<attribute key="absorbpercentphysical" value="11"/>
 		<attribute key="absorbpercentice" value="7"/>
 		<attribute key="skilldist" value="3"/>
 		<attribute key="skillclub" value="3"/>
@@ -44513,7 +44514,7 @@
 	</item>
 	<item id="28721" article="a" name="falcon shield">
 		<attribute key="weaponType" value="shield"/>
-		<attribute key="absorbpercentphysical" value="6"/>
+		<attribute key="absorbpercentphysical" value="9"/>
 		<attribute key="absorbpercentfire" value="10"/>
 		<attribute key="defense" value="39"/>
 		<attribute key="weight" value="5700"/>
@@ -44529,7 +44530,7 @@
 	</item>
 	<item id="28722" article="a" name="falcon escutcheon">
 		<attribute key="weaponType" value="shield"/>
-		<attribute key="absorbpercentphysical" value="7"/>
+		<attribute key="absorbpercentphysical" value="11"/>
 		<attribute key="absorbpercentfire" value="15"/>
 		<attribute key="defense" value="40"/>
 		<attribute key="weight" value="6000"/>
@@ -45663,7 +45664,7 @@
 	</item>
 	<item id="29420" article="a" name="shoulder plate">
 		<attribute key="weaponType" value="shield"/>
-		<attribute key="absorbpercentphysical" value="4"/>
+		<attribute key="absorbpercentphysical" value="6"/>
 		<attribute key="absorbpercentpoison" value="6"/>
 		<attribute key="magicpoints" value="3"/>
 		<attribute key="defense" value="26"/>
@@ -47114,7 +47115,7 @@
 	<item id="30323" article="a" name="rainbow necklace">
 		<attribute key="slotType" value="necklace"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="3"/>
+		<attribute key="absorbpercentphysical" value="5"/>
 		<attribute key="absorbpercentice" value="-5"/>
 		<attribute key="absorbpercentfire" value="6"/>
 		<attribute key="armor" value="2"/>
@@ -47174,7 +47175,7 @@
 		<attribute key="slotType" value="necklace"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="7"/>
+		<attribute key="absorbpercentphysical" value="11"/>
 		<attribute key="absorbpercentpoison" value="24"/>
 		<attribute key="skilldist" value="3"/>
 		<attribute key="duration" value="3600"/>
@@ -47191,7 +47192,7 @@
 		<attribute key="slotType" value="necklace"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="5"/>
+		<attribute key="absorbpercentphysical" value="8"/>
 		<attribute key="absorbpercentenergy" value="18"/>
 		<attribute key="skilldist" value="3"/>
 		<attribute key="duration" value="7200"/>
@@ -47299,7 +47300,7 @@
 	<item id="30394" name="cobra boots">
 		<attribute key="slotType" value="feet"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="6"/>
+		<attribute key="absorbpercentphysical" value="9"/>
 		<attribute key="speed" value="20"/>
 		<attribute key="armor" value="3"/>
 		<attribute key="weight" value="900"/>
@@ -47340,7 +47341,7 @@
 	<item id="30397" article="a" name="cobra hood">
 		<attribute key="slotType" value="head"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="5"/>
+		<attribute key="absorbpercentphysical" value="8"/>
 		<attribute key="skillclub" value="1"/>
 		<attribute key="skillaxe" value="1"/>
 		<attribute key="skillsword" value="1"/>
@@ -47407,7 +47408,7 @@
 	</item>
 	<item id="30402" name="enchanted theurgic amulet">
 		<attribute key="slotType" value="necklace"/>
-		<attribute key="absorbpercentphysical" value="3"/>
+		<attribute key="absorbpercentphysical" value="5"/>
 		<attribute key="absorbpercentpoison" value="14"/>
 		<attribute key="transformDeEquipTo" value="30403" />
 		<attribute key="magicpoints" value="3"/>
@@ -48741,7 +48742,7 @@
 	</item>
 	<item id="31556" article="a" name="rainbow amulet">
 		<attribute key="slotType" value="necklace"/>
-		<attribute key="absorbpercentphysical" value="5"/>
+		<attribute key="absorbpercentphysical" value="8"/>
 		<attribute key="absorbpercentice" value="-10"/>
 		<attribute key="absorbpercentfire" value="6"/>
 		<attribute key="armor" value="3"/>
@@ -48802,7 +48803,7 @@
 	</item>
 	<item id="31577" article="a" name="terra helmet">
 		<attribute key="slotType" value="head"/>
-		<attribute key="absorbpercentphysical" value="5"/>
+		<attribute key="absorbpercentphysical" value="8"/>
 		<attribute key="absorbpercentpoison" value="5"/>
 		<attribute key="skillclub" value="2"/>
 		<attribute key="skillaxe" value="2"/>
@@ -50314,7 +50315,7 @@
 	<item id="32617" article="a" name="fabulous legs">
 		<attribute key="slotType" value="legs"/>
 		<attribute key="loottype" value="legs"/>
-		<attribute key="absorbpercentphysical" value="4"/>
+		<attribute key="absorbpercentphysical" value="6"/>
 		<attribute key="absorbpercentfire" value="2"/>
 		<attribute key="skilldist" value="2"/>
 		<attribute key="skillclub" value="2"/>
@@ -50383,7 +50384,7 @@
 	<item id="32628" article="a" name="ghost chestplate">
 		<attribute key="slotType" value="body"/>
 		<attribute key="loottype" value="armor"/>
-		<attribute key="absorbpercentphysical" value="3"/>
+		<attribute key="absorbpercentphysical" value="5"/>
 		<attribute key="skilldist" value="2"/>
 		<attribute key="armor" value="17"/>
 		<attribute key="weight" value="12300"/>
@@ -50439,7 +50440,7 @@
 		<attribute key="loottype" value="ring"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="2"/>
+		<attribute key="absorbpercentphysical" value="3"/>
 		<attribute key="absorbpercentlifedrain" value="10"/>
 		<attribute key="duration" value="7200"/>
 		<attribute key="transformdeequipto" value="32636"/>
@@ -50453,7 +50454,7 @@
 		<attribute key="stopduration" value="1"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="2"/>
+		<attribute key="absorbpercentphysical" value="3"/>
 		<attribute key="absorbpercentlifedrain" value="10"/>
 		<attribute key="transformequipto" value="32635"/>
 		<attribute key="weight" value="80"/>
@@ -52424,7 +52425,7 @@
 	<item id="34094" article="a" name="soulshell">
 		<attribute key="slotType" value="body"/>
 		<attribute key="loottype" value="armor"/>
-		<attribute key="absorbpercentphysical" value="3"/>
+		<attribute key="absorbpercentphysical" value="5"/>
 		<attribute key="absorbpercentfire" value="15"/>
 		<attribute key="skilldist" value="4"/>
 		<attribute key="armor" value="18"/>
@@ -52442,7 +52443,7 @@
 	<item id="34095" article="a" name="soulmantle">
 		<attribute key="slotType" value="body"/>
 		<attribute key="loottype" value="armor"/>
-		<attribute key="absorbpercentphysical" value="4"/>
+		<attribute key="absorbpercentphysical" value="6"/>
 		<attribute key="magicpoints" value="4"/>
 		<attribute key="armor" value="17"/>
 		<attribute key="weight" value="2400"/>
@@ -52477,7 +52478,7 @@
 	<item id="34097" name="pair of soulwalkers">
 		<attribute key="slotType" value="feet"/>
 		<attribute key="loottype" value="boots"/>
-		<attribute key="absorbpercentphysical" value="7"/>
+		<attribute key="absorbpercentphysical" value="11"/>
 		<attribute key="absorbpercentfire" value="5"/>
 		<attribute key="skillclub" value="1"/>
 		<attribute key="skillaxe" value="1"/>
@@ -52492,7 +52493,7 @@
 	<item id="34098" name="pair of soulstalkers">
 		<attribute key="slotType" value="feet"/>
 		<attribute key="loottype" value="boots"/>
-		<attribute key="absorbpercentphysical" value="5"/>
+		<attribute key="absorbpercentphysical" value="8"/>
 		<attribute key="skilldist" value="1"/>
 		<attribute key="speed" value="40"/>
 		<attribute key="armor" value="3"/>
@@ -52504,7 +52505,7 @@
 	<item id="34099" article="a" name="soulbastion">
 		<attribute key="weaponType" value="shield"/>
 		<attribute key="loottype" value="shield"/>
-		<attribute key="absorbpercentphysical" value="10"/>
+		<attribute key="absorbpercentphysical" value="15"/>
 		<attribute key="absorbpercentdeath" value="10"/>
 		<attribute key="defense" value="42"/>
 		<attribute key="weight" value="5800"/>
@@ -52787,7 +52788,7 @@
 	<item id="34153" article="a" name="lion spellbook">
 		<attribute key="weaponType" value="shield"/>
 		<attribute key="loottype" value="shield"/>
-		<attribute key="absorbpercentphysical" value="3"/>
+		<attribute key="absorbpercentphysical" value="5"/>
 		<attribute key="absorbpercentice" value="7"/>
 		<attribute key="magicpoints" value="4"/>
 		<attribute key="defense" value="20"/>
@@ -52805,7 +52806,7 @@
 	<item id="34154" article="a" name="lion shield">
 		<attribute key="weaponType" value="shield"/>
 		<attribute key="loottype" value="shield"/>
-		<attribute key="absorbpercentphysical" value="7"/>
+		<attribute key="absorbpercentphysical" value="11"/>
 		<attribute key="absorbpercentpoison" value="10"/>
 		<attribute key="defense" value="39"/>
 		<attribute key="weight" value="6500"/>
@@ -52840,7 +52841,7 @@
 	<item id="34156" article="a" name="lion spangenhelm">
 		<attribute key="slotType" value="head"/>
 		<attribute key="loottype" value="helmet"/>
-		<attribute key="absorbpercentphysical" value="3"/>
+		<attribute key="absorbpercentphysical" value="5"/>
 		<attribute key="absorbpercentpoison" value="5"/>
 		<attribute key="skilldist" value="2"/>
 		<attribute key="armor" value="7"/>
@@ -52859,7 +52860,7 @@
 	<item id="34157" article="a" name="lion plate">
 		<attribute key="slotType" value="body"/>
 		<attribute key="loottype" value="armor"/>
-		<attribute key="absorbpercentphysical" value="6"/>
+		<attribute key="absorbpercentphysical" value="9"/>
 		<attribute key="skillclub" value="3"/>
 		<attribute key="skillaxe" value="3"/>
 		<attribute key="skillsword" value="3"/>
@@ -52881,7 +52882,7 @@
 		<attribute key="slotType" value="necklace"/>
 		<attribute key="loottype" value="amulet"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="absorbpercentphysical" value="3"/>
+		<attribute key="absorbpercentphysical" value="5"/>
 		<attribute key="absorbpercentice" value="7"/>
 		<attribute key="armor" value="3"/>
 		<attribute key="weight" value="520"/>
@@ -53621,7 +53622,7 @@
 	<item id="35516" name="exotic legs">
 		<attribute key="slotType" value="legs"/>
 		<attribute key="loottype" value="legs"/>
-		<attribute key="absorbpercentphysical" value="4"/>
+		<attribute key="absorbpercentphysical" value="6"/>
 		<attribute key="armor" value="8"/>
 		<attribute key="weight" value="7200"/>
 	</item>
@@ -53638,7 +53639,7 @@
 		<attribute key="slotType" value="two-handed"/>
 		<attribute key="ammotype" value="arrow"/>
 		<attribute key="loottype" value="distance"/>
-		<attribute key="absorbpercentphysical" value="3"/>
+		<attribute key="absorbpercentphysical" value="5"/>
 		<attribute key="skilldist" value="1"/>
 		<attribute key="hitchance" value="5"/>
 		<attribute key="range" value="6"/>
@@ -53708,7 +53709,7 @@
 	<item id="35523" article="an" name="exotic amulet">
 		<attribute key="slotType" value="necklace"/>
 		<attribute key="loottype" value="amulet"/>
-		<attribute key="absorbpercentphysical" value="4"/>
+		<attribute key="absorbpercentphysical" value="6"/>
 		<attribute key="absorbpercentpoison" value="5"/>
 		<attribute key="weight" value="730"/>
 	</item>
@@ -54332,7 +54333,7 @@
 	<item id="36656" article="a" name="eldritch shield">
 		<attribute key="weaponType" value="shield"/>
 		<attribute key="loottype" value="shield"/>
-		<attribute key="absorbpercentphysical" value="4"/>
+		<attribute key="absorbpercentphysical" value="6"/>
 		<attribute key="defense" value="39"/>
 		<attribute key="weight" value="6600"/>
 		<attribute key="imbuementslot" value="1">
@@ -54453,7 +54454,7 @@
 	<item id="36663" article="a" name="eldritch cuirass">
 		<attribute key="slotType" value="body"/>
 		<attribute key="loottype" value="armor"/>
-		<attribute key="absorbpercentphysical" value="10"/>
+		<attribute key="absorbpercentphysical" value="15"/>
 		<attribute key="armor" value="16"/>
 		<attribute key="weight" value="11000"/>
 		<attribute key="upgradeclassification" value="4"/>
@@ -54516,7 +54517,7 @@
 	<item id="36667" article="a" name="eldritch breeches">
 		<attribute key="slotType" value="legs"/>
 		<attribute key="loottype" value="legs"/>
-		<attribute key="absorbpercentphysical" value="2"/>
+		<attribute key="absorbpercentphysical" value="3"/>
 		<attribute key="absorbpercentholy" value="7"/>
 		<attribute key="skilldist" value="2"/>
 		<attribute key="armor" value="9"/>

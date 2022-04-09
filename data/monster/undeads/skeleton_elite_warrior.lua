@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Skeleton Elite Warrior")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "9/04/2022"
+}
+
 monster.description = "a skeleton elite warrior"
 monster.experience = 4500
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Deep Desert."
-	}
+}
 
 monster.health = 7800
 monster.maxHealth = 7800
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,25 +74,37 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 43500, maxCount = 15},
-	{id = 3115, chance = 50000},
-	{name = "white mushroom", chance = 24000, maxCount = 3},
-	{name = "Soul Orb", chance = 43500, maxCount = 5},
-	{name = "Knight Axe", chance = 3250},
-	{name = "pelvis bone", chance = 2630, maxCount = 10},
-	{name = "Unholy Bone", chance = 2630, maxCount = 5},
-	{name = "Skull Helmet", chance = 350},
-	{name = "Ruthless Axe", chance = 150}
+	MonsterLoot:withPlatinumCoins(100, 15),
+	MonsterLoot:withBone(49.92),
+	MonsterLoot:withWhiteMushroom(25.29),
+	MonsterLoot:withSoulOrb(24.42),
+	MonsterLoot:withPelvisBone(16.4, 3),
+	MonsterLoot:withUnholyBone(9.72),
+	MonsterLoot:withKnightAxe(6.16),
+	MonsterLoot:withMammothWhopper(5),
+	MonsterLoot:new():setLoot("bone toothpick", 4.95),
+	MonsterLoot:withSkullHelmet(3.04),
+	MonsterLoot:withBrownMushroom(2.08),
+	MonsterLoot:withSword(2.01),
+	MonsterLoot:withMace(1.97),
+	MonsterLoot:withRuthlessAxe(0.48)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -700},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -300, maxDamage = -480, range = 1, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 1500, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -380, maxDamage = -520, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = false}
+	-- 	Basic attack (0-550 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 550),
+	-- Death Box(400-500 death, target)
+	CustomMonsterSpell:new():withDeath(400, 500):setDamageRange(400, 500):withEnergyStrike():withBox():withDeathDamage():withTarget(
+
+	),
+	-- Groundshaker Ball(400-500 physical, self)
+	CustomMonsterSpell:new():withGroundshaker():setDamageRange(400, 500):withPhysicalDamage():withBall(),
+	-- Death Strike(400-600 death, target)
+	CustomMonsterSpell:new():setDamageRange(400, 600):setChance(20):withDeath():withLifeDrainDamage():withSuddenDeathRune()
 }
 
 monster.defenses = {

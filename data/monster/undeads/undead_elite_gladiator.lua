@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Undead Elite Gladiator")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "9/04/2022"
+}
+
 monster.description = "an undead elite gladiator"
 monster.experience = 4740
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Deep Desert."
-	}
+}
 
 monster.health = 8000
 monster.maxHealth = 8000
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,40 +74,45 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 44000, maxCount = 40},
-	{name = "Belted Cape", chance = 500},
-	{name = "Ultimate Health Potion", chance = 500, maxCount = 2},
-	{name = "Throwing Star", chance = 500, maxCount = 18},
-	{name = "Knight Axe", chance = 250},
-	{id = 3307, name = "scimitar", chance = 500},
-	{name = "protection amulet", chance = 250},
-	{name = "hunting spear", chance = 250},
-	{name = "broken gladiator shield", chance = 250},
-	{name = "dark helmet", chance = 250},
-	{name = "flask of warrior's sweat", chance = 250},
-	{name = "plate armor", chance = 250},
-	{name = "plate legs", chance = 250},
-	{name = "two handed sword", chance = 250},
-	{name = "Great Health Potion", chance = 250, maxCount = 2},
-	{id = 3049, chance = 230}, -- Stealth ring
-	{name = "crusader helmet", chance = 150},
-	{name = "Relic Sword", chance = 150}
+	MonsterLoot:withPlatinumCoins(100, 39),
+	MonsterLoot:withBeltedCape(24.46),
+	MonsterLoot:withThrowingStar(15.07, 18),
+	MonsterLoot:withScimitar(11.12),
+	MonsterLoot:withUltimateHealthPotion(7.91),
+	MonsterLoot:withKnightAxe(7.81),
+	MonsterLoot:new():setLoot("broken gladiator shield", 5.11),
+	MonsterLoot:withPlateLegs(5.02),
+	MonsterLoot:new():setLoot("flask of warrior's sweat", 4.98),
+	MonsterLoot:withHuntingSpear(4.9),
+	MonsterLoot:withGreatHealthPotion(4.82),
+	MonsterLoot:withPlateArmor(2),
+	MonsterLoot:withTwoHandedSword(1.99),
+	MonsterLoot:withProtectionAmulet(1.93),
+	MonsterLoot:withDarkHelmet(1.36),
+	MonsterLoot:withStealthRing(1.36),
+	MonsterLoot:withRelicSword(0.26),
+	MonsterLoot:withCrusaderHelmet(0.23)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 100, maxDamage = 550},
-	{name ="combat", interval = 1500, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 300, maxDamage = 550, range = 7, shootEffect = CONST_ANI_WHIRLWINDSWORD, target = false},
-	{name ="combat", interval = 1000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = 300, maxDamage = 500, range = 5, radius = 3, effect = CONST_ME_HITAREA, target = false}
+	-- 	Basic attack (0-800)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 800),
+	-- Ranged attack Whirlwind Sword Throw(0-600)
+	CustomMonsterSpell:new():setChance(20):setDamageRange(0, 600):withWhirlwindSword():withPhysicalDamage(),
+	-- Short Acid Wave(200-400, physical) TODO: FIND CORRECT VALUES - dmg, chance
+	CustomMonsterSpell:new():setDamageRange(200, 400):withAcid():withShortWave():withPhysicalDamage(),
+	-- Spark Exori(200-300, physical) TODO: FIND CORRECT VALUES - dmg, chance
+	CustomMonsterSpell:new():setDamageRange(200, 400):withSparky():withBox():withPhysicalDamage()
 }
 
 monster.defenses = {
 	defense = 45,
 	armor = 85,
-	{name ="invisible", interval = 2000, chance = 15, effect = CONST_ME_MAGIC_BLUE}
+	CustomMonsterSpell:withInvisible()
 }
 
 monster.elements = {
@@ -114,8 +124,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_HOLYDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = -5}
 }
 
 monster.immunities = {
