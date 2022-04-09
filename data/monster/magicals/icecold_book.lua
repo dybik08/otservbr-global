@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Icecold Book")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "9/04/2022"
+}
+
 monster.description = "an icecold book"
 monster.experience = 12750
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Secret Library."
-	}
+}
 
 monster.health = 21000
 monster.maxHealth = 21000
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,44 +74,50 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 8},
-	{name = "Book Page", chance = 100000, maxCount = 3},
-	{name = "Small Diamond", chance = 100000, maxCount = 8},
-	{name = "Small Sapphire", chance = 100000, maxCount = 8},
-	{name = "Quill", chance = 100000, maxCount = 8},
-	{name = "Ultimate Health Potion", chance = 100000, maxCount = 8},
-	{name = "Ultimate Mana Potion", chance = 100000, maxCount = 8},
-	{name = "Diamond Sceptre", chance = 100000},
-	{name = "Frosty Heart", chance = 100000, maxCount = 8},
-	{name = "Glacier Mask", chance = 350},
-	{name = "Ice Rapier", chance = 250},
-	{name = "Silken Bookmark", chance = 100000, maxCount = 8},
-	{name = "Crystal Mace", chance = 250},
-	{name = "Glacier Kilt", chance = 250},
-	{name = "Glacier Robe", chance = 250},
-	{name = "Glacier Shoes", chance = 350},
-	{name = "Strange Helmet", chance = 1000},
-	{name = "Sapphire Hammer", chance = 300},
-	{id = 7441, chance = 100000},
-	{name = "Glacial Rod", chance = 150},
-	{name = "Crystalline Armor", chance = 250}
+	MonsterLoot:withPlatinumCoins(91.88, 5),
+	MonsterLoot:withBookPage(62.92),
+	MonsterLoot:withSmallDiamond(45.94),
+	MonsterLoot:withSmallSapphire(26.77, 9),
+	MonsterLoot:withUltimateManaPotion(20.8),
+	MonsterLoot:withIceRapier(20.67),
+	MonsterLoot:withQuill(18.52),
+	MonsterLoot:withUltimateHealthPotion(18.36),
+	MonsterLoot:withSilkenBookmark(17.63),
+	MonsterLoot:withGlacierMask(14.26),
+	MonsterLoot:withFrostyHeart(11.66),
+	MonsterLoot:withDiamondSceptre(6.58),
+	MonsterLoot:withIceCube(4.75),
+	MonsterLoot:withGlacierKilt(4.47),
+	MonsterLoot:withGlacierShoes(3.49),
+	MonsterLoot:withCrystalMace(2.44),
+	MonsterLoot:withSapphireHammer(1.83),
+	MonsterLoot:withGlacierRobe(1.75),
+	MonsterLoot:withStrangeHelmet(1.62),
+	MonsterLoot:withCrystallineArmor(0.89),
+	MonsterLoot:withGlacialRod(0.53),
+	MonsterLoot:withLeviathansAmulet(0.12)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -200},
-	{name ="combat", interval = 1000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -700, maxDamage = -850, range = 7, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICEATTACK, target = false},
-	{name ="combat", interval = 1000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -100, maxDamage = -380, range = 7, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICEATTACK, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -350, maxDamage = -980, length = 5, spread = 3, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICEATTACK, target = false},
-	{name ="combat", interval = 1000, chance = 12, type = COMBAT_ICEDAMAGE, minDamage = -230, maxDamage = -880, range = 7, radius = 3, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICETORNADO, target = false}
+	-- 	Basic attack (0-700 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 700),
+	-- Icy Wind Box (700-900 ice, on self)
+	CustomMonsterSpell:new():withIceDamage():setDamageRange(700, 900):withIcyWind():withBox(),
+	-- Icy Flake Strike (700-850 ice, on target)
+	CustomMonsterSpell:new():withIceDamage():setDamageRange(700, 850):withIcyFlake():withStrike():withTarget(),
+	-- Icy Flake Beam (800-1350 ice)
+	CustomMonsterSpell:new():withIceDamage():setDamageRange(800, 1350):withIcyFlake():withBeam()
 }
 
 monster.defenses = {
 	defense = 40,
-	armor = 82
+	armor = 82,
+	-- Healing
+	CustomMonsterSpell:new():withHealing(100, 300)
 }
 
 monster.elements = {
@@ -118,8 +129,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {
