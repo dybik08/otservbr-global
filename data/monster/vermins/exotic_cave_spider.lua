@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Exotic Cave Spider")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "9/04/2022"
+}
+
 monster.description = "a exotic cave spider"
 monster.experience = 1400
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Exotic cave spider cave."
-	}
+}
 
 monster.health = 1900
 monster.maxHealth = 1900
@@ -41,7 +46,7 @@ monster.changeTarget = {
 monster.strategiesTarget = {
 	nearest = 70,
 	health = 20,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -71,23 +76,36 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 62220},
-	{name = "great health potion", chance = 45500},
-	{name = "poison arrow", chance = 33330},
-	{name = "terra boots", chance = 10550},
-	{name = "silver amulet", chance = 5680},
-	{name = "spider silk", chance = 4580},
-	{name = "terra mantle", chance = 850}
+	MonsterLoot():withPlatinumCoins(100, 4),
+	MonsterLoot():withPoisonArrow(15.75, 15),
+	MonsterLoot():withGreatHealthPotion(10.17),
+	MonsterLoot():withTerraBoots(4.76),
+	MonsterLoot():withSilverAmulet(4.59),
+	MonsterLoot():withSpiderSilk(2.79),
+	MonsterLoot():withTerraMantle(1.48)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450, condition = {type = CONDITION_POISON, totalDamage = 250, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, range = 7, radius = 1, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -90, maxDamage = -150, range = 7, radius = 3, effect = CONST_ME_POISONAREA, target = true}
+	-- 	Basic attack (0-303 physical, effect: poison 10/tick)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 303):setCondition(
+		{type = CONDITION_POISON, totalDamage = 200, interval = 4000}
+	),
+	-- Poison Field (5 earth, on target, effect: poison)
+	{
+		name = "poisonfield",
+		interval = 2000,
+		chance = 10,
+		range = 7,
+		radius = 1,
+		shootEffect = CONST_ANI_POISON,
+		target = true
+	},
+	-- Poison Box (0-111 earth, on target)
+	CustomMonsterSpell:new():withBox():setDamageRange(50, 111):withTarget():withEarthDamage():withPoison()
 }
 
 monster.defenses = {
@@ -104,8 +122,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {
