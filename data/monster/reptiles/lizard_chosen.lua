@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Lizard Chosen")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "10/04/2022"
+}
+
 monster.description = "a lizard chosen"
 monster.experience = 2200
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Temple of Equilibrium (Zao) Hidden stairs, Fire Dragon Dojo, Corruption Hole, Razzachai."
-	}
+}
 
 monster.health = 3050
 monster.maxHealth = 3050
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -76,37 +81,49 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "small diamond", chance = 2550, maxCount = 5},
-	{name = "gold coin", chance = 33000, maxCount = 100},
-	{name = "gold coin", chance = 32000, maxCount = 100},
-	{name = "gold coin", chance = 32000, maxCount = 36},
-	{id = 3035, name = "platinum coin", chance = 2920, maxCount = 5},
-	{name = "tower shield", chance = 1100},
-	{name = "lizard leather", chance = 2000},
-	{name = "lizard scale", chance = 980, maxCount = 3},
-	{name = "great health potion", chance = 5350, maxCount = 3},
-	{name = "Zaoan armor", chance = 980},
-	{name = "Zaoan helmet", chance = 140},
-	{name = "Zaoan shoes", chance = 810},
-	{name = "Zaoan legs", chance = 940},
-	{name = "spiked iron ball", chance = 9890},
-	{name = "corrupted flag", chance = 3350},
-	{name = "cursed shoulder spikes", chance = 5800},
-	{name = "scale of corruption", chance = 2870}
+	MonsterLoot:withGoldCoins(97.59, 239),
+	MonsterLoot:withSpikedIronBall(10.02),
+	MonsterLoot:withGreatHealthPotion(6.89, 3),
+	MonsterLoot:withCursedShoulderSpikes(5.97),
+	MonsterLoot:withPlatinumCoins(3.04, 5),
+	MonsterLoot:withScaleOfCorruption(2.97),
+	MonsterLoot:withCorruptedFlag(2.96),
+	MonsterLoot:withSmallDiamond(2.46),
+	MonsterLoot:withLizardLeather(2.01),
+	MonsterLoot:withZaoanArmor(1.04),
+	MonsterLoot:withTowerShield(1),
+	MonsterLoot:withLizardScale(0.97),
+	MonsterLoot:withZaoanLegs(0.93),
+	MonsterLoot:withZaoanShoes(0.78),
+	MonsterLoot:withZaoanHelmet(0.11)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -360},
-	-- poison
-	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 15, minDamage = -240, maxDamage = -320, length = 3, spread = 2, effect = CONST_ME_POISONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -190, maxDamage = -340, radius = 3, effect = CONST_ME_HITBYPOISON, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -90, maxDamage = -180, length = 8, spread = 3, effect = CONST_ME_GREEN_RINGS, target = false}
+	-- 	Basic attack (0-1000 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 300),
+	-- Poison Box (190-300 earth, self)
+	CustomMonsterSpell:new():withEarthDamage():setDamageRange(190, 300):withPoison():withBox(),
+	-- Poison Beam (100-150)
+	CustomMonsterSpell:new():withEarthDamage():setDamageRange(100, 150):withPoison():withBeam(),
+	-- Shorter Poison T-Wave(effect: poison 12-16/tick)
+	CustomMonsterSpell:new():setDamageRange(0, 0):withPoison():withShorterTWave():setCondition(
+		{type = CONDITION_POISON, minDamage = -240, maxDamage = -320, interval = 2000}
+	)
 }
 
 monster.defenses = {
 	defense = 45,
 	armor = 28,
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 75, maxDamage = 125, effect = CONST_ME_MAGIC_GREEN, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 10,
+		type = COMBAT_HEALING,
+		minDamage = 75,
+		maxDamage = 125,
+		effect = CONST_ME_MAGIC_GREEN,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -118,8 +135,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {
