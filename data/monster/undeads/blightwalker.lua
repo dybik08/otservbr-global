@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Blightwalker")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "10/04/2022"
+}
+
 monster.description = "a blightwalker"
 monster.experience = 5850
 monster.outfit = {
@@ -78,77 +83,44 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 100000, maxCount = 197},
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 5},
-	{name = "amulet of loss", chance = 120},
-	{name = "gold ring", chance = 1870},
-	{name = "hailstorm rod", chance = 10000},
-	{name = "garlic necklace", chance = 2050},
-	{name = "blank rune", chance = 26250, maxCount = 2},
-	{name = "golden sickle", chance = 350},
-	{name = "skull staff", chance = 1520},
-	{name = "scythe", chance = 3000},
-	{name = "bunch of wheat", chance = 50000},
-	{name = "soul orb", chance = 23720},
-	{id = 6299, name = "death ring", chance = 1410},
-	{name = "demonic essence", chance = 28000},
-	{name = "assassin star", chance = 5900, maxCount = 10},
-	{name = "great mana potion", chance = 31360, maxCount = 3},
-	{id = 281, chance = 4450},
-	{id = 282, chance = 4450},
-	{name = "seeds", chance = 4300},
-	{name = "terra mantle", chance = 1050},
-	{name = "terra legs", chance = 2500},
-	{name = "ultimate health potion", chance = 14720, maxCount = 2},
-	{name = "gold ingot", chance = 5270},
-	{name = "bundle of cursed straw", chance = 15000}
+	MonsterLoot:withGoldCoins(100, 200),
+	MonsterLoot:withPlatinumCoins(100, 5),
+	MonsterLoot:new():setLoot("bunch of wheat", 50.16, 3),
+	MonsterLoot:withDemonicEssence(29.98),
+	MonsterLoot:withGreatManaPotion(29.71, 3),
+	MonsterLoot:withSoulOrb(25.86),
+	MonsterLoot:withBlankRune(25.09, 2),
+	MonsterLoot:new():setLoot("bundle of cursed straw", 15.2),
+	MonsterLoot:withUltimateHealthPotion(15.06),
+	MonsterLoot:withHailstormRod(9.99),
+	MonsterLoot:withAssassinStar(7.48, 10),
+	MonsterLoot:withGoldIngot(5.19),
+	MonsterLoot:withGiantShimmeringPearl(5.05),
+	MonsterLoot:withSeeds(4.12),
+	MonsterLoot:new():setLoot("scythe", 2.87),
+	MonsterLoot:withTerraLegs(2.43),
+	MonsterLoot:withGarlicNecklace(2.11),
+	MonsterLoot:withSkullStaff(2.04),
+	MonsterLoot:withDeathRing(1.49),
+	MonsterLoot:withGoldRing(1.45),
+	MonsterLoot:withTerraMantle(1.04),
+	MonsterLoot:withAmuletOfLoss(0.22),
+	MonsterLoot:withGoldenSickle(0.12)
 }
 
 monster.attacks = {
-	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -490},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 20,
-		type = COMBAT_EARTHDAMAGE,
-		minDamage = -220,
-		maxDamage = -405,
-		range = 7,
-		radius = 1,
-		shootEffect = CONST_ANI_POISON,
-		target = true
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 15,
-		type = COMBAT_LIFEDRAIN,
-		minDamage = -65,
-		maxDamage = -135,
-		radius = 4,
-		effect = CONST_ME_MAGIC_GREEN,
-		target = false
-	},
-	{
-		name = "drunk",
-		interval = 2000,
-		chance = 10,
-		radius = 3,
-		effect = CONST_ME_HITBYPOISON,
-		target = false,
-		duration = 5000
-	},
+	-- 	Basic attack (0-450 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 450),
+	-- Poison Strike (on target, effect: paralyze)
+	CustomMonsterSpell:new():withPoison():withStrike():withParalyze(),
+	-- Envenom Strike (220-405 earth, on target)
+	CustomMonsterSpell:new():setDamageRange(220, 405):withEnvenom():withStrike():withTarget():withEarthDamage(),
+	-- Envenom Box (170-250 earth, on self)
+	CustomMonsterSpell:withEnvenomBox(170, 250):withEarthDamage(),
+	-- The Greatest Death Ball (on self, effect: curse 2 -> 100)
 	{name = "blightwalker curse", interval = 2000, chance = 15, target = false},
-	{
-		name = "speed",
-		interval = 2000,
-		chance = 15,
-		speedChange = -300,
-		range = 7,
-		shootEffect = CONST_ANI_POISON,
-		target = true,
-		duration = 30000
-	}
+	-- Green Stars Ball (120-200 life drain, on self)
+	CustomMonsterSpell:withGreenStarsBall(120, 200):withLifeDrainDamage()
 }
 
 monster.defenses = {
