@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Energetic Book")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "10/04/2022"
+}
+
 monster.description = "an energetic book"
 monster.experience = 12034
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Secret Library."
-	}
+}
 
 monster.health = 18500
 monster.maxHealth = 18500
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,37 +74,45 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 28},
-	{id = 28569, chance = 900, maxCount = 8},
-	{id = 28570, chance = 900, maxCount = 7},
-	{name = "Ultimate Health Potion", chance = 10000, maxCount = 7},
-	{name = "Ultimate Mana Potion", chance = 10000, maxCount = 7},
-	{name = "Energy Ball", chance = 900, maxCount = 7},
-	{id = 28566, chance = 800, maxCount = 7},
-	{name = "Lightning Pendant", chance = 500},
-	{name = "Lightning Boots", chance = 500},
-	{name = "Lightning Headband", chance = 500},
-	{name = "Might Ring", chance = 500},
-	{name = "Spellweaver's Robe", chance = 350},
-	{name = "Wand of Defiance", chance = 350},
-	{name = "Haunted Blade", chance = 550},
-	{name = "Lightning Legs", chance = 350}
+	MonsterLoot:withPlatinumCoins(78.77, 35),
+	MonsterLoot:withGlowingRune(62.85, 6),
+	MonsterLoot:withBookPage(41.62, 8),
+	MonsterLoot:withUltimateManaPotion(16.76),
+	MonsterLoot:withSilkenBookmark(16.48),
+	MonsterLoot:withUltimateHealthPotion(13.97),
+	MonsterLoot:withEnergyBall(9.5),
+	MonsterLoot:withLightningHeadband(3.07),
+	MonsterLoot:withLightningPendant(1.68),
+	MonsterLoot:withMightRing(1.4),
+	MonsterLoot:withLightningBoots(1.12),
+	MonsterLoot:withSpellweaversRobe(1.12),
+	MonsterLoot:withLightningLegs(0.56),
+	MonsterLoot:withWandOfDefiance(0.56),
+	MonsterLoot:withHauntedBlade(0.28)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -200},
-	{name ="combat", interval = 2000, chance = 14, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -680, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 40, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -505, radius = 3, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="combat", interval = 1500, chance = 30, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -700, length = 8, spread = 3, effect = CONST_ME_STUN, target = false}
+	-- 	Basic attack (0-1000 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 1000),
+	-- Energy Strike (660-800 energy, on target)
+	CustomMonsterSpell:new():withEnergyDamage():setDamageRange(650, 800):withEnergy():withStrike():withTarget(),
+	-- Energy Box (800-1100 energy, on self)
+	CustomMonsterSpell:new():withEnergyDamage():setDamageRange(800, 1100):withEnergy():withBox(),
+	-- Dizzy Beam (650-800 holy)
+	CustomMonsterSpell:new():withHolyDamage():setDamageRange(650, 800):withDizzy():withBeam()
 }
 
 monster.defenses = {
 	defense = 40,
-	armor = 82
+	armor = 82,
+	-- 	Haste (effect: haste)
+	CustomMonsterSpell:new():withHaste(monster.speed),
+	-- Healing
+	CustomMonsterSpell:new():withHealing(100, 300)
 }
 
 monster.elements = {
@@ -111,8 +124,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 100},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Brain Squid")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "10/04/2022"
+}
+
 monster.description = "a brain squid"
 monster.experience = 17672
 monster.outfit = {
@@ -73,60 +78,53 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "Violet Crystal Shard", chance = 900, maxCount = 4},
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 12},
-	{name = "Glowing Rune", chance = 900, maxCount = 4},
-	{name = "Instable Proto Matter", chance = 1200, maxCount = 4},
-	{name = "Energy Ball", chance = 1200, maxCount = 4},
-	{name = "Energy Bar", chance = 1200, maxCount = 4},
-	{name = "Energy Drink", chance = 1200, maxCount = 4},
-	{name = "Odd Organ", chance = 1200, maxCount = 4},
-	{name = "Frozen Lightning", chance = 1200, maxCount = 4},
-	{id = 28568, chance = 1200, maxCount = 3},
-	{name = "Small Ruby", chance = 1200, maxCount = 4},
-	{name = "Violet Gem", chance = 1200, maxCount = 4},
-	{name = "Blue Crystal Splinter", chance = 1200, maxCount = 4},
-	{name = "Cyan Crystal Fragment", chance = 1200, maxCount = 4},
-	{name = "Ultimate Mana Potion", chance = 1200, maxCount = 4},
-	{name = "Piece of Dead Brain", chance = 1200, maxCount = 4},
-	{name = "Wand of Defiance", chance = 800},
-	{name = "Lightning Headband", chance = 950},
-	{name = "Lightning Pendant", chance = 850},
-	{name = "Might Ring", chance = 1300},
-	{name = "Slime Heart", chance = 1200, maxCount = 4},
-	{id = 23544, name = "collar of red plasma", chance = 560},
-	{id = 23542, name = "collar of blue plasma", chance = 560},
-	-- collar of blue plasma
-	{id = 23543, name = "collar of green plasma", chance = 560}, -- Collar of green plasma
-	{id = 23533, name = "ring of red plasma", chance = 560},
-	{id = 23529, name = "ring of blue plasma", chance = 560},
-	{id = 23531, chance = 560}
+	MonsterLoot:withPlatinumCoins(76.65, 20),
+	MonsterLoot:withVioletCrystalShard(29.96, 4),
+	MonsterLoot:withGlowingRune(26.07, 4),
+	MonsterLoot:withEnergyBall(19.84),
+	MonsterLoot:new():setLoot("instable proto matter", 17.9),
+	MonsterLoot:withEnergyBar(13.23),
+	MonsterLoot:withEnergyDrink(12.45),
+	MonsterLoot:withInkwell(11.67),
+	MonsterLoot:withUltimateManaPotion(11.67),
+	MonsterLoot:withOddOrgan(9.34),
+	MonsterLoot:withFrozenLightning(8.56),
+	MonsterLoot:withLightningHeadband(6.61),
+	MonsterLoot:withBlueCrystalSplinter(6.23),
+	MonsterLoot:withSmallRuby(5.84, 5),
+	MonsterLoot:withRingofRedPlasma(5.06),
+	MonsterLoot:withMightRing(3.11),
+	MonsterLoot:withCyanCrystalFragment(3.11),
+	MonsterLoot:withRingofBluePlasma(2.72),
+	MonsterLoot:withRingofGreenPlasma(2.72),
+	MonsterLoot:withWandOfDefiance(2.33),
+	MonsterLoot:withVioletGem(1.95),
+	MonsterLoot:withCollarOfRedPlasma(1.56),
+	MonsterLoot:withLightningPendant(1.56),
+	MonsterLoot:withCollarOfBluePlasma(1.17),
+	MonsterLoot:withSpellweaversRobe(1.17),
+	MonsterLoot:withSlimeHeart(0.78),
+	MonsterLoot:withPieceOfDeadBrain(0.39),
+	MonsterLoot:withCollarOfGreenPlasma(0.39)
 }
 
 monster.attacks = {
-	{name = "melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -200},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 15,
-		type = COMBAT_ENERGYDAMAGE,
-		minDamage = -200,
-		maxDamage = -470,
-		range = 7,
-		shootEffect = CONST_ANI_ENERGY,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 13,
-		type = COMBAT_ENERGYDAMAGE,
-		minDamage = -200,
-		maxDamage = -505,
-		radius = 3,
-		effect = CONST_ME_ENERGYAREA,
-		target = false
-	}
+	-- 	Basic attack (0-700 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 700),
+	-- Eruption Box (700-1000 energy, on target)(Holy Missile)
+	CustomMonsterSpell:new():setDamageRange(700, 1000):withEnergyDamage():withBox():withEruption():withHolyMissileRune():withTarget(
+
+	),
+	-- Energy Strike (600-1100 energy, on target)(Heavy Magic Missile)
+	CustomMonsterSpell:new():setDamageRange(600, 1100):withEnergyDamage():withStrike():withEnergy():withTarget():withHeavyMagicMissileRune(
+
+	),
+	-- Blue Electric Cross (600-900 energy, on self)
+	CustomMonsterSpell:new():setDamageRange(600, 900):withEnergyDamage():withCross():withBlueElectric(),
+	-- Yellow Electric Beam (400-600 holy)
+	CustomMonsterSpell:new():setDamageRange(400, 600):withHolyDamage():withBeam():withYellowElectric(),
+	-- Sparky Box (800-1000 holy, on self)
+	CustomMonsterSpell:new():setDamageRange(800, 1000):withHolyDamage():withBox():withSparky()
 }
 
 monster.defenses = {
