@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Demon Outcast")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "10/04/2022"
+}
+
 monster.description = "a demon outcast"
 monster.experience = 6200
 monster.outfit = {
@@ -87,96 +92,56 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "small diamond", chance = 10000, maxCount = 5},
-	{name = "small sapphire", chance = 10000, maxCount = 5},
-	{name = "small ruby", chance = 12000, maxCount = 5},
-	{name = "gold coin", chance = 100000, maxCount = 100},
-	{name = "small emerald", chance = 10000, maxCount = 5},
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 6},
-	{name = "might ring", chance = 910},
-	{id = 3049, chance = 1300}, -- Stealth ring
-	{name = "platinum amulet", chance = 1000},
-	{id = 3098, name = "Ring of healing", chance = 3000}, -- Ring of healing
-	{name = "giant sword", chance = 2000},
-	{name = "ice rapier", chance = 660},
-	{name = "devil helmet", chance = 910},
-	{name = "crusader helmet", chance = 740},
-	{name = "crown shield", chance = 740},
-	{name = "demon shield", chance = 170},
-	{name = "fire mushroom", chance = 20600, maxCount = 6},
-	{id = 5906, chance = 1000},
-	{name = "assassin star", chance = 8340, maxCount = 10},
-	{name = "demonrage sword", chance = 350},
-	{name = "great mana potion", chance = 18000, maxCount = 2},
-	{name = "ultimate health potion", chance = 20500, maxCount = 3},
-	{name = "small topaz", chance = 9300, maxCount = 5},
-	{name = "cluster of solace", chance = 550}
+	MonsterLoot:withGoldCoins(100, 100),
+	MonsterLoot:withPlatinumCoins(100, 6),
+	MonsterLoot:withGreatManaPotion(20.07, 2),
+	MonsterLoot:withUltimateHealthPotion(19.91, 3),
+	MonsterLoot:withFireMushroom(19.82, 6),
+	MonsterLoot:withSmallTopaz(10.12, 5),
+	MonsterLoot:withSmallDiamond(10.1, 5),
+	MonsterLoot:withSmallSapphire(10.02, 5),
+	MonsterLoot:withSmallRuby(9.97, 5),
+	MonsterLoot:withSmallEmerald(9.97, 5),
+	MonsterLoot:withAssassinStar(8.97, 10),
+	MonsterLoot:withRingofHealing(2.5),
+	MonsterLoot:withGiantSword(1.97),
+	MonsterLoot:withStealthRing(1.36),
+	MonsterLoot:withCrownShield(0.93),
+	MonsterLoot:withIceRapier(0.89),
+	MonsterLoot:withPlatinumAmulet(0.7),
+	MonsterLoot:withMightRing(0.62),
+	MonsterLoot:withCrusaderHelmet(0.61),
+	MonsterLoot:withDevilHelmet(0.6),
+	MonsterLoot:withDemonDust(0.5),
+	MonsterLoot:withClusterOfSolace(0.49),
+	MonsterLoot:withDemonShield(0.39),
+	MonsterLoot:withCrownArmor(0.3),
+	MonsterLoot:withDemonrageSword(0.1)
 }
 
 monster.attacks = {
-	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_ENERGYDAMAGE,
-		minDamage = -250,
-		maxDamage = -450,
-		length = 6,
-		spread = 3,
-		effect = CONST_ME_PURPLEENERGY,
-		target = true
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_ENERGYDAMAGE,
-		minDamage = -350,
-		maxDamage = -550,
-		length = 8,
-		spread = 3,
-		effect = CONST_ME_YELLOWENERGY,
-		target = true
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 20,
-		type = COMBAT_ENERGYDAMAGE,
-		minDamage = -100,
-		maxDamage = -250,
-		radius = 3,
-		effect = CONST_ME_ENERGYHIT,
-		target = true
-	},
-	{name = "demon outcast skill reducer", interval = 2000, chance = 10, range = 5, target = false},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_MANADRAIN,
-		minDamage = -80,
-		maxDamage = -150,
-		radius = 4,
-		effect = CONST_ME_MAGIC_GREEN,
-		target = false
-	}
+	-- Basic attack (0-400 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 400),
+	-- Blue Electric Box (0-120 mana drain, on target)(Heavy Magic Missile)
+	CustomMonsterSpell:withBlueElectricBox(0, 120):withTarget():withManaDrainDamage():withHeavyMagicMissileRune(),
+	-- Greater Yellow Electric Beam (300-450 life drain)
+	CustomMonsterSpell:withGreaterYellowElectricBeam(300, 450):withLifeDrainDamage(),
+	-- Longer Violet Electric Beam (300-450 energy)
+	CustomMonsterSpell:withLongerVioletElectricBeam(300, 450):withEnergyDamage(),
+	-- Green Stars Ball (on target, effect: debuff -75% distance fightining)(Flash Arrow)
+	CustomMonsterSpell:withGreenStarsBall():withTarget():withSkillLevelDebuff(
+		75,
+		75,
+		CONDITION_PARAM_SKILL_DISTANCEPERCENT,
+		2000
+	):withFlashArrow()
 }
 
 monster.defenses = {
 	defense = 40,
 	armor = 40,
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 15,
-		type = COMBAT_HEALING,
-		minDamage = 250,
-		maxDamage = 425,
-		effect = CONST_ME_MAGIC_BLUE,
-		target = false
-	}
+	-- Healing (200-300 heal)
+	CustomMonsterSpell:new():withHealing(200, 300)
 }
 
 monster.elements = {

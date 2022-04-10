@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Lost Soul")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "10/04/2022"
+}
+
 monster.description = "a lost soul"
 monster.experience = 4000
 monster.outfit = {
@@ -23,8 +28,7 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 0,
-	Locations = "Pits of Inferno, Formorgar Mines, Helheim, \z
-		Roshamuul Prison and in The Arcanum (Part of the Inquisition quest)."
+	Locations = "Pits of Inferno, Formorgar Mines, Helheim, Roshamuul Prison and in The Arcanum (Part of the Inquisition quest)."
 }
 
 monster.health = 5800
@@ -77,54 +81,37 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "ruby necklace", chance = 1500},
-	{name = "white pearl", chance = 10000, maxCount = 3},
-	{name = "black pearl", chance = 12000, maxCount = 3},
-	{name = "gold coin", chance = 100000, maxCount = 198},
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 7},
-	{id = 3039, name = "red gem", chance = 15000},
-	{name = "stone skin amulet", chance = 2780},
-	{name = "blank rune", chance = 35250, maxCount = 3},
-	{name = "skull staff", chance = 850},
-	{name = "tower shield", chance = 740},
-	{name = "skull helmet", chance = 170},
-	{id = 5806, chance = 4950}, -- Silver goblet
-	{name = "soul orb", chance = 15000},
-	{id = 6299, name = "death ring", chance = 2170},
-	{name = "demonic essence", chance = 7500},
-	{name = "skeleton decoration", chance = 1250},
-	{name = "haunted blade", chance = 740},
-	{name = "titan axe", chance = 1000},
-	{name = "great mana potion", chance = 14200, maxCount = 2},
-	{name = "great health potion", chance = 8800, maxCount = 2},
-	{id = 8896, name = "slightly rusted armor", chance = 3500},
-	{name = "unholy bone", chance = 33010}
+	MonsterLoot:withGoldCoins(100, 200),
+	MonsterLoot:withPlatinumCoins(100, 7),
+	MonsterLoot:withBlankRune(34.85, 3),
+	MonsterLoot:withUnholyBone(32.82),
+	MonsterLoot:withSoulOrb(15.24),
+	MonsterLoot:withGreatManaPotion(14.7, 2),
+	MonsterLoot:withBlackPearl(13.13, 3),
+	MonsterLoot:withWhitePearl(11.85, 3),
+	MonsterLoot:withGreatHealthPotion(9.88, 2),
+	MonsterLoot:withDemonicEssence(5.92),
+	MonsterLoot:new():setLoot("silver goblet", 4.92):setItemId(5806),
+	MonsterLoot:withSlightlyRustedArmor(3.91),
+	MonsterLoot:withStoneSkinAmulet(2.99),
+	MonsterLoot:withDeathRing(2.46),
+	MonsterLoot:withRedGem(1.95),
+	MonsterLoot:new():setLoot("skeleton decoration", 1.6),
+	MonsterLoot:withRubyNecklace(1.26),
+	MonsterLoot:withTitanAxe(1.17),
+	MonsterLoot:withSkullStaff(1),
+	MonsterLoot:withHauntedBlade(0.95),
+	MonsterLoot:withTowerShield(0.61),
+	MonsterLoot:withSkullHelmet(0.21)
 }
 
 monster.attacks = {
-	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -420},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_DEATHDAMAGE,
-		minDamage = -40,
-		maxDamage = -210,
-		length = 3,
-		spread = 0,
-		effect = CONST_ME_MAGIC_RED,
-		target = false
-	},
-	{
-		name = "speed",
-		interval = 2000,
-		chance = 20,
-		speedChange = -800,
-		radius = 6,
-		effect = CONST_ME_SMALLCLOUDS,
-		target = false,
-		duration = 4000
-	}
+	-- 	Basic attack (0-380 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 520),
+	-- Ultimate Curse Ball (on self, effect: paralyze)
+	CustomMonsterSpell:withUltimateCurseBall():withParalyze(),
+	-- Shorter Red Stars Beam (200-250 death)
+	CustomMonsterSpell:withShorterRedStarsBeam(200, 250):withDeathDamage()
 }
 
 monster.defenses = {
