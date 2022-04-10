@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Demon")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "10/04/2022"
+}
+
 monster.description = "a demon"
 monster.experience = 6000
 monster.outfit = {
@@ -23,10 +28,7 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 0,
-	Locations = "Hero Cave, Ferumbras' Citadel, Goroma, Ghostlands (Warlock area; unreachable), \z
-		Liberty Bay (hidden underground passage; unreachable), Razzachai, deep in Pits of Inferno \z
-		(found in every throneroom except Verminor's), deep Formorgar Mines, Demon Forge, \z
-		Alchemist Quarter, Magician Quarter, Chyllfroest, Oramond Dungeon, Abandoned Sewers."
+	Locations = "Hero Cave, Ferumbras' Citadel, Goroma, Razzachai, deep in Pits of Inferno, deep Formorgar Mines, Demon Forge, Alchemist Quarter, Magician Quarter, Chyllfroest, Oramond Dungeon, Abandoned Sewers."
 }
 
 monster.health = 8200
@@ -91,125 +93,65 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "purple tome", chance = 1180},
-	{name = "gold coin", chance = 60000, maxCount = 100},
-	{name = "gold coin", chance = 60000, maxCount = 100},
-	{name = "small emerald", chance = 9690, maxCount = 5},
-	{name = "small amethyst", chance = 7250, maxCount = 5},
-	{name = "small ruby", chance = 7430, maxCount = 5},
-	{name = "small topaz", chance = 7470, maxCount = 5},
-	{id = 3039, name = "red gem", chance = 2220},
-	{name = "demonic essence", chance = 14630},
-	{name = "talon", chance = 3430},
-	{id = 3035, name = "platinum coin", chance = 90540, maxCount = 8},
-	{name = "might ring", chance = 1890},
-	{id = 3049, chance = 2170}, -- Stealth ring
-	{name = "platinum amulet", chance = 680},
-	{name = "orb", chance = 2854},
-	{name = "gold ring", chance = 1050},
-	{id = 3098, name = "Ring of healing", chance = 1990}, -- Ring of healing
-	{name = "giant sword", chance = 1980},
-	{name = "ice rapier", chance = 1550},
-	{name = "golden sickle", chance = 1440},
-	{name = "fire axe", chance = 4030},
-	{name = "devil helmet", chance = 1180},
-	{name = "golden legs", chance = 440},
-	{name = "magic plate armor", chance = 130},
-	{name = "mastermind shield", chance = 480},
-	{name = "demon shield", chance = 740},
-	{name = "fire mushroom", chance = 19660, maxCount = 6},
-	{name = "demon horn", chance = 14920},
-	{name = "assassin star", chance = 12550, maxCount = 10},
-	{name = "demonrage sword", chance = 70},
-	{id = 7393, chance = 90},
-	{name = "great mana potion", chance = 22220, maxCount = 3},
-	{name = "ultimate health potion", chance = 19540, maxCount = 3},
-	{name = "great spirit potion", chance = 18510, maxCount = 3}
+	MonsterLoot:withGoldCoins(100, 180),
+	MonsterLoot:withPlatinumCoins(100, 12),
+	MonsterLoot:withGreatManaPotion(25.08, 3),
+	MonsterLoot:withGreatSpiritPotion(24.84, 5),
+	MonsterLoot:withDemonicEssence(20.02),
+	MonsterLoot:withFireMushroom(19.98, 6),
+	MonsterLoot:withUltimateHealthPotion(19.83, 4),
+	MonsterLoot:new():setLoot("demon horn", 19.83),
+	MonsterLoot:withAssassinStar(15.11, 10),
+	MonsterLoot:withSmallTopaz(10.18, 5),
+	MonsterLoot:withSmallEmerald(10.1, 5),
+	MonsterLoot:withSmallRuby(10, 5),
+	MonsterLoot:withSmallAmethyst(9.97, 5),
+	MonsterLoot:withFireAxe(3.98),
+	MonsterLoot:withTalon(3.59),
+	MonsterLoot:withOrb(3.1),
+	MonsterLoot:withRedGem(2.89),
+	MonsterLoot:withMightRing(2.52),
+	MonsterLoot:withRingofHealing(2.51),
+	MonsterLoot:withStealthRing(2.45),
+	MonsterLoot:withGiantSword(1.99),
+	MonsterLoot:withIceRapier(1.99),
+	MonsterLoot:withGoldenSickle(1.47),
+	MonsterLoot:new():setLoot("purple tome", 1.33),
+	MonsterLoot:withDevilHelmet(1.2),
+	MonsterLoot:withGoldRing(1.05),
+	MonsterLoot:withDemonShield(0.74),
+	MonsterLoot:withPlatinumAmulet(0.67),
+	MonsterLoot:withMastermindShield(0.56),
+	MonsterLoot:withGoldenLegs(0.43),
+	MonsterLoot:withDemonrageSword(0.12),
+	MonsterLoot:withMagicPlateArmor(0.12),
+	MonsterLoot:new():setLoot("demon trophy", 0.09),
 }
 
 monster.attacks = {
-	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -520},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_MANADRAIN,
-		minDamage = 0,
-		maxDamage = -120,
-		range = 7,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 20,
-		type = COMBAT_FIREDAMAGE,
-		minDamage = -150,
-		maxDamage = -250,
-		range = 7,
-		radius = 7,
-		shootEffect = CONST_ANI_FIRE,
-		effect = CONST_ME_FIREAREA,
-		target = true
-	},
+	-- 	Basic attack (0-450 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 450),
+	-- Fire Field (20 fire, on target, effect: burn)
 	{name = "firefield", interval = 2000, chance = 10, range = 7, radius = 1, shootEffect = CONST_ANI_FIRE, target = true},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_LIFEDRAIN,
-		minDamage = -300,
-		maxDamage = -490,
-		length = 8,
-		spread = 0,
-		effect = CONST_ME_PURPLEENERGY,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_ENERGYDAMAGE,
-		minDamage = -210,
-		maxDamage = -300,
-		range = 1,
-		shootEffect = CONST_ANI_ENERGY,
-		target = false
-	},
-	{
-		name = "speed",
-		interval = 2000,
-		chance = 15,
-		speedChange = -700,
-		radius = 1,
-		effect = CONST_ME_MAGIC_RED,
-		target = true,
-		duration = 30000
-	}
+	-- Ultimate Detonation Ball (150-300 fire, on target)
+	CustomMonsterSpell:withUltimateDetonationBall(150, 300):withFireDamage():withTarget(),
+	-- Energy Strike (200-250 energy, on target)
+	CustomMonsterSpell:withEnergyStrike(200, 250):withEnergyDamage(),
+	-- Great Violet Electric Beam (300-500 life drain)
+	CustomMonsterSpell:withGreaterVioletElectricBeam(300, 500):withLifeDrainDamage(),
+	-- Death Strike (on target, effect: paralyze)
+	CustomMonsterSpell:withDeathStrike():withParalyze(),
+	-- Blue Stars Strike (40-120 mana drain, on target)
+	CustomMonsterSpell:withBlueStarsStrike(40, 120):withManaDrainDamage()
 }
 
 monster.defenses = {
 	defense = 55,
 	armor = 55,
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 15,
-		type = COMBAT_HEALING,
-		minDamage = 180,
-		maxDamage = 250,
-		effect = CONST_ME_MAGIC_BLUE,
-		target = false
-	},
-	{
-		name = "speed",
-		interval = 2000,
-		chance = 15,
-		speedChange = 320,
-		effect = CONST_ME_MAGIC_RED,
-		target = false,
-		duration = 5000
-	}
+	-- Healing (220-300 heal)
+	CustomMonsterSpell:new():withHealing(220, 300),
+	-- Haste
+	CustomMonsterSpell:new():withHaste(monster.speed)
 }
 
 monster.elements = {
