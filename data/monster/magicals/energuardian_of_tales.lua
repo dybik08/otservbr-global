@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Energuardian of Tales")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "10/04/2022"
+}
+
 monster.description = "an energuardian of tales"
 monster.experience = 11361
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "The Secret Library."
-	}
+}
 
 monster.health = 14000
 monster.maxHealth = 14000
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,24 +74,41 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 28569, chance = 10000, maxCount = 5},
-	{id = 28570, chance = 10000, maxCount = 5},
-	{name = "Small Amethyst", chance = 10000, maxCount = 5},
-	{name = "Flash Arrow", chance = 10000, maxCount = 5},
-	{name = "Lightning Legs", chance = 250},
-	{name = "Spellbook of Warding", chance = 350},
-	{name = "Ultimate Health Potion", chance = 10000, maxCount = 5},
-	{name = "Ultimate Mana Potion", chance = 10000, maxCount = 5},
-	{name = "Wand of Starstorm", chance = 300}
+	MonsterLoot:withBookPage(59.27, 6),
+	MonsterLoot:withSmallSapphire(55.63, 10),
+	MonsterLoot:withGlowingRune(24.17, 4),
+	MonsterLoot:withSpellbookOfWarding(9.27),
+	MonsterLoot:withUltimateManaPotion(8.61),
+	MonsterLoot:withFlashArrow(7.62, 14),
+	MonsterLoot:withLightningLegs(5.96),
+	MonsterLoot:withWandOfStarstorm(4.97),
+	MonsterLoot:withLightningPendant(4.97),
+	MonsterLoot:withMightRing(1.99),
+	MonsterLoot:withPlatinumAmulet(1.32),
+	MonsterLoot:withWandOfDefiance(0.66),
+	MonsterLoot:withShockwaveAmulet(0.33),
+	MonsterLoot:withSpellweaversRobe(0.33)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -10, maxDamage = -550},
-	{name ="combat", interval = 1000, chance = 13, type = COMBAT_ENERGYDAMAGE, minDamage = -100, maxDamage = -555, radius = 3, effect = CONST_ME_ENERGYAREA, target = false}
+	-- 	Basic attack (0-500 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 500),
+	-- Energy Strike (700-900 energy, on target)(Heavy Magic Missile)
+	CustomMonsterSpell:new():withEnergyDamage():setDamageRange(700, 900):withEnergy():withStrike():withTarget():withHeavyMagicMissileRune(
+
+	),
+	-- Energy Box (650-750 energy, on self)
+	CustomMonsterSpell:new():withEnergyDamage():setDamageRange(650, 750):withEnergy():withBox(),
+	-- Long Violet Electric Beam (700-900 energy)
+	CustomMonsterSpell:new():withEnergyDamage():setDamageRange(700, 900):withVioletElectric():withLongBeam(),
+	-- Energy Box (600-700 energy, on target)(Heavy Magic Missile)
+	CustomMonsterSpell:new():withEnergyDamage():setDamageRange(600, 700):withEnergy():withBox():withTarget():withHeavyMagicMissileRune(
+
+	)
 }
 
 monster.defenses = {
