@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Dark Torturer")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "10/04/2022"
+}
+
 monster.description = "a dark torturer"
 monster.experience = 4650
 monster.outfit = {
@@ -57,7 +62,7 @@ monster.flags = {
 	canPushCreatures = true,
 	staticAttackChance = 80,
 	targetDistance = 1,
-	runHealth = 0,
+	runHealth = 10,
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
@@ -81,57 +86,45 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 50000, maxCount = 100},
-	{name = "gold coin", chance = 40000, maxCount = 99},
-	{id = 3035, name = "platinum coin", chance = 55000, maxCount = 8},
-	{name = "golden legs", chance = 30},
-	{id = 3461, chance = 5250},
-	{name = "steel boots", chance = 5050},
-	{name = "ham", chance = 60000, maxCount = 2},
-	{name = "orichalcum pearl", chance = 2760, maxCount = 2},
-	{name = "cat's paw", chance = 2222},
-	{name = "jewelled backpack", chance = 1192},
-	{name = "soul orb", chance = 23000},
-	{id = 6299, name = "death ring", chance = 2008},
-	{name = "demonic essence", chance = 8520},
-	{name = "flask of demonic blood", chance = 33333, maxCount = 3},
-	{name = "assassin star", chance = 2222, maxCount = 5},
-	{name = "vile axe", chance = 480},
-	{name = "butcher's axe", chance = 850},
-	{name = "great mana potion", chance = 14830, maxCount = 2},
-	{name = "great health potion", chance = 10000, maxCount = 2},
-	{name = "gold ingot", chance = 3140}
+	MonsterLoot:withGoldCoins(100, 199),
+	MonsterLoot:withHam(64.01),
+	MonsterLoot:withPlatinumCoins(57.82, 8),
+	MonsterLoot:withFlaskOfDemonicBlood(34.78, 3),
+	MonsterLoot:withSoulOrb(24.99),
+	MonsterLoot:withGreatManaPotion(14.62, 2),
+	MonsterLoot:withGreatHealthPotion(9.96, 2),
+	MonsterLoot:new():setLoot("saw", 4.9),
+	MonsterLoot:withSteelBoots(4.64),
+	MonsterLoot:withGoldIngot(3.2),
+	MonsterLoot:withOrchalcumPearl(2.27, 2),
+	MonsterLoot:withDeathRing(2.24),
+	MonsterLoot:withAssassinStar(2.01, 5),
+	MonsterLoot:new():setLoot("cat's paw", 1.93),
+	MonsterLoot:new():setLoot("jewelled backpack", 0.89),
+	MonsterLoot:withButchersAxe(0.8),
+	MonsterLoot:withVileAxe(0.45),
+	MonsterLoot:withGoldenLegs(0.06)
 }
 
 monster.attacks = {
-	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_PHYSICALDAMAGE,
-		minDamage = 0,
-		maxDamage = -781,
-		range = 7,
-		shootEffect = CONST_ANI_THROWINGKNIFE,
-		target = false
-	},
-	{name = "dark torturer skill reducer", interval = 2000, chance = 5, target = false}
+	-- 	Basic attack (0-520 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 520),
+	-- Ranged attack (0-800 physical) (Throwing Knives)
+	CustomMonsterSpell:new():withPhysicalDamage():setDamageRange(0, 800):withThrowingKnive(),
+	-- Ultimate Violet Notes Wave (reduce shielding 50%)
+	CustomMonsterSpell:new():setDamageRange(0, 0):withUltimateWave():withVioletNotes():withSkillLevelDebuff(
+		45,
+		55,
+		CONDITION_PARAM_SKILL_SHIELDPERCENT,
+		2000
+	):setChance(10)
 }
 
 monster.defenses = {
 	defense = 40,
 	armor = 40,
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_HEALING,
-		minDamage = 200,
-		maxDamage = 250,
-		effect = CONST_ME_MAGIC_BLUE,
-		target = false
-	}
+	-- Healing (160 - 240)
+	CustomMonsterSpell:new():withHealing(160, 240)
 }
 
 monster.elements = {
