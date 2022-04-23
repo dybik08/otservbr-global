@@ -78,13 +78,13 @@ monster.voices = {
 }
 
 monster.loot = {
-	MonsterLoot():withPlatinumCoins(100, 4),
-	MonsterLoot():withGreatManaPotions(31.03),
-	MonsterLoot():withDarkMushroom(15.18, 6),
-	MonsterLoot():withGreenMushroom(10.64, 5),
-	MonsterLoot():withTerraAmulet(6.01),
-	MonsterLoot():withGarlicNecklace(4.6),
-	MonsterLoot():new():setLoot("bat wing", 4.38, 2)
+	MonsterLoot:new():withPlatinumCoins(100, 4),
+	MonsterLoot:new():withGreatManaPotion(31.03),
+	MonsterLoot:new():withDarkMushroom(15.18, 6),
+	MonsterLoot:new():withGreenMushroom(10.64, 5),
+	MonsterLoot:new():withTerraAmulet(6.01),
+	MonsterLoot:new():withGarlicNecklace(4.6),
+	MonsterLoot:new():new():setLoot("bat wing", 4.38, 2)
 }
 
 monster.attacks = {

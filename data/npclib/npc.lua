@@ -60,8 +60,13 @@ function SayEvent(npcId, playerId, messageDelayed, npcHandler)
 		[TAG_BLESSCOST] = Blessings.getBlessingsCost(player:getLevel()),
 		[TAG_PVPBLESSCOST] = Blessings.getPvpBlessingCost(player:getLevel())
 	}
-	npc:say(npcHandler:parseMessage(messageDelayed, parseInfo),
-			textType or TALKTYPE_PRIVATE_NP, false, player, npc:getPosition())
+	npc:say(
+		npcHandler:parseMessage(messageDelayed, parseInfo),
+		textType or TALKTYPE_PRIVATE_NP,
+		false,
+		player,
+		npc:getPosition()
+	)
 end
 
 function GetCount(string)

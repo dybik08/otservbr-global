@@ -2988,7 +2988,7 @@ local weapons = {
 	},
 	{
 		-- underworld rod
-		itemid = 8082,
+		itemname="underworld rod",
 		type = WEAPON_WAND,
 		wandType = "death",
 		level = 42,
@@ -4054,7 +4054,7 @@ local weapons = {
 	},
 	{
 		-- assassin dagger
-		name="assassin dagger",
+		itemname="assassin dagger",
 		type = WEAPON_SWORD,
 		level = 40,
 		unproperly = true
@@ -4610,7 +4610,7 @@ local weapons = {
 	},
 	{
 		-- scimitar
-		itemid = 3307,
+		itemid = 3307, name = "scimitar",
 		type = WEAPON_SWORD
 	},
 	{
@@ -4956,7 +4956,7 @@ local weapons = {
 	},
 	{
 		-- wand of inferno
-		itemid = 3071,
+		itemname="wand of inferno",
 		type = WEAPON_WAND,
 		wandType = "fire",
 		level = 33,
@@ -4969,7 +4969,7 @@ local weapons = {
 	},
 	{
 		-- moonlight rod
-		itemid = 3070,
+		itemname="moonlight rod",
 		type = WEAPON_WAND,
 		wandType = "ice",
 		level = 13,
@@ -4982,7 +4982,7 @@ local weapons = {
 	},
 	{
 		-- necrotic rod
-		itemid = 3069,
+		itemname="necrotic rod",
 		type = WEAPON_WAND,
 		wandType = "death",
 		level = 19,

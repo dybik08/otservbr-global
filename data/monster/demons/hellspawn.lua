@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Hellspawn")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "13/04/2022"
+}
+
 monster.description = "a hellspawn"
 monster.experience = 2550
 monster.outfit = {
@@ -81,66 +86,42 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 60000, maxCount = 100},
-	{name = "gold coin", chance = 60000, maxCount = 100},
-	{name = "gold coin", chance = 60000, maxCount = 36},
-	{name = "morning star", chance = 10000},
-	{name = "warrior helmet", chance = 1886},
-	{name = "knight legs", chance = 3030},
-	{name = "red mushroom", chance = 7692, maxCount = 2},
-	{name = "demonic essence", chance = 9090},
-	{name = "assassin star", chance = 9090, maxCount = 2},
-	{name = "onyx flail", chance = 103},
-	{name = "berserk potion", chance = 934},
-	{name = "spiked squelcher", chance = 970},
-	{name = "great health potion", chance = 40333},
-	{name = "ultimate health potion", chance = 9090},
-	{id = 8895, chance = 3125},
-	{id = 8896, name = "slightly rusted armor", chance = 3125},
-	{id = 9034, chance = 140},
-	{name = "black skull", chance = 151},
-	{name = "small topaz", chance = 5882, maxCount = 3},
-	{name = "hellspawn tail", chance = 20000}
+	MonsterLoot:withGoldCoins(92.45, 234),
+	MonsterLoot:withGreatHealthPotion(29.21),
+	MonsterLoot:new():setLoot("hellspawn tail", 10.09),
+	MonsterLoot:withMorningStar(7.57),
+	MonsterLoot:withBattleShield(7.75),
+	MonsterLoot:withAssassinStar(7.5),
+	MonsterLoot:withDemonicEssence(7.22),
+	MonsterLoot:withRedMushroom(5.92),
+	MonsterLoot:withSmallTopaz(4.35, 3),
+	MonsterLoot:withRustedArmor(2.34),
+	MonsterLoot:withKnightLegs(2.07),
+	MonsterLoot:withWarriorHelmet(1.6),
+	MonsterLoot:withBerserkPotion(0.74),
+	MonsterLoot:withSpikedSquelcher(0.56),
+	MonsterLoot:new():setLoot("black skull", 0.25),
+	MonsterLoot:withSlightlyRustedArmor(0.15),
+	MonsterLoot:new():setLoot("dracoyle statue", 0.12):setItemId(9034),
+	MonsterLoot:withOnyxFlail(0.07)
 }
 
 monster.attacks = {
-	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -352},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 20,
-		type = COMBAT_FIREDAMAGE,
-		minDamage = -150,
-		maxDamage = -175,
-		shootEffect = CONST_ANI_FIRE,
-		effect = CONST_ME_FIREATTACK,
-		target = false
-	},
-	{name = "hellspawn soulfire", interval = 2000, chance = 10, range = 5, target = false}
+	-- 	Basic attack (0-350 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 350),
+	-- Fire Strike (on target, effect: burn 20/tick)
+	CustomMonsterSpell:withFireStrike():withFireCondition(10, 20),
+	-- Eruption Strike (150-180 fire, on target)
+	CustomMonsterSpell:withEruptionStrike(150, 180):withFireDamage():setChance(20)
 }
 
 monster.defenses = {
 	defense = 40,
 	armor = 40,
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_HEALING,
-		minDamage = 120,
-		maxDamage = 230,
-		effect = CONST_ME_MAGIC_BLUE,
-		target = false
-	},
-	{
-		name = "speed",
-		interval = 2000,
-		chance = 15,
-		speedChange = 270,
-		effect = CONST_ME_MAGIC_RED,
-		target = false,
-		duration = 5000
-	}
+	-- Healing (150-220 heal)
+	CustomMonsterSpell:new():withHealing(150, 220),
+	-- Haste
+	CustomMonsterSpell:new():withHaste(monster.speed)
 }
 
 monster.elements = {

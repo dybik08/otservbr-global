@@ -107,7 +107,7 @@ monster.loot = {
 
 monster.attacks = {
 	-- 	Basic attack (0-380 physical)
-	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 520),
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 380),
 	-- Ultimate Curse Ball (on self, effect: paralyze)
 	CustomMonsterSpell:withUltimateCurseBall():withParalyze(),
 	-- Shorter Red Stars Beam (200-250 death)

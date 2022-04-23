@@ -53,7 +53,7 @@ end
 npcHandler:addModule(FocusModule:new())
 
 npcConfig.shop = {
-	{ itemName = "black pearl", clientId = 3027, buy = 560 },
+	{ itemName = "black pearl", clientname="black pearl", buy = 560 },
 	{ itemName = "candelabrum", clientId = 2911, buy = 8 },
 	{ itemName = "candlestick", clientId = 2917, buy = 2 },
 	{ itemName = "exotic flowers", clientId = 2988, buy = 310 },
@@ -68,13 +68,13 @@ npcConfig.shop = {
 	{ itemName = "potter flower", clientId = 2985, buy = 5 },
 	{ itemName = "present", clientId = 2856, buy = 10 },
 	{ itemName = "red rose", clientId = 3658, buy = 11 },
-	{ itemName = "ruby necklace", clientId = 3016, buy = 3560 },
-	{ itemName = "small amethyst", clientId = 3033, buy = 400 },
-	{ itemName = "small diamond", clientId = 3028, buy = 600 },
-	{ itemName = "small emerald", clientId = 3032, buy = 500 },
-	{ itemName = "small ruby", clientId = 3030, buy = 500 },
-	{ itemName = "small sapphire", clientId = 3029, buy = 500 },
-	{ itemName = "white pearl", clientId = 3026, buy = 320 }
+	{ itemName = "ruby necklace", clientname="ruby necklace", buy = 3560 },
+	{ itemName = "small amethyst", clientname="small amethyst", buy = 400 },
+	{ itemName = "small diamond", clientname="small diamond", buy = 600 },
+	{ itemName = "small emerald", clientname="small emerald", buy = 500 },
+	{ itemName = "small ruby", clientname="small ruby", buy = 500 },
+	{ itemName = "small sapphire", clientname="small sapphire", buy = 500 },
+	{ itemName = "white pearl", clientname="white pearl", buy = 320 }
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)

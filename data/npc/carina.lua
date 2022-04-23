@@ -101,7 +101,7 @@ npcHandler:addModule(FocusModule:new())
 npcConfig.shop = {
 	{ itemName = "golden amulet", clientId = 3013, buy = 6600 },
 	{ itemName = "precious necklace", clientId = 7939, buy = 5000 },
-	{ itemName = "ruby necklace", clientId = 3016, buy = 3560 },
+	{ itemName = "ruby necklace", clientname="ruby necklace", buy = 3560 },
 	{ itemName = "wedding ring", clientId = 3004, buy = 990, sell = 100 }
 }
 -- On buy npc shop message

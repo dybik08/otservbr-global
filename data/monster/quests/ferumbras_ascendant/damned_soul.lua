@@ -105,7 +105,7 @@ monster.attacks = {
 		effect = CONST_ME_MAGIC_RED,
 		target = false
 	},
-	{name = "lost soul paralyze", interval = 2000, chance = 18, target = false}
+	CustomMonsterSpell:withUltimateCurseBall():withParalyze():setChance(18)
 }
 
 monster.defenses = {

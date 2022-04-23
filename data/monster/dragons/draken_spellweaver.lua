@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Draken Spellweaver")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "13/04/2022"
+}
+
 monster.description = "a draken spellweaver"
 monster.experience = 3100
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Zao Palace, Razzachai, and Zzaion."
-	}
+}
 
 monster.health = 5000
 monster.maxHealth = 5000
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -76,43 +81,50 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "ring of the sky", chance = 370},
-	{name = "small ruby", chance = 6910, maxCount = 5},
-	{name = "gold coin", chance = 41000, maxCount = 100},
-	{name = "gold coin", chance = 58000, maxCount = 100},
-	{id = 3035, name = "platinum coin", chance = 25510, maxCount = 5},
-	{name = "green gem", chance = 970},
-	{name = "wand of inferno", chance = 1660},
-	{name = "meat", chance = 30400},
-	{name = "great mana potion", chance = 4970},
-	{name = "focus cape", chance = 1450},
-	{name = "Zaoan shoes", chance = 1980},
-	{name = "weaver's wandtip", chance = 19790},
-	{name = "draken trophy", chance = 10},
-	{name = "spellweaver's robe", chance = 620},
-	{name = "Zaoan robe", chance = 770},
-	{name = "luminous orb", chance = 1980},
-	{name = "draken sulphur", chance = 3930},
-	{name = "harness", chance = 30},
-	{name = "bamboo leaves", chance = 180}
+	MonsterLoot:withGoldCoins(100, 200),
+	MonsterLoot:withMeat(30.07),
+	MonsterLoot:withPlatinumCoins(25.14, 5),
+	MonsterLoot:new():setLoot("Weaver's wandtip", 20.18),
+	MonsterLoot:withSmallRuby(7.02, 5),
+	MonsterLoot:withGreatManaPotion(5.05),
+	MonsterLoot:new():setLoot("draken sulphur", 3.99),
+	MonsterLoot:withZaoanShoes(1.95),
+	MonsterLoot:withLuminousOrb(1.94),
+	MonsterLoot:withWandOfInferno(1.62),
+	MonsterLoot:withFocusCape(1.46),
+	MonsterLoot:withGreenGem(1.03),
+	MonsterLoot:withZaoanLegs(0.93),
+	MonsterLoot:withZaoanRobe(0.78),
+	MonsterLoot:withSpellweaversRobe(0.74),
+	MonsterLoot:withRingOfTheSky(0.42),
+	MonsterLoot:new():setLoot("bamboo leaves", 0.2),
+	MonsterLoot:new():setLoot("harness", 0.03),
+	MonsterLoot:new():setLoot("draken trophy", 0.01)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -252},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -240, maxDamage = -480, length = 4, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -100, maxDamage = -250, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -150, maxDamage = -300, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -380, radius = 4, effect = CONST_ME_POFF, target = true},
-	{name ="soulfire rune", interval = 2000, chance = 10, target = false},
-	-- poison
-	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 10, minDamage = -280, maxDamage = -360, shootEffect = CONST_ANI_POISON, target = true}
+	-- 	Basic attack (0-250 physical)
+	CustomMonsterSpell:withBasicAttack():setDamageRange(0, 250),
+	-- Eruption Strike (0-250 fire)(Fireball Rune)
+	CustomMonsterSpell:withEruptionStrike(150, 250):withFireDamage(),
+	-- Energy Strike (200-300 energy)
+	CustomMonsterSpell:withEnergyStrike(200, 300):withEnergyDamage(),
+	-- Eruption Wave (200,480 fire)
+	CustomMonsterSpell:withEruptionWave(200, 480):withFireDamage(),
+	-- Smoke Ball (200 - 350 poison, on target)
+	CustomMonsterSpell:withSmokeBall(200, 350):withEarthDamage():withTarget(),
+	-- Soulfire
+	CustomMonsterSpell:new():withFireCondition(20, 10):setChance(10),
+	-- Envenom
+	CustomMonsterSpell:new():withPoisonCondition(20, math.random(12, 17)):setChance(10)
 }
 
 monster.defenses = {
 	defense = 25,
 	armor = 25,
-	{name ="invisible", interval = 2000, chance = 10, effect = CONST_ME_MAGIC_RED},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 270, maxDamage = 530, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name = "invisible", interval = 2000, chance = 10, effect = CONST_ME_MAGIC_RED},
+	-- Healing (270-530 heal)
+	CustomMonsterSpell:new():withHealing(270, 530)
 }
 
 monster.elements = {

@@ -237,7 +237,12 @@ monster.attacks = {
 		effect = CONST_ME_HITAREA,
 		target = true
 	},
-	{name = "dark torturer skill reducer", interval = 2000, chance = 5, target = false}
+	CustomMonsterSpell:new():setDamageRange(0, 0):withUltimateWave():withVioletNotes():withSkillLevelDebuff(
+		45,
+		55,
+		CONDITION_PARAM_SKILL_SHIELDPERCENT,
+		2000
+	)
 }
 
 monster.defenses = {

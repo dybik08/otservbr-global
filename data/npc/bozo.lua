@@ -568,7 +568,7 @@ local jesterOutfit = {
 			[1] = 'First we will need one piece of red cloth. Do you have it with you?',
 			[2] = 'Ok, now we need one piece of blue cloth. Do you have one with you by chance?'
 		},
-		removeItemId = 5911,
+		removeItemname="red piece of cloth",
 		newValue = 1,
 		choice = 1
 	},

@@ -2,7 +2,12 @@ local deathListEnabled = true
 
 local playerDeath = CreatureEvent("PlayerDeath")
 function playerDeath.onDeath(player, corpse, killer, mostDamageKiller, unjustified, mostDamageUnjustified)
+	-- local playerId = player:getId()
+	-- if nextUseStaminaTime[playerId] ~= nil then
+	-- 	nextUseStaminaTime[playerId] = nil
+	-- end
 
+	-- player:sendTextMessage(MESSAGE_BEYOND_LAST, 'You are dead.')
 	if player:getStorageValue(Storage.SvargrondArena.PitDoor) > 0 then
 		player:setStorageValue(Storage.SvargrondArena.PitDoor, 0)
 	end

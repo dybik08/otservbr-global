@@ -119,8 +119,11 @@ monster.attacks = {
 	-- Death Ball (550-750 death, on target)
 	CustomMonsterSpell:new():setDamageRange(550, 750):withDeath():withDeathDamage():withBall():withTarget(),
 	-- Red Stars Box (on target, effect: debuff -20% magic level)
-	CustomMonsterSpell:new():setDamageRange(0, 0):setChance(20):withMagicLevelDebuff(75, 85, 2000):withBox():withRedStars():withTarget(
-
+	CustomMonsterSpell:new():setDamageRange(0, 0):withBox():withRedStars():withTarget():setChance(20):withSkillLevelDebuff(
+		75,
+		85,
+		CONDITION_PARAM_STAT_MAGICPOINTSPERCENT,
+		2000
 	),
 	-- Black Steam Box (on self, effect: paralyze)
 	CustomMonsterSpell:new():setDamageRange(0, 0):withParalyze(-300, 10000):withBlackSteam():withBox(),

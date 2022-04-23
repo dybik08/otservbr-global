@@ -102,7 +102,16 @@ monster.loot = {
 monster.attacks = {
 	{name = "melee", interval = 2000, chance = 100, skill = 118, attack = 50},
 	{name = "rustheap golem electrify", interval = 2000, chance = 11, range = 7, target = false},
-	{name = "frazzlemaw paralyze", interval = 2000, chance = 10, target = false},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = -600,
+		radius = 5,
+		effect = SPELL_ANIMATIONS.RED_STARS,
+		target = false,
+		duration = 15000
+	},
 	{name = "rustheap golem wave", interval = 2000, chance = 9, minDamage = -100, maxDamage = -210, target = false}
 }
 

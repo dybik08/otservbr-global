@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Priestess of the Wild Sun")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "15/04/2022"
+}
+
 monster.description = "a priestess of the wild sun"
 monster.experience = 6400
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Issavi Sewers, Kilmaresh Mountains, Kilmaresh Catacombs."
-	}
+}
 
 monster.health = 8500
 monster.maxHealth = 8500
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -76,27 +81,32 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 2},
-	{name = "fafnar symbol", chance = 7360},
-	{id = 31433, chance = 6610},
-	{id = 31435, chance = 6610},
-	{id = 31436, chance = 6610},
-	{id = 31331, chance = 2540},
-	{name = "sea horse figurine", chance = 910},
-	{id = 31369, chance = 530},
-	{name = "wand of decay", chance = 1250},
-	{name = "wand of everblazing", chance = 1290},
-	{name = "golden sickle", chance = 1250},
-	{name = "relic sword", chance = 1390},
-	{name = "war axe", chance = 1777}
+	MonsterLoot:withPlatinumCoins(100, 3),
+	MonsterLoot:new():setLoot("Secret Instruction", 9.16):setItemId(31433),
+	MonsterLoot:new():setLoot("Fafnar symbol", 8.93),
+	MonsterLoot:withWarAxe(3.29),
+	MonsterLoot:withWandOfDecay(2.79),
+	MonsterLoot:new():setLoot("empty honey glass", 2.35),
+	MonsterLoot:withGoldenSickle(1.62),
+	MonsterLoot:withRelicSword(1.56),
+	MonsterLoot:withWandOfEverblazing(1.01),
+	MonsterLoot:new():setLoot("golden mask", 0.56),
+	MonsterLoot:new():setLoot("sea horse figurine", 0.56)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -350},
-	{name ="targetfirering", interval = 2000, chance = 8, minDamage = -300, maxDamage = -500, target = true},
-	{name ="combat", interval = 2000, chance = 14, type = COMBAT_FIREDAMAGE, minDamage = -350, maxDamage = -500, radius = 2, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_EXPLOSIONHIT, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -250, maxDamage = -400, radius = 3, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_ENERGYDAMAGE, minDamage = -250, maxDamage = -350, length = 4, spread = 3, effect = CONST_ME_ENERGYHIT, target = false}
+	-- 	Basic attack (0-350 physical)
+	CustomMonsterSpell:withBasicAttack():setDamageRange(0, 350),
+	-- Eruption Cross (350-500 fire, on target)
+	CustomMonsterSpell:withEruptionCross(350, 500):withFireDamage():withTarget(),
+	-- Eruption X-Cross (350-500 fire, on target)
+	CustomMonsterSpell:withEruptionXCross(350, 500):withFireDamage():withTarget(),
+	-- Eruption Circle (300-400 fire, on target)
+	CustomMonsterSpell:withEruptionCircle(300, 400):withFireDamage():withTarget(),
+	-- Energy Box (250-400 energy, on self)
+	CustomMonsterSpell:withEnergyBox(250, 400):withEnergyDamage(),
+	-- Short Blue Electric Cone-Wave (250-350 energy)
+	CustomMonsterSpell:withShortBlueElectricConeWave(250, 350):withEnergyDamage()
 }
 
 monster.defenses = {
@@ -113,8 +123,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -25},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

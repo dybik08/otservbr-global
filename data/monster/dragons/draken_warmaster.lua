@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Draken Warmaster")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "13/04/2022"
+}
+
 monster.description = "a draken warmaster"
 monster.experience = 2400
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Zao Palace, Chazorai, Razzachai, and Zzaion."
-	}
+}
 
 monster.health = 4150
 monster.maxHealth = 4150
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -75,33 +80,35 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "ring of the sky", chance = 180},
-	{name = "small ruby", chance = 1525, maxCount = 5},
-	{name = "gold coin", chance = 47000, maxCount = 100},
-	{name = "gold coin", chance = 50000, maxCount = 100},
-	{id = 3035, name = "platinum coin", chance = 50625, maxCount = 5},
-	{name = "tower shield", chance = 2035},
-	{name = "meat", chance = 30300},
-	{name = "great health potion", chance = 4850, maxCount = 3},
-	{name = "ultimate health potion", chance = 4020},
-	{name = "Zaoan armor", chance = 790},
-	{name = "Zaoan shoes", chance = 1900},
-	{name = "Zaoan legs", chance = 960},
-	{name = "drakinata", chance = 860},
-	{name = "bone shoulderplate", chance = 12010},
-	{name = "warmaster's wristguards", chance = 7000},
-	{name = "Zaoan halberd", chance = 7925}
+	MonsterLoot:withGoldCoins(100, 200),
+	MonsterLoot:withPlatinumCoins(49.97, 5),
+	MonsterLoot:withMeat(29.91),
+	MonsterLoot:new():setLoot("bone shoulderplate", 12.05),
+	MonsterLoot:withZaoanHalberd(7.95),
+	MonsterLoot:new():setLoot("warmaster's wristguards", 7.03),
+	MonsterLoot:withGreatHealthPotion(4.97, 3),
+	MonsterLoot:withUltimateHealthPotion(3.95),
+	MonsterLoot:withZaoanShoes(2.03),
+	MonsterLoot:withTowerShield(1.97),
+	MonsterLoot:withSmallRuby(1.44, 5),
+	MonsterLoot:withZaoanLegs(0.91),
+	MonsterLoot:withZaoanArmor(0.81),
+	MonsterLoot:withDrakinata(0.8),
+	MonsterLoot:withRingOfTheSky(0.22)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -240, maxDamage = -520, length = 4, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false}
+	-- 	Basic attack (0-250 physical)
+	CustomMonsterSpell:withBasicAttack():setDamageRange(0, 250),
+	-- Eruption Wave(120-480)
+	CustomMonsterSpell:withEruptionWave(120, 480):withFireDamage()
 }
 
 monster.defenses = {
 	defense = 40,
 	armor = 40,
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 510, maxDamage = 600, effect = CONST_ME_MAGIC_BLUE, target = false}
+	-- Healing (200-300 heal)
+	CustomMonsterSpell:new():withHealing(200, 300)
 }
 
 monster.elements = {
@@ -113,8 +120,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_HOLYDAMAGE , percent = 5},
-	{type = COMBAT_DEATHDAMAGE , percent = 50}
+	{type = COMBAT_HOLYDAMAGE, percent = 5},
+	{type = COMBAT_DEATHDAMAGE, percent = 50}
 }
 
 monster.immunities = {

@@ -145,7 +145,7 @@ npcConfig.shop = {
 	{ itemName = "rose shield", clientId = 3427, sell = 49 },
 	{ itemName = "sabre", clientId = 3273, sell = 6 },
 	{ itemName = "scale armor", clientId = 3377, sell = 75 },
-	{ itemName = "scimitar", clientId = 3307, sell = 10 },
+	{ itemName = "scimitar", clientid = 3307, name = "scimitar", sell = 10 },
 	{ itemName = "serpent sword", clientId = 3297, sell = 15 },
 	{ itemName = "shield of honour", clientId = 3417, sell = 520 },
 	{ itemName = "short sword", clientId = 3294, sell = 3 },

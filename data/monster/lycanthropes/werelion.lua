@@ -55,7 +55,7 @@ monster.flags = {
 	canPushCreatures = true,
 	staticAttackChance = 90,
 	targetDistance = 1,
-	runHealth = 5,
+	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
@@ -86,7 +86,7 @@ monster.loot = {
 	MonsterLoot:withWarHammer(4.04),
 	MonsterLoot:withDarkShield(3.36),
 	MonsterLoot:withGloriousAxe(2.64),
-	MonsterLoot:withRainbowQuartz(2.5,3),
+	MonsterLoot:withRainbowQuartz(2.5, 3),
 	MonsterLoot:new():setLoot("doublet", 2.5),
 	MonsterLoot:new():setLoot("spirit cloak", 2.23),
 	MonsterLoot:withOpal(2.14),
@@ -96,7 +96,7 @@ monster.loot = {
 	MonsterLoot:withSpikedSquelcher(1.57),
 	MonsterLoot:withNobleAxe(1.21),
 	MonsterLoot:new():setLoot("White Silk Flower", 0.55),
-	MonsterLoot:new():setLoot("Lion Figurine", 0.5),
+	MonsterLoot:new():setLoot("Lion Figurine", 0.5)
 }
 
 monster.attacks = {
@@ -107,13 +107,7 @@ monster.attacks = {
 	-- Holy Strike (350-450 holy, on target)
 	CustomMonsterSpell:new():withHoly():withStrike():setDamageRange(350, 450):withTarget():withHolyDamage(),
 	-- Shorter Berserk Cone-Wave (230-300 holy)
-	CustomMonsterSpell:new():withShorterConeWave():withBerserk():withHolyDamage():setDamageRange(230, 300) {
-		name = "melee",
-		interval = 2000,
-		chance = 100,
-		minDamage = 0,
-		maxDamage = -300
-	}
+	CustomMonsterSpell:new():withShorterConeWave():withBerserk():withHolyDamage():setDamageRange(230, 300)
 }
 
 monster.defenses = {

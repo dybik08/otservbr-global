@@ -166,7 +166,7 @@ local charms = {
 		description = "Gutting the creature yields 20% more creature products.",
 		type = CHARM_PASSIVE,
 		percent = 20,
-		points = 800,
+		points = 800
 	},
 	-- Low blow charm
 	[16] = {

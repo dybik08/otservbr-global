@@ -113,9 +113,7 @@ monster.attacks = {
 	-- Great Violet Electric Ball (140-200 energy, on self)
 	CustomMonsterSpell:new():withVioletElectric():setDamageRange(140, 200):withGreatBeam():withEnergyDamage(),
 	-- Greater Sparky Beam (0-150 physical, effect: electrify 25hp/tick)
-	CustomMonsterSpell:new():withSparky():setDamageRange(0, 150):withGreatBeam():withPhysicalDamage():setCondition(
-		{type = CONDITION_ENERGY, totalDamage = 500, interval = 4000}
-	),
+	CustomMonsterSpell:new():withEnergyCondition():withSparky():setDamageRange(0, 150):withGreatBeam():withPhysicalDamage(),
 	-- Long Black Steam Cone-Wave (200-250 life drain)
 	CustomMonsterSpell:new():withBlackSteam():setDamageRange(200, 250):withLongConeWave():withLifeDrainDamage()
 }

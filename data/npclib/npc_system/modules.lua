@@ -230,7 +230,7 @@ if Modules == nil then
 		elseif not player:removeMoneyBank(cost) then
 			npcHandler:say("You don't have enough money.", npc, player)
 		elseif os.time() < player:getStorageValue(Storage.NpcExhaust) then
-			npcHandler:say('Sorry, but you need to wait three seconds before travel again.', player)
+			npcHandler:say("Sorry, but you need to wait three seconds before travel again.", player)
 			playerPosition:sendMagicEffect(CONST_ME_POFF)
 		else
 			npcHandler:removeInteraction(npc, player)

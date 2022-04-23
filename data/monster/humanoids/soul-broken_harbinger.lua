@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Soul-Broken Harbinger")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "15/04/2022"
+}
+
 monster.description = "a Soul-Broken Harbinger"
 monster.experience = 5800
 monster.outfit = {
@@ -60,9 +65,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = true,
+	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = false
 }
 
 monster.light = {
@@ -76,35 +81,47 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 12},
-	{id = 30058, chance = 15750, maxCount = 3},
-	{name = "Dream Essence Egg", chance = 13700},
-	{name = "Elvish Talisman", chance = 4790},
-	{name = "Knight Legs", chance = 4450},
-	{name = "Glacier Kilt", chance = 4110},
-	{name = "Glacier Shoes", chance = 3770},
-	{name = "Ice Rapier", chance = 3770},
-	{name = "Spellbook of Mind Control", chance = 2400},
-	{name = "Crown Shield", chance = 1710},
-	{name = "Wood Cape", chance = 1710},
-	{id = 23529, name = "ring of blue plasma", chance = 1370},
-	{name = "Tower Shield", chance = 680},
-	{id = 23543, name = "collar of green plasma", chance = 680} -- Collar of green plasma
+	MonsterLoot:withPlatinumCoins(100, 12),
+	MonsterLoot:withIceFlower(15.13, 3),
+	MonsterLoot:withDreamEssenceEgg(12.98),
+	MonsterLoot:withElvishTalisman(10.73),
+	MonsterLoot:withIceRapier(5.1),
+	MonsterLoot:withGlacierKilt(3.55),
+	MonsterLoot:withGlacierShoes(2.82),
+	MonsterLoot:withRingofBluePlasma(2.49),
+	MonsterLoot:withKnightLegs(2.39),
+	MonsterLoot:withTowerShield(1.96),
+	MonsterLoot:withWoodCape(1.67),
+	MonsterLoot:withSpellbookOfMindControl(1.27),
+	MonsterLoot:withCrownShield(1.23),
+	MonsterLoot:withCollarOfGreenPlasma(0.82)
 }
 
 monster.attacks = {
-	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -240},
+	-- 	Basic attack (0-550 physical)
+	CustomMonsterSpell:withBasicAttack():setDamageRange(0, 550),
+	-- Ice Strike (0-350 ice, on target)
+	CustomMonsterSpell:withIceStrike(0, 350):withIceDamage(),
+	-- Ice Ball (200-300 ice, on self)
+	CustomMonsterSpell:withIceBall(200, 300):withIceDamage(),
+	-- Ice Chain (90-130 ice)
 	{
-		name = "combat",
+		name = "singleicechain",
 		interval = 2000,
-		chance = 20,
-		type = COMBAT_PHYSICALDAMAGE,
-		minDamage = 0,
-		maxDamage = -120,
-		range = 7,
-		shootEffect = CONST_ANI_ARROW,
-		target = false
-	}
+		chance = 10,
+		minDamage = -240,
+		maxDamage = -300,
+		range = 5,
+		effect = CONST_ME_ICEATTACK,
+		target = true
+	},
+	-- Icy Wind Box (100-300 ice, on self)
+	CustomMonsterSpell:withIcyWindBox(100, 300):withIceDamage(),
+	-- Icy Flake Box (170-300 ice, on target)
+	CustomMonsterSpell:withIcyFlakeBox(170, 300):withIceDamage():withTarget(),
+	-- Shorter Icy Crystal Beam (100-200 ice)
+	CustomMonsterSpell:withShorterIcyCrystalBeam(100, 200):withIceDamage()
+	-- Short Icy Wall Beam (120-200 ice) -- same as in vanguard - attack prob not exist
 }
 
 monster.defenses = {

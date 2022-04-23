@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Grim Reaper")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "12/04/2022"
+}
+
 monster.description = "a grim reaper"
 monster.experience = 5500
 monster.outfit = {
@@ -23,9 +28,7 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 0,
-	Locations = "Drefia Grim Reaper Dungeons, deep in Drefia Wyrm Lair (after the Medusa Shield Quest), \z
-		Edron (Hero Cave), Yalahar (Cemetery Quarter), Oramond Dungeon, \z
-		  Abandoned Sewers and optionally in the Demon Oak Quest."
+	Locations = "Drefia Grim Reaper Dungeons, deep in Drefia Wyrm Lair (after the Medusa Shield Quest), Edron (Hero Cave), Yalahar (Cemetery Quarter), Oramond Dungeon, Abandoned Sewers and optionally in the Demon Oak Quest."
 }
 
 monster.health = 3900
@@ -80,95 +83,45 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 99000, maxCount = 263},
-	{id = 3035, name = "platinum coin", chance = 5200, maxCount = 4},
-	{id = 3046, chance = 4850},
-	{name = "dark shield", chance = 3000},
-	{name = "scythe", chance = 9000},
-	{name = "orichalcum pearl", chance = 1400, maxCount = 4},
-	{id = 6299, name = "death ring", chance = 330},
-	{name = "demonic essence", chance = 10600},
-	{name = "flask of demonic blood", chance = 35000},
-	{name = "nightmare blade", chance = 880},
-	{name = "great mana potion", chance = 10000},
-	{name = "glacier kilt", chance = 330},
-	{name = "ultimate health potion", chance = 9600},
-	{name = "skullcracker armor", chance = 270},
-	{name = "underworld rod", chance = 910},
-	{id = 8896, name = "slightly rusted armor", chance = 2500},
-	{name = "mystical hourglass", chance = 5300}
+	MonsterLoot:withGoldCoins(99, 261),
+	MonsterLoot:withFlaskOfDemonicBlood(35.74),
+	MonsterLoot:withDemonicEssence(35.74),
+	MonsterLoot:new():setLoot("scythe", 10.09),
+	MonsterLoot:withGreatManaPotion(9.6),
+	MonsterLoot:withUltimateHealthPotion(9.49),
+	MonsterLoot:withPlatinumCoins(5.11),
+	MonsterLoot:new():setLoot("magic light wand", 5.11):setItemId(3046),
+	MonsterLoot:new():setLoot("mystical hourglass", 4.49),
+	MonsterLoot:withSlightlyRustedArmor(3.13),
+	MonsterLoot:withDarkShield(3.13),
+	MonsterLoot:withOrichalcumPearl(1.34, 4),
+	MonsterLoot:withUnderworldRod(1),
+	MonsterLoot:withNightmareBlade(0.85),
+	MonsterLoot:withSkullcrackerArmor(0.27),
+	MonsterLoot:withGlacierKilt(0.22),
+	MonsterLoot:withDeathRing(0.02)
 }
 
 monster.attacks = {
-	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -320},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 20,
-		type = COMBAT_PHYSICALDAMAGE,
-		minDamage = 0,
-		maxDamage = -165,
-		range = 7,
-		shootEffect = CONST_ANI_SUDDENDEATH,
-		effect = CONST_ME_MORTAREA,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_DEATHDAMAGE,
-		minDamage = -350,
-		maxDamage = -720,
-		length = 8,
-		spread = 3,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 15,
-		type = COMBAT_PHYSICALDAMAGE,
-		minDamage = 0,
-		maxDamage = -300,
-		length = 7,
-		spread = 3,
-		effect = CONST_ME_EXPLOSIONAREA,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_DEATHDAMAGE,
-		minDamage = -225,
-		maxDamage = -275,
-		radius = 4,
-		target = false
-	}
+	-- 	Basic attack (0-700 physical)
+	CustomMonsterSpell:withBasicAttack():setDamageRange(0, 700),
+	-- Death Strike (50-110 physical, on target)(Sudden Death Rune)
+	CustomMonsterSpell:withDeathStrike(50, 110):setChance(20):withPhysicalDamage(),
+	-- Blood Ball (230-280 death, on self)
+	CustomMonsterSpell:withBloodBall(230, 280):withDeathDamage(),
+	-- Greater Blood Beam (370-650 death)
+	CustomMonsterSpell:withGreaterBloodBeam(370, 650):withDeathDamage(),
+	-- Great Explosion Cone-Wave (210-290 physical)
+	CustomMonsterSpell:withGreaterBloodBeam(210, 290):withPhysicalDamage()
 }
 
 monster.defenses = {
 	defense = 35,
 	armor = 35,
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 15,
-		type = COMBAT_HEALING,
-		minDamage = 130,
-		maxDamage = 205,
-		target = false
-	},
-	{
-		name = "speed",
-		interval = 2000,
-		chance = 15,
-		speedChange = 450,
-		effect = CONST_ME_MAGIC_RED,
-		target = false,
-		duration = 5000
-	}
+	-- Healing (140-200 heal)
+	CustomMonsterSpell:new():withHealing(140, 200),
+	-- Haste (effect: haste)
+	CustomMonsterSpell:new():withHaste(monster.speed)
 }
 
 monster.elements = {

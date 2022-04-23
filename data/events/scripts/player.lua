@@ -629,7 +629,7 @@ local function useStamina(player)
 
 	if timePassed > 60 then
 		if staminaMinutes > 2 then
-			staminaMinutes = staminaMinutes - 2
+			staminaMinutes = staminaMinutes - 1
 		else
 			staminaMinutes = 0
 		end
@@ -656,7 +656,7 @@ local function useStaminaXp(player)
 
 	if timePassed > 60 then
 		if staminaMinutes > 2 then
-			staminaMinutes = staminaMinutes - 2
+			staminaMinutes = staminaMinutes - 1
 		else
 			staminaMinutes = 0
 		end
@@ -743,10 +743,12 @@ function Player:onGainExperience(source, exp, rawExp)
 	local multiplier = (100 - playerLvL) / 100 -- 0 to 1
 	if (playerLvL < 101) then
 		self:setBaseXpGain(displayRate * 100 + displayRate * 100 * multiplier)
+		exp = exp + exp * multiplier
 	else
 		self:setBaseXpGain(displayRate * 100)
 	end
-	return exp + exp * multiplier
+
+	return exp
 end
 
 function Player:onLoseExperience(exp)

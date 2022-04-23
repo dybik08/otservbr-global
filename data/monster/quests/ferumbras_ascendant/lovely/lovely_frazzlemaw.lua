@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -69,8 +69,8 @@ monster.loot = {
 	{id = 20062, chance = 490},
 	{id = 20198, chance = 18560},
 	{name = "gold coin", chance = 100000, maxCount = 100},
-	{name="great health potion", chance = 14490, maxCount = 2},
-	{name="great mana potion", chance = 14810, maxCount = 3},
+	{name = "great health potion", chance = 14490, maxCount = 2},
+	{name = "great mana potion", chance = 14810, maxCount = 3},
 	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 7},
 	{id = 3104, chance = 9920},
 	{id = 3110, chance = 10210},
@@ -84,11 +84,11 @@ monster.loot = {
 	{id = 5895, chance = 4650},
 	{id = 5925, chance = 5190},
 	{id = 5951, chance = 10670},
-	{name="assassin dagger", chance = 990},
+	{name = "assassin dagger", chance = 990},
 	{id = 7407, chance = 2110},
 	{id = 3265, chance = 3170},
 	{id = 7418, chance = 1030},
-	{name="gold ingot", chance = 2330},
+	{name = "gold ingot", chance = 2330},
 	{id = 10389, chance = 1600},
 	{id = 16120, chance = 3000},
 	{id = 16123, chance = 15640},
@@ -99,18 +99,67 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 90, attack = 80},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -400, radius = 3, target = false},
-	{name ="combat", interval = 2000, chance = 13, type = COMBAT_LIFEDRAIN, minDamage = -100, maxDamage = -700, length = 5, spread = 3, effect = CONST_ME_EXPLOSIONAREA, target = true},
+	{name = "melee", interval = 2000, chance = 100, skill = 90, attack = 80},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 12,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = 0,
+		maxDamage = -400,
+		radius = 3,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 13,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -100,
+		maxDamage = -700,
+		length = 5,
+		spread = 3,
+		effect = CONST_ME_EXPLOSIONAREA,
+		target = true
+	},
 	-- bleed
-	{name ="condition", type = CONDITION_BLEEDING, interval = 2000, chance = 16, minDamage = -400, maxDamage = -600, radius = 2, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_STONES, target = true},
-	{name ="frazzlemaw paralyze", interval = 2000, chance = 15, target = false}
+	{
+		name = "condition",
+		type = CONDITION_BLEEDING,
+		interval = 2000,
+		chance = 16,
+		minDamage = -400,
+		maxDamage = -600,
+		radius = 2,
+		shootEffect = CONST_ANI_LARGEROCK,
+		effect = CONST_ME_STONES,
+		target = true
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 15,
+		speedChange = -600,
+		radius = 5,
+		effect = SPELL_ANIMATIONS.RED_STARS,
+		target = false,
+		duration = 15000
+	}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="combat", interval = 2000, chance = 13, type = COMBAT_HEALING, minDamage = 250, maxDamage = 425, effect = CONST_ME_HITBYPOISON, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 13,
+		type = COMBAT_HEALING,
+		minDamage = 250,
+		maxDamage = 425,
+		effect = CONST_ME_HITBYPOISON,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -122,8 +171,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 100},
-	{type = COMBAT_DEATHDAMAGE , percent = 15}
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 15}
 }
 
 monster.immunities = {

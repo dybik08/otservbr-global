@@ -1,11 +1,6 @@
 local mType = Game.createMonsterType("Spiky Carnivor")
 local monster = {}
 
-monster.Credits = {
-	Developer = "Wojciech Dybikowski",
-	lastUpdate = "9/04/2022"
-}
-
 monster.description = "a Spiky Carnivor"
 monster.experience = 1650
 monster.outfit = {
@@ -88,7 +83,7 @@ monster.loot = {
 	MonsterLoot:withBrownCrystalSplinter(5.82),
 	MonsterLoot:withGuardianShield(5.63),
 	MonsterLoot:withWarriorHelmet(3.73),
-	MonsterLoot:withRainbowQuartz(3.01,2),
+	MonsterLoot:withRainbowQuartz(3.01, 2),
 	MonsterLoot:withTerraAmulet(2.42),
 	MonsterLoot:new():setLoot("talon", 2.23),
 	MonsterLoot:withBlueRobe(1.55),
@@ -98,7 +93,7 @@ monster.loot = {
 	MonsterLoot:new():setLoot("doublet", 0.48),
 	MonsterLoot:withTerraMantle(0.34),
 	MonsterLoot:withShockwaveAmulet(0.29),
-	MonsterLoot:withBuckle(0.1),
+	MonsterLoot:withBuckle(0.1)
 }
 
 monster.attacks = {
@@ -119,7 +114,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 20,
 	armor = 71,
-	CustomMonsterSpell:withHealing(150,200)
+	CustomMonsterSpell:new():withHealing(150, 200)
 }
 
 monster.reflects = {

@@ -102,7 +102,7 @@ npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 
 npcConfig.shop = {
-	{ itemName = "assassin star", clientId = 7368, buy = 100 }
+	{ itemName = "assassin star", clientname="assassin star", buy = 100 }
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)

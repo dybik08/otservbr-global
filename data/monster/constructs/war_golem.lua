@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("War Golem")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "15/04/2022"
+}
+
 monster.description = "a war golem"
 monster.experience = 2310
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Factory Quarter."
-	}
+}
 
 monster.health = 4300
 monster.maxHealth = 4300
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -86,45 +91,56 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 37500, maxCount = 90},
-	{name = "gold coin", chance = 375000, maxCount = 80},
-	{id = 953, chance = 5260, maxCount = 5},
-	{id = 3265, chance = 5500},
-	{id = 3410, chance = 9000},
-	{id = 3282, chance = 7000},
-	{id = 3413, chance = 6500},
-	{id = 7643, chance = 10080},
-	{name="great mana potion", chance = 8860},
-	{id = 5880, chance = 1920},
-	{id = 7439, chance = 900},
-	{id = 3326, chance = 6400},
-	{id = 8895, chance = 260},
-	{id = 3093, chance = 810}, -- Club ring
-	{id = 3097, chance = 1210}, -- Dwarven ring
-	{id = 9067, chance = 130},
-	{id = 9065, chance = 1080},
-	{id = 820, chance = 90},
-	{id = 3554, chance = 620},
-	{id = 7403, chance = 50},
-	{id = 7422, chance = 120},
-	{id = 7428, chance = 770},
-	{id = 3061, chance = 1000},
-	{id = 12305, chance = 100}
+	MonsterLoot:withGoldCoins(99.43, 255),
+	MonsterLoot:withUltimateHealthPotion(10.69),
+	MonsterLoot:withMorningStar(9.22),
+	MonsterLoot:withGreatManaPotion(8.89),
+	MonsterLoot:withPlateShield(8.56),
+	MonsterLoot:withEpee(8.4),
+	MonsterLoot:new():setLoot("war crystal", 8.4):setItemId(9654),
+	MonsterLoot:new():setLoot("nail", 4.81, 5):setItemId(953),
+	MonsterLoot:withTwoHandedSword(4.73),
+	MonsterLoot:withBattleShield(4.32),
+	MonsterLoot:withSlightlyRustedArmor(2.61),
+	MonsterLoot:withIronOre(2.2),
+	MonsterLoot:withDwarvenRing(1.06),
+	MonsterLoot:withSteelBoots(0.98),
+	MonsterLoot:withLifeCrystal(0.73),
+	MonsterLoot:new():setLoot("crystal pedestal", 0.57):setItemId(9063),
+	MonsterLoot:withClubRing(0.57),
+	MonsterLoot:withBerserkPotion(0.49),
+	MonsterLoot:withBonebreaker(0.41),
+	MonsterLoot:new():setLoot("crystal of power", 0.24),
+	MonsterLoot:withLightningBoots(0.16)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -165, maxDamage = -220, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
-	{name ="outfit", interval = 2000, chance = 1, range = 7, target = false, duration = 3000, outfitMonster = "skeleton"},
-	{name ="war golem electrify", interval = 2000, chance = 15, range = 1, target = false},
-	{name ="war golem skill reducer", interval = 2000, chance = 10, target = false}
+	-- 	Basic attack (0-450 physical)
+	CustomMonsterSpell:withBasicAttack():setDamageRange(0, 450),
+	-- Energy Strike (160-220 energy, on target)
+	CustomMonsterSpell:withEnergyStrike(160, 220):withEnergyDamage(),
+	-- Blue Electric Strike (on target, effect: electrify 25hp/tick)
+	CustomMonsterSpell:withBlueElectricStrike():withEnergyCondition(25, 15),
+	-- Storm Strike (on target) (zamienia w szkieleta)
+	{
+		name = "outfit",
+		interval = 2000,
+		chance = 1,
+		range = 7,
+		target = false,
+		effect = SPELL_ANIMATIONS.YELLOW_ELECTRIC,
+		duration = 3000,
+		outfitMonster = "skeleton"
+	},
+	-- Longer Dizzy Beam (effect: debuff -50% shielding)
+	CustomMonsterSpell:withSkillLevelDebuff(45, 55, CONDITION_PARAM_SKILL_SHIELDPERCENT, 2000):withLongerDizzyBeam()
 }
 
 monster.defenses = {
 	defense = 40,
 	armor = 40,
-	{name ="speed", interval = 2000, chance = 15, speedChange = 300, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 200, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false}
+	CustomMonsterSpell:new():withHaste(monster.speed),
+	CustomMonsterSpell:new():withHealing(200, 250)
 }
 
 monster.elements = {

@@ -1,5 +1,5 @@
 local config = {
-    monsterName = 'Preceptor Lazare',
+    monsterName = "Preceptor Lazare",
     bossPosition = Position(33373, 31348, 3),
     centerPosition = Position(33373, 31348, 3),
     rangeX = 50,

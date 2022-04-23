@@ -50,28 +50,44 @@ npcType.onCloseChannel = function(npc, creature)
 	npcHandler:onCloseChannel(npc, creature)
 end
 
-keywordHandler:addKeyword({'brotherhood of bones'}, StdModule.say, {npcHandler = npcHandler, text = "... what?! Uh - no, no. Of course I wouldn't have anything to do with... them."})
+keywordHandler:addKeyword(
+	{"brotherhood of bones"},
+	StdModule.say,
+	{npcHandler = npcHandler, text = "... what?! Uh - no, no. Of course I wouldn't have anything to do with... them."}
+)
 
-npcHandler:setMessage(MESSAGE_GREET, "What do you want in my magical robe store? I doubt I have anything that's of interest to you.")
+npcHandler:setMessage(
+	MESSAGE_GREET,
+	"What do you want in my magical robe store? I doubt I have anything that's of interest to you."
+)
 npcHandler:setMessage(MESSAGE_FAREWELL, "See ya, |PLAYERNAME|.")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "See ya, |PLAYERNAME|.")
 npcHandler:setMessage(MESSAGE_SENDTRADE, "Here.")
 npcHandler:addModule(FocusModule:new())
 
 npcConfig.shop = {
-	{ itemName = "batwing hat", clientId = 9103, sell = 8000 },
-	{ itemName = "ethno coat", clientId = 8064, buy = 750, sell = 200 },
-	{ itemName = "focus cape", clientId = 8043, sell = 6000 },
-	{ itemName = "jade hat", clientId = 10451, sell = 9000 },
-	{ itemName = "magicians robe", clientId = 7991, buy = 450 },
-	{ itemName = "spellweavers rob", clientId = 10438, sell = 12000 },
-	{ itemName = "spirit cloak", clientId = 8042, buy = 1000, sell = 350 },
-	{ itemName = "zaoan robe", clientId = 10439, sell = 12000 }
+	{itemName = "batwing hat", clientId = 9103, sell = 8000},
+	{itemName = "ethno coat", clientId = 8064, buy = 750, sell = 200},
+	{itemName = "focus cape", clientId = 8043, sell = 6000},
+	{itemName = "jade hat", clientId = 10451, sell = 9000},
+	{itemName = "magicians robe", clientId = 7991, buy = 450},
+	{itemName = "spellweavers rob", clientId = 10438, sell = 12000},
+	{itemName = "spirit cloak", clientId = 8042, buy = 1000, sell = 350},
+	{itemName = "zaoan robe", clientId = 10439, sell = 12000}
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
 	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
-	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, name, totalCost, ItemType(npc:getCurrency()):getPluralName():lower()))
+	player:sendTextMessage(
+		MESSAGE_INFO_DESCR,
+		string.format(
+			"Bought %ix %s for %i %s.",
+			amount,
+			name,
+			totalCost,
+			ItemType(npc:getCurrency()):getPluralName():lower()
+		)
+	)
 end
 -- On sell npc shop message
 npcType.onSellItem = function(npc, player, clientId, subtype, amount, name, totalCost)

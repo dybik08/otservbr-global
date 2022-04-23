@@ -62,7 +62,7 @@ monster.flags = {
 	canPushCreatures = false,
 	staticAttackChance = 80,
 	targetDistance = 1,
-	runHealth = 1,
+	runHealth = 10,
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = true,
@@ -105,7 +105,7 @@ monster.attacks = {
 	-- 	Basic attack (0-235 physical)
 	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 235),
 	-- Ranged attack (100-125 energy)
-	CustomMonsterSpell:new():withEnergyStrike():setDamageRange(100, 125):withEnergyDamage(),
+	CustomMonsterSpell:new():withHeavyMagicMissileRune():setDamageRange(100, 125):withEnergyDamage(),
 	-- Yellow Electric Box (100-220 energy, on self)
 	CustomMonsterSpell:new():setDamageRange(100, 220):withYellowElectric():withEnergyDamage():withBox(),
 	-- Violet Electric Long Wave (130-200 energy)

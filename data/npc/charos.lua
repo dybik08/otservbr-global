@@ -61,7 +61,14 @@ local config = {
 		["port hope"] = TOWNS_LIST.PORT_HOPE,
 		["ankrahmun"] = TOWNS_LIST.ANKRAHMUN,
 		["darashia"] = TOWNS_LIST.DARASHIA,
-		["edron"] = TOWNS_LIST.EDRON
+		["edron"] = TOWNS_LIST.EDRON,
+		["farmine"] = TOWNS_LIST.FARMINE,
+		["issavi"] = TOWNS_LIST.ISSAVI,
+		["gray beach"] = TOWNS_LIST.GRAY_BEACH,
+		["roshamuul"] = TOWNS_LIST.ROSHAMUUL,
+		["rathleton"] = TOWNS_LIST.RATHLETON,
+		["svargrond"] = TOWNS_LIST.SVARGROND,
+		["yalahar"] = TOWNS_LIST.YALAHAR
 	}
 }
 
@@ -69,14 +76,17 @@ local function greetCallback(npc, creature)
 	local player = Player(creature)
 	local playerId = player:getId()
 
-	if player:getStorageValue(Storage.AdventurersGuild.CharosTrav) > 6 then
+	if player:getStorageValue(Storage.AdventurersGuild.CharosTrav) > 60 then
 		npcHandler:say("Sorry, you have traveled a lot.", npc, creature)
 		npcHandler:resetNpc(creature)
 		return false
 	else
-		npcHandler:setMessage(MESSAGE_GREET, "Hello young friend! I can attune you to a city of your choice. \z
+		npcHandler:setMessage(
+			MESSAGE_GREET,
+			"Hello young friend! I can attune you to a city of your choice. \z
 		If you step to the teleporter here you will not appear in the city you came from as usual, \z
-		but the city of your choice. Is it what you wish?")
+		but the city of your choice. Is it what you wish?"
+		)
 	end
 	return true
 end
@@ -91,16 +101,24 @@ local function creatureSayCallback(npc, creature, type, message)
 
 	if npcHandler:getTopic(playerId) == 0 then
 		if MsgContains(message, "yes") then
-			npcHandler:say("Fine. You have ".. -player:getStorageValue(Storage.AdventurersGuild.CharosTrav)+7 .." \z
+			npcHandler:say(
+				"Fine. You have " ..
+					-player:getStorageValue(Storage.AdventurersGuild.CharosTrav) + 70 ..
+						" \z
 			attunements left. What is the new city of your choice? Thais, Carlin, Ab'Dendriel, Kazordoon, Venore, \z
-			Ankrahmun, Edron, Darashia, Liberty Bay or Port Hope?", npc, creature)
+			Ankrahmun, Edron, Darashia, Liberty Bay, Farmine, Issavi ,Roshamuul, Rathleton, Svargrond, Yalahar or Port Hope?",
+				npc,
+				creature
+			)
 			npcHandler:setTopic(playerId, 1)
 		end
 	elseif npcHandler:getTopic(playerId) == 1 then
 		local cityTable = config.towns[message:lower()]
 		if cityTable then
-			player:setStorageValue(Storage.AdventurersGuild.CharosTrav,
-			player:getStorageValue(Storage.AdventurersGuild.CharosTrav)+1)
+			player:setStorageValue(
+				Storage.AdventurersGuild.CharosTrav,
+				player:getStorageValue(Storage.AdventurersGuild.CharosTrav) + 1
+			)
 			player:setStorageValue(Storage.AdventurersGuild.Stone, cityTable)
 			npcHandler:say("Goodbye traveler!", npc, creature)
 		else

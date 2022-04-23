@@ -4,7 +4,7 @@ local rewards = {
 		bossName = 'Jaul',
 		items = {
 			{rand = true, itemId = {13990, 14021}},
-			{itemId = 3035, name = "platinum coin", count = 50},
+			{itemid = 3035, name = "platinum coin", count = 50},
 			{itemId = 14224},
 			{itemId = 14042}
 		}

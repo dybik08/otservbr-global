@@ -125,7 +125,7 @@ monster.loot = {
 	MonsterLoot:withGoldenLegs(0.43),
 	MonsterLoot:withDemonrageSword(0.12),
 	MonsterLoot:withMagicPlateArmor(0.12),
-	MonsterLoot:new():setLoot("demon trophy", 0.09),
+	MonsterLoot:new():setLoot("demon trophy", 0.09):setItemId(6434)
 }
 
 monster.attacks = {

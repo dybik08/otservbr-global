@@ -317,7 +317,7 @@ addItemKeyword(
 		'A banana staff is the sign of a high ape magician.'
 	},
 	3,
-	{{itemId = 3348, count = 5}, {itemId = 3403, count = 5}},
+	{{itemId = 3348, count = 5}, {itemname="tribal mask", count = 5}},
 	1,
 	Storage.OutfitQuest.Shaman.MissionMask,
 	true

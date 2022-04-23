@@ -110,7 +110,7 @@ npcConfig.shop = {
 	{ itemName = "diamond arrow", clientId = 35901, buy = 100 },
 	{ itemName = "document", clientId = 2818, buy = 12 },
 	{ itemName = "drill bolt", clientId = 16142, buy = 12 },
-	{ itemName = "earth arrow", clientId = 774, buy = 5 },
+	{ itemid = 774, name = "earth arrow", clientId = 774, buy = 5 },
 	{ itemName = "envenomed arrow", clientId = 16143, buy = 12 },
 	{ itemName = "fishing rod", clientId = 3483, buy = 150, sell = 40 },
 	{ itemName = "flaming arrow", clientId = 763, buy = 5 },

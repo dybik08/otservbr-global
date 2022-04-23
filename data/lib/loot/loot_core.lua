@@ -51,6 +51,10 @@ function MonsterLoot:withBone(chance, maxCount)
     return MonsterLoot:new():setLoot("bone", chance, maxCount):setItemId(1047)
 end
 
+function MonsterLoot:withBlankRune(chance, maxCount)
+    return MonsterLoot:new():setLoot("Blank Rune", chance, maxCount)
+end
+
 -- MonsterLoot library - load ammunition
 dofile("data/lib/loot/ammunition.lua")
 

@@ -69,7 +69,7 @@ npcHandler:addModule(FocusModule:new())
 
 npcConfig.shop = {
 	{ itemName = "arrow", clientId = 3447, buy = 3 },
-	{ itemName = "assassin star", clientId = 7368, buy = 100 },
+	{ itemName = "assassin star", clientname="assassin star", buy = 100 },
 	{ itemName = "blue quiver", clientId = 35848, buy = 400 },
 	{ itemName = "bolt", clientId = 3446, buy = 4 },
 	{ itemName = "bow", clientId = 3350, buy = 400 },
@@ -78,7 +78,7 @@ npcConfig.shop = {
 	{ itemName = "crystalline arrow", clientId = 15793, buy = 20 },
 	{ itemName = "diamond arrow", clientId = 35901, buy = 100 },
 	{ itemName = "drill bolt", clientId = 16142, buy = 12 },
-	{ itemName = "earth arrow", clientId = 774, buy = 5 },
+	{ itemid = 774, name = "earth arrow", clientId = 774, buy = 5 },
 	{ itemName = "envenomed arrow", clientId = 16143, buy = 12 },
 	{ itemName = "flaming arrow", clientId = 763, buy = 5 },
 	{ itemName = "flash arrow", clientId = 761, buy = 5 },

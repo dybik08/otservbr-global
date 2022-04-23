@@ -83,7 +83,7 @@ monster.loot = {
 	MonsterLoot:withMeat(17.86, 3),
 	MonsterLoot:withKnife(17.11),
 	MonsterLoot:withAxe(16),
-	MonsterLoot:new():setLoot("werehyena nose", 12.15),
+	MonsterLoot:new():setLoot("werehyaena nose", 12.15),
 	MonsterLoot:withHalberd(11.25),
 	MonsterLoot:withRedCrystalFragment(9.52),
 	MonsterLoot:withYellowGem(5.74),
@@ -94,8 +94,8 @@ monster.loot = {
 	MonsterLoot:withGreenCrystalFragment(9.52),
 	MonsterLoot:withRatana(3.84),
 	MonsterLoot:withMoonlightCrystal(1.23),
-	MonsterLoot:new():setLoot("werehyena talisman", 0.5),
-	MonsterLoot:new():setLoot("werehyena trophy", 0.17)
+	MonsterLoot:new():setLoot("werehyaena talisman", 0.5),
+	MonsterLoot:new():setLoot("werehyaena trophy", 0.17)
 }
 
 monster.attacks = {

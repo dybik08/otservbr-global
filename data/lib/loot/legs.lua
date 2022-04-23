@@ -6,7 +6,7 @@ function MonsterLoot:withMagmaLegs(chance, maxCount)
     return MonsterLoot:new():setLoot("magma Legs", chance, maxCount)
 end
 
-function MonsterLoot:withgoldenLegs(chance, maxCount)
+function MonsterLoot:withGoldenLegs(chance, maxCount)
     return MonsterLoot:new():setLoot("golden Legs", chance, maxCount)
 end
 
@@ -20,4 +20,16 @@ end
 
 function MonsterLoot:withPlateLegs(chance, maxCount)
     return MonsterLoot:new():setLoot("Plate Legs", chance, maxCount)
+end
+
+function MonsterLoot:withZaoanLegs(chance, maxCount)
+    return MonsterLoot:new():setLoot("Zaoan Legs", chance, maxCount)
+end
+
+function MonsterLoot:withGoldenLegs(chance, maxCount)
+    return MonsterLoot:new():setLoot("Golden Legs", chance, maxCount)
+end
+
+function MonsterLoot:withGlacierKilt(chance, maxCount)
+    return MonsterLoot:new():setLoot("Glacier Kilt", chance, maxCount)
 end

@@ -138,8 +138,12 @@ monster.attacks = {
 	-- Death Ball (0-300 death, on target)
 	{name = "DeathBallDeathTarget", interval = 2000, chance = 10, minDamage = -0, maxDamage = -300, target = true},
 	-- Red Stars Box (on target, effect: debuff -20% magic level)
-	{name = "dawnfire asura skill reducer", interval = 2000, chance = 20, range = 4, target = true},
-	-- Long Red Stars Beam (0-250 mana drain)
+	CustomMonsterSpell:new():setDamageRange(0, 0):withBox():withRedStars():withTarget():setChance(20):withSkillLevelDebuff(
+		75,
+		85,
+		CONDITION_PARAM_STAT_MAGICPOINTSPERCENT,
+		2000
+	), -- Long Red Stars Beam (0-250 mana drain)
 	{
 		name = "combat",
 		interval = 2000,

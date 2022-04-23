@@ -89,7 +89,7 @@ npcConfig.shop = {
 	{ itemName = "durable exercise club", clientId = 35281, buy = 945000, count = 1800 },
 	{ itemName = "durable exercise sword", clientId = 35279, buy = 945000, count = 1800 },
 	{ itemName = "dwarven shield", clientId = 3425, buy = 500, sell = 100 },
-	{ itemName = "earth arrow", clientId = 774, buy = 5 },
+	{ itemid = 774, name = "earth arrow", clientId = 774, buy = 5 },
 	{ itemName = "envenomed arrow", clientId = 16143, buy = 12 },
 	{ itemName = "exercise axe", clientId = 28553, buy = 262500, count = 500 },
 	{ itemName = "exercise bow", clientId = 28555, buy = 262500, count = 500 },

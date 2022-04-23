@@ -7,6 +7,7 @@ combat:setParameter(COMBAT_PARAM_AGGRESSIVE, false)
 function onGetFormulaValues(player, level, magicLevel) -- already compared to the official tibia | compared date: 08/03/21(m/d/y)
 	local min = (level * 0.2 + magicLevel * 4) + 25
 	local max = (level * 0.2 + magicLevel * 7.95) + 51
+
 	return min, max
 end
 

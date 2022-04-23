@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Burning Gladiator")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "19/04/2022"
+}
+
 monster.description = "a burning gladiator"
 monster.experience = 7350
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Issavi Sewers, Kilmaresh Catacombs and Kilmaresh Mountains (above and under ground)."
-	}
+}
 
 monster.health = 10000
 monster.maxHealth = 10000
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -76,32 +81,34 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 3},
-	{name = "Fafnar Symbol", chance = 6600},
-	{id = 31433, chance = 5600},
-	{id = 31435, chance = 5600},
-	{id = 31436, chance = 5600},
-	{name = "Dragon Necklace", chance = 4700},
-	{name = "Lightning Pendant", chance = 4100},
-	{name = "Magma Amulet", chance = 3700},
-	{name = "Strange Talisman", chance = 3000},
-	{name = "Magma Boots", chance = 2700},
-	{id = 31331, chance = 2400},
-	{name = "Elven Amulet", chance = 2100},
-	{name = "Lightning Legs", chance = 2000},
-	{name = "Lightning Headband", chance = 1700},
-	{name = "Lightning Boots", chance = 1400},
-	{name = "Spellweaver's Robe", chance = 850},
-	{id = 31369, chance = 570},
-	{name = "Sea Horse Figurine", chance = 140}
+	MonsterLoot:withPlatinumCoins(100, 4),
+	MonsterLoot:new():setLoot("Fafnar symbol", 11.12),
+	MonsterLoot:withStrangeTalisman(5.95),
+	MonsterLoot:withDragonNecklace(5.91),
+	MonsterLoot:withLightningPendant(4.99),
+	MonsterLoot:withMagmaAmulet(4.64),
+	MonsterLoot:withLightningHeadband(3.89),
+	MonsterLoot:withMagmaBoots(2.5),
+	MonsterLoot:withLightningLegs(3.02),
+	MonsterLoot:new():setLoot("empty honey glass", 2.76),
+	MonsterLoot:withElvenAmulet(2.28),
+	MonsterLoot:withLightningBoots(1.75),
+	MonsterLoot:withSpellweaversRobe(1.44),
+	MonsterLoot:new():setLoot("sea horse figurine", 0.96),
+	MonsterLoot:new():setLoot("golden mask", 0.39)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550},
-	{name ="firering", interval = 2000, chance = 10, minDamage = -300, maxDamage = -500, target = false},
-	{name ="firex", interval = 2000, chance = 15, minDamage = -300, maxDamage = -500, target = false},
-	{name ="combat", interval = 2000, chance = 17, type = COMBAT_FIREDAMAGE, minDamage = -300, maxDamage = -500, radius = 2, effect = CONST_ME_FIREATTACK, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -300, maxDamage = -500, length = 3, spread = 0, effect = CONST_ME_ENERGYHIT, target = false}
+	-- 	Basic attack (0-550 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 550),
+	-- Flame Cross (300-500 fire, on self)
+	CustomMonsterSpell:withFlameCross(300, 500):withFireDamage(),
+	-- Flame X-Cross (300-500 fire, on self)
+	CustomMonsterSpell:withFlameXCross(300, 500):withFireDamage(),
+	-- Flame Circle (300-500 fire, on self)
+	CustomMonsterSpell:withFlameCircle(300, 500):withFireDamage(),
+	-- Shorter Blue Electric Beam (300-500 energy)
+	CustomMonsterSpell:withShorterBlueElectricBeam(300, 500):withEnergyDamage()
 }
 
 monster.defenses = {
@@ -118,8 +125,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = -20},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE, percent = 0},
+	{type = COMBAT_DEATHDAMAGE, percent = 0}
 }
 
 monster.immunities = {

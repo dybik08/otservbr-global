@@ -127,10 +127,10 @@ monster.attacks = {
 	-- Detonation Wave(400-700, fire)
 	CustomMonsterSpell:withDetonationWave(400, 700):withFireDamage(),
 	-- Sudden Death(300-500)(Sudden Death Rune)
-	CustomMonsterSpell:withSuddenDeathRune():setDamageRange(300, 500):withDeathDamage(),
+	CustomMonsterSpell:new():withSuddenDeathRune():setDamageRange(300, 500):withDeathDamage(),
 	-- Envenom(0-550, earth) probably do not exist
 	-- Fireball(200-500)(Fireball Rune)
-	CustomMonsterSpell:withSuddenDeathRune():setDamageRange(200, 500):withFireDamage()
+	CustomMonsterSpell:new():withFireballRune():setDamageRange(200, 500):withFireDamage()
 }
 
 monster.defenses = {

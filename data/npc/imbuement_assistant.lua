@@ -107,7 +107,7 @@ npcConfig.shop = {
 	{ itemName = "mystical hourglass", clientId = 9660, buy = 100 },
 	{ itemName = "ogre nose ring", clientId = 22189, buy = 100 },
 	{ itemName = "orc tooth", clientId = 10196, buy = 100 },
-	{ itemName = "peacock feather fan", clientId = 21975, buy = 100 },
+	{ itemName = "peacock feather fan", clientname="peacock feather fan", buy = 100 },
 	{ itemName = "petrified scream", clientId = 10420, buy = 100 },
 	{ itemName = "piece of dead brain", clientId = 9663, buy = 100 },
 	{ itemName = "piece of scarab shell", clientId = 9641, buy = 100 },

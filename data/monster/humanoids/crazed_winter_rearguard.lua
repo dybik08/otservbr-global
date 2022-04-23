@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Crazed Winter Rearguard")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "15/04/2022"
+}
+
 monster.description = "a Crazed Winter Rearguard"
 monster.experience = 4700
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Court of Winter, Dream Labyrinth."
-	}
+}
 
 monster.health = 5200
 monster.maxHealth = 5200
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -72,36 +77,37 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 5},
-	{name = "red crystal fragment", chance = 1000000},
-	{id= 3039, chance = 1000000},
-	{name = "ice rapier", chance = 15000},
-	{name = "ultimate health potion", chance = 21550},
-	{name = "great spirit potion", chance = 23550},
-	{id = 30058, chance = 14750, maxCount = 2},
-	{name = "life crystal", chance = 17550},
-	{name = "dream essence egg", chance = 6350},
-	{name = "elven astral observer", chance = 14600},
-	{name = "glacier mask", chance = 6850},
-	{name = "moonlight rod", chance = 11250},
-	{name = "small enchanted sapphire", chance = 6850, maxCount = 7},
-	{name = "northwind rod", chance = 1000},
-	{name = "glacier amulet", chance = 500},
-	{name = "hailstorm rod", chance = 1000},
-	{name = "glacier robe", chance = 500},
-	{name = "cyan crystal fragment", chance = 500},
-	{name = "elven amulet", chance = 500},
-	{name = "blue gem", chance = 1800}
+	MonsterLoot:withPlatinumCoins(84.53, 5),
+	MonsterLoot:withUltimateHealthPotion(17.27),
+	MonsterLoot:withIceRapier(16.21),
+	MonsterLoot:withGreatSpiritPotion(15.12),
+	MonsterLoot:withDreamEssenceEgg(8.95),
+	MonsterLoot:withIceFlower(8.09, 2),
+	MonsterLoot:withElvenAstralObserver(7.63),
+	MonsterLoot:withLifeCrystal(6.75),
+	MonsterLoot:withGlacierMask(5.49),
+	MonsterLoot:withMoonlightRod(5.35),
+	MonsterLoot:withSmallEnchantedSapphire(3.97),
+	MonsterLoot:withGlacierAmulet(3.06),
+	MonsterLoot:withHailstormRod(2.32),
+	MonsterLoot:withNorthwindRod(2.17),
+	MonsterLoot:withGlacierRobe(1.92),
+	MonsterLoot:withCyanCrystalFragment(1.89),
+	MonsterLoot:withElvenAmulet(1.11),
+	MonsterLoot:withBlueGem(0.51)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -110, maxDamage = -400},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -200, maxDamage = -300, radius = 3, effect = CONST_ME_ICEAREA, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -250, maxDamage = -300, range = 7, shootEffect = CONST_ANI_ICE, target = false}
+	-- 	Basic attack (0-450 physical)
+	CustomMonsterSpell:withBasicAttack():setDamageRange(0, 450),
+	-- 	Ice Strike (240-300 ice, on target)
+	CustomMonsterSpell:withIceStrike(240, 300):withIceDamage(),
+	-- Icy Flake Box (230-300 ice, on target)
+	CustomMonsterSpell:withIcyFlakeBox(230, 300):withIceDamage():withTarget()
 }
 
 monster.defenses = {

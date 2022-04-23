@@ -91,6 +91,7 @@ monster.loot = {
 }
 
 monster.attacks = {
+	-- TODO: FIX ATTACKS
 	{name = "melee", type = COMBAT_PHYSICALDAMAGE, interval = 2000, minDamage = 0, maxDamage = -575},
 	{
 		name = "combat",

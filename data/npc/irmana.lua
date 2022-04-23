@@ -138,28 +138,16 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 		end
 	elseif(MsgContains(message, "hat") or MsgContains(message, "accessory")) and (npcHandler:getTopic(playerId) == 2 and getPlayerStorageValue(creature, Storage.Irmana1) < 1) then
-		npcHandler:say(
-			{
-				"This accessory requires a small fee of 150000 gold pieces. Of course, we do not want to put you at any risk to be attacked while carrying this huge amount of money. ...",
-				"This is why we have established our brand-new instalment sale. You can choose to either pay the price at once, or if you want to be safe, by instalments of 10000 gold pieces. ...",
-				"I also have to inform you that once you started paying for one of the accessories, you have to finish the payment first before you can start paying for the other one, of course. ...",
-				"Are you interested in purchasing this accessory?"
-			},
-			npc,
-			creature
-		)
+		selfSay("This accessory requires a small fee of 150000 gold pieces. Of course, we do not want to put you at any risk to be attacked while carrying this huge amount of money. ...", npc, creature)
+		selfSay("This is why we have established our brand-new instalment sale. You can choose to either pay the price at once, or if you want to be safe, by instalments of 10000 gold pieces. ...", npc, creature)
+		selfSay("I also have to inform you that once you started paying for one of the accessories, you have to finish the payment first before you can start paying for the other one, of course. ...", npc, creature)
+		npcHandler:say("Are you interested in purchasing this accessory?", npc, creature)
 		npcHandler:setTopic(playerId, 3)
 	elseif(MsgContains(message, "dress") or MsgContains(message, "coat")) and (npcHandler:getTopic(playerId) == 2 and getPlayerStorageValue(creature, Storage.Irmana2) < 1) then
-		npcHandler:say(
-			{
-				"This accessory requires a small fee of 150000 gold pieces. Of course, we do not want to put you at any risk to be attacked while carrying this huge amount of money. ...",
-				"This is why we have established our brand-new instalment sale. You can choose to either pay the price at once, or if you want to be safe, by instalments of 10000 gold pieces. ...",
-				"I also have to inform you that once you started paying for one of the accessories, you have to finish the payment first before you can start paying for the other one, of course. ...",
-				"Are you interested in purchasing this accessory?"
-			},
-			npc,
-			creature
-		)
+		selfSay("This accessory requires a small fee of 150000 gold pieces. Of course, we do not want to put you at any risk to be attacked while carrying this huge amount of money. ...", npc, creature)
+		selfSay("This is why we have established our brand-new instalment sale. You can choose to either pay the price at once, or if you want to be safe, by instalments of 10000 gold pieces. ...", npc, creature)
+		selfSay("I also have to inform you that once you started paying for one of the accessories, you have to finish the payment first before you can start paying for the other one, of course. ...", npc, creature)
+		npcHandler:say("Are you interested in purchasing this accessory?", npc, creature)
 		npcHandler:setTopic(playerId, 4)
 	elseif(MsgContains(message, "red robe")) then
 		npcHandler:say("Have you found a {Red Robe} for me?", npc, creature)
@@ -202,7 +190,7 @@ npcConfig.shop = {
 	{ itemName = "piece of crocodile leather", clientId = 10279, sell = 15 },
 	{ itemName = "purple robe", clientId = 11473, sell = 110 },
 	{ itemName = "red dragon leather", clientId = 5948, sell = 200 },
-	{ itemName = "red piece of cloth", clientId = 5911, sell = 300 },
+	{ itemName = "red piece of cloth", clientname="red piece of cloth", sell = 300 },
 	{ itemName = "rope belt", clientId = 11492, sell = 66 },
 	{ itemName = "royal tapestry", clientId = 9045, sell = 1000 },
 	{ itemName = "safety pin", clientId = 11493, sell = 120 },

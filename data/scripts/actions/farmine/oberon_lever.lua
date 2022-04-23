@@ -25,34 +25,65 @@ function oberonLever.onUse(creature, item, fromPosition, target, toPosition, isH
 			end
 		end
 		Game.createMonster("Grand Master Oberon", setting.bossPosition, false, true)
-		Game.createMonster("Oberon's Bile", Position({x = setting.Pillar1pos.x, y = setting.Pillar1pos.y, z = setting.Pillar1pos.z}), false, true)
-		Game.createMonster("Oberon's Hate", Position({x = setting.Pillar1pos.x + 6, y = setting.Pillar1pos.y, z = setting.Pillar1pos.z}), false, true)
-		Game.createMonster("Oberon's Spite", Position({x = setting.Pillar1pos.x, y = setting.Pillar1pos.y + 4, z = setting.Pillar1pos.z}), false, true)
-		Game.createMonster("Oberon's Ire", Position({x = setting.Pillar1pos.x + 6, y = setting.Pillar1pos.y + 4, z = setting.Pillar1pos.z}), false, true)
+		Game.createMonster(
+			"Oberon's Bile",
+			Position({x = setting.Pillar1pos.x, y = setting.Pillar1pos.y, z = setting.Pillar1pos.z}),
+			false,
+			true
+		)
+		Game.createMonster(
+			"Oberon's Hate",
+			Position({x = setting.Pillar1pos.x + 6, y = setting.Pillar1pos.y, z = setting.Pillar1pos.z}),
+			false,
+			true
+		)
+		Game.createMonster(
+			"Oberon's Spite",
+			Position({x = setting.Pillar1pos.x, y = setting.Pillar1pos.y + 4, z = setting.Pillar1pos.z}),
+			false,
+			true
+		)
+		Game.createMonster(
+			"Oberon's Ire",
+			Position({x = setting.Pillar1pos.x + 6, y = setting.Pillar1pos.y + 4, z = setting.Pillar1pos.z}),
+			false,
+			true
+		)
 		local players = {}
 		for i = 0, 4 do
-			local player1 = Tile({x = (Position(item:getPosition()).x - 2) + i, y = Position(item:getPosition()).y + 1, z = Position(item:getPosition()).z}):getTopCreature()
-			players[#players+1] = player1
+			local player1 =
+				Tile(
+				{
+					x = (Position(item:getPosition()).x - 2) + i,
+					y = Position(item:getPosition()).y + 1,
+					z = Position(item:getPosition()).z
+				}
+			):getTopCreature()
+			players[#players + 1] = player1
 		end
 		for i, player in ipairs(players) do
 			player:getPosition():sendMagicEffect(CONST_ME_POFF)
 			player:teleportTo(Position(setting.playerTeleport), false)
 			doSendMagicEffect(player:getPosition(), CONST_ME_TELEPORT)
-			setPlayerStorageValue(player,setting.storage, os.time() + 20 * 60 * 60)
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have 20 minute(s) to defeat the boss.')
-			addEvent(function(cid)
-				local playerToRemove = Player(cid)
-				if playerToRemove then
-					local playerToRemovePosition = playerToRemove:getPosition()
-					local leftTopCorner = Position(setting.centerRoom.x - 10, setting.centerRoom.y - 10, setting.centerRoom.z)
-					local rightBottomCorner = Position(setting.centerRoom.x + 10, setting.centerRoom.y + 10, setting.centerRoom.z)
-					if playerToRemovePosition:isInRange(leftTopCorner, rightBottomCorner) then
-						playerToRemove:teleportTo(Position(setting.kickPosition))
-						playerToRemove:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-						playerToRemove:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Time is over.')
+			setPlayerStorageValue(player, setting.storage, os.time() + 20 * 60 * 60)
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have 20 minute(s) to defeat the boss.")
+			addEvent(
+				function(cid)
+					local playerToRemove = Player(cid)
+					if playerToRemove then
+						local playerToRemovePosition = playerToRemove:getPosition()
+						local leftTopCorner = Position(setting.centerRoom.x - 10, setting.centerRoom.y - 10, setting.centerRoom.z)
+						local rightBottomCorner = Position(setting.centerRoom.x + 10, setting.centerRoom.y + 10, setting.centerRoom.z)
+						if playerToRemovePosition:isInRange(leftTopCorner, rightBottomCorner) then
+							playerToRemove:teleportTo(Position(setting.kickPosition))
+							playerToRemove:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+							playerToRemove:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Time is over.")
+						end
 					end
-				end
-			end, 20 * 60 * 1000, player:getId())
+				end,
+				20 * 60 * 1000,
+				player:getId()
+			)
 		end
 	end
 	return true

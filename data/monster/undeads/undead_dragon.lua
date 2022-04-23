@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Undead Dragon")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "13/04/2022"
+}
+
 monster.description = "an undead dragon"
 monster.experience = 7200
 monster.outfit = {
@@ -59,7 +64,7 @@ monster.flags = {
 	canPushCreatures = true,
 	staticAttackChance = 70,
 	targetDistance = 1,
-	runHealth = 0,
+	runHealth = 20,
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
@@ -80,134 +85,54 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "golden mug", chance = 6002},
-	{name = "black pearl", chance = 22780, maxCount = 2},
-	{name = "small sapphire", chance = 28370, maxCount = 2},
-	{name = "gold coin", chance = 35500, maxCount = 100},
-	{name = "gold coin", chance = 55500, maxCount = 98},
-	{id = 3035, name = "platinum coin", chance = 52000, maxCount = 5},
-	{name = "life crystal", chance = 2500},
-	{name = "war axe", chance = 1290},
-	{name = "golden armor", chance = 860},
-	{name = "knight armor", chance = 5500},
-	{name = "royal helmet", chance = 1720},
-	{name = "power bolt", chance = 15190, maxCount = 15},
-	{name = "hardened bone", chance = 14180},
-	{id = 6299, name = "death ring", chance = 1150},
-	{name = "demonic essence", chance = 12460},
-	{name = "assassin star", chance = 26650, maxCount = 5},
-	{name = "dragon slayer", chance = 860},
-	{name = "dragonbone staff", chance = 4000},
-	{name = "great mana potion", chance = 21490},
-	{name = "great health potion", chance = 21200},
-	{name = "divine plate", chance = 430},
-	{name = "skullcracker armor", chance = 290},
-	{name = "gold ingot", chance = 570},
-	{name = "unholy bone", chance = 33380},
-	{name = "spellweaver's robe", chance = 860}
+	MonsterLoot:withGoldCoins(100, 200),
+	MonsterLoot:withPlatinumCoins(49, 72, 5),
+	MonsterLoot:withUnholyBone(32.92),
+	MonsterLoot:withSmallSapphire(26.77, 2),
+	MonsterLoot:withAssassinStar(25.08, 5),
+	MonsterLoot:withGreatManaPotion(24.97, 3),
+	MonsterLoot:withGreatHealthPotion(24.77, 3),
+	MonsterLoot:withBlackPearl(22.63, 2),
+	MonsterLoot:withPowerBolt(15.2, 15),
+	MonsterLoot:withHardenedBone(15.12),
+	MonsterLoot:withDemonicEssence(14.83),
+	MonsterLoot:withGoldenMug(5.25),
+	MonsterLoot:withKnightArmor(5.17),
+	MonsterLoot:withDragonboneStaff(4.24),
+	MonsterLoot:withDeathRing(1.94),
+	MonsterLoot:withLifeCrystal(1.45),
+	MonsterLoot:withWarAxe(1.39),
+	MonsterLoot:withGoldIngot(1.34),
+	MonsterLoot:withBlueGem(1.09),
+	MonsterLoot:withRoyalHelmet(1.03),
+	MonsterLoot:withDragonSlayer(0.99),
+	MonsterLoot:withGoldenArmor(0.71),
+	MonsterLoot:withSpellweaversRobe(0.62),
+	MonsterLoot:withDivinePlate(0.54),
+	MonsterLoot:withSkullcrackerArmor(0.32)
 }
 
 monster.attacks = {
-	{name = "melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -480},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 5,
-		type = COMBAT_PHYSICALDAMAGE,
-		minDamage = -300,
-		maxDamage = -400,
-		range = 7,
-		radius = 4,
-		target = true
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_DEATHDAMAGE,
-		minDamage = -125,
-		maxDamage = -600,
-		range = 7,
-		shootEffect = CONST_ANI_SUDDENDEATH,
-		effect = CONST_ME_SMALLCLOUDS,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 5,
-		type = COMBAT_EARTHDAMAGE,
-		minDamage = -100,
-		maxDamage = -390,
-		range = 7,
-		radius = 4,
-		shootEffect = CONST_ANI_POISON,
-		effect = CONST_ME_POISONAREA,
-		target = true
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 15,
-		type = COMBAT_EARTHDAMAGE,
-		minDamage = 0,
-		maxDamage = -180,
-		range = 7,
-		shootEffect = CONST_ANI_POISON,
-		effect = CONST_ME_POISONAREA,
-		target = true
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_EARTHDAMAGE,
-		minDamage = -150,
-		maxDamage = -690,
-		length = 8,
-		spread = 3,
-		effect = CONST_ME_POISONAREA,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_LIFEDRAIN,
-		minDamage = -300,
-		maxDamage = -700,
-		length = 8,
-		spread = 3,
-		effect = CONST_ME_MAGIC_RED,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 10,
-		type = COMBAT_LIFEDRAIN,
-		minDamage = -100,
-		maxDamage = -200,
-		radius = 3,
-		effect = CONST_ME_MAGIC_RED,
-		target = false
-	},
+	-- 	Basic attack (0-450 physical)
+	CustomMonsterSpell:withBasicAttack():setDamageRange(0, 450),
+	-- Poison Ball (100-410 earth, on target)
+	CustomMonsterSpell:withPoisonBall(100, 410):withEarthDamage():withTarget(),
+	-- Death Strike (260-550 physical, on target)
+	CustomMonsterSpell:withDeathStrike(260, 550):withPhysicalDamage():withTarget(),
+	-- Great Death Wave (500-600 death)
+	CustomMonsterSpell:withGreatDeathWave(500, 600):withDeathDamage(),
+	-- Blood Ball (290-400 life drain, on target)
+	CustomMonsterSpell:withBloodBall(290, 400):withLifeDrainDamage():withTarget(),
+	-- Great Red Stars Wave (250-440 life drain)
+	CustomMonsterSpell:withGreatRedStarsWave(250, 440):withLifeDrainDamage(),
 	{name = "undead dragon curse", interval = 2000, chance = 10, target = false}
 }
 
 monster.defenses = {
 	defense = 40,
 	armor = 40,
-	{
-		name = "combat",
-		interval = 2000,
-		chance = 15,
-		type = COMBAT_HEALING,
-		minDamage = 200,
-		maxDamage = 250,
-		effect = CONST_ME_MAGIC_BLUE,
-		target = false
-	}
+	-- Healing (200-300 heal)
+	CustomMonsterSpell:new():withHealing(200, 300)
 }
 
 monster.elements = {

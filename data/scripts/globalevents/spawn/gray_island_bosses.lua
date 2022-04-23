@@ -3,7 +3,7 @@ local config = {
 	days = {
 		["Saturday"] = {Position(33649, 31261, 11), Position(33647, 31254, 11)}, -- tanjis
 		["Friday"] = {Position(33558, 31282, 11), Position(33545, 31263, 11)}, -- jaul
-		["Sunday"] = {Position(33438, 31248, 11), Position(33419, 31255, 11)}, -- obujos
+		["Sunday"] = {Position(33438, 31248, 11), Position(33419, 31255, 11)} -- obujos
 	}
 }
 

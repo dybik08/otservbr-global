@@ -126,7 +126,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 0,
 	armor = 68,
-	CustomMonsterSpell:withHealing(150, 200)
+	CustomMonsterSpell:new():withHealing(150, 200)
 }
 
 monster.reflects = {

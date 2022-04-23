@@ -178,6 +178,18 @@ function setPlayerMarriageStatus(id, val)
 	db.query("UPDATE `players` SET `marriage_status` = " .. val .. " WHERE `id` = " .. id)
 end
 
+-- The following 2 functions can be used for delayed shouted text
+-- function say(param)
+-- 	selfSay(text)
+-- 	doCreatureSay(param.cid, param.text, 1)
+-- end
+
+-- function delayedSay(text, delay)
+-- 	local delaySay = delay or 0
+-- 	local cid = getNpcCid()
+-- 	addEvent(say, delaySay, {cid = cid, text = text})
+-- end
+
 function clearBossRoom(playerId, bossId, centerPosition, rangeX, rangeY, exitPosition)
 	local spectators, spectator = Game.getSpectators(centerPosition, false, false, rangeX, rangeX, rangeY, rangeY)
 	for i = 1, #spectators do
@@ -486,6 +498,26 @@ function isPlayerInArea(fromPos, toPos)
 				creature = getTopCreature({x = _x, y = _y, z = _z})
 				if (isPlayer(creature.uid)) then
 					return true
+				end
+			end
+		end
+	end
+	return false
+end
+
+function isVocationInArea(fromPos, toPos, vocationId)
+	for _x = fromPos.x, toPos.x do
+		for _y = fromPos.y, toPos.y do
+			for _z = fromPos.z, toPos.z do
+				creature = getTopCreature({x = _x, y = _y, z = _z})
+				if (isPlayer(creature.uid)) then
+					local player = getTopCreature({x = _x, y = _y, z = _z})
+					local vocation = getPlayerVocation(creature.uid)
+
+					if (vocation == vocationId) then
+						return true
+					end
+				-- return true
 				end
 			end
 		end

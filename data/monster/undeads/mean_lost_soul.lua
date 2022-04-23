@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Mean Lost Soul")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "22/04/2022"
+}
+
 monster.description = "Mean Lost Soul"
 monster.experience = 5580
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Brain Grounds, Netherworld, Zarganash."
-	}
+}
 
 monster.health = 5000
 monster.maxHealth = 5000
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -69,29 +74,43 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 56040},
-	{name = "lost soul", chance = 36220},
-	{name = "death toll", chance = 4890},
-	{name = "skull staff", chance = 4540},
-	{name = "machete", chance = 3520},
-	{name = "ensouled essence", chance = 2760},
-	{name = "fire axe", chance = 1400},
-	{name = "ivory comb", chance = 1200},
-	{name = "mercenary sword", chance = 1050},
-	{name = "haunted blade", chance = 960},
-	{name = "warrior's axe", chance = 730},
-	{name = "twiceslicer", chance = 310}
+	MonsterLoot:withPlatinumCoins(73.51),
+	MonsterLoot:withLostSoul(36.37),
+	MonsterLoot:withSkullStaff(5.76),
+	MonsterLoot:withDeathToll(5.31),
+	MonsterLoot:withEnsouledEssence(4.09),
+	MonsterLoot:new():setLoot("ivory comb", 1.72),
+	MonsterLoot:withFireAxe(1.54),
+	MonsterLoot:withHauntedBlade(1.45),
+	MonsterLoot:withMercenarySword(1.13),
+	MonsterLoot:withWarriorsAxe(0.88),
+	MonsterLoot:withTwiceslicer(0.52)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -500},
-	{name ="combat", interval = 1700, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -300, maxDamage = -550, radius = 3, shootEffect = CONST_ANI_ENVENOMEDARROW, target = true},
-	{name ="combat", interval = 1700, chance = 25, type = COMBAT_ENERGYDAMAGE, minDamage = -300, maxDamage = -550, length = 4, spread = 3, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="combat", interval = 1700, chance = 35, type = COMBAT_DEATHDAMAGE, minDamage = -300, maxDamage = -550, radius = 3, effect = CONST_ME_MORTAREA, target = false}
+	-- 	Basic attack (0-450 physical)
+	CustomMonsterSpell:withBasicAttack():setDamageRange(0, 450),
+	-- Ranged attack (200-250 mana drain) (Onyx Arrow, Druid)
+	{
+		name = "lost soul mana leech",
+		interval = 2000,
+		chance = 100,
+		minDamage = -200,
+		maxDamage = -250,
+		target = true
+	},
+	-- Envenom Strike (350-550 life drain, on target)
+	CustomMonsterSpell:withEnvenomStrike(300, 420):withLifeDrainDamage(),
+	-- Longer Blue Electric Beam (270-360 energy)
+	CustomMonsterSpell:withLongerBlueElectricBeam(270, 360):withEnergyDamage(),
+	-- Death Ball (400-540 death, on self)
+	CustomMonsterSpell:withDeathBall(400, 540):withDeathDamage(),
+	-- Ranged attack (0-350 physical) (Drill Bolt)
+	CustomMonsterSpell:new():withDrillBolt():withPhysicalDamage():setDamageRange(0, 350)
 }
 
 monster.defenses = {
@@ -108,8 +127,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -30},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -30},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

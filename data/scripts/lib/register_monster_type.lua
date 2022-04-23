@@ -519,17 +519,23 @@ function readSpell(incomingLua)
 					spell:setCombatType(incomingLua.type)
 				elseif incomingLua.name == "condition" then
 					spell:setConditionType(incomingLua.type)
-				elseif incomingLua.name == "magiclevel" then
-					spell:setConditionType(incomingLua.type)
-					spell:setMagicLevelChange(math.random(20, 30))
 				else
 					Spdlog.warn(
 						"[readSpell] - Monster " ..
 							mtype:name() ..
-								": Loading spell " .. incomingLua.name .. ". Parameter type applies only for condition and combat."
+								": Loading spell " .. incomingLua.name .. ". Parameter type applies only for reduceSkill, condition and combat."
 					)
 				end
 			end
+
+			if incomingLua.skillLevelChange then
+				spell:setReduceSkillDebuffValue(incomingLua.skillLevelChange)
+			end
+
+			if incomingLua.skillType then
+				spell:setReduceSkillSkillType(incomingLua.skillType)
+			end
+
 			if incomingLua.interval then
 				spell:setInterval(incomingLua.interval)
 			end
@@ -602,7 +608,11 @@ function readSpell(incomingLua)
 				spell:setConditionTickInterval(incomingLua.condition.interval)
 			end
 
-			spell:setConditionDamage(incomingLua.condition.totalDamage, incomingLua.condition.totalDamage, 0)
+			if incomingLua.condition.condition then
+				spell:setCondition(incomingLua.condition.condition)
+			else
+				spell:setConditionDamage(incomingLua.condition.totalDamage, incomingLua.condition.totalDamage, 0)
+			end
 		end
 	elseif incomingLua.script then
 		spell:setScriptName("monster/" .. incomingLua.script .. ".lua")
@@ -622,3 +632,25 @@ function readSpell(incomingLua)
 
 	return spell
 end
+
+-- else if (tmpName == "reduceSkill") {
+-- 	int32_t duration = 10000;
+-- 	int32_t skillLevelChange = 20;
+-- 	ConditionParam_t skillType;
+
+-- 	if (spell->duration != 0) {
+-- 		duration = spell->duration;
+-- 	}
+-- 	if (spell->skillLevelChange != 0) {
+-- 		skillLevelChange = spell->skillLevelChange;
+-- 	}
+
+-- 	if (spell->skillType != 0) {
+-- 		skillType = spell->skillType;
+-- 	}
+
+-- 	Condition* condition = Condition::createCondition(CONDITIONID_COMBAT, CONDITION_ATTRIBUTES, duration, 0);
+
+-- 	condition->setParam(skillType, skillLevelChange);
+-- 	combat->addCondition(condition);
+-- }

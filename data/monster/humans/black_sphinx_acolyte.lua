@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Black Sphinx Acolyte")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "15/04/2022"
+}
+
 monster.description = "a black sphinx acolyte"
 monster.experience = 7200
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Issavi Sewers, Kilmaresh Catacombs and Kilmaresh Mountains (above and under ground)."
-	}
+}
 
 monster.health = 8100
 monster.maxHealth = 8100
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -83,21 +88,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 5},
-	{name = "Blue Crystal Shard", chance = 5000},
-	{name = "Snakebite Rod", chance = 4700},
-	{name = "Underworld Rod", chance = 3400},
-	{name = "Violet Gem", chance = 2600},
-	{name = "Opal", chance = 2200, maxCount = 2},
-	{name = "Wand of Voodoo", chance = 2200},
-	{id = 31331, chance = 3400},
-	{name = "Small Enchanted Emerald", chance = 1500, maxCount = 3}
+	MonsterLoot:withPlatinumCoins(100, 7),
+	MonsterLoot:withUnderworldRod(7.71),
+	MonsterLoot:withSnakebiteRod(7.07),
+	MonsterLoot:withBlueCrystalShard(6.96),
+	MonsterLoot:new():setLoot("empty honey glass", 3.64),
+	MonsterLoot:withSmallEnchantedEmerald(2.68, 3),
+	MonsterLoot:withVioletGem(2.57),
+	MonsterLoot:withOpal(2.46, 2),
+	MonsterLoot:withWandOfVoodoo(1.93)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -300, maxDamage = -400, radius = 3, effect = CONST_ME_SMALLPLANTS, target = false},
-	{name ="combat", interval = 2000, chance = 13, type = COMBAT_DEATHDAMAGE, minDamage = -400, maxDamage = -450, range = 4, radius = 3, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true}
+	-- 	Basic attack (0-400 physical)
+	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 400),
+	-- Terra Box (400-600 earth, on self)
+	CustomMonsterSpell:withTerraBox(400, 600):withEarthDamage():setChance(10),
+	-- Death Box (400-450 death, on target)(Sudden Death Rune)
+	CustomMonsterSpell:withDeathBox(400, 450):withDeathDamage():setChance(13):withSuddenDeathRune():withTarget()
 }
 
 monster.defenses = {
@@ -114,8 +122,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -30},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -30},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

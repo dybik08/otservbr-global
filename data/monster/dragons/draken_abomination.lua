@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Draken Abomination")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "13/04/2022"
+}
+
 monster.description = "a draken abomination"
 monster.experience = 3800
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Razachai including the Inner Sanctum."
-	}
+}
 
 monster.health = 6250
 monster.maxHealth = 6250
@@ -39,7 +44,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -84,41 +89,55 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "gold coin", chance = 50000, maxCount = 100},
-	{name = "gold coin", chance = 47000, maxCount = 98},
-	{id = 3035, name = "platinum coin", chance = 50590, maxCount = 8},
-	{name = "meat", chance = 50450, maxCount = 4},
-	{name = "great mana potion", chance = 9950, maxCount = 3},
-	{name = "terra hood", chance = 8730},
-	{name = "great spirit potion", chance = 4905, maxCount = 3},
-	{name = "ultimate health potion", chance = 9400, maxCount = 3},
-	{name = "wand of voodoo", chance = 1020},
-	{name = "small topaz", chance = 2900, maxCount = 4},
-	{name = "Zaoan armor", chance = 470},
-	{name = "Zaoan helmet", chance = 560},
-	{name = "Zaoan legs", chance = 780},
-	{name = "eye of corruption", chance = 12110},
-	{name = "tail of corruption", chance = 6240},
-	{name = "scale of corruption", chance = 10940},
-	{name = "shield of corruption", chance = 10},
-	{name = "draken boots", chance = 540},
-	{name = "snake god's wristguard", chance = 10},
-	{name = "bamboo leaves", chance = 360}
+	MonsterLoot:withGoldCoins(97.08, 200),
+	MonsterLoot:withMeat(50.07),
+	MonsterLoot:withPlatinumCoins(49.85, 8),
+	MonsterLoot:new():setLoot("eye of corruption", 12.01),
+	MonsterLoot:withScaleOfCorruption(11.03),
+	MonsterLoot:withUltimateHealthPotion(9.09, 3),
+	MonsterLoot:withGreatManaPotion(9.04, 3),
+	MonsterLoot:withTerraHood(8.23),
+	MonsterLoot:new():setLoot("tail of corruption", 5.97),
+	MonsterLoot:withGreatSpiritPotion(5.25, 3),
+	MonsterLoot:withSmallTopaz(2.89),
+	MonsterLoot:withWandOfVoodoo(1),
+	MonsterLoot:withZaoanLegs(0.9),
+	MonsterLoot:withZaoanArmor(0.84),
+	MonsterLoot:withZaoanHelmet(0.68),
+	MonsterLoot:withDrakenBoots(0.58),
+	MonsterLoot:new():setLoot("bamboo leaves", 0.32),
+	MonsterLoot:new():setLoot("snake god's wristguard", 0.01),
+	MonsterLoot:new():setLoot("shield of corruption", 0.01)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -420},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -310, maxDamage = -630, length = 4, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="draken abomination curse", interval = 2000, chance = 10, range = 5, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -170, maxDamage = -370, length = 4, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="drunk", interval = 2000, chance = 15, range = 7, radius = 4, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false, duration = 9000},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, range = 7, radius = 3, effect = CONST_ME_HITBYPOISON, target = false}
+	-- 	Basic attack (0-300 physical)
+	CustomMonsterSpell:withBasicAttack():setDamageRange(0, 300),
+	-- Death Beam (170-370 death)
+	CustomMonsterSpell:withDeathBeam(170, 370):withDeathDamage(),
+	-- Envenom Box (100-200 physical, self)
+	CustomMonsterSpell:withEnvenomBox(100, 200):withPhysicalDamage(),
+	-- Eruption Wave (310-480 fire)
+	CustomMonsterSpell:withEruptionWave(310, 480):withFireDamage(),
+	{name = "draken abomination curse", interval = 2000, chance = 10, range = 5, target = false},
+	{
+		name = "drunk",
+		interval = 2000,
+		chance = 15,
+		range = 7,
+		radius = 4,
+		shootEffect = CONST_ANI_POISON,
+		effect = CONST_ME_POISONAREA,
+		target = false,
+		duration = 9000
+	}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 650, maxDamage = 700, effect = CONST_ME_MAGIC_BLUE, target = false}
+	-- Healing (200-400 heal)
+	CustomMonsterSpell:new():withHealing(200, 400)
 }
 
 monster.elements = {
@@ -130,8 +149,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 5},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = -5},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

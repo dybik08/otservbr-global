@@ -79,7 +79,7 @@ monster.voices = {
 
 monster.loot = {
 	MonsterLoot:withPlatinumCoins(91.88, 5),
-	MonsterLoot:withBookPage(62.92),
+	MonsterLoot:withBookPage(62.92, 8),
 	MonsterLoot:withSmallDiamond(45.94),
 	MonsterLoot:withSmallSapphire(26.77, 9),
 	MonsterLoot:withUltimateManaPotion(20.8),

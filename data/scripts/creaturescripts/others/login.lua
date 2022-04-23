@@ -229,10 +229,8 @@ function playerLogin.onLogin(player)
 
 	if (playerLvL < 101) then
 		local multiplier = (100 - playerLvL) / 100
-
 		baseExp = baseExp + 100 * multiplier
 	end
-
 
 	player:setStaminaXpBoost(staminaBonus)
 	player:setBaseXpGain(baseExp)

@@ -52,7 +52,7 @@ end
 npcHandler:addModule(FocusModule:new())
 
 npcConfig.shop = {
-	{ itemName = "black pearl", clientId = 3027, sell = 280 },
+	{ itemName = "black pearl", clientname="black pearl", sell = 280 },
 	{ itemName = "cookie", clientId = 3598, buy = 7 },
 	{ itemName = "flour", clientId = 3603, buy = 30 },
 	{ itemName = "hoe", clientId = 3455, buy = 15 },
@@ -62,11 +62,11 @@ npcConfig.shop = {
 	{ itemName = "opal", clientId = 22194, sell = 500 },
 	{ itemName = "rope", clientId = 3003, buy = 50 },
 	{ itemName = "shovel", clientId = 3457, buy = 50 },
-	{ itemName = "small ruby", clientId = 3030, sell = 250 },
-	{ itemName = "small topaz", clientId = 9057, sell = 200 },
+	{ itemName = "small ruby", clientname="small ruby", sell = 250 },
+	{ itemName = "small topaz", clientname="small topaz", sell = 200 },
 	{ itemName = "vial", clientId = 2874, buy = 20 },
 	{ itemName = "vial of milk", clientId = 2874, buy = 50, count = 6 },
-	{ itemName = "white pearl", clientId = 3026, sell = 160 }
+	{ itemName = "white pearl", clientname="white pearl", sell = 160 }
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)

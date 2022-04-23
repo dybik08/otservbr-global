@@ -20,7 +20,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 100,
+	nearest = 100
 }
 
 monster.flags = {
@@ -50,14 +50,18 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
-monster.loot = {
-}
+monster.loot = {}
 
 monster.attacks = {
-	{name ="dark torturer skill reducer", interval = 2000, chance = 15, range = 6, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_POFF, target = false}
+	CustomMonsterSpell:new():setDamageRange(0, 0):withUltimateWave():withVioletNotes():withSkillLevelDebuff(
+		45,
+		55,
+		CONDITION_PARAM_SKILL_SHIELDPERCENT,
+		2000
+	)
 }
 
 monster.defenses = {
@@ -74,8 +78,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
-	{type = COMBAT_HOLYDAMAGE , percent = 100},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE, percent = 100},
+	{type = COMBAT_DEATHDAMAGE, percent = 100}
 }
 
 monster.immunities = {

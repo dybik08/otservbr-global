@@ -112,7 +112,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 45,
 	armor = 85,
-	CustomMonsterSpell:withInvisible()
+	CustomMonsterSpell:new():withInvisible()
 }
 
 monster.elements = {

@@ -4,7 +4,7 @@ local config = {
 			{from = 1, to = 1442, itemId = 3123},
 			{from = 1443, to = 2856, itemId = 19148},
 			{from = 2857, to = 4262, itemId = 2996},
-			{from = 4263, to = 4819, name = "gold coin", count = 6},
+			{from = 4263, to = 4819, itemname = "gold coin", count = 6},
 			{from = 4820, to = 5325, itemId = 3723},
 			{from = 5326, to = 5813, itemId = 5890},
 			{from = 5814, to = 6283, itemId = 3492, count = 4},

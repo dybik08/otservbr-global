@@ -80,7 +80,7 @@ monster.voices = {
 monster.loot = {
 	MonsterLoot:withPlatinumCoins(100, 3),
 	MonsterLoot:withGreatManaPotion(19.75),
-	MonsterLoot:new():setLoot("werehyena nose", 15.34),
+	MonsterLoot:new():setLoot("werehyaena nose", 15.34),
 	MonsterLoot:withGreenCrystalSplinter(9.93),
 	MonsterLoot:withSmallAmethyst(9.37, 2),
 	MonsterLoot:withHailstormRod(7.95),
@@ -93,8 +93,8 @@ monster.loot = {
 	MonsterLoot:withProtectionAmulet(2.92),
 	MonsterLoot:withBlackShield(2.7),
 	MonsterLoot:withMoonlightCrystal(1.45),
-	MonsterLoot:new():setLoot("werehyena talisman", 0.59),
-	MonsterLoot:new():setLoot("werehyena trophy", 0.24)
+	MonsterLoot:new():setLoot("werehyaena talisman", 0.59),
+	MonsterLoot:new():setLoot("werehyaena trophy", 0.24)
 }
 
 monster.attacks = {

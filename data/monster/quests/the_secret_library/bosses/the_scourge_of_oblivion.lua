@@ -193,7 +193,9 @@ monster.attacks = {
 		target = false
 	},
 	{name = "renegade knight", interval = 2000, chance = 30, target = false},
-	{name = "choking fear drown", interval = 2000, chance = 20, target = false},
+	CustomMonsterSpell:new():withTheGreatestBall():withTarget():setCondition(
+		{type = CONDITION_DROWN, totalDamage = 400, interval = 4000}
+	):withBubbles():setChance(20):setDamageRange(0, 0),
 	{
 		name = "combat",
 		interval = 2000,

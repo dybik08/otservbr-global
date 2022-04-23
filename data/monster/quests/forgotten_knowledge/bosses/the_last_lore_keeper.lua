@@ -29,7 +29,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -66,7 +66,7 @@ monster.summon = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
@@ -77,8 +77,8 @@ monster.loot = {
 	{id = 5909, chance = 3000, maxCount = 4},
 	{id = 16120, chance = 3000, maxCount = 3},
 	{id = 25090, chance = 500},
-	{name="yellow gem", chance = 1000},
-	{name="small emerald", chance = 3000, maxCount = 20},
+	{name = "yellow gem", chance = 1000},
+	{name = "small emerald", chance = 3000, maxCount = 20},
 	{id = 7450, chance = 150, unique = true},
 	{id = 5880, chance = 3000, maxCount = 2},
 	{id = 9632, chance = 1000},
@@ -88,25 +88,94 @@ monster.loot = {
 	{id = 22193, chance = 3000},
 	{id = 9660, chance = 1000},
 	{id = 5887, chance = 1000},
-	{id = 23533, name="ring of red plasma", chance = 3000},
+	{id = 23533, name = "ring of red plasma", chance = 3000},
 	{id = 7643, chance = 3000, maxCount = 5},
 	{id = 23375, chance = 3000, maxCount = 5}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 140, attack = 80},
-	{name ="combat", interval = 2000, chance = 7, type = COMBAT_PHYSICALDAMAGE, minDamage = -650, maxDamage = -900, length = 8, spread = 3, effect = CONST_ME_EXPLOSIONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -850, maxDamage = -2260, length = 10, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -640, maxDamage = -800, radius = 5, effect = CONST_ME_SMALLCLOUDS, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -420, maxDamage = -954, length = 8, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -640, maxDamage = -800, radius = 5, effect = CONST_ME_STONES, target = true},
-	{name ="medusa paralyze", interval = 2000, chance = 20, target = false}
+	{name = "melee", interval = 2000, chance = 100, skill = 140, attack = 80},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 7,
+		type = COMBAT_PHYSICALDAMAGE,
+		minDamage = -650,
+		maxDamage = -900,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_EXPLOSIONAREA,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -850,
+		maxDamage = -2260,
+		length = 10,
+		spread = 3,
+		effect = CONST_ME_MAGIC_RED,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_LIFEDRAIN,
+		minDamage = -640,
+		maxDamage = -800,
+		radius = 5,
+		effect = CONST_ME_SMALLCLOUDS,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_ENERGYDAMAGE,
+		minDamage = -420,
+		maxDamage = -954,
+		length = 8,
+		spread = 3,
+		effect = CONST_ME_PURPLEENERGY,
+		target = false
+	},
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 20,
+		type = COMBAT_EARTHDAMAGE,
+		minDamage = -640,
+		maxDamage = -800,
+		radius = 5,
+		effect = CONST_ME_STONES,
+		target = true
+	},
+	{
+		name = "speed",
+		interval = 2000,
+		chance = 25,
+		radius = 7,
+		effect = CONST_ME_POFF,
+		target = true
+	}
 }
 
 monster.defenses = {
 	defense = 50,
 	armor = 50,
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HEALING, minDamage = 1500, maxDamage = 3000, effect = CONST_ME_MAGIC_GREEN, target = false}
+	{
+		name = "combat",
+		interval = 2000,
+		chance = 25,
+		type = COMBAT_HEALING,
+		minDamage = 1500,
+		maxDamage = 3000,
+		effect = CONST_ME_MAGIC_GREEN,
+		target = false
+	}
 }
 
 monster.elements = {
@@ -118,8 +187,8 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = 20}
+	{type = COMBAT_HOLYDAMAGE, percent = 20},
+	{type = COMBAT_DEATHDAMAGE, percent = 20}
 }
 
 monster.immunities = {

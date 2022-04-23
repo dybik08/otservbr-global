@@ -6348,18 +6348,6 @@ local items = {
 		level = 100
 	},
 	{
-		-- enchanted werewolf amulet
-		itemid = 22061,
-		type = "equip",
-		slot = "necklace"
-	},
-	{
-		-- enchanted werewolf amulet
-		itemid = 22061,
-		type = "deequip",
-		slot = "necklace"
-	},
-	{
 		-- werewolf amulet
 		itemid = 22060,
 		type = "equip",

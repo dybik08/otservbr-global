@@ -98,8 +98,20 @@ function MonsterLoot:withGreenCrystalFragment(chance, maxCount)
     return MonsterLoot:new():setLoot("green crystal fragment", chance, maxCount)
 end
 
+function MonsterLoot:withCyanCrystalFragment(chance, maxCount)
+    return MonsterLoot:new():setLoot("Cyan crystal fragment", chance, maxCount)
+end
+
+function MonsterLoot:withRedCrystalFragment(chance, maxCount)
+    return MonsterLoot:new():setLoot("Red crystal fragment", chance, maxCount)
+end
+
 function MonsterLoot:withPrismaticQuartz(chance, maxCount)
     return MonsterLoot:new():setLoot("prismatic quartz", chance, maxCount)
+end
+
+function MonsterLoot:withTigerEye(chance, maxCount)
+    return MonsterLoot:new():setLoot("Tiger Eye", chance, maxCount)
 end
 
 function MonsterLoot:withBlueCrystalSplinter(chance, maxCount)
@@ -110,6 +122,10 @@ function MonsterLoot:withGreenCrystalSplinter(chance, maxCount)
     return MonsterLoot:new():setLoot("green Crystal Splinter", chance, maxCount)
 end
 
+function MonsterLoot:withBrownCrystalSplinter(chance, maxCount)
+    return MonsterLoot:new():setLoot("Brown Crystal Splinter", chance, maxCount)
+end
+
 function MonsterLoot:withEmeraldBangle(chance, maxCount)
     return MonsterLoot:new():setLoot("Emerald Bangle", chance, maxCount)
 end
@@ -118,8 +134,20 @@ function MonsterLoot:withOpal(chance, maxCount)
     return MonsterLoot:new():setLoot("opal", chance, maxCount)
 end
 
+function MonsterLoot:withOrb(chance, maxCount)
+    return MonsterLoot:new():setLoot("Orb", chance, maxCount):setItemId(3060)
+end
+
+function MonsterLoot:withTalon(chance, maxCount)
+    return MonsterLoot:new():setLoot("Talon", chance, maxCount)
+end
+
 function MonsterLoot:withWhitePearl(chance, maxCount)
     return MonsterLoot:new():setLoot("white pearl", chance, maxCount)
+end
+
+function MonsterLoot:withOrichalcumPearl(chance, maxCount)
+    return MonsterLoot:new():setLoot("orichalcum pearl", chance, maxCount)
 end
 
 function MonsterLoot:withBlackPearl(chance, maxCount)
@@ -128,6 +156,10 @@ end
 
 function MonsterLoot:withGemmedFigurine(chance, maxCount)
     return MonsterLoot:new():setLoot("gemmed figurine", chance, maxCount)
+end
+
+function MonsterLoot:withGoldenMug(chance, maxCount)
+    return MonsterLoot:new():setLoot("Golden Mug", chance, maxCount)
 end
 
 function MonsterLoot:withSilverBrooch(chance, maxCount)

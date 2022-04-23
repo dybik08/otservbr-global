@@ -93,7 +93,7 @@ monster.loot = {
 	MonsterLoot:withTitanAxe(3, 97),
 	MonsterLoot:withGiantShimmeringPearl(3.73),
 	MonsterLoot:withKnightArmor(2.15),
-	MonsterLoot:withSpikedSquelche(1.99),
+	MonsterLoot:withSpikedSquelcher(1.99),
 	MonsterLoot:new():setLoot("falcon crest", 1.5),
 	MonsterLoot:withGreenGem(1.46),
 	MonsterLoot:withGoldenArmor(1.26),

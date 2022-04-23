@@ -98,11 +98,11 @@ monster.attacks = {
 	-- 	Basic attack (0-550 physical)
 	CustomMonsterSpell:new():withBasicAttack():setDamageRange(0, 550),
 	-- Death Box(400-500 death, target)
-	CustomMonsterSpell:new():withDeath(400, 500):setDamageRange(400, 500):withEnergyStrike():withBox():withDeathDamage():withTarget(
+	CustomMonsterSpell:new():withDeath(400, 500):setDamageRange(400, 500):withHeavyMagicMissileRune():withBox():withDeathDamage(
 
-	),
+	):withTarget(),
 	-- Groundshaker Ball(400-500 physical, self)
-	CustomMonsterSpell:new():withGroundshaker():setDamageRange(400, 500):withPhysicalDamage():withBall(),
+	CustomMonsterSpell:new():withGroundShaker():setDamageRange(400, 500):withPhysicalDamage():withBall(),
 	-- Death Strike(400-600 death, target)
 	CustomMonsterSpell:new():setDamageRange(400, 600):setChance(20):withDeath():withLifeDrainDamage():withSuddenDeathRune()
 }

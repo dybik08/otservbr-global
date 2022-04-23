@@ -33,3 +33,15 @@ end
 function MonsterLoot:withUltimateSpiritPotion(chance, maxCount)
     return MonsterLoot:new():setLootItem("Ultimate Spirit potion"):setChance(chance):setMaxCount(maxCount or 1)
 end
+
+function MonsterLoot:withBerserkPotion(chance, maxCount)
+    return MonsterLoot:new():setLootItem("Berserk potion"):setChance(chance):setMaxCount(maxCount or 1)
+end
+
+function MonsterLoot:withBullseyePotion(chance, maxCount)
+    return MonsterLoot:new():setLootItem("Bullseye potion"):setChance(chance):setMaxCount(maxCount or 1)
+end
+
+function MonsterLoot:withMastermindPotion(chance, maxCount)
+    return MonsterLoot:new():setLootItem("Mastermind potion"):setChance(chance):setMaxCount(maxCount or 1)
+end

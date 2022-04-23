@@ -6,6 +6,22 @@ function MonsterLoot:withOnyxArrow(chance, maxCount)
     return MonsterLoot:new():setLoot("Onyx Arrow", chance, maxCount)
 end
 
+function MonsterLoot:withPoisonArrow(chance, maxCount)
+    return MonsterLoot:new():setLoot("Poison Arrow", chance, maxCount)
+end
+
+function MonsterLoot:withFlashArrow(chance, maxCount)
+    return MonsterLoot:new():setLoot("Flash Arrow", chance, maxCount)
+end
+
+function MonsterLoot:withBurstArrow(chance, maxCount)
+    return MonsterLoot:new():setLoot("Burst Arrow", chance, maxCount)
+end
+
+function MonsterLoot:withCrystallineArrow(chance, maxCount)
+    return MonsterLoot:new():setLoot("Crystalline Arrow", chance, maxCount)
+end
+
 function MonsterLoot:withArrow(chance, maxCount)
     return MonsterLoot:new():setLoot("Arrow", chance, maxCount)
 end

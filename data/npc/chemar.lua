@@ -26,8 +26,8 @@ npcConfig.flags = {
 npcConfig.voices = {
 	interval = 15000,
 	chance = 50,
-	{ text = 'Ask me if you need letters or parcels. I\'ll deliver them via airmail, of course!' },
-	{ text = 'Feel the wind in your hair during one of my carpet rides!' }
+	{text = "Ask me if you need letters or parcels. I'll deliver them via airmail, of course!"},
+	{text = "Feel the wind in your hair during one of my carpet rides!"}
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -59,38 +59,72 @@ end
 
 -- Travel
 local function addTravelKeyword(keyword, cost, destination)
-	if keyword == 'farmine' then
-		keywordHandler:addKeyword({keyword}, StdModule.say, {npcHandler = npcHandler, text = 'Never heard about a place like this.'}, function(player) return player:getStorageValue(Storage.TheNewFrontier.Mission10) ~= 1 end)
-	end
+	-- if keyword == 'farmine' then
+	-- 	keywordHandler:addKeyword({keyword}, StdModule.say, {npcHandler = npcHandler, text = 'Never heard about a place like this.'}, function(player) return player:getStorageValue(Storage.TheNewFrontier.Mission10) ~= 1 end)
+	-- end
 
-	local travelKeyword = keywordHandler:addKeyword({keyword}, StdModule.say, {npcHandler = npcHandler, text = 'Do you seek a ride to ' .. keyword:titleCase() .. ' for |TRAVELCOST|?', cost = cost, discount = 'postman'})
-		travelKeyword:addChildKeyword({'yes'}, StdModule.travel, {npcHandler = npcHandler, premium = false, text = 'Hold on!', cost = cost, discount = 'postman', destination = destination})
-		travelKeyword:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, text = 'You shouldn\'t miss the experience.', reset = true})
+	local travelKeyword =
+		keywordHandler:addKeyword(
+		{keyword},
+		StdModule.say,
+		{
+			npcHandler = npcHandler,
+			text = "Do you seek a ride to " .. keyword:titleCase() .. " for |TRAVELCOST|?",
+			cost = cost,
+			discount = "postman"
+		}
+	)
+	travelKeyword:addChildKeyword(
+		{"yes"},
+		StdModule.travel,
+		{
+			npcHandler = npcHandler,
+			premium = false,
+			text = "Hold on!",
+			cost = cost,
+			discount = "postman",
+			destination = destination
+		}
+	)
+	travelKeyword:addChildKeyword(
+		{"no"},
+		StdModule.say,
+		{npcHandler = npcHandler, text = "You shouldn't miss the experience.", reset = true}
+	)
 end
 
-addTravelKeyword('farmine', 60, Position(32983, 31539, 1))
-addTravelKeyword('edron', 40, Position(33193, 31784, 3))
-addTravelKeyword('svargrond', 60, Position(32253, 31097, 4))
-addTravelKeyword('femor hills', 60, Position(32536, 31837, 4))
-addTravelKeyword('kazordoon', 80, Position(32588, 31941, 0))
-addTravelKeyword('hills', 60, Position(32536, 31837, 4))
-addTravelKeyword('issavi', 100, Position(33957, 31515, 0))
+addTravelKeyword("farmine", 60, Position(32983, 31539, 1))
+addTravelKeyword("edron", 40, Position(33193, 31784, 3))
+addTravelKeyword("svargrond", 60, Position(32253, 31097, 4))
+addTravelKeyword("femor hills", 60, Position(32536, 31837, 4))
+addTravelKeyword("kazordoon", 80, Position(32588, 31941, 0))
+addTravelKeyword("hills", 60, Position(32536, 31837, 4))
+addTravelKeyword("issavi", 100, Position(33957, 31515, 0))
 
-npcHandler:setMessage(MESSAGE_GREET, 'Daraman\'s blessings, traveller |PLAYERNAME|.')
-npcHandler:setMessage(MESSAGE_FAREWELL, 'It was a pleasure to help you, |PLAYERNAME|.')
-npcHandler:setMessage(MESSAGE_WALKAWAY, 'It was a pleasure to help you, |PLAYERNAME|.')
+npcHandler:setMessage(MESSAGE_GREET, "Daraman's blessings, traveller |PLAYERNAME|.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "It was a pleasure to help you, |PLAYERNAME|.")
+npcHandler:setMessage(MESSAGE_WALKAWAY, "It was a pleasure to help you, |PLAYERNAME|.")
 
 npcHandler:addModule(FocusModule:new())
 
 npcConfig.shop = {
-	{ itemName = "label", clientId = 3507, buy = 1 },
-	{ itemName = "letter", clientId = 3505, buy = 8 },
-	{ itemName = "parcel", clientId = 3503, buy = 15 }
+	{itemName = "label", clientId = 3507, buy = 1},
+	{itemName = "letter", clientId = 3505, buy = 8},
+	{itemName = "parcel", clientId = 3503, buy = 15}
 }
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
 	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
-	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Bought %ix %s for %i %s.", amount, name, totalCost, ItemType(npc:getCurrency()):getPluralName():lower()))
+	player:sendTextMessage(
+		MESSAGE_INFO_DESCR,
+		string.format(
+			"Bought %ix %s for %i %s.",
+			amount,
+			name,
+			totalCost,
+			ItemType(npc:getCurrency()):getPluralName():lower()
+		)
+	)
 end
 -- On sell npc shop message
 npcType.onSellItem = function(npc, player, clientId, subtype, amount, name, totalCost)

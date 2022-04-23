@@ -11,7 +11,7 @@ local function clearTenebris()
 		if spectator:isPlayer() then
 			spectator:teleportTo(Position(32902, 31629, 14))
 			spectator:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-			spectator:say('Time out! You were teleported out by strange forces.', TALKTYPE_MONSTER_SAY)
+			spectator:say("Time out! You were teleported out by strange forces.", TALKTYPE_MONSTER_SAY)
 		elseif spectator:isMonster() then
 			spectator:remove()
 		end
@@ -30,12 +30,12 @@ function forgottenKnowledgeTenebris.onUse(player, item, fromPosition, target, to
 		for i = 1, #specs do
 			spec = specs[i]
 			if spec:isPlayer() then
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Someone is fighting with Lloyd.")
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Someone is fighting with Lady Tenebris.")
 				return true
 			end
 		end
 		for d = 1, 6 do
-			Game.createMonster('shadow tentacle', Position(math.random(32909, 32914), math.random(31596, 31601), 14), true, true)
+			Game.createMonster("shadow tentacle", Position(math.random(32909, 32914), math.random(31596, 31601), 14), true, true)
 		end
 		Game.createMonster("lady tenebris", config.bossPosition, true, true)
 		for y = 31623, 31627 do
@@ -45,15 +45,27 @@ function forgottenKnowledgeTenebris.onUse(player, item, fromPosition, target, to
 					playerTile:getPosition():sendMagicEffect(CONST_ME_POFF)
 					playerTile:teleportTo(config.newPosition)
 					playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-					playerTile:setStorageValue(Storage.ForgottenKnowledge.LadyTenebrisTimer, os.time() + 20 * 3600)
-					playerTile:say('You have 20 minutes to kill and loot this boss. Otherwise you will lose that chance and will be kicked out.', TALKTYPE_MONSTER_SAY)
+					playerTile:setStorageValue(Storage.ForgottenKnowledge.LadyTenebrisTimer, os.time() + 1 * 60) -- bring back 20hrs later 3600)
+					playerTile:say(
+						"You have 20 minutes to kill and loot this boss. Otherwise you will lose that chance and will be kicked out.",
+						TALKTYPE_MONSTER_SAY
+					)
 				else
-					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge Lady Tenebris.")
+					player:sendTextMessage(
+						MESSAGE_EVENT_ADVANCE,
+						"You need to wait a while, recently someone challenge Lady Tenebris."
+					)
 					return true
 				end
 			end
 		end
-		addEvent(clearTenebris, 20 * 60 * 1000, Position(32902, 31589, 14), Position(32922, 31589, 14), Position(32924, 31610, 14))
+		addEvent(
+			clearTenebris,
+			20 * 60 * 1000,
+			Position(32902, 31589, 14),
+			Position(32922, 31589, 14),
+			Position(32924, 31610, 14)
+		)
 		item:transform(8912)
 	elseif item.itemid == 8912 then
 		item:transform(8911)

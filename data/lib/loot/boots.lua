@@ -13,3 +13,23 @@ end
 function MonsterLoot:withTerraBoots(chance, maxCount)
     return MonsterLoot:new():setLoot("Terra Boots", chance, maxCount)
 end
+
+function MonsterLoot:withSteelBoots(chance, maxCount)
+    return MonsterLoot:new():setLoot("Steel Boots", chance, maxCount)
+end
+
+function MonsterLoot:withGuardianBoots(chance, maxCount)
+    return MonsterLoot:new():setLoot("Guardian Boots", chance, maxCount)
+end
+
+function MonsterLoot:withDrakenBoots(chance, maxCount)
+    return MonsterLoot:new():setLoot("Draken Boots", chance, maxCount)
+end
+
+function MonsterLoot:withGlacierShoes(chance, maxCount)
+    return MonsterLoot:new():setLoot("Glacier Shoes", chance, maxCount)
+end
+
+function MonsterLoot:withZaoanShoes(chance, maxCount)
+    return MonsterLoot:new():setLoot("Zaoan Shoes", chance, maxCount)
+end

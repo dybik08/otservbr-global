@@ -14,7 +14,7 @@ local baseMana = 120
 
 local spell = Spell("instant")
 
-function spell.onCastSpell(creature, var)
+function spell.onCastSpell(creature, variant)
 	local position = creature:getPosition()
 
 	local party = creature:getParty()

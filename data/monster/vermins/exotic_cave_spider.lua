@@ -80,13 +80,13 @@ monster.voices = {
 }
 
 monster.loot = {
-	MonsterLoot():withPlatinumCoins(100, 4),
-	MonsterLoot():withPoisonArrow(15.75, 15),
-	MonsterLoot():withGreatHealthPotion(10.17),
-	MonsterLoot():withTerraBoots(4.76),
-	MonsterLoot():withSilverAmulet(4.59),
-	MonsterLoot():withSpiderSilk(2.79),
-	MonsterLoot():withTerraMantle(1.48)
+	MonsterLoot:new():withPlatinumCoins(100, 4),
+	MonsterLoot:new():withPoisonArrow(15.75, 15),
+	MonsterLoot:new():withGreatHealthPotion(10.17),
+	MonsterLoot:new():withTerraBoots(4.76),
+	MonsterLoot:new():withSilverAmulet(4.59),
+	MonsterLoot:new():withSpiderSilk(2.79),
+	MonsterLoot:new():withTerraMantle(1.48)
 }
 
 monster.attacks = {

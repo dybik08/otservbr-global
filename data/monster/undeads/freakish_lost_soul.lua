@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Freakish Lost Soul")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "22/04/2022"
+}
+
 monster.description = "Freakish Lost Soul"
 monster.experience = 7020
 monster.outfit = {
@@ -73,65 +78,37 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 10000, maxCount = 3},
-	{name = "lost soul", chance = 45240},
-	{name = "death toll", chance = 6250},
-	{name = "emerald bangle", chance = 5980},
-	{name = "gemmed figurine", chance = 3800},
-	{name = "ensouled essence", chance = 2720},
-	{id = 23529, name = "ring of blue plasma", chance = 1220},
-	{name = "silver hand mirror", chance = 1090},
-	{name = "ornate crossbow", chance = 1090},
-	{name = "crystal crossbow", chance = 270}
+	MonsterLoot:withPlatinumCoins(100, 5),
+	MonsterLoot:withLostSoul(40.98),
+	MonsterLoot:withDeathToll(8.93),
+	MonsterLoot:withEmeraldBangle(4.92),
+	MonsterLoot:withEnsouledEssence(3.1),
+	MonsterLoot:withRingofBluePlasma(1.64),
+	MonsterLoot:withSilverHandMirror(1.64),
+	MonsterLoot:withOrnateCrossbow(0.36),
+	MonsterLoot:withCrystalCrossbow(0.18)
 }
 
 monster.attacks = {
-	{name = "melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -500},
+	-- 	Basic attack (0-650 physical)
+	CustomMonsterSpell:withBasicAttack():setDamageRange(0, 650),
+	-- Ranged attack (240-300 mana drain) (Onyx Arrow, Druid)
 	{
-		name = "combat",
-		interval = 1700,
-		chance = 15,
-		type = COMBAT_EARTHDAMAGE,
-		minDamage = -300,
-		maxDamage = -550,
-		radius = 3,
-		shootEffect = CONST_ANI_ENVENOMEDARROW,
+		name = "lost soul mana leech",
+		interval = 2000,
+		chance = 100,
+		minDamage = -240,
+		maxDamage = -300,
 		target = true
 	},
-	{
-		name = "combat",
-		interval = 1700,
-		chance = 25,
-		type = COMBAT_ENERGYDAMAGE,
-		minDamage = -150,
-		maxDamage = -550,
-		length = 4,
-		spread = 3,
-		effect = CONST_ME_ENERGYHIT,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 1700,
-		chance = 35,
-		type = COMBAT_DEATHDAMAGE,
-		minDamage = -150,
-		maxDamage = -550,
-		radius = 4,
-		effect = CONST_ME_MORTAREA,
-		target = false
-	},
-	{
-		name = "combat",
-		interval = 1700,
-		chance = 20,
-		type = COMBAT_ENERGYDAMAGE,
-		minDamage = -150,
-		maxDamage = -550,
-		radius = 4,
-		effect = CONST_ME_ENERGYAREA,
-		target = false
-	}
+	-- Envenom Strike (450-800 life drain, on target)
+	CustomMonsterSpell:withEnvenomStrike(300, 420):withLifeDrainDamage(),
+	-- Shorter Blue Electric Beam (400-620 energy)
+	CustomMonsterSpell:withShorterBlueElectricBeam(400, 620):withEnergyDamage(),
+	-- Great Death Ball (500-600 death, on self)
+	CustomMonsterSpell:withGreatDeathBall(500, 600):withDeathDamage(),
+	-- Ranged attack (0-400 physical) (Drill Bolt)
+	CustomMonsterSpell:new():withDrillBolt():withPhysicalDamage():setDamageRange(0, 400)
 }
 
 monster.defenses = {

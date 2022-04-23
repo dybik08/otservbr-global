@@ -1,6 +1,11 @@
 local mType = Game.createMonsterType("Crazed Winter Vanguard")
 local monster = {}
 
+monster.Credits = {
+	Developer = "Wojciech Dybikowski",
+	lastUpdate = "14/04/2022"
+}
+
 monster.description = "a Crazed Winter Vanguard"
 monster.experience = 5400
 monster.outfit = {
@@ -24,7 +29,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Court of Winter, Dream Labyrinth."
-	}
+}
 
 monster.health = 5800
 monster.maxHealth = 5800
@@ -42,7 +47,7 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.flags = {
@@ -72,31 +77,47 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 10
 }
 
 monster.loot = {
-	{id = 3035, name = "platinum coin", chance = 100000, maxCount = 13},
-	{name = "red crystal fragment", chance = 1000000},
-	{id= 3039, chance = 1000000},
-	{id = 30058, chance = 15000, maxCount = 2},
-	{name = "small enchanted ruby", chance = 1155},
-	{name = "miraculum", chance = 13550},
-	{name = "ultimate health potion", chance = 14750, maxCount = 2},
-	{name = "dream essence egg", chance = 17550},
-	{name = "tiger eye", chance = 12350},
-	{name = "northwind rod", chance = 1460},
-	{name = "glacier amulet", chance = 1850},
-	{name = "ice rapier", chance = 11250},
-	{name = "glacier robe", chance = 800},
-	{name = "elven amulet", chance = 500}
+	MonsterLoot:withPlatinumCoins(85.56, 13),
+	MonsterLoot:withIceFlower(13.16),
+	MonsterLoot:withSmallEnchantedRuby(12.69),
+	MonsterLoot:withMiraculum(10.51),
+	MonsterLoot:withUltimateHealthPotion(8.87),
+	MonsterLoot:withDreamEssenceEgg(8.27),
+	MonsterLoot:withTigerEye(6.74),
+	MonsterLoot:withNorthwindRod(5.76),
+	MonsterLoot:withGlacierAmulet(5.59),
+	MonsterLoot:withIceRapier(5.54),
+	MonsterLoot:withGlacierRobe(2.02),
+	MonsterLoot:withElvenAmulet(0.71),
+	MonsterLoot:withBlueGem(0.16)
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -150, maxDamage = -400},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -200, maxDamage = -300, radius = 5, effect = CONST_ME_ICEAREA, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -240, maxDamage = -300, length = 4, spread = 3, effect = CONST_ME_GIANTICE, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -250, maxDamage = -300, range = 7, shootEffect = CONST_ANI_ICE, target = false}
+	-- 	Basic attack (0-450 physical)
+	CustomMonsterSpell:withBasicAttack():setDamageRange(0, 450),
+	-- 	Ice Ball (200-300 ice, on self)
+	CustomMonsterSpell:withIceBall(200, 300):withIceDamage(),
+	-- -- Ice Chain (240-300 ice)
+	{
+		name = "singleicechain",
+		interval = 2000,
+		chance = 10,
+		minDamage = -240,
+		maxDamage = -300,
+		range = 5,
+		effect = CONST_ME_ICEATTACK,
+		target = true
+	},
+	-- Icy Wind Box (200-300 ice, on self)
+	CustomMonsterSpell:withIcyWindBox(200, 300):withIceDamage(),
+	-- -- Shorter Icy Crystal Beam (150-250 ice)
+	CustomMonsterSpell:withShorterIcyCrystalBeam(200, 250):withIceDamage()
+	-- -- Short Icy Wall Beam (200-250 ice) - TODO CONFIRM
+	-- CustomMonsterSpell:new():withIcyCrystal():setDamageRange(150, 250):withLongBeam():withIceDamage():setChance(10),
 }
 
 monster.defenses = {
