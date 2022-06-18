@@ -34,6 +34,12 @@
   <img src="https://static.wikia.nocookie.net/tibia/images/2/27/Poison_Effect_3.gif/revision/latest/scale-to-width-down/32?cb=20150130201242&path-prefix=en&format=original">
   <img src="https://static.wikia.nocookie.net/tibia/images/2/27/Poison_Effect_3.gif/revision/latest/scale-to-width-down/32?cb=20150130201242&path-prefix=en&format=original">
 </p>
+<br/><p>
+  <b>PLANTS</b>
+  <img src="https://static.wikia.nocookie.net/tibia/images/a/a6/Slicing_Plant_Effect.gif/revision/latest?cb=20150131193619&path-prefix=en&format=original">
+  <img src="https://static.wikia.nocookie.net/tibia/images/a/a6/Slicing_Plant_Effect.gif/revision/latest?cb=20150131193619&path-prefix=en&format=original">
+  <img src="https://static.wikia.nocookie.net/tibia/images/a/a6/Slicing_Plant_Effect.gif/revision/latest?cb=20150131193619&path-prefix=en&format=original">
+</p>
 <br/>
 <p>
   <b>ENVENOM</b>
@@ -78,7 +84,7 @@
 </p>
 <br/>
 <p>
-  <b>YELLOW ELECTRIC</b>
+  <b>PURPLE ELECTRIC</b>
     <img src="https://tibia.fandom.com/wiki/Special:Redirect/file/purple_Electricity_Effect.gif">
     <img src="https://tibia.fandom.com/wiki/Special:Redirect/file/purple_Electricity_Effect.gif">
     <img src="https://tibia.fandom.com/wiki/Special:Redirect/file/purple_Electricity_Effect.gif">
